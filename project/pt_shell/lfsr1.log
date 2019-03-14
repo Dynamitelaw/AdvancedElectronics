@@ -1,0 +1,411 @@
+
+                            PrimeTime (R)
+             Version J-2014.12 for RHEL64 -- Nov 23, 2014
+                Copyright (c) 1988-2014 Synopsys, Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys, Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+# Written by mgseok, May 08
+#################################################
+# ST45nm Library information from .lib file     #
+#  time_unit : "1ns";                           #
+#  voltage_unit : "1V";                         #
+#  current_unit : "1mA";                        # 
+#  pulling_resistance_unit : "1kohm";           #
+#  capacitive_load_unit(1,pf);                  #
+#  default_cell_leakage_power : 4.89642e-08;    #
+#  default_fanout_load : 1;                     # 
+#  default_inout_pin_cap : 0.01;                #
+#  default_input_pin_cap : 0.01;                #
+#  default_leakage_power_density : 3.46968e-08; #
+#  default_max_fanout : 20;                     # 
+#  default_output_pin_cap : 0;                  #
+#  default_wire_load_mode : "enclosed";         #
+#  leakage_power_unit : "1mW";                  # 
+#################################################
+## Global lfsr1es
+set sh_enable_page_mode true
+false
+set power_enable_analysis true
+true
+set power_ui_backward_compatibility true
+Warning: Detected use of obsolete/unsupported feature. Variable
+         power_ui_backward_compatibility will not be available
+         in a future release of the application.
+         Please update your command usage accordingly.
+Information: Enabling 2008.06 PrimeTime PX UI environment.
+true
+## Setting files/paths
+set verilog_files {lfsr1.nl.v}
+lfsr1.nl.v
+set my_toplevel lfsr1
+lfsr1
+set search_path ". ../dc_shell_cmrf8sf/ /tools2/courses/ee6321/share/ibm13rflpvt/synopsys/"
+. ../dc_shell_cmrf8sf/ /tools2/courses/ee6321/share/ibm13rflpvt/synopsys/
+set link_path "* scx3_cmos8rf_lpvt_tt_1p2v_25c.db" 
+* scx3_cmos8rf_lpvt_tt_1p2v_25c.db
+## Read design
+read_db "scx3_cmos8rf_lpvt_tt_1p2v_25c.db"
+Loading db file '/tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db'
+1
+read_verilog $verilog_files
+1
+link_design -keep_sub_designs $my_toplevel
+Loading verilog file '/homes/user3/fall16/jer2201/ee6321/labs/lab2/dc_shell_cmrf8sf/lfsr1.nl.v'
+Linking design lfsr1...
+Information: 523 (99.24%) library cells are unused in library scx3_cmos8rf_lpvt_tt_1p2v_25c..... (LNK-045)
+Information: total 523 library cells are unused (LNK-046)
+Design 'lfsr1' was successfully linked.
+Information: There are 72 cells and 43 nets in the design
+ (LNK-047)
+1
+set_operating_conditions -analysis_type single
+1
+## Timing Constraint: Clock
+set clk_period 12
+12
+set clk_uncertainty 0
+0
+set clk_transition 0.5
+0.5
+if {[sizeof_collection [get_ports clk]] > 0} {
+  set clk_name "clk"
+  set clk_port "clk"
+  create_clock -name $clk_name -period $clk_period [get_ports $clk_port]
+}
+1
+set_clock_uncertainty $clk_uncertainty [get_clocks $clk_name]
+1
+set_clock_transition $clk_transition [get_clocks $clk_name]
+1
+## Timing Constraint: Input delay or output delay 
+set mydelay 1.5
+1.5
+set_input_delay $mydelay -clock $clk_name [all_inputs] -add_delay
+Warning: Setting input delay on clock port (clk) relative to a clock (clk) defined at the same port. Command is ignored. (UITE-489)
+1
+remove_input_delay -clock $clk_name [find port $clk_name]
+1
+set_output_delay $mydelay -clock $clk_name [all_outputs]
+1
+## Setting driving buffer and output cap
+set_load 0.01 [all_outputs]
+1
+#####################################################################
+#       read switching activity file
+#####################################################################
+read_vcd "../dump_lfsr.vcd" -strip_path "testbench/lfsr_0"
+Information: Checked out license 'PrimeTime-PX' (PT-019)
+
+======================================================================
+Summary:
+Total number of nets = 42
+Number of annotated nets = 42 (100.00%)
+Total number of leaf cells = 40
+Number of fully annotated leaf cells = 40 (100.00%)
+======================================================================
+
+1
+##################################################################
+## Units
+##################################################################
+report_units
+****************************************
+Report : units
+Design : lfsr1
+Version: J-2014.12
+Date   : Fri Feb 15 13:08:01 2019
+****************************************
+
+Units
+---------------------------------------------
+Capacitive_load_unit        : 1e-12 Farad
+Current_unit                : 0.001 Amp
+Resistance_unit             : 1000 Ohm
+Time_unit                   : 1e-09 Second
+Voltage_unit                : 1 Volt
+Internal_power_unit         : 0.001 Watt
+Leakage_power_unit          : 1e-12 Watt
+1
+##################################################################
+## Write script to run STA (report_timing)
+##################################################################
+check_timing
+Information: Checking 'no_input_delay'.
+Information: Checking 'no_driving_cell'.
+Information: Checking 'unconstrained_endpoints'.
+Information: Checking 'unexpandable_clocks'.
+Information: Checking 'latch_fanout'.
+Information: Checking 'no_clock'.
+Information: Checking 'partial_input_delay'.
+Information: Checking 'generic'.
+Information: Checking 'loops'.
+Information: Checking 'generated_clocks'.
+Information: Checking 'pulse_clock_non_pulse_clock_merge'.
+Information: Checking 'pll_configuration'.
+check_timing succeeded.
+1
+report_design
+****************************************
+Report : design
+Design : lfsr1
+Version: J-2014.12
+Date   : Fri Feb 15 13:08:01 2019
+****************************************
+
+Design Attribute                         Value
+---------------------------------------------------------------------------
+Operating Conditions:
+  analysis_type                          single
+  operating_condition_max_name           tt_1p2v_25c
+  process_max                            1
+  temperature_max                        25
+  voltage_max                            1.2
+  tree_type_max                          balanced_case
+
+Wire Load:                               (use report_wire_load for more information)
+  wire_load_mode                         top
+  wire_load_model_max                    --
+  wire_load_selection_group_max          --
+  wire_load_min_block_size               0
+
+Design Rules:
+  max_capacitance                        --
+  min_capacitance                        --
+  max_fanout                             --
+  max_transition                         --
+  static_integrity                       --
+  dynamic_integrity                      --
+  max_area                               --
+
+Timing Ranges:
+  early_factor                           --
+  late_factor                            --
+
+Pin Input Delays:
+None specified.
+
+Pin Output Delays:
+None specified.
+Fast Analysis:                           disabled
+
+1
+report_reference
+****************************************
+Report : reference
+Design : lfsr1
+Version: J-2014.12
+Date   : Fri Feb 15 13:08:01 2019
+****************************************
+
+
+Attributes:
+    b - black-box (unknown)
+    h - hierarchical
+    n - noncombinational
+    u - contains unmapped logic
+    A - abstracted timing model
+    E - extracted timing model
+    S - Stamp timing model
+    Q - Quick timing model (QTM)
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+--------------------------------------------------------------------------------
+CLKBUFX2TS         scx3_cmos8rf_lpvt_tt_1p2v_25c
+                                    5.76     9          51.84      
+DFFRXLTS           scx3_cmos8rf_lpvt_tt_1p2v_25c
+                                   33.12     28        927.36      n
+XNOR2X1TS          scx3_cmos8rf_lpvt_tt_1p2v_25c
+                                   11.52     1          11.52      
+XOR2XLTS           scx3_cmos8rf_lpvt_tt_1p2v_25c
+                                   11.52     2          23.04      
+--------------------------------------------------------------------------------
+Total 4 references                                    1013.76
+1
+report_constraint
+****************************************
+Report : constraint
+Design : lfsr1
+Version: J-2014.12
+Date   : Fri Feb 15 13:08:01 2019
+****************************************
+
+                                                   Weighted
+    Group (max_delay/setup)      Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                          0.00      1.00      0.00
+    -----------------------------------------------------
+    max_delay/setup                                  0.00
+
+                                                   Weighted
+    Group (min_delay/hold)       Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                          0.00      1.00      0.00
+    -----------------------------------------------------
+    min_delay/hold                                   0.00
+
+    Constraint                                       Cost
+    -----------------------------------------------------
+    max_delay/setup                                  0.00  (MET)
+    min_delay/hold                                   0.00  (MET)
+    recovery                                         0.00  (MET)
+    removal                                          0.00  (MET)
+    sequential_clock_pulse_width                     0.00  (MET)
+    min_period                                       0.00  (MET)
+    max_capacitance                                  0.00  (MET)
+    max_transition                                   0.00  (MET)
+
+1
+report_constraint -all_violators
+****************************************
+Report : constraint
+	-all_violators
+	-path slack_only
+Design : lfsr1
+Version: J-2014.12
+Date   : Fri Feb 15 13:08:01 2019
+****************************************
+
+
+
+
+
+
+1
+report_timing
+****************************************
+Report : timing
+	-path_type full
+	-delay_type max
+	-max_paths 1
+	-sort_by slack
+Design : lfsr1
+Version: J-2014.12
+Date   : Fri Feb 15 13:08:01 2019
+****************************************
+
+
+  Startpoint: lfsr_out_reg[23]
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: lfsr_out_reg[0]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  lfsr_out_reg[23]/CK (DFFRXLTS)           0.00       0.00 r
+  lfsr_out_reg[23]/Q (DFFRXLTS)            1.11       1.11 r
+  U7/Y (XOR2XLTS)                          0.48       1.59 r
+  U6/Y (XOR2XLTS)                          0.45       2.04 r
+  U17/Y (XNOR2X1TS)                        0.35       2.39 r
+  lfsr_out_reg[0]/D (DFFRXLTS)             0.00       2.39 r
+  data arrival time                                   2.39
+
+  clock clk (rise edge)                   12.00      12.00
+  clock network delay (ideal)              0.00      12.00
+  clock reconvergence pessimism            0.00      12.00
+  lfsr_out_reg[0]/CK (DFFRXLTS)                      12.00 r
+  library setup time                      -0.32      11.68
+  data required time                                 11.68
+  ---------------------------------------------------------------
+  data required time                                 11.68
+  data arrival time                                  -2.39
+  ---------------------------------------------------------------
+  slack (MET)                                         9.28
+
+
+1
+##################################################################
+## Write script to run power analysis (report_power)
+##################################################################
+check_power
+Information: Checking 'out_of_table_range'.
+Warning: There are 1 out_of_range ramps.
+Information: Checking 'missing_table'.
+Information: Checking 'missing_function'.
+0
+create_power_waveforms -output vcd
+Warning: Detected use of obsolete/unsupported feature.  The following
+	will not be available in a future release of the application:
+	create_power_waveforms. Use update_power with set power_analysis_mode time_based instead (CMD-100)
+Information: The waveform options are:
+		File name:	vcd.fsdb
+		File format:	fsdb
+		Time interval:	1ns
+		Hierarchical level:	all
+
+Information: Power analysis is running, please wait ...
+
+Information: analysis is done for time window (0ns - 5160ns)
+
+1
+report_power
+****************************************
+Report : Event Based Power
+Design : lfsr1
+Version: J-2014.12
+Date   : Fri Feb 15 13:08:01 2019
+****************************************
+
+
+
+  Attributes
+  ----------
+      i  -  Including register clock pin internal power
+      u  -  User defined power group
+
+                        Internal  Switching  Leakage    Total
+Power Group             Power     Power      Power      Power   (     %)  Attrs
+--------------------------------------------------------------------------------
+clock_network           3.051e-05    0.0000    0.0000 3.051e-05 (56.46%)  i
+register                1.718e-05 5.192e-06 1.130e-09 2.238e-05 (41.41%)  
+combinational           9.691e-07 1.813e-07 1.121e-10 1.151e-06 ( 2.13%)  
+sequential                 0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+memory                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+io_pad                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+black_box                  0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+
+  Net Switching Power  = 5.374e-06   ( 9.94%)
+  Cell Internal Power  = 4.866e-05   (90.05%)
+  Cell Leakage Power   = 1.242e-09   ( 0.00%)
+                         ---------
+Total Power            = 5.404e-05  (100.00%)
+
+X Transition Power     =    0.0000
+Glitching Power        =    0.0000
+
+Peak Power             = 9.055e-04
+Peak Time              =      2490
+
+1
+##################################################################
+## Output annotated SDF
+##################################################################
+write_sdf lfsr.sdf
+Warning: Merged delay values will be used when writing delays of parallel cell arcs. (SDF-039)
+1
+# Exiting primetime
+quit
+Information: Defining new variable 'mydelay'. (CMD-041)
+Information: Defining new variable 'my_toplevel'. (CMD-041)
+Information: Defining new variable 'clk_name'. (CMD-041)
+Information: Defining new variable 'clk_period'. (CMD-041)
+Information: Defining new variable 'verilog_files'. (CMD-041)
+Information: Defining new variable 'clk_transition'. (CMD-041)
+Information: Defining new variable 'clk_uncertainty'. (CMD-041)
+Information: Defining new variable 'clk_port'. (CMD-041)
+
+Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full, 0 logical)
+Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
+Maximum memory usage for this session: 478.35 MB
+CPU usage for this session: 1 seconds 
+Elapsed time for this session: 5 seconds
+Diagnostics summary: 3 warnings, 12 informationals
+
+Thank you for using pt_shell!

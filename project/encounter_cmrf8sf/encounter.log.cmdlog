@@ -1,0 +1,109 @@
+#######################################################
+#                                                     
+#  Encounter Command Logging File                     
+#  Created on Wed Feb 27 22:15:05 2019                
+#                                                     
+#######################################################
+
+#@(#)CDS: Encounter v14.23-s044_1 (64bit) 03/20/2015 11:30 (Linux 2.6.18-194.el5)
+#@(#)CDS: NanoRoute v14.23-s028 NR150319-1745/14_23-UB (database version 2.30, 255.6.1) {superthreading v1.25}
+#@(#)CDS: CeltIC v14.23-s013_1 (64bit) 03/09/2015 04:15:07 (Linux 2.6.18-194.el5)
+#@(#)CDS: AAE 14.23-s010 (64bit) 03/20/2015 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 14.23-s014_1 (64bit) Mar  9 2015 03:15:25 (Linux 2.6.18-194.el5)
+#@(#)CDS: CPE v14.23-s032
+#@(#)CDS: IQRC/TQRC 14.1.6-s260 (64bit) Mon Mar  2 11:26:49 PST 2015 (Linux 2.6.18-194.el5)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+set init_verilog ../dc_shell_cmrf8sf/lfsr1.nl.v
+set init_io_file ./lfsr1.io
+set init_lef_file {/tools2/courses/ee6321/share/ibm13rflpvt/lef/ibm13_8lm_2thick_3rf_tech.lef /tools2/courses/ee6321/share/ibm13rflpvt/lef/ibm13rflpvt_macros.lef}
+set init_mmmc_file ./config/mmmc.view
+set init_import_mode {-treatUndefinedCellAsBbox 0 -keepEmptyModule 1}
+set init_pwr_net VDD
+set init_gnd_net VSS
+set_message -no_limit
+init_design
+floorPlan -s 47 32 10 10 10 10
+redraw
+fit
+globalNetConnect VDD -type tiehi -inst * -verbose
+globalNetConnect VSS -type tielo -inst * -verbose
+globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
+globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
+applyGlobalNets
+addRing -layer {top M1 bottom M1 left M2 right M2} -spacing 1 -width 3 -nets {VDD VSS}
+redraw
+sroute
+loadIoFile ./lfsr1.io
+redraw
+saveFPlan lfsr1.fp
+setDesignMode -process 130 -flowEffort high
+setTrialRouteMode -maxRouteLayer 3
+setPlaceMode -timingDriven true -congEffort high -modulePlan true
+setOptMode -fixFanoutLoad true -effort high -moveInst true -reclaimArea true
+placeDesign -inplaceOpt
+globalNetConnect VDD -type tiehi -inst * -verbose
+globalNetConnect VSS -type tielo -inst * -verbose
+globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
+globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
+redraw
+saveDesign lfsr1.placed.enc
+checkPlace
+buildTimingGraph
+redraw
+specifyClockTree -file lfsr1.cts.manual
+setCTSMode -engine ck
+ckSynthesis -clk clk -fix_added_buffers -forceReconvergent
+redraw
+saveDesign lfsr1.opted.enc
+savePlace lfsr1.place
+changeUseClockNetStatus -noFixedNetWires
+globalDetailRoute
+redraw
+setExtractRCMode -engine postRoute -effortLevel low -coupled true
+extractRC
+setAnalysisMode -analysisType onChipVariation
+setOptMode -yieldEffort none
+setOptMode -effort high
+setOptMode -drcMargin 0.0
+setOptMode -holdTargetSlack 0.2 -setupTargetSlack 0.0
+setOptMode -simplifyNetlist false
+setOptMode -usefulSkew false
+setOptMode -moveInst true
+setOptMode -reclaimArea true
+setOptMode -fixDRC true
+setOptMode -fixCap true
+optDesign -postRoute -hold
+globalNetConnect VDD -type pgpin -pin {VDD } -override
+globalNetConnect VSS -type pgpin -pin {VSS } -override
+globalNetConnect VDD -type tiehi
+globalNetConnect VSS -type tielo
+applyGlobalNets
+saveDesign lfsr1.routed.enc
+verifyGeometry
+addFiller -cell FILL16TS FILL1TS FILL2TS FILL32TS FILL4TS FILL64TS FILL8TS -prefix IBM13RFLPVT_FILLER -fillBoundary
+verifyGeometry
+redraw
+clearDrc
+verifyGeometry
+verifyConnectivity -type regular -error 1000 -warning 50
+verifyProcessAntenna
+report_power -leakage -cap -nworst -pg_pin
+reportGateCount
+lefOut lfsr1.lef -5.5 -PGpinLayers 4 -specifyTopLayer 4 -stripePin
+defOut -floorplan -netlist -routing lfsr1.final.def
+streamOut lfsr1.gds -mapFile /tools2/courses/ee6321/share/ibm13rflpvt/mapfiles/enc2gds.map -libName ibm13rflpvt -structureName lfsr1 -stripes 1 -units 1000 -mode ALL
+saveNetlist -phys -excludeLeafCell -excludeCellInst {FILL1TS FILL2TS FILL4TS FILL8TS FILL16TS FILL32TS FILL64TS} lfsr1.phy.v
+saveNetlist lfsr1.nophy.v
+extractRC -outfile lfsr1.cap
+rcOut -spef lfsr1.spef
+write_sdf "$designName.sdf"
+setAnalysisMode -checkType hold -useDetailRC true
+report_timing > "$designName.hold.rpt"
+setAnalysisMode -checkType setup -useDetailRC true
+report_timing > "$designName.setup.rpt"
+reportCapViolation -outfile final_cap.tarpt
+verifyGeometry
+verifyConnectivity -type all
+reportCritNet -outfile lfsr1.critnet.rpt

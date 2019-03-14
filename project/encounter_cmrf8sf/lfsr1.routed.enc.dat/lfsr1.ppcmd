@@ -1,0 +1,44 @@
+# PPCMD 1 
+# sroute 
+# 2 
+# 16 
+# 0 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 1 
+
+# PPCMD 2 
+# addRing -layer {top M1 bottom M1 left M2 right M2} -spacing 1 -width 3 -nets {VDD VSS} -layer_top M1 -layer_bottom M1 -layer_left M2 -layer_right M2 -spacing_top {1} -spacing_bottom {1} -spacing_left {1} -spacing_right {1} -width_top {3} -width_bottom {3} -width_left {3} -width_right {3} -stacked_via_top_layer topLayer -stacked_via_bottom_layer bottomLayer
+# 1 
+# 32 
+# 1 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# VSS 3000 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 33400 3500 33400 45300 
+# END_RING_PT_INFO_LIST 
+# VSS 3000 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 3500 24400 63300 24400 
+# END_RING_PT_INFO_LIST 
+# VDD 3000 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 33400 7500 33400 41300 
+# END_RING_PT_INFO_LIST 
+# VDD 3000 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 7500 24400 59300 24400 
+# END_RING_PT_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 2 
+
