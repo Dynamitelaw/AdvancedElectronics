@@ -1,0 +1,77 @@
+10
+
+dir
+27
+https://opencores.org/ocsvn/memory_cores/memory_cores/trunk
+https://opencores.org/ocsvn/memory_cores
+
+
+
+2009-03-10T01:10:32.830976Z
+25
+root
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+a412bf09-427a-4fa4-8526-e9de38b787cf
+
+Mempkg.vhd
+file
+
+
+
+
+2019-03-14T19:25:50.688415Z
+63019c927a30de67b4378d09fa00b88b
+2001-03-29T14:07:15.000000Z
+15
+khatib
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4375
+
+spmem
+dir
+
+dpmem
+dir
+
+FIFO
+dir
+
+LUT
+dir
+
+FIFO2
+dir
+

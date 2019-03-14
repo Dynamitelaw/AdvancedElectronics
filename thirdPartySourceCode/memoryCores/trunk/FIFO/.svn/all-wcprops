@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/ocsvn/memory_cores/!svn/ver/25/memory_cores/trunk/FIFO
+END
+fifo.vhdl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/ocsvn/memory_cores/!svn/ver/25/memory_cores/trunk/FIFO/fifo.vhdl
+END
+Vectors.do
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/ocsvn/memory_cores/!svn/ver/25/memory_cores/trunk/FIFO/Vectors.do
+END
+FIFO_TB.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/ocsvn/memory_cores/!svn/ver/25/memory_cores/trunk/FIFO/FIFO_TB.vhd
+END
