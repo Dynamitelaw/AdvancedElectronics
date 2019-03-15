@@ -79,7 +79,14 @@ module router(
 	output memWrite
 	)
 	
-	
+	generate
+		if (portEnable_NORTH)
+			//instantiate porthandler
+		else
+			//don't instantiate	
+		//is this possible?: need to look into it
+		// https://stackoverflow.com/questions/15240591/conditional-instantiation-of-verilog-module
+	endgenerate
 	
 endmodule  //router
 
