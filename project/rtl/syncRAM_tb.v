@@ -7,14 +7,14 @@ module syncRAM_tb;
  // Inputs
 
    reg [7:0] dataIn;
-   reg [7:0] WA;
-   reg [7:0] RA_0;
-   reg [7:0] RA_1;
-   reg [7:0] RA_2;
-   reg [7:0] RA_3;	   
-   reg CS;
-   reg WE;
-   reg RD;
+   reg [7:0] writeAddr;
+   reg [7:0] readAddr_0;
+   reg [7:0] readAddr_1;
+   reg [7:0] readAddr_2;
+   reg [7:0] readAddr_3;	   
+   reg chipSelect;
+   reg writeEnable;
+   reg readEnable;
    reg Clk;
  // Outputs
 
@@ -32,14 +32,14 @@ module syncRAM_tb;
 	      .dOut_1(dOut_1),
 	      .dOut_2(dOut_2), 
 	      .dOut_3(dOut_3),
-	      .WA(WA),
-	      .RA_0(RA_0),
-	      .RA_1(RA_1),
-	      .RA_2(RA_2),
-	      .RA_3(RA_3),
-  .CS(CS), 
-  .WE(WE), 
-  .RD(RD), 
+	      .writeAddr(writeAddr),
+	      .readAddr_0(readAddr_0),
+	      .readAddr_1(readAddr_1),
+	      .readAddr_2(readAddr_2),
+	      .readAddr_3(readAddr_3),
+  .chipSelect(chipSelect), 
+  .writeEnable(writeEnable), 
+  .readEnable(readEnable), 
   .Clk(Clk)
   );
 
@@ -49,18 +49,18 @@ module syncRAM_tb;
   // Initialize Inputs
 
     dataIn  = 8'h0;
-    WA  = 8'h0;
-    RA_0  = 8'h0;
-    RA_1  = 8'h0;
-    RA_2  = 8'h0;
-    RA_3  = 8'h0;
-    CS  = 1'b0;
-    WE  = 1'b0;
-    RD  = 1'b0;
+    writeAddr  = 8'h0;
+    readAddr_0  = 8'h0;
+    readAddr_1  = 8'h0;
+    readAddr_2  = 8'h0;
+    readAddr_3  = 8'h0;
+    chipSelect  = 1'b0;
+    writeEnable  = 1'b0;
+    readEnable  = 1'b0;
     Clk  = 1'b0;
 
 
-  // Wait 100 ns for global reset to finish
+  // writeAddrit 100 ns for global reset to finish
 
   #100;
 
@@ -69,56 +69,56 @@ module syncRAM_tb;
   // Add stimulus here
 
   dataIn  = 8'h0;
-  WA  = 8'h0;
-  CS  = 1'b1;
-  WE  = 1'b1;
-  RD  = 1'b0;
+  writeAddr  = 8'h0;
+  chipSelect  = 1'b1;
+  writeEnable  = 1'b1;
+  readEnable  = 1'b0;
     
   #20;
   dataIn  = 8'h0;
-  WA  = 8'h0;
+  writeAddr  = 8'h0;
 
   #20;
   dataIn  = 8'h1;
-  WA  = 8'h1;
+  writeAddr  = 8'h1;
 
   #20;
   dataIn  = 8'h10;
-  WA  = 8'h2;
+  writeAddr  = 8'h2;
 
   #20;
   dataIn  = 8'h6;
-  WA  = 8'h3;
+  writeAddr  = 8'h3;
 
   #20;
   dataIn  = 8'h12;
-  WA  = 8'h4;
+  writeAddr  = 8'h4;
 
   #20;
-  WE  = 1'b0;
-  RD  = 1'b1;
+  writeEnable  = 1'b0;
+  readEnable  = 1'b1;
 
   #20;
-  RA_0    = 8'h1;
-  RA_1    = 8'h2;
-  RA_2    = 8'h3;
-  RA_3    = 8'h4;
+  readAddr_0    = 8'h1;
+  readAddr_1    = 8'h2;
+  readAddr_2    = 8'h3;
+  readAddr_3    = 8'h4;
   #20;
-  RA_0    = 8'h4;
-  RA_1    = 8'h1;
-  RA_2    = 8'h2;
-  RA_3    = 8'h3;
+  readAddr_0    = 8'h4;
+  readAddr_1    = 8'h1;
+  readAddr_2    = 8'h2;
+  readAddr_3    = 8'h3;
 
   #20;
-  RA_0    = 8'h3;
-  RA_1    = 8'h4;
-  RA_2    = 8'h1;
-  RA_3    = 8'h2;
+  readAddr_0    = 8'h3;
+  readAddr_1    = 8'h4;
+  readAddr_2    = 8'h1;
+  readAddr_3    = 8'h2;
   #20;
-  RA_0    = 8'h2;
-  RA_1    = 8'h3;
-  RA_2    = 8'h4;
-  RA_3    = 8'h1;
+  readAddr_0    = 8'h2;
+  readAddr_1    = 8'h3;
+  readAddr_2    = 8'h4;
+  readAddr_3    = 8'h1;
     
 
  end
