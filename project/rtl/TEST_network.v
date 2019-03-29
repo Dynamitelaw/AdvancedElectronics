@@ -192,6 +192,23 @@ module networkTestbench;
 				);
 				
 			//Cache bank instance
+			syncRAM cacheBank( 
+				.Clk(clk),
+				.reset(reset),
+				
+				.dataIn(cacheDataIn), 
+				.dOut_0(cacheDataOut_0), 
+				.dOut_1(cacheDataOut_1), 
+				.dOut_2(cacheDataOut_2), 
+				.dOut_3(cacheDataOut_3), 
+				.writeAddr(cacheWriteAddressIn), 
+				.readAddr_0(cacheReadAddress_0), 
+				.readAddr_1(cacheReadAddress_1), 
+				.readAddr_2(cacheReadAddress_2), 
+				.readAddr_3(cacheReadAddress_3), 
+				.writeEnable(memWrite), 
+				.readEnable(memRead)
+				);
 		end
 		
 		/*
@@ -285,19 +302,30 @@ module networkTestbench;
 		reset <= 0;
 		
 		//Send packet from input (Node0_NORTH) to node10
+		Node0_readIn_NORTH <= 0;
 		Node0_writeIn_NORTH <= 1;
 		Node0_dataIn_NORTH <= 42;
-		Node0_destinationAddressIn_NORTH <= 4'd10;
+		Node0_destinationAddressIn_NORTH <= {4'd10, 8'd1};
+		Node0_requesterAddressIn_NORTH <= 4'd0;
 		
 		#1 //posedge		
 		#1 //negedge
-		
 		Node0_writeIn_NORTH <= 0;
+		
 		
 		#1 //posedge
 		#1 //negedge
+		Node0_readIn_NORTH <= 1;
+		Node0_writeIn_NORTH <= 0;
+		Node0_dataIn_NORTH <= 42;
+		Node0_destinationAddressIn_NORTH <= {4'd10, 8'd1};
+		Node0_requesterAddressIn_NORTH <= 4'd0;
 		
-		#20
+		#1 //posedge
+		#1 //negedge
+		Node0_readIn_NORTH <= 0;
+		
+		#40
 		
 		$finish;
 	end

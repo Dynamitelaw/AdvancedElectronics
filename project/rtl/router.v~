@@ -215,8 +215,8 @@ module router(
 		//North IO
 		.cacheAddressIn_NORTH(destinationAddressInBuffer_NORTH[`CACHE_BANK_ADDRESS_WIDTH -1:0]),
 		.requesterAddressIn_NORTH(requesterAddressInBuffer_NORTH),
-		.memRead_NORTH(memRead_NORTH),
-		.memWrite_NORTH(memWrite_NORTH),
+		.memRead_NORTH(readInBuffer_NORTH),
+		.memWrite_NORTH(writeInBuffer_NORTH),
 		.dataIn_NORTH(dataInBuffer_NORTH),
 	
 		.readReady_NORTH(readReady_NORTH),
@@ -225,8 +225,8 @@ module router(
 		//South IO
 		.cacheAddressIn_SOUTH(destinationAddressInBuffer_SOUTH[`CACHE_BANK_ADDRESS_WIDTH -1:0]),
 		.requesterAddressIn_SOUTH(requesterAddressInBuffer_SOUTH),
-		.memRead_SOUTH(memRead_SOUTH),
-		.memWrite_SOUTH(memWrite_SOUTH),
+		.memRead_SOUTH(readInBuffer_SOUTH),
+		.memWrite_SOUTH(writeInBuffer_SOUTH),
 		.dataIn_SOUTH(dataInBuffer_SOUTH),
 	
 		.readReady_SOUTH(readReady_SOUTH),
@@ -235,8 +235,8 @@ module router(
 		//East IO
 		.cacheAddressIn_EAST(destinationAddressInBuffer_EAST[`CACHE_BANK_ADDRESS_WIDTH -1:0]),
 		.requesterAddressIn_EAST(requesterAddressInBuffer_EAST),
-		.memRead_EAST(memRead_EAST),
-		.memWrite_EAST(memWrite_EAST),
+		.memRead_EAST(readInBuffer_EAST),
+		.memWrite_EAST(writeInBuffer_EAST),
 		.dataIn_EAST(dataInBuffer_EAST),
 	
 		.readReady_EAST(readReady_EAST),
@@ -245,8 +245,8 @@ module router(
 		//West IO
 		.cacheAddressIn_WEST(destinationAddressInBuffer_WEST[`CACHE_BANK_ADDRESS_WIDTH -1:0]),
 		.requesterAddressIn_WEST(requesterAddressInBuffer_WEST),
-		.memRead_WEST(memRead_WEST),
-		.memWrite_WEST(memWrite_WEST),
+		.memRead_WEST(readInBuffer_WEST),
+		.memWrite_WEST(writeInBuffer_WEST),
 		.dataIn_WEST(dataInBuffer_WEST),
 	
 		.readReady_WEST(readReady_WEST),
@@ -306,7 +306,7 @@ module router(
 		
 		.readReady(readReady_NORTH),
 		.readRequesterAddress(cacheRequesterAddress_NORTH),
-		.cacheDataOut(cacheReadAddress_0),
+		.cacheDataOut(cacheDataOut_0),
 	
 		.destinationAddressOut(destinationAddressOut_NORTH),
 		.requesterAddressOut(requesterAddressOut_NORTH),
@@ -353,7 +353,7 @@ module router(
 		
 		.readReady(readReady_SOUTH),
 		.readRequesterAddress(cacheRequesterAddress_SOUTH),
-		.cacheDataOut(cacheReadAddress_1),
+		.cacheDataOut(cacheDataOut_1),
 		
 		.destinationAddressOut(destinationAddressOut_SOUTH),
 		.requesterAddressOut(requesterAddressOut_SOUTH),
@@ -400,7 +400,7 @@ module router(
 		
 		.readReady(readReady_EAST),
 		.readRequesterAddress(cacheRequesterAddress_EAST),
-		.cacheDataOut(cacheReadAddress_2),
+		.cacheDataOut(cacheDataOut_2),
 		
 		.destinationAddressOut(destinationAddressOut_EAST),
 		.requesterAddressOut(requesterAddressOut_EAST),
@@ -447,7 +447,7 @@ module router(
 		
 		.readReady(readReady_WEST),
 		.readRequesterAddress(cacheRequesterAddress_WEST),
-		.cacheDataOut(cacheReadAddress_3),
+		.cacheDataOut(cacheDataOut_3),
 		
 		.destinationAddressOut(destinationAddressOut_WEST),
 		.requesterAddressOut(requesterAddressOut_WEST),
@@ -750,6 +750,9 @@ module outputPortArbiter(
 					
 				default :  begin //Multiple packets routed to this port. Raise contention error					
 					contentionError <= 1;
+					/*
+					 * Need to impliment buffering here: Zhou's hw
+					 */
 				end
 			endcase
 		end
@@ -884,9 +887,12 @@ module cacheAccessArbiter(
 					cacheDataIn <= dataIn_WEST;
 					cacheWriteAddressIn <= cacheAddressIn_WEST;
 				end
-				//Multiple writes at once. Buffer writes (NOT IMPLIMENTED YET)
+				//Multiple writes at once. Buffer writes (NOT IMPLEMENTED YET)
 				default : begin
 					memWrite <= 0;
+					/*
+					 * Need to buffer write requests: SAYAAN's homework
+					 */
 				end
 			endcase	
 			
@@ -906,14 +912,14 @@ module cacheAccessArbiter(
 		readReady_NORTH <= prevMemRead_NORTH;
 		requesterAddressOut_NORTH <= prevRequesterAddress_NORTH;
 		
-		readReady_NORTH <= prevMemRead_SOUTH;
-		requesterAddressOut_NORTH <= prevRequesterAddress_SOUTH;
+		readReady_SOUTH <= prevMemRead_SOUTH;
+		requesterAddressOut_SOUTH <= prevRequesterAddress_SOUTH;
 		
-		readReady_NORTH <= prevMemRead_EAST;
-		requesterAddressOut_NORTH <= prevRequesterAddress_EAST;
+		readReady_EAST <= prevMemRead_EAST;
+		requesterAddressOut_EAST <= prevRequesterAddress_EAST;
 		
-		readReady_NORTH <= prevMemRead_WEST;
-		requesterAddressOut_NORTH <= prevRequesterAddress_WEST;
+		readReady_WEST <= prevMemRead_WEST;
+		requesterAddressOut_WEST <= prevRequesterAddress_WEST;
 	end
 	
 endmodule  //cacheAccessArbiter

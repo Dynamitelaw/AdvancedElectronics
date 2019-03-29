@@ -1,6 +1,6 @@
 `include "globalVariables.v"
 
-module syncRAM( dataIn, dOut_0, dOut_1, dOut_2, dOut_3, writeAddr, readAddr_0, readAddr_1, readAddr_2, readAddr_3, writeEnable, readEnable, reset, port0_writtenTo, port1_writtenTo, port2_writtenTo, port3_writtenTo,isWritten, clk);
+module syncRAM( dataIn, dOut_0, dOut_1, dOut_2, dOut_3, writeAddr, readAddr_0, readAddr_1, readAddr_2, readAddr_3, writeEnable, readEnable, reset, port0_writtenTo, port1_writtenTo, port2_writtenTo, port3_writtenTo,isWritten, Clk);
 
      
 
@@ -32,7 +32,7 @@ parameter DPTH  = `CACHE_BANK_LINES;
    input writeEnable;
    input readEnable;
    input reset;
-   input clk;
+   input Clk;
    output reg port0_writtenTo;
    output reg port1_writtenTo;
    output reg port2_writtenTo;
@@ -44,7 +44,7 @@ initial begin
 isWritten = ~{DPTH{1'b0}};
 end
 
-always @ (posedge clk)
+always @ (posedge Clk)
 
 begin
 
