@@ -13,7 +13,7 @@ This file contains all global macro definitions
 `define NETWORK_ADDRESS_WIDTH `NETWORK_ROW_ADDRESS_WIDTH+`NETWORK_COLUMN_ADDRESS_WIDTH
 
 //Cache-bank globals
-`define CACHE_BANK_ADDRESS_WIDTH 0
+`define CACHE_BANK_ADDRESS_WIDTH 8
 `define CACHE_BANK_LINES 8
 
 

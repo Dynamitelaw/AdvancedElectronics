@@ -96,6 +96,24 @@ module networkTestbench;
 			wire writeOut_WEST;
 			wire [`DATA_WIDTH -1:0] dataOut_WEST;
 			
+			//Cache bank IO
+			wire [`DATA_WIDTH -1:0] cacheDataIn;
+			wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheWriteAddressIn;
+			wire memRead;
+			wire memWrite;
+	
+			wire [`DATA_WIDTH -1:0] cacheDataOut_0;
+			wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_0;
+	
+			wire [`DATA_WIDTH -1:0] cacheDataOut_1;
+			wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_1;
+	
+			wire [`DATA_WIDTH -1:0] cacheDataOut_2;
+			wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_2;
+	
+			wire [`DATA_WIDTH -1:0] cacheDataOut_3;
+			wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_3;
+			
 			//Router instance
 			router rtr(
 				.clk(clk),
@@ -155,13 +173,25 @@ module networkTestbench;
 				.dataOut_WEST(dataOut_WEST),
 		
 				//Cache bank IO
-				.cacheDataOut(cacheDataOut),
-	
-				.cacheAddress(cacheAddress),
 				.cacheDataIn(cacheDataIn),
+				.cacheWriteAddressIn(cacheWriteAddressIn),
 				.memRead(memRead),
-				.memWrite(memWrite)
+				.memWrite(memWrite),
+	
+				.cacheDataOut_0(cacheDataOut_0),
+				.cacheReadAddress_0(cacheReadAddress_0),
+	
+				.cacheDataOut_1(cacheDataOut_1),
+				.cacheReadAddress_1(cacheReadAddress_1),
+	
+				.cacheDataOut_2(cacheDataOut_2),
+				.cacheReadAddress_2(cacheReadAddress_2),
+	
+				.cacheDataOut_3(cacheDataOut_3),
+				.cacheReadAddress_3(cacheReadAddress_3)
 				);
+				
+			//Cache bank instance
 		end
 		
 		/*
