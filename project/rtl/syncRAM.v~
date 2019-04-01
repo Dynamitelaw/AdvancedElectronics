@@ -32,7 +32,7 @@ parameter DPTH  = `CACHE_BANK_LINES;
    input writeEnable;
    input readEnable;
    input reset;
-   input clk;
+   input Clk;
    output reg port0_writtenTo;
    output reg port1_writtenTo;
    output reg port2_writtenTo;
