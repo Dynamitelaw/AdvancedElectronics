@@ -5,7 +5,7 @@ This file contains all global macro definitions
 `define TRUE 1
 `define FALSE 0
 
-`define DATA_WIDTH 6
+`define DATA_WIDTH 8
 
 //Network globals
 `define NETWORK_ROW_ADDRESS_WIDTH 2

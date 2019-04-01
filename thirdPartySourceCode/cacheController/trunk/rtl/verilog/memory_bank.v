@@ -1,6 +1,5 @@
 `timescale 1ns / 1ps
-`include "C:/cachedesign/v1/ise/src/global_params.vh"
-`include "C:/cachedesign/v1/ise/src/memory_params.vh"
+
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: Chinthaka A.K.
@@ -20,6 +19,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+`include "globalVariables.v"
 module memory_bank(CLK,EN,WE,SELECT,ADDR,DI,DO_BUF);
 	input CLK,EN,WE;
 	input [`OFFSET-1:0]SELECT;

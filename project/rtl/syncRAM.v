@@ -1,6 +1,10 @@
 `include "globalVariables.v"
 
+<<<<<<< HEAD
 module syncRAM( dataIn, dOut_0, dOut_1, dOut_2, dOut_3, writeAddr, readAddr_0, readAddr_1, readAddr_2, readAddr_3, writeEnable, readEnable, reset, port0_writtenTo, port1_writtenTo, port2_writtenTo, port3_writtenTo, clk);
+=======
+module syncRAM( dataIn, dOut_0, dOut_1, dOut_2, dOut_3, writeAddr, readAddr_0, readAddr_1, readAddr_2, readAddr_3, writeEnable, readEnable, reset, port0_writtenTo, port1_writtenTo, port2_writtenTo, port3_writtenTo,isWritten, clk);
+>>>>>>> 7f6360bdf2f7bc817230908863f46d7c6d4aca0b
 
      
 
