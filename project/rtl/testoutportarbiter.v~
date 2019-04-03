@@ -149,9 +149,9 @@ module testbench;
 		selectBit_NORTH = 1;
 		selectBit_SOUTH = 1;
 		selectBit_WEST = 0;
-		dataIn_SOUTH = 29;
-		dataIn_EAST = 14;
-		dataIn_NORTH = 7;
+		dataIn_SOUTH = 30;
+		dataIn_EAST = 15;
+		dataIn_NORTH = 8;
 		#13
 		selectBit_EAST = 0;
 		selectBit_NORTH = 0;
