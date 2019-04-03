@@ -111,7 +111,11 @@ module outputPortArbiter(
 		readOut <= readOutbuffer[read_reg];
 		writeOut <= writeOutbuffer[read_reg];
 		end
-		else dataOut <= 1'bz;
+		else dataOut <= 1'b0;
+		destinationAddressOut <= 1'b0;
+		requesterAddressOut <= 1'b0;
+		readOut <= 1'b0;
+		writeOut <= 1'b0;
 	end
 
 	
