@@ -84,11 +84,10 @@ module outputPortArbiter(
 	//write operation
 	always @(negedge clk) begin
 		if (write_enable && ~full) begin
-			i = 0;
 			inputamount = 0;
 //###########
 //while loops can't be systhesized. Needs to be rewritten as a for loop that can be statically unrolled
-			while(i < 5) begin
+			for(i = 0; i < 5; i = i + 1) begin
 				if(inputbuffer[i]) begin
 					dataoutbuffer[write_reg + inputamount] = databuffer[i];
 					destinationAddressbuffer[write_reg + inputamount] = destAddrbuffer[i];
@@ -97,7 +96,6 @@ module outputPortArbiter(
 					writeOutbuffer[write_reg + inputamount] = writebuffer[i];
 					inputamount = inputamount + 1;
 				end
-				i = i + 1'b 1;
 			end
 
 		end
@@ -229,10 +227,7 @@ module outputPortArbiter(
 		read_next = read_reg;  //<== Two different always blocks  ########
 		full_next = full_reg;  //<== Two different always blocks  ########
 		empty_next = empty_reg;  //<== Two different always blocks  ########
-	end
 
-	always @ (*) begin
-		//control read process
 		if(~empty) begin
 			read_next = read_succ;  //<== Two different always blocks  ########
 			full_next = 1'b0;  //<== Two different always blocks  ########
