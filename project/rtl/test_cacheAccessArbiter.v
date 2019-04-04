@@ -1,0 +1,176 @@
+`include "globalVariables.v"
+`include "cacheAccessArbiter.v"
+`include "syncRAM.v"
+
+
+`timescale 1ns/1ns
+`define SD #1000
+`define HALF_CLOCK_PERIOD #5
+
+module testbench;
+	reg reset = 0;
+	reg clk;
+
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_NORTH;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_NORTH;
+	reg memRead_NORTH;
+	reg memWrite_NORTH;
+	reg [`DATA_WIDTH -1:0] dataIn_NORTH;
+
+	wire readReady_NORTH;
+	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_NORTH;
+
+	//reg from South Port
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_SOUTH;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_SOUTH;
+	reg memRead_SOUTH;
+	reg memWrite_SOUTH;
+	reg [`DATA_WIDTH -1:0] dataIn_SOUTH;
+	
+	wire readReady_SOUTH;
+	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_SOUTH;
+
+	//reg from East Port
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_EAST;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_EAST;
+	reg memRead_EAST;
+	reg memWrite_EAST;
+	reg [`DATA_WIDTH -1:0] dataIn_EAST;
+	
+	wire readReady_EAST;
+	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_EAST;
+	
+	//reg from West Port
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_WEST;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_WEST;
+	reg memRead_WEST;
+	reg memWrite_WEST;
+	reg [`DATA_WIDTH -1:0] dataIn_WEST;
+	
+	wire readReady_WEST;
+	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_WEST;
+	
+
+	wire [`DATA_WIDTH -1:0] cacheDataIn;
+	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheWriteAddressIn;
+	wire memRead;
+	wire memWrite;
+
+
+	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_0;  //North's port
+	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_1;  //South's port
+	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_2;  //East's port
+	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_3; //West's port
+	
+
+	cacheAccessArbiter test1(
+		.reset(reset),
+		.clk(clk),
+
+		. cacheAddressIn_NORTH(cacheAddressIn_NORTH),
+		. requesterAddressIn_NORTH(requesterAddressIn_NORTH),
+		. memRead_NORTH(memRead_NORTH),
+		. memWrite_NORTH(memWrite_NORTH),
+		. dataIn_NORTH(dataIn_NORTH),
+		. readReady_NORTH(readReady_NORTH),
+		. requesterAddressOut_NORTH(requesterAddressOut_NORTH),
+		
+		
+		//. from South Port
+		. cacheAddressIn_SOUTH(cacheAddressIn_SOUTH),
+		. requesterAddressIn_SOUTH(requesterAddressIn_SOUTH),
+		. memRead_SOUTH(memRead_SOUTH),
+		. memWrite_SOUTH(memWrite_SOUTH),
+		. dataIn_SOUTH(dataIn_SOUTH),
+		. readReady_SOUTH(readReady_SOUTH),
+		. requesterAddressOut_SOUTH(requesterAddressOut_SOUTH),
+		
+		//. from East Port
+		. cacheAddressIn_EAST(cacheAddressIn_EAST),
+		. requesterAddressIn_EAST(requesterAddressIn_EAST),
+		. memRead_EAST(memRead_EAST),
+		. memWrite_EAST(memWrite_EAST),
+		. dataIn_EAST(dataIn_EAST),
+		. readReady_EAST(readReady_EAST),
+		. requesterAddressOut_EAST(requesterAddressOut_EAST),
+		
+		//. from West Port
+		. cacheAddressIn_WEST(cacheAddressIn_WEST),
+		. requesterAddressIn_WEST(requesterAddressIn_WEST),
+		. memRead_WEST(memRead_WEST),
+		. memWrite_WEST(memWrite_WEST),
+		. dataIn_WEST(dataIn_WEST),
+		. readReady_WEST(readReady_WEST),
+		. requesterAddressOut_WEST(requesterAddressOut_WEST),
+		
+		//. from Cache Arbiter
+		. cacheDataIn(cacheDataIn),
+		. cacheWriteAddressIn(cacheWriteAddressIn),
+		. memRead(memRead),
+		. memWrite(memWrite),
+
+		//Arbiter Output
+		. cacheReadAddress_0(cacheReadAddress_0),
+		. cacheReadAddress_1(cacheReadAddress_1),
+		. cacheReadAddress_2(cacheReadAddress_2),
+		. cacheReadAddress_3(cacheReadAddress_3)
+	);
+
+	//		syncRAM cacheBank( 
+	//			.Clk(clk),
+	//			.reset(reset),
+				
+	//			.dataIn(cacheDataIn), 
+	//			.dOut_0(cacheDataOut_0), 
+	//			.dOut_1(cacheDataOut_1), 
+	//			.dOut_2(cacheDataOut_2), 
+	//			.dOut_3(cacheDataOut_3), 
+	//			.writeAddr(cacheWriteAddressIn), 
+	//			.readAddr_0(cacheReadAddress_0), 
+	//			.readAddr_1(cacheReadAddress_1), 
+	//			.readAddr_2(cacheReadAddress_2), 
+	//			.readAddr_3(cacheReadAddress_3), 
+	//			.writeEnable(memWrite), 
+	//			.readEnable(memRead)
+	//			);
+		
+	always begin
+	//Create your clock 
+		`HALF_CLOCK_PERIOD;
+	   	clk = ~clk;
+	end
+
+	initial begin
+		clk = 0;
+		reset = 1;
+		#10
+		reset = 0;
+		#10
+		memWrite_NORTH = 1;
+		dataIn_NORTH = 10;
+		cacheAddressIn_NORTH = 8'h2;
+		#10
+		memWrite_NORTH = 1;
+		dataIn_NORTH = 5;
+		cacheAddressIn_NORTH = 8'h3;
+		memWrite_SOUTH = 1;
+		dataIn_SOUTH = 4;
+		cacheAddressIn_SOUTH = 8'h1;
+		#20
+		memWrite_EAST = 1;
+		dataIn_EAST = 5;
+		cacheAddressIn_EAST = 8'h5;
+		memWrite_EAST = 1;
+		dataIn_EAST = 4;
+		cacheAddressIn_EAST = 8'h4;
+		#10
+		memWrite_EAST = 1;
+		dataIn_EAST = 4;
+		cacheAddressIn_EAST = 8'h6;
+		#100
+		$finish;
+	end
+
+
+
+endmodule
