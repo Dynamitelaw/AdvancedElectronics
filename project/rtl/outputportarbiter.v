@@ -237,7 +237,7 @@ module outputPortArbiter(
 		if(~full && write_enable) begin
 			write_next = write_succ;  //<== Two different always blocks  ########
 			empty_next = 1'b0;  //<== Two different always blocks  ########
-			if(write_succ == (2**`BIT_SIZE-1))
+			if(write_succ == read_reg)
 				full_next = 1'b1;  //<== Two different always blocks  ########
 		end
 	end
