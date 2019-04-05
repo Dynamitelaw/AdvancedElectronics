@@ -63,10 +63,20 @@ module cacheAccessArbiter(
 	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_1,  //South's port
 	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_2,  //East's port
 	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_3  //West's port
+	
+	//Cache bank IO
+	output reg [`DATA_WIDTH -1:0] cacheDataIn_A,
+	output reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_A,
+	output reg memWrite_A,
+	
+	output reg [`DATA_WIDTH -1:0] cacheDataIn_B,
+	output reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_B,
+	output reg memWrite_B,
 	);
 	
 	
 	wire [3:0] localWrites = {memWrite_WEST, memWrite_EAST, memWrite_SOUTH, memWrite_NORTH};  //Concatenate local write signals
+	wire [3:0] localAccessRequests = {memWrite_WEST || memRead_WEST, memWrite_EAST || memRead_EAST, memWrite_SOUTH || memRead_SOUTH, memWrite_NORTH || memRead_NORTH};  //Concatenate local write signals
 	
 	//Array of wires to concatenate dataIn ports
 	wire [`DATA_WIDTH -1:0] dataIn_Concatenated [3:0];
