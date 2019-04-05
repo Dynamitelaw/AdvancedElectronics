@@ -1,3 +1,10 @@
+/*
+ * Ouput Port Arbiter
+ *
+ * Takes the port fowarding desicion of all incomingPortHandlers as inputs, and determines which incoming packet to write to its output. 
+ * Impliments contention arbitration and output buffering.
+ */
+ 
 `include "globalVariables.v"
 
 module outputPortArbiter(

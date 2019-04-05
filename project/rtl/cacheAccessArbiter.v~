@@ -93,20 +93,19 @@ module cacheAccessArbiter(
 	reg [`NETWORK_ADDRESS_WIDTH -1:0] prevRequesterAddress_WEST;
 	
 	//Buffers for write requests
-	reg [`DATA_WIDTH -1:0] dataToWriteBuffer [`BUFFER_SIZE-1 :0];
+	reg [`DATA_WIDTH -1:0] dataToWriteBuffer [`BUFFER_SIZE-1 :0];	
 	reg [`NETWORK_ADDRESS_WIDTH -1:0] addressToWriteBuffer [`BUFFER_SIZE-1:0];
 	reg [1:0] isReadOrWrite [`BUFFER_SIZE-1:0];
-	reg [`BUFFER_SIZE-1:0] bufferWrittenToTracker;
+	//reg [`BUFFER_SIZE-1:0] bufferWrittenToTracker;
 	reg [`BIT_SIZE-1:0] nextEmptyBuffer;
 	
 	
 	//Calculate total writes requested in this cycle
-	reg totalWrites;
+	reg [2:0] totalWrites;
 	integer l;
 	always@(localWrites) begin
-	    	totalWrites = 0;  //initialize count variable.
-	    	for(l=0;l<`BUFFER_SIZE;l=l+1)   //for all the bits.
-			totalWrites = totalWrites + localWrites[l]; //Add the bit to the count.
+	    	totalWrites = 0;
+	    	for(l=0;l<4;l=l+1) totalWrites = totalWrites + localWrites[l];
 	end
 
 	/*
@@ -150,7 +149,7 @@ module cacheAccessArbiter(
 	//Falling edge events
 	integer i;
 	integer j;
-	integer k;
+	integer k;	
 	always @ (negedge clk) begin
 		//Synchronous reset
 		if (reset) begin
@@ -167,7 +166,7 @@ module cacheAccessArbiter(
 		end
 		
 		else begin 
-			nextEmptyBuffer <= (nextEmptyBuffer>0) ? nextEmptyBuffer + totalWrites - 1 : nextEmptyBuffer + totalWrites;
+			if (|(totalWrites)) nextEmptyBuffer <= nextEmptyBuffer + totalWrites - 1;
 						
 			//Nothing currently in buffer, regularly send out data as was being sent out in router.v
 			if (nextEmptyBuffer == 0) begin
@@ -226,14 +225,15 @@ module cacheAccessArbiter(
 						addressToWriteBuffer[nextEmptyBuffer + incrementerArray[j] -1] <= cacheAddress_Concatenated[j];
 					end
 				end
-				
+								
 				//Shift buffer contents as 0th packet is sent
-				for (k=0; k < totalWrites; k=k+1) begin
+				for (k=0; k < `BUFFER_SIZE-1; k=k+1) begin
 					if (k==0) begin
+						//cacheDataIn <= 6'd42;
 						cacheDataIn <= dataToWriteBuffer[k];
 						cacheWriteAddressIn <= addressToWriteBuffer[k];
 					end
-					else begin 
+					if (k<nextEmptyBuffer-1) begin 
 						dataToWriteBuffer[k] <= dataToWriteBuffer[k+1];
 						addressToWriteBuffer[k] <= addressToWriteBuffer[k+1];
 					end

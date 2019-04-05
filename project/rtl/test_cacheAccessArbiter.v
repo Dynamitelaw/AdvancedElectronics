@@ -141,10 +141,11 @@ module cacheArbiter_testbench;
 	end
 
 	initial begin
-		clk = 0;
+		clk = 1;
 		reset = 1;
 		#10
 		reset = 0;
+		//posedge
 		#10
 		memWrite_NORTH = 1;
 		dataIn_NORTH = 10;
@@ -156,13 +157,25 @@ module cacheArbiter_testbench;
 		memWrite_SOUTH = 1;
 		dataIn_SOUTH = 4;
 		cacheAddressIn_SOUTH = 8'h1;
-		#20
+		//posedge
+		#10
+		memWrite_NORTH = 0;
+		memWrite_SOUTH = 0;
+		#10
+		memWrite_SOUTH = 1;
+		dataIn_SOUTH = 9;
+		cacheAddressIn_SOUTH = 8'h9;
 		memWrite_EAST = 1;
-		dataIn_EAST = 5;
+		dataIn_EAST = 6;
 		cacheAddressIn_EAST = 8'h5;
-		memWrite_EAST = 1;
-		dataIn_EAST = 4;
-		cacheAddressIn_EAST = 8'h4;
+		memWrite_WEST = 1;
+		dataIn_WEST = 7;
+		cacheAddressIn_WEST = 8'h4;
+		//posedge
+		#10
+		memWrite_SOUTH = 0;
+		memWrite_EAST = 0;
+		memWrite_WEST = 0;
 		#10
 		memWrite_EAST = 1;
 		dataIn_EAST = 4;

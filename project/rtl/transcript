@@ -9,91 +9,283 @@
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
 # Loading project AdvDgtl_Lab
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# 8 compiles, 0 failed with no errors.
-vsim work.testbench
-# vsim 
-# Start time: 18:50:34 on Apr 04,2019
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading work.testbench
-# Loading work.outputPortArbiter
-add wave -position insertpoint sim/:testbench:test1:*
-run
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v failed with 1 errors.
-# 9 compiles, 1 failed with 1 error.
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v failed with 1 errors.
-# 9 compiles, 1 failed with 1 error.
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# 9 compiles, 0 failed with no errors.
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
-# Load canceled
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
 vsim work.cacheArbiter_testbench
 # vsim 
-# Start time: 21:08:46 on Apr 04,2019
+# Start time: 22:22:39 on Apr 04,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading work.cacheArbiter_testbench
 # Loading work.cacheAccessArbiter
-add wave -position insertpoint sim/:cacheArbiter_testbench:*
 add wave -position insertpoint sim/:cacheArbiter_testbench:test1:*
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(177)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 177
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
 restart
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+add wave -position insertpoint sim/:cacheArbiter_testbench:test1:*
+restart
 run
-# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(171)
-#    Time: 160 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(177)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
 # 1
-# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 171
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 177
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(177)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 177
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(177)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 177
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(177)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 177
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(181)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 181
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(181)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 181
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(181)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 181
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(184)
+#    Time: 135 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 184
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(184)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 184
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(184)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 184
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(184)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 184
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.cacheArbiter_testbench
+# Loading work.cacheAccessArbiter
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:ASSHOLE_0'. 
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:ASSHOLE_1'. 
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:ASSHOLE_2'. 
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:ASSHOLE_3'. 
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:ASSHOLE_4'. 
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:ASSHOLE_5'. 
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:ASSHOLE_6'. 
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:ASSHOLE_7'. 
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:INDEX_NORTH'. 
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:INDEX_SOUTH'. 
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:INDEX_EAST'. 
+# Warning in wave window restart: (vish-4014) No objects found matching ':cacheArbiter_testbench:test1:INDEX_WEST'. 
+run
+# ** Note: $finish    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v(184)
+#    Time: 170 ns  Iteration: 0  Instance: :cacheArbiter_testbench
+# 1
+# Break in Module cacheArbiter_testbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/test_cacheAccessArbiter.v line 184
+# Compile of lfsr1.v was successful.
+# Compile of test.v was successful.
+# Compile of router.v was successful.
+# Compile of globalVariables.v was successful.
+# Compile of TEST_router.v was successful.
+# Compile of TEST_network.v was successful.
+# Compile of syncRAM.v was successful.
+# Compile of testoutportarbiter.v was successful.
+# Compile of cacheAccessArbiter.v was successful.
+# Compile of test_cacheAccessArbiter.v was successful.
+# 10 compiles, 0 failed with no errors.
 # Compile of lfsr1.v was successful.
 # Compile of test.v was successful.
 # Compile of router.v was successful.
