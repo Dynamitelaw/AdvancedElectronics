@@ -9,43 +9,43 @@
 
 module cacheArbiter_testbench;
 	reg reset = 0;
-	reg clk = 0;
+	reg clk;
 
-	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_NORTH = 0;
-	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_NORTH = 0;
-	reg memRead_NORTH = 0;
-	reg memWrite_NORTH = 0;
-	reg [`DATA_WIDTH -1:0] dataIn_NORTH = 0;
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_NORTH;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_NORTH;
+	reg memRead_NORTH;
+	reg memWrite_NORTH;
+	reg [`DATA_WIDTH -1:0] dataIn_NORTH;
 
 	wire readReady_NORTH;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_NORTH;
 
 	//reg from South Port
-	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_SOUTH = 0;
-	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_SOUTH = 0;
-	reg memRead_SOUTH = 0;
-	reg memWrite_SOUTH = 0;
-	reg [`DATA_WIDTH -1:0] dataIn_SOUTH = 0;
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_SOUTH;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_SOUTH;
+	reg memRead_SOUTH;
+	reg memWrite_SOUTH;
+	reg [`DATA_WIDTH -1:0] dataIn_SOUTH;
 	
 	wire readReady_SOUTH;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_SOUTH;
 
 	//reg from East Port
-	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_EAST = 0;
-	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_EAST = 0;
-	reg memRead_EAST = 0;
-	reg memWrite_EAST = 0;
-	reg [`DATA_WIDTH -1:0] dataIn_EAST = 0;
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_EAST;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_EAST;
+	reg memRead_EAST;
+	reg memWrite_EAST;
+	reg [`DATA_WIDTH -1:0] dataIn_EAST;
 	
 	wire readReady_EAST;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_EAST;
 	
 	//reg from West Port
-	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_WEST = 0;
-	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_WEST = 0;
-	reg memRead_WEST = 0;
-	reg memWrite_WEST = 0;
-	reg [`DATA_WIDTH -1:0] dataIn_WEST = 0;
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_WEST;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_WEST;
+	reg memRead_WEST;
+	reg memWrite_WEST;
+	reg [`DATA_WIDTH -1:0] dataIn_WEST;
 	
 	wire readReady_WEST;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_WEST;
