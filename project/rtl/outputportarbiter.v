@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Ouput Port Arbiter
  *
@@ -5,6 +6,15 @@
  * Impliments contention arbitration and output buffering.
  */
  
+=======
+/*
+ * Ouput Port Arbiter
+ *
+ * Takes the port fowarding desicion of all incomingPortHandlers as inputs, and determines which incoming packet to write to its output. 
+ * Impliments contention arbitration and output buffering.
+ */
+ 
+>>>>>>> 06cd6f1ef6982bb44307800ea115c126dba1c554
 `include "globalVariables.v"
 
 module outputPortArbiter(
@@ -82,6 +92,7 @@ module outputPortArbiter(
 	
 	reg [`BIT_SIZE-1:0] write_reg, write_next,write_succ;
 	reg [`BIT_SIZE-1:0] read_reg, read_next,read_succ;
+	reg [`BIT_SIZE:0] blank;
 	reg full_reg,empty_reg,full_next,empty_next;
 
 	integer i;
@@ -221,6 +232,7 @@ module outputPortArbiter(
 			read_reg <= 0;
 			full_reg <= 1'b0;
 			empty_reg <= 1'b1;
+			blank <= 1'b1;
 		end
 
 		else begin
@@ -270,26 +282,36 @@ module outputPortArbiter(
 		//inputamount <= readReady + selectBit_WEST + selectBit_EAST + selectBit_SOUTH + selectBit_NORTH;
 		
 
-		write_succ = write_reg + readReady + selectBit_WEST + selectBit_EAST + selectBit_SOUTH + selectBit_NORTH;
+		//write_succ = write_reg + readReady + selectBit_WEST + selectBit_EAST + selectBit_SOUTH + selectBit_NORTH;
+		write_succ = readReady + selectBit_WEST + selectBit_EAST + selectBit_SOUTH + selectBit_NORTH;
 		read_succ = read_reg + 1;
-//###########
-//You can't write to the same register in two different always blocks; it won't synthesize. Need to be combined into a single always block
-		write_next = write_reg;  //<== Two different always blocks  ########
-		read_next = read_reg;  //<== Two different always blocks  ########
-		full_next = full_reg;  //<== Two different always blocks  ########
-		empty_next = empty_reg;  //<== Two different always blocks  ########
+
+		write_next = write_reg;  
+		read_next = read_reg; 
+		full_next = full_reg; 
+		empty_next = empty_reg;  
 
 		if(~empty) begin
-			read_next = read_succ;  //<== Two different always blocks  ########
-			full_next = 1'b0;  //<== Two different always blocks  ########
+			read_next = read_succ;  
+			full_next = 1'b0;  
 			if(read_succ == write_reg)
-				empty_next = 1'b1;  //<== Two different always blocks  ########
+				empty_next = 1'b1;  
 		end
-		if(~full && write_enable) begin
-			write_next = write_succ;  //<== Two different always blocks  ########
-			empty_next = 1'b0;  //<== Two different always blocks  ########
+		if(~full && write_enable) begin   
+
+			if(read_reg > write_reg) 
+				blank = read_reg - write_reg;
+			else
+				blank = read_reg + `BUFFER_SIZE - write_reg;
+			if(write_succ > blank)
+				write_succ = write_reg;
+			else 
+				write_succ = write_succ + write_reg;
+				write_next = write_succ;
+				empty_next = 1'b0; 
+
 			if(write_succ == read_reg)
-				full_next = 1'b1;  //<== Two different always blocks  ########
+				full_next = 1'b1;  
 		end
 	end
 
