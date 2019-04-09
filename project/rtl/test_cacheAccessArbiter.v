@@ -51,17 +51,16 @@ module cacheArbiter_testbench;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_WEST;
 	
 
-	wire [`DATA_WIDTH -1:0] cacheDataIn;
-	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheWriteAddressIn;
-	wire memRead;
-	wire memWrite;
+	wire [`DATA_WIDTH -1:0] cacheDataIn_A;
+	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_A;
+	wire [`DATA_WIDTH -1:0] cacheDataOut_A;
+	wire memWrite_A;
 
+	wire [`DATA_WIDTH -1:0] cacheDataIn_B;
+	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_B;
+	wire [`DATA_WIDTH -1:0] cacheDataOut_B;
+	wire memWrite_B;
 
-	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_0;  //North's port
-	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_1;  //South's port
-	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_2;  //East's port
-	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_3; //West's port
-	
 
 	cacheAccessArbiter test1(
 		.reset(reset),
@@ -103,17 +102,17 @@ module cacheArbiter_testbench;
 		. readReady_WEST(readReady_WEST),
 		. requesterAddressOut_WEST(requesterAddressOut_WEST),
 		
-		//. from Cache Arbiter
-		. cacheDataIn(cacheDataIn),
-		. cacheWriteAddressIn(cacheWriteAddressIn),
-		. memRead(memRead),
-		. memWrite(memWrite),
 
-		//Arbiter Output
-		. cacheReadAddress_0(cacheReadAddress_0),
-		. cacheReadAddress_1(cacheReadAddress_1),
-		. cacheReadAddress_2(cacheReadAddress_2),
-		. cacheReadAddress_3(cacheReadAddress_3)
+		//Cache bank IO
+		.cacheDataIn_A(cacheDataIn_A),
+		.cacheAddressIn_A(cacheAddressIn_A),
+		.cacheDataOut_A(cacheDataOut_A),
+		.memWrite_A(memWrite_A),
+		
+		.cacheDataIn_B(cacheDataIn_B),
+		.cacheAddressIn_B(cacheAddressIn_B),
+		.cacheDataOut_B(cacheDataOut_B),
+		.memWrite_B(memWrite_B)
 	);
 
 	//		syncRAM cacheBank( 
@@ -162,7 +161,8 @@ module cacheArbiter_testbench;
 		memWrite_NORTH = 0;
 		memWrite_SOUTH = 0;
 		#10
-		memWrite_SOUTH = 1;
+		memWrite_SOUTH = 0;
+		memRead_SOUTH = 1;
 		dataIn_SOUTH = 9;
 		cacheAddressIn_SOUTH = 8'h9;
 		memWrite_EAST = 1;
@@ -174,14 +174,40 @@ module cacheArbiter_testbench;
 		//posedge
 		#10
 		memWrite_SOUTH = 0;
+		memRead_SOUTH = 0;
 		memWrite_EAST = 0;
 		memWrite_WEST = 0;
 		#10
 		memWrite_EAST = 1;
 		dataIn_EAST = 4;
 		cacheAddressIn_EAST = 8'h6;
+		//posedge
+		#10
+		memWrite_EAST = 0;
+		#10
+		memWrite_NORTH = 1;
+		dataIn_NORTH = 10;
+		cacheAddressIn_NORTH = 8'h2;
+		memWrite_SOUTH = 0;
+		memRead_SOUTH = 1;
+		dataIn_SOUTH = 9;
+		cacheAddressIn_SOUTH = 8'h9;
+		memWrite_EAST = 1;
+		dataIn_EAST = 6;
+		cacheAddressIn_EAST = 8'h5;
+		memWrite_WEST = 1;
+		dataIn_WEST = 7;
+		cacheAddressIn_WEST = 8'h4;
+
+		//posedge
+		#10
+		memWrite_NORTH = 0;
+		memWrite_SOUTH = 0;
+		memRead_SOUTH = 0;
+		memWrite_EAST = 0;
+		memWrite_WEST = 0;
 		#100
-		$finish;
+		$stop;
 	end
 
 
