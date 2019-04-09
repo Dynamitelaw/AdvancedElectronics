@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Ouput Port Arbiter
  *
@@ -5,6 +6,15 @@
  * Impliments contention arbitration and output buffering.
  */
  
+=======
+/*
+ * Ouput Port Arbiter
+ *
+ * Takes the port fowarding desicion of all incomingPortHandlers as inputs, and determines which incoming packet to write to its output. 
+ * Impliments contention arbitration and output buffering.
+ */
+ 
+>>>>>>> 06cd6f1ef6982bb44307800ea115c126dba1c554
 `include "globalVariables.v"
 
 module outputPortArbiter(

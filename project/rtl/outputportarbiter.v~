@@ -78,23 +78,68 @@ module outputPortArbiter(
 	reg full_reg,empty_reg,full_next,empty_next;
 
 	integer i;
-	reg [2:0]inputamount;
+
+	
+	/*
+	 * Determine where to place new write requests in the buffer
+	 */
+	 
+		//Incrementer for North buffer index
+	wire [1:0] indexIncrementer_NORTH = 1'b0; 
+	
+		//Incrementer for South buffer index
+	reg [1:0] indexIncrementer_SOUTH; 
+	integer m;
+	always@(inputSelection) begin
+	    	indexIncrementer_SOUTH = 0;
+	    	for(m=0; m<1;m=m+1) indexIncrementer_SOUTH = indexIncrementer_SOUTH + inputSelection[m];
+	end
+	
+		//Incrementer for East buffer index
+	reg [1:0] indexIncrementer_EAST; 
+	integer n;
+	always@(inputSelection) begin
+	    	indexIncrementer_EAST = 0;  
+	    	for(n=0;n<2;n=n+1) indexIncrementer_EAST = indexIncrementer_EAST + inputSelection[n];
+	end
+	
+		//Incrementer for West buffer index
+	reg [1:0] indexIncrementer_WEST; 
+	integer p;
+	always@(inputSelection) begin
+	    	indexIncrementer_WEST = 0;
+	    	for(p=0;p<3;p=p+1) indexIncrementer_WEST = indexIncrementer_WEST + inputSelection[p];
+	end
+
+		//Incrementer for West buffer index
+	reg [1:0] indexIncrementer_CACHE; 
+	integer q;
+	always@(inputSelection) begin
+	    	indexIncrementer_CACHE = 0;
+	    	for(q=0;q<4;q=q+1) indexIncrementer_CACHE  = indexIncrementer_CACHE  + inputSelection[p];
+	end
+	
+		//Wire array to combine increment values
+	wire [2:0] inputamount [4:0];
+	assign inputamount[0] = indexIncrementer_NORTH;
+	assign inputamount[1] = indexIncrementer_SOUTH;
+	assign inputamount[2] = indexIncrementer_EAST;
+	assign inputamount[3] = indexIncrementer_WEST;
+	assign inputamount[4] = indexIncrementer_CACHE;
+
+
 	assign write_enable = readReady||selectBit_WEST||selectBit_EAST||selectBit_SOUTH||selectBit_NORTH;
 
 	//write operation
 	always @(negedge clk) begin
 		if (write_enable && ~full) begin
-			inputamount = 0;
-//###########
-//while loops can't be systhesized. Needs to be rewritten as a for loop that can be statically unrolled
 			for(i = 0; i < 5; i = i + 1) begin
 				if(inputbuffer[i]) begin
-					dataoutbuffer[write_reg + inputamount] = databuffer[i];
-					destinationAddressbuffer[write_reg + inputamount] = destAddrbuffer[i];
-					requesterAddressbuffer[write_reg + inputamount] = requestAddrbuffer[i];
-					readOutbuffer[write_reg + inputamount] = readbuffer[i];
-					writeOutbuffer[write_reg + inputamount] = writebuffer[i];
-					inputamount = inputamount + 1;
+					dataoutbuffer[write_reg + inputamount[i]] <= databuffer[i];
+					destinationAddressbuffer[write_reg + inputamount[i]] <= destAddrbuffer[i];
+					requesterAddressbuffer[write_reg + inputamount[i]] <= requestAddrbuffer[i];
+					readOutbuffer[write_reg + inputamount[i]] <= readbuffer[i];
+					writeOutbuffer[write_reg + inputamount[i]] <= writebuffer[i];
 				end
 			end
 
@@ -169,7 +214,6 @@ module outputPortArbiter(
 			read_reg <= 0;
 			full_reg <= 1'b0;
 			empty_reg <= 1'b1;
-			inputamount <= 0;
 		end
 
 		else begin
@@ -237,7 +281,7 @@ module outputPortArbiter(
 		if(~full && write_enable) begin
 			write_next = write_succ;  //<== Two different always blocks  ########
 			empty_next = 1'b0;  //<== Two different always blocks  ########
-			if(write_succ == (2**`BIT_SIZE-1))
+			if(write_succ == read_reg)
 				full_next = 1'b1;  //<== Two different always blocks  ########
 		end
 	end

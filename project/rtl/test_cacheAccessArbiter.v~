@@ -9,43 +9,43 @@
 
 module cacheArbiter_testbench;
 	reg reset = 0;
-	reg clk;
+	reg clk = 0;
 
-	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_NORTH;
-	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_NORTH;
-	reg memRead_NORTH;
-	reg memWrite_NORTH;
-	reg [`DATA_WIDTH -1:0] dataIn_NORTH;
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_NORTH = 0;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_NORTH = 0;
+	reg memRead_NORTH = 0;
+	reg memWrite_NORTH = 0;
+	reg [`DATA_WIDTH -1:0] dataIn_NORTH = 0;
 
 	wire readReady_NORTH;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_NORTH;
 
 	//reg from South Port
-	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_SOUTH;
-	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_SOUTH;
-	reg memRead_SOUTH;
-	reg memWrite_SOUTH;
-	reg [`DATA_WIDTH -1:0] dataIn_SOUTH;
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_SOUTH = 0;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_SOUTH = 0;
+	reg memRead_SOUTH = 0;
+	reg memWrite_SOUTH = 0;
+	reg [`DATA_WIDTH -1:0] dataIn_SOUTH = 0;
 	
 	wire readReady_SOUTH;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_SOUTH;
 
 	//reg from East Port
-	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_EAST;
-	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_EAST;
-	reg memRead_EAST;
-	reg memWrite_EAST;
-	reg [`DATA_WIDTH -1:0] dataIn_EAST;
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_EAST = 0;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_EAST = 0;
+	reg memRead_EAST = 0;
+	reg memWrite_EAST = 0;
+	reg [`DATA_WIDTH -1:0] dataIn_EAST = 0;
 	
 	wire readReady_EAST;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_EAST;
 	
 	//reg from West Port
-	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_WEST;
-	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_WEST;
-	reg memRead_WEST;
-	reg memWrite_WEST;
-	reg [`DATA_WIDTH -1:0] dataIn_WEST;
+	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_WEST = 0;
+	reg [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_WEST = 0;
+	reg memRead_WEST = 0;
+	reg memWrite_WEST = 0;
+	reg [`DATA_WIDTH -1:0] dataIn_WEST = 0;
 	
 	wire readReady_WEST;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_WEST;
@@ -141,29 +141,42 @@ module cacheArbiter_testbench;
 	end
 
 	initial begin
-		clk = 0;
+		clk = 1;
 		reset = 1;
-		#10
+		#5
 		reset = 0;
-		#10
+		//posedge
+		#5
 		memWrite_NORTH = 1;
 		dataIn_NORTH = 10;
 		cacheAddressIn_NORTH = 8'h2;
-		#10
+		#5
 		memWrite_NORTH = 1;
 		dataIn_NORTH = 5;
 		cacheAddressIn_NORTH = 8'h3;
 		memWrite_SOUTH = 1;
 		dataIn_SOUTH = 4;
 		cacheAddressIn_SOUTH = 8'h1;
-		#20
+		//posedge
+		#5
+		memWrite_NORTH = 0;
+		memWrite_SOUTH = 0;
+		#5
+		memWrite_SOUTH = 1;
+		dataIn_SOUTH = 9;
+		cacheAddressIn_SOUTH = 8'h9;
 		memWrite_EAST = 1;
-		dataIn_EAST = 5;
+		dataIn_EAST = 6;
 		cacheAddressIn_EAST = 8'h5;
-		memWrite_EAST = 1;
-		dataIn_EAST = 4;
-		cacheAddressIn_EAST = 8'h4;
-		#10
+		memWrite_WEST = 1;
+		dataIn_WEST = 7;
+		cacheAddressIn_WEST = 8'h4;
+		//posedge
+		#5
+		memWrite_SOUTH = 0;
+		memWrite_EAST = 0;
+		memWrite_WEST = 0;
+		#5
 		memWrite_EAST = 1;
 		dataIn_EAST = 4;
 		cacheAddressIn_EAST = 8'h6;
