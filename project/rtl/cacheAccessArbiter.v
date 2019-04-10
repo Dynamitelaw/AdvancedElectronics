@@ -352,14 +352,14 @@ module cacheAccessArbiter(
 	always @ (*) begin
 		if (clk) begin
 			for (r=0; r<4; r=r+1) begin
-				if (prevRequesterPort_A == q) begin
-					dataOut_Concatenated[q] = cacheDataOut_A;
+				if (prevRequesterPort_A == r) begin
+					dataOut_Concatenated[r] = cacheDataOut_A;
 				end
-				else if (prevRequesterPort_B == q) begin
-					dataOut_Concatenated[q] = cacheDataOut_B;
+				else if (prevRequesterPort_B == r) begin
+					dataOut_Concatenated[r] = cacheDataOut_B;
 				end
 				else begin
-					dataOut_Concatenated[q] = 0;
+					dataOut_Concatenated[r] = 0;
 				end
 			end
 		end

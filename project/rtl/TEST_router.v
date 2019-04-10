@@ -10,7 +10,7 @@
 //`include "router.v"
 //`include "../dc_shell_cmrf8sf/router.nl.v"
 `timescale 1ns/1ps
-`define SD #0.010
+`define SD #1
 
 module routerTestbench;
 	//Instantiate modules
