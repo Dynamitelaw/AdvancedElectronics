@@ -6,8 +6,8 @@
  
 //Include dependencies
 `include "globalVariables.v"
-//`include "cacheAccessArbiter.v"
-//`include "outputportarbiter.v"
+`include "cacheAccessArbiter.v"
+`include "outputportarbiter.v"
 
 
 /*
@@ -71,22 +71,15 @@ module router(
 	output wire [`DATA_WIDTH -1:0] dataOut_WEST, 
 		
 	//Cache bank IO
-	output wire [`DATA_WIDTH -1:0] cacheDataIn,
-	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheWriteAddressIn,
-	output wire memRead,
-	output wire memWrite,
+	output reg [`DATA_WIDTH -1:0] cacheDataIn_A,
+	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_A,
+	input [`DATA_WIDTH -1:0] cacheDataOut_A,
+	output wire memWrite_A,
 	
-	input [`DATA_WIDTH -1:0] cacheDataOut_0,
-	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_0,
-	
-	input [`DATA_WIDTH -1:0] cacheDataOut_1,
-	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_1,
-	
-	input [`DATA_WIDTH -1:0] cacheDataOut_2,
-	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_2,
-	
-	input [`DATA_WIDTH -1:0] cacheDataOut_3,
-	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheReadAddress_3
+	output wire [`DATA_WIDTH -1:0] cacheDataIn_B,
+	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_B,
+	input [`DATA_WIDTH -1:0] cacheDataOut_B,
+	output wire memWrite_B
 	);
 	
 	/* ##############################
@@ -138,8 +131,8 @@ module router(
 		.localRouterAddress(localRouterAddress),
 		.destinationAddressIn(destinationAddressIn_NORTH),
 		.requesterAddressIn(requesterAddressIn_NORTH),
-		.readIn(readIn_NORTH),
-		.writeIn(writeIn_NORTH),
+		.readIn(readInBuffer_NORTH),
+		.writeIn(writeInBuffer_NORTH),
 		.outputPortSelect(outputPortSelect_NORTH),
 		.memRead(memRead_NORTH),
 		.memWrite(memWrite_NORTH)
@@ -155,8 +148,8 @@ module router(
 		.localRouterAddress(localRouterAddress),
 		.destinationAddressIn(destinationAddressIn_SOUTH),
 		.requesterAddressIn(requesterAddressIn_SOUTH),
-		.readIn(readIn_SOUTH),
-		.writeIn(writeIn_SOUTH),
+		.readIn(readInBuffer_SOUTH),
+		.writeIn(writeInBuffer_SOUTH),
 		.outputPortSelect(outputPortSelect_SOUTH),
 		.memRead(memRead_SOUTH),
 		.memWrite(memWrite_SOUTH)
@@ -172,8 +165,8 @@ module router(
 		.localRouterAddress(localRouterAddress),
 		.destinationAddressIn(destinationAddressIn_EAST),
 		.requesterAddressIn(requesterAddressIn_EAST),
-		.readIn(readIn_EAST),
-		.writeIn(writeIn_EAST),
+		.readIn(readInBuffer_EAST),
+		.writeIn(writeInBuffer_EAST),
 		.outputPortSelect(outputPortSelect_EAST),
 		.memRead(memRead_EAST),
 		.memWrite(memWrite_EAST)
@@ -189,8 +182,8 @@ module router(
 		.localRouterAddress(localRouterAddress),
 		.destinationAddressIn(destinationAddressIn_WEST),
 		.requesterAddressIn(requesterAddressIn_WEST),
-		.readIn(readIn_WEST),
-		.writeIn(writeIn_WEST),
+		.readIn(readInBuffer_WEST),
+		.writeIn(writeInBuffer_WEST),
 		.outputPortSelect(outputPortSelect_WEST),
 		.memRead(memRead_WEST),
 		.memWrite(memWrite_WEST)
@@ -203,67 +196,78 @@ module router(
 	 */
 	wire readReady_NORTH;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] cacheRequesterAddress_NORTH;
+	wire [`DATA_WIDTH -1:0] cacheDataOut_NORTH;
+	
 	wire readReady_SOUTH;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] cacheRequesterAddress_SOUTH;
+	wire [`DATA_WIDTH -1:0] cacheDataOut_SOUTH;
+	
 	wire readReady_EAST;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] cacheRequesterAddress_EAST;
+	wire [`DATA_WIDTH -1:0] cacheDataOut_EAST;
+	
 	wire readReady_WEST;
 	wire [`NETWORK_ADDRESS_WIDTH -1:0] cacheRequesterAddress_WEST;
+	wire [`DATA_WIDTH -1:0] cacheDataOut_WEST;
 	
 	cacheAccessArbiter cacheController(
-		.clk,
-		.reset,
+		.clk(clk),
+		.reset(reset),
 	
 		//North IO
 		.cacheAddressIn_NORTH(destinationAddressInBuffer_NORTH[`CACHE_BANK_ADDRESS_WIDTH -1:0]),
 		.requesterAddressIn_NORTH(requesterAddressInBuffer_NORTH),
-		.memRead_NORTH(readInBuffer_NORTH),
-		.memWrite_NORTH(writeInBuffer_NORTH),
+		.memRead_NORTH(memRead_NORTH),
+		.memWrite_NORTH(memWrite_NORTH),
 		.dataIn_NORTH(dataInBuffer_NORTH),
 	
 		.readReady_NORTH(readReady_NORTH),
 		.requesterAddressOut_NORTH(cacheRequesterAddress_NORTH),
+		.cacheDataOut_NORTH(cacheDataOut_NORTH),
 	
 		//South IO
 		.cacheAddressIn_SOUTH(destinationAddressInBuffer_SOUTH[`CACHE_BANK_ADDRESS_WIDTH -1:0]),
 		.requesterAddressIn_SOUTH(requesterAddressInBuffer_SOUTH),
-		.memRead_SOUTH(readInBuffer_SOUTH),
-		.memWrite_SOUTH(writeInBuffer_SOUTH),
+		.memRead_SOUTH(memRead_SOUTH),
+		.memWrite_SOUTH(memWrite_SOUTH),
 		.dataIn_SOUTH(dataInBuffer_SOUTH),
 	
 		.readReady_SOUTH(readReady_SOUTH),
 		.requesterAddressOut_SOUTH(cacheRequesterAddress_SOUTH),
+		.cacheDataOut_SOUTH(cacheDataOut_SOUTH),
 		
 		//East IO
 		.cacheAddressIn_EAST(destinationAddressInBuffer_EAST[`CACHE_BANK_ADDRESS_WIDTH -1:0]),
 		.requesterAddressIn_EAST(requesterAddressInBuffer_EAST),
-		.memRead_EAST(readInBuffer_EAST),
-		.memWrite_EAST(writeInBuffer_EAST),
+		.memRead_EAST(memRead_EAST),
+		.memWrite_EAST(memWrite_EAST),
 		.dataIn_EAST(dataInBuffer_EAST),
 	
 		.readReady_EAST(readReady_EAST),
 		.requesterAddressOut_EAST(cacheRequesterAddress_EAST),
+		.cacheDataOut_EAST(cacheDataOut_EAST),
 		
 		//West IO
 		.cacheAddressIn_WEST(destinationAddressInBuffer_WEST[`CACHE_BANK_ADDRESS_WIDTH -1:0]),
 		.requesterAddressIn_WEST(requesterAddressInBuffer_WEST),
-		.memRead_WEST(readInBuffer_WEST),
-		.memWrite_WEST(writeInBuffer_WEST),
+		.memRead_WEST(memRead_WEST),
+		.memWrite_WEST(memWrite_WEST),
 		.dataIn_WEST(dataInBuffer_WEST),
 	
 		.readReady_WEST(readReady_WEST),
 		.requesterAddressOut_WEST(cacheRequesterAddress_WEST),
-	
+		.cacheDataOut_WEST(cacheDataOut_WEST),
+		
 		//Cache bank IO
-		.cacheDataIn(cacheDataIn),
-		.cacheWriteAddressIn(cacheWriteAddressIn),
-		.memRead(memRead),
-		.memWrite(memWrite),
+		.cacheDataIn_A(cacheDataIn_A),
+		.cacheAddressIn_A(cacheAddressIn_A),
+		.cacheDataOut_A(cacheDataOut_A),
+		.memWrite_A(memWrite_A),
 	
-		.cacheReadAddress_0(cacheReadAddress_0),
-		.cacheReadAddress_1(cacheReadAddress_1),
-		.cacheReadAddress_2(cacheReadAddress_2),
-		.cacheReadAddress_3(cacheReadAddress_3)
+		.cacheDataIn_B(cacheDataIn_B),
+		.cacheAddressIn_B(cacheAddressIn_B),
+		.cacheDataOut_B(cacheDataOut_B),
+		.memWrite_B(memWrite_B)
 		);
 	 
 	 
@@ -273,7 +277,6 @@ module router(
 	 */
 	 
 	//North
-	wire contentionError_NORTH;
 	outputPortArbiter outNorth(
 		.clk(clk),
 		.reset(reset),
@@ -308,19 +311,16 @@ module router(
 		
 		.readReady(readReady_NORTH),
 		.readRequesterAddress(cacheRequesterAddress_NORTH),
-		.cacheDataOut(cacheDataOut_0),
+		.cacheDataOut(cacheDataOut_NORTH),
 	
 		.destinationAddressOut(destinationAddressOut_NORTH),
 		.requesterAddressOut(requesterAddressOut_NORTH),
 		.readOut(readOut_NORTH),
 		.writeOut(writeOut_NORTH),
-		.dataOut(dataOut_NORTH),
-	
-		.contentionError(contentionError_NORTH)
+		.dataOut(dataOut_NORTH)
 		);
 	
 	//South
-	wire contentionError_SOUTH;
 	outputPortArbiter outSouth(
 		.clk(clk),
 		.reset(reset),
@@ -355,19 +355,16 @@ module router(
 		
 		.readReady(readReady_SOUTH),
 		.readRequesterAddress(cacheRequesterAddress_SOUTH),
-		.cacheDataOut(cacheDataOut_1),
+		.cacheDataOut(cacheDataOut_SOUTH),
 		
 		.destinationAddressOut(destinationAddressOut_SOUTH),
 		.requesterAddressOut(requesterAddressOut_SOUTH),
 		.readOut(readOut_SOUTH),
 		.writeOut(writeOut_SOUTH),
-		.dataOut(dataOut_SOUTH),
-	
-		.contentionError(contentionError_SOUTH)
+		.dataOut(dataOut_SOUTH)
 		);
 		
 	//East
-	wire contentionError_EAST;
 	outputPortArbiter outEast(
 		.clk(clk),
 		.reset(reset),
@@ -402,19 +399,16 @@ module router(
 		
 		.readReady(readReady_EAST),
 		.readRequesterAddress(cacheRequesterAddress_EAST),
-		.cacheDataOut(cacheDataOut_2),
+		.cacheDataOut(cacheDataOut_EAST),
 		
 		.destinationAddressOut(destinationAddressOut_EAST),
 		.requesterAddressOut(requesterAddressOut_EAST),
 		.readOut(readOut_EAST),
 		.writeOut(writeOut_EAST),
-		.dataOut(dataOut_EAST),
-	
-		.contentionError(contentionError_EAST)
+		.dataOut(dataOut_EAST)
 		);
 		
 	//West
-	wire contentionError_WEST;
 	outputPortArbiter outWest(
 		.clk(clk),
 		.reset(reset),
@@ -449,19 +443,15 @@ module router(
 		
 		.readReady(readReady_WEST),
 		.readRequesterAddress(cacheRequesterAddress_WEST),
-		.cacheDataOut(cacheDataOut_3),
+		.cacheDataOut(cacheDataOut_WEST),
 		
 		.destinationAddressOut(destinationAddressOut_WEST),
 		.requesterAddressOut(requesterAddressOut_WEST),
 		.readOut(readOut_WEST),
 		.writeOut(writeOut_WEST),
-		.dataOut(dataOut_WEST),
-	
-		.contentionError(contentionError_WEST)
+		.dataOut(dataOut_WEST)
 		);
 	
-	
-	wire contentionError = contentionError_NORTH || contentionError_SOUTH || contentionError_EAST || contentionError_WEST;
 	
 	/* ##############################
 	 * Packet buffering behaviour
@@ -564,7 +554,6 @@ module incomingPortHandler(
 	wire [`NETWORK_ROW_ADDRESS_WIDTH-1:0] destinationRowAddress = incomingDesitnationAddress[`NETWORK_ADDRESS_WIDTH-1:`NETWORK_COLUMN_ADDRESS_WIDTH];  //row then column ordering for network address
 	wire [`NETWORK_COLUMN_ADDRESS_WIDTH-1:0] destinationColumnAddress = incomingDesitnationAddress[`NETWORK_COLUMN_ADDRESS_WIDTH-1:0];
 	
-	
 	always @ (posedge clk) begin
 		//Synchronous reset
 		if (reset) begin
@@ -585,21 +574,21 @@ module incomingPortHandler(
 				
 				//Packet is meant for someone else. Route packet to next router
 				//Route to correct row first, then correct column
-				if (destinationRowAddress > localRowAddress) begin
+				else if (destinationRowAddress > localRowAddress) begin
 					//send packet south
 					outputPortSelect <= 4'b0010;
 					memRead <= `FALSE;
 					memWrite <= `FALSE;
 				end
 				
-				if (destinationRowAddress < localRowAddress) begin
+				else if (destinationRowAddress < localRowAddress) begin
 					//send packet north
 					outputPortSelect <= 4'b0001;
 					memRead <= `FALSE;
 					memWrite <= `FALSE;
 				end
 				
-				if (destinationRowAddress == localRowAddress) begin
+				else if (destinationRowAddress == localRowAddress) begin
 					if (destinationColumnAddress > localColumnAddress) begin
 						//send packet east
 						outputPortSelect <= 4'b0100;

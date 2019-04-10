@@ -8,9 +8,9 @@
 #########################################
 set BEHAVIORROOT "../rtl/"
 #set top_level
-set top_level lfsr1
+set top_level router
 source -verbose "common.tcl"
-read_verilog {../rtl/lfsr1.v}
+read_verilog {../rtl/router.v}
 list_designs
 
 #########################################
@@ -19,7 +19,7 @@ list_designs
 current_design $top_level
 link
 source -verbose "timing.tcl"
-set_max_capacitance 0.005 [all_inputs]
+set_max_capacitance 0.001 [all_inputs]
 set_max_fanout 4 $top_level
 set_max_fanout 2 [all_inputs]
 set_max_area 0 

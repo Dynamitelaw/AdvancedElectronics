@@ -31,55 +31,277 @@ Initializing...
 set BEHAVIORROOT "../rtl/"
 ../rtl/
 #set top_level
-set top_level lfsr1
-lfsr1
+set top_level router
+router
 source -verbose "common.tcl"
 . /tools4/syn2007.12/libraries/syn/
 dw_foundation.sldb
 * /tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db dw_foundation.sldb
 /tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db
 /tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db
-read_verilog {../rtl/lfsr1.v}
+read_verilog {../rtl/router.v}
 Loading db file '/tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db'
 Loading db file '/usr/cad/syn/libraries/syn/dw_foundation.sldb'
 Loading db file '/usr/cad/syn/libraries/syn/gtech.db'
 Loading db file '/usr/cad/syn/libraries/syn/standard.sldb'
   Loading link library 'scx3_cmos8rf_lpvt_tt_1p2v_25c'
   Loading link library 'gtech'
-Loading verilog file '/homes/user3/fall16/jer2201/ee6321/labs/lab2/rtl/lfsr1.v'
+Loading verilog file '/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v'
 Detecting input file type automatically (-rtl or -netlist).
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/outputportarbiter.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/globalVariables.v
 Reading with Presto HDL Compiler (equivalent to -rtl option).
 Running PRESTO HDLC
-Compiling source file /homes/user3/fall16/jer2201/ee6321/labs/lab2/rtl/lfsr1.v
+Compiling source file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/globalVariables.v
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:119: the undeclared symbol 'memRead' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:120: the undeclared symbol 'cacheReadAddress_0' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:121: the undeclared symbol 'cacheReadAddress_1' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:122: the undeclared symbol 'cacheReadAddress_2' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:123: the undeclared symbol 'cacheReadAddress_3' assumed to have the default net type, which is 'wire'. (VER-936)
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/outputportarbiter.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/globalVariables.v
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:194: signed to unsigned assignment occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:239: signed to unsigned assignment occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:247: signed to unsigned assignment occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:254: signed to unsigned assignment occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:276: signed to unsigned assignment occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:304: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:305: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:306: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:307: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:308: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:336: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:340: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:355: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:358: signed to unsigned conversion occurs. (VER-318)
 
 Inferred memory devices in process
-	in routine lfsr1 line 8 in file
-		'/homes/user3/fall16/jer2201/ee6321/labs/lab2/rtl/lfsr1.v'.
+	in routine cacheAccessArbiter line 201 in file
+		'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v'.
+======================================================================================
+|       Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+======================================================================================
+|  prevRequesterPort_B_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|     cacheDataIn_A_reg      | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+| prevRequesterAddress_B_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|  prevRequesterPort_A_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+| prevRequesterAddress_A_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|    nextEmptyBuffer_reg     | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|     prevMemRead_B_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     prevMemRead_A_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       memWrite_B_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+| requesterAddressBuffer_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+| requesterAddressBuffer_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|        isWrite_reg         | Flip-flop |   8   |  N  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|    cacheAddressIn_B_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|     cacheDataIn_B_reg      | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|       memWrite_A_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    cacheAddressIn_A_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|           i_reg            | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+======================================================================================
+
+Inferred memory devices in process
+	in routine cacheAccessArbiter line 325 in file
+		'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v'.
+================================================================================================
+|            Register Name             |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================================
+|      readReady_Concatenated_reg      | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|                q_reg                 | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+| requesterAddressOut_Concatenated_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+| requesterAddressOut_Concatenated_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+| requesterAddressOut_Concatenated_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+| requesterAddressOut_Concatenated_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+================================================================================================
+
+Inferred memory devices in process
+	in routine cacheAccessArbiter line 352 in file
+		'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v'.
+================================================================================
+|      Register Name       | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| dataOut_Concatenated_reg | Latch |   6   |  Y  | N  | N  | N  | -  | -  | -  |
+| dataOut_Concatenated_reg | Latch |   6   |  Y  | N  | N  | N  | -  | -  | -  |
+| dataOut_Concatenated_reg | Latch |   6   |  Y  | N  | N  | N  | -  | -  | -  |
+| dataOut_Concatenated_reg | Latch |   6   |  Y  | N  | N  | N  | -  | -  | -  |
+================================================================================
+Statistics for MUX_OPs
+=================================================================
+|    block name/line     | Inputs | Outputs | # sel inputs | MB |
+=================================================================
+| cacheAccessArbiter/274 |   4    |    2    |      2       | N  |
+| cacheAccessArbiter/304 |   8    |    6    |      3       | N  |
+| cacheAccessArbiter/305 |   8    |    8    |      3       | N  |
+| cacheAccessArbiter/306 |   4    |    4    |      2       | N  |
+| cacheAccessArbiter/307 |   8    |    1    |      3       | N  |
+| cacheAccessArbiter/308 |   8    |    2    |      3       | N  |
+=================================================================
+
+Statistics for case statements in always block at line 159 in file
+	'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/outputportarbiter.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           170            |     no/auto      |
+===============================================
+
+Inferred memory devices in process
+	in routine outputPortArbiter line 143 in file
+		'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/outputportarbiter.v'.
+========================================================================================
+|        Register Name         |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+========================================================================================
+|      readOutbuffer_reg       | Flip-flop |   8   |  N  | N  | N  | N  | N  | N  | N  |
+|      writeOutbuffer_reg      | Flip-flop |   8   |  N  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+========================================================================================
+
+Inferred memory devices in process
+	in routine outputPortArbiter line 159 in file
+		'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/outputportarbiter.v'.
+=====================================================================================
+|       Register Name       |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=====================================================================================
+|  requesterAddressOut_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|        readOut_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       writeOut_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        dataOut_reg        | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressOut_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+=====================================================================================
+
+Inferred memory devices in process
+	in routine outputPortArbiter line 220 in file
+		'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/outputportarbiter.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
-|    lfsr_out_reg     | Flip-flop |  28   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    full_reg_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    empty_reg_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    write_reg_reg    | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|    read_reg_reg     | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
 ===============================================================================
+Statistics for MUX_OPs
+================================================================
+|   block name/line     | Inputs | Outputs | # sel inputs | MB |
+================================================================
+| outputPortArbiter/162 |   8    |    6    |      3       | N  |
+| outputPortArbiter/163 |   8    |   12    |      3       | N  |
+| outputPortArbiter/164 |   8    |    4    |      3       | N  |
+| outputPortArbiter/165 |   8    |    2    |      3       | N  |
+================================================================
+
+Inferred memory devices in process
+	in routine router line 460 in file
+		'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v'.
+================================================================================================
+|            Register Name             |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================================
+|        writeInBuffer_WEST_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        dataInBuffer_WEST_reg         | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressInBuffer_NORTH_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressInBuffer_NORTH_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|        readInBuffer_NORTH_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       writeInBuffer_NORTH_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        dataInBuffer_NORTH_reg        | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressInBuffer_SOUTH_reg | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressInBuffer_SOUTH_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|        readInBuffer_SOUTH_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       writeInBuffer_SOUTH_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        dataInBuffer_SOUTH_reg        | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressInBuffer_EAST_reg  | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressInBuffer_EAST_reg   | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|        readInBuffer_EAST_reg         | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        writeInBuffer_EAST_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        dataInBuffer_EAST_reg         | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressInBuffer_WEST_reg  | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressInBuffer_WEST_reg   | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|        readInBuffer_WEST_reg         | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+================================================================================================
+
+Inferred memory devices in process
+	in routine incomingPortHandler line 557 in file
+		'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+|     memRead_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| outputPortSelect_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|     memWrite_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+================================================================================
 Presto compilation completed successfully.
-Current design is now '/homes/user3/fall16/jer2201/ee6321/labs/lab2/rtl/lfsr1.db:lfsr1'
-Loaded 1 design.
-Current design is 'lfsr1'.
-lfsr1
+Current design is now '/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.db:cacheAccessArbiter'
+Loaded 4 designs.
+Current design is 'cacheAccessArbiter'.
+cacheAccessArbiter outputPortArbiter router incomingPortHandler
 list_designs
-lfsr1 (*)
+cacheAccessArbiter (*)  outputPortArbiter
+incomingPortHandler     router
 1
 #########################################
 # Design Constranits                    #
 #########################################
 current_design $top_level
-Current design is 'lfsr1'.
-{lfsr1}
+Current design is 'router'.
+{router}
 link
 
-  Linking design 'lfsr1'
+  Linking design 'router'
   Using the following designs and libraries:
   --------------------------------------------------------------------------
-  lfsr1                       /homes/user3/fall16/jer2201/ee6321/labs/lab2/rtl/lfsr1.db
+  * (4 designs)               /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.db, etc
   scx3_cmos8rf_lpvt_tt_1p2v_25c (library) /tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db
   dw_foundation.sldb (library) /usr/cad/syn/libraries/syn/dw_foundation.sldb
 
@@ -112,10 +334,59 @@ set_max_area 0
 # Compile for combinational logic       #
 #########################################
 check_design
+ 
+****************************************
+check_design summary:
+Version:     J-2014.09-SP2
+Date:        Tue Apr  9 21:35:31 2019
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     12
+    Unconnected ports (LINT-28)                                    12
+
+Cells                                                              20
+    Cells do not drive (LINT-1)                                    20
+--------------------------------------------------------------------------------
+
+Warning: In design 'incomingPortHandler', cell 'C128' does not drive any nets. (LINT-1)
+Warning: In design 'incomingPortHandler', cell 'C137' does not drive any nets. (LINT-1)
+Warning: In design 'cacheAccessArbiter', cell 'C20085' does not drive any nets. (LINT-1)
+Warning: In design 'cacheAccessArbiter', cell 'C20103' does not drive any nets. (LINT-1)
+Warning: In design 'cacheAccessArbiter', cell 'C20152' does not drive any nets. (LINT-1)
+Warning: In design 'cacheAccessArbiter', cell 'C20235' does not drive any nets. (LINT-1)
+Warning: In design 'cacheAccessArbiter', cell 'C20318' does not drive any nets. (LINT-1)
+Warning: In design 'cacheAccessArbiter', cell 'C20394' does not drive any nets. (LINT-1)
+Warning: In design 'cacheAccessArbiter', cell 'C20427' does not drive any nets. (LINT-1)
+Warning: In design 'cacheAccessArbiter', cell 'C20490' does not drive any nets. (LINT-1)
+Warning: In design 'cacheAccessArbiter', cell 'C20553' does not drive any nets. (LINT-1)
+Warning: In design 'cacheAccessArbiter', cell 'B_337' does not drive any nets. (LINT-1)
+Warning: In design 'outputPortArbiter', cell 'C8793' does not drive any nets. (LINT-1)
+Warning: In design 'outputPortArbiter', cell 'C8876' does not drive any nets. (LINT-1)
+Warning: In design 'outputPortArbiter', cell 'C8959' does not drive any nets. (LINT-1)
+Warning: In design 'outputPortArbiter', cell 'C9042' does not drive any nets. (LINT-1)
+Warning: In design 'outputPortArbiter', cell 'B_183' does not drive any nets. (LINT-1)
+Warning: In design 'outputPortArbiter', cell 'C9205' does not drive any nets. (LINT-1)
+Warning: In design 'outputPortArbiter', cell 'C9206' does not drive any nets. (LINT-1)
+Warning: In design 'outputPortArbiter', cell 'C9221' does not drive any nets. (LINT-1)
+Warning: In design 'incomingPortHandler', port 'destinationAddressIn[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'incomingPortHandler', port 'destinationAddressIn[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'incomingPortHandler', port 'destinationAddressIn[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'incomingPortHandler', port 'destinationAddressIn[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'incomingPortHandler', port 'destinationAddressIn[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'incomingPortHandler', port 'destinationAddressIn[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'incomingPortHandler', port 'destinationAddressIn[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'incomingPortHandler', port 'destinationAddressIn[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'incomingPortHandler', port 'requesterAddressIn[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'incomingPortHandler', port 'requesterAddressIn[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'incomingPortHandler', port 'requesterAddressIn[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'incomingPortHandler', port 'requesterAddressIn[0]' is not connected to any nets. (LINT-28)
 1
 compile_ultra
 Information: Performing power optimization. (PWR-850)
-Alib files are up-to-date.
+Analyzing: "/tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db"
+Library analysis succeeded.
 Information: Evaluating DesignWare library utilization. (UISN-27)
 
 ============================================================================
@@ -127,30 +398,123 @@ Information: Evaluating DesignWare library utilization. (UISN-27)
 
 Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
 
+Information: There are 32 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
 Loaded alib file './alib-52/scx3_cmos8rf_lpvt_tt_1p2v_25c.db.alib'
-Information: Ungrouping 0 of 1 hierarchies before Pass 1 (OPT-775)
+Information: Ungrouping hierarchy inNorth before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy inSouth before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy inEast before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy inWest before Pass 1 (OPT-776)
+Information: Ungrouping 4 of 10 hierarchies before Pass 1 (OPT-775)
 Information: State dependent leakage is now switched from on to off.
 
   Beginning Pass 1 Mapping
   ------------------------
-  Processing 'lfsr1'
+  Processing 'cacheAccessArbiter'
+Information: Added key list 'DesignWare' to design 'cacheAccessArbiter'. (DDB-72)
+Information: The register 'q_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[3][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[3][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[3][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[3][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[3][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[3][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[2][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[2][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[2][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[2][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[2][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[2][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[1][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[1][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[1][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[0][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[0][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[0][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[0][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[0][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dataOut_Concatenated_reg[0][0]' is a constant and will be removed. (OPT-1206)
+Information: In design 'cacheAccessArbiter', the register 'i_reg[0]' is removed because it is merged to 'i_reg[1]'. (OPT-1215)
+ Implement Synthetic for 'cacheAccessArbiter'.
+  Processing 'outputPortArbiter_0'
+Information: Added key list 'DesignWare' to design 'outputPortArbiter_0'. (DDB-72)
+ Implement Synthetic for 'outputPortArbiter_0'.
+  Processing 'router'
+Information: Added key list 'DesignWare' to design 'router'. (DDB-72)
 
   Updating timing information
+Information: The register 'cacheController/addressToWriteBuffer_reg[7][0]' will be removed. (OPT-1207)
+Information: The register 'cacheController/addressToWriteBuffer_reg[7][1]' will be removed. (OPT-1207)
+Information: The register 'cacheController/addressToWriteBuffer_reg[7][2]' will be removed. (OPT-1207)
+Information: The register 'cacheController/addressToWriteBuffer_reg[7][3]' will be removed. (OPT-1207)
+Information: The register 'cacheController/addressToWriteBuffer_reg[7][4]' will be removed. (OPT-1207)
+Information: The register 'cacheController/addressToWriteBuffer_reg[7][5]' will be removed. (OPT-1207)
+Information: The register 'cacheController/addressToWriteBuffer_reg[7][6]' will be removed. (OPT-1207)
+Information: The register 'cacheController/addressToWriteBuffer_reg[7][7]' will be removed. (OPT-1207)
+Information: The register 'cacheController/requesterPortBuffer_reg[7][0]' will be removed. (OPT-1207)
+Information: The register 'cacheController/requesterPortBuffer_reg[7][1]' will be removed. (OPT-1207)
+Information: The register 'cacheController/dataToWriteBuffer_reg[7][0]' will be removed. (OPT-1207)
+Information: The register 'cacheController/dataToWriteBuffer_reg[7][1]' will be removed. (OPT-1207)
+Information: The register 'cacheController/dataToWriteBuffer_reg[7][2]' will be removed. (OPT-1207)
+Information: The register 'cacheController/dataToWriteBuffer_reg[7][3]' will be removed. (OPT-1207)
+Information: The register 'cacheController/dataToWriteBuffer_reg[7][4]' will be removed. (OPT-1207)
+Information: The register 'cacheController/dataToWriteBuffer_reg[7][5]' will be removed. (OPT-1207)
+Information: The register 'cacheController/isWrite_reg[7]' will be removed. (OPT-1207)
 Information: Updating design information... (UID-85)
 Information: The library cell 'HOLDX1TS' in the library 'scx3_cmos8rf_lpvt_tt_1p2v_25c' is not characterized for internal power. (PWR-536)
 Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: The register 'cacheController/i_reg[1]' is a constant and will be removed. (OPT-1206)
 
   Beginning Mapping Optimizations  (Ultra High effort)
   -------------------------------
+  Mapping Optimization (Phase 1)
+Information: The register 'cacheController/requesterPortBuffer_reg[6][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cacheController/requesterPortBuffer_reg[6][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cacheController/isWrite_reg[6]' is a constant and will be removed. (OPT-1206)
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:03    1383.8      0.00       0.0       0.0                           2129.4353
-    0:00:03    1383.8      0.00       0.0       0.0                           2129.4353
-    0:00:03    1383.8      0.00       0.0       0.0                           2129.4353
-    0:00:03    1383.8      0.00       0.0       0.0                           2129.4353
+    0:00:47  167035.7      0.00       0.0    4161.9                           263276.0312
+    0:00:47  167035.7      0.00       0.0    4161.9                           263276.0312
+    0:00:47  167035.7      0.00       0.0    4161.9                           263276.0312
+    0:00:47  167035.7      0.00       0.0    4161.9                           263276.0312
   Re-synthesis Optimization (Phase 1)
   Re-synthesis Optimization (Phase 2)
   Global Optimization (Phase 1)
@@ -182,6 +546,9 @@ Information: The target library(s) contains cell(s), other than black boxes, tha
   Global Optimization (Phase 27)
   Global Optimization (Phase 28)
   Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+    0:00:51   97136.6      0.00       0.0    4129.8                           105821.3438
 
 
 
@@ -192,50 +559,56 @@ Information: The target library(s) contains cell(s), other than black boxes, tha
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
+    0:00:51   97136.6      0.00       0.0    4129.8                           105821.3438
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
 
   Beginning Delay Optimization
   ----------------------------
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
 
 
-  Beginning Design Rule Fixing  (max_capacitance)
+  Beginning Design Rule Fixing  (max_transition)  (max_fanout)  (max_capacitance)
   ----------------------------
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-  Global Optimization (Phase 30)
-  Global Optimization (Phase 31)
+    0:00:52   97113.6      0.00       0.0    4129.8                           105649.7812
   Global Optimization (Phase 32)
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+    0:00:55  100831.7      0.00       0.0    2081.0 outEast/net26543          107958.5469
+    0:00:56  103380.5      0.00       0.0    1149.0 outNorth/net30642         109615.3281
+    0:00:57  104114.9      0.00       0.0     852.0 outEast/net30358          110067.5391
+    0:00:57  104970.2      0.00       0.0     548.0 outEast/N1426             110596.5703
+    0:00:58  107369.3      0.00       0.0     258.0 net35025                  112127.5938
+    0:00:59  107871.8      0.00       0.0      14.0 outNorth/net35156         112455.1172
+    0:00:59  107871.8      0.00       0.0       3.1                           112457.6250
+    0:00:59  107871.8      0.00       0.0       3.1                           112457.6250
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
-    0:00:03    1013.8      0.00       0.0       0.0                           1205.9058
+    0:00:59  107871.8      0.00       0.0       3.1                           112457.6250
+    0:01:00  107617.0      0.00       0.0       8.1                           112327.8203
 
 
   Beginning Leakage Power Optimization  (max_leakage_power 0)
@@ -245,9 +618,7 @@ Information: The target library(s) contains cell(s), other than black boxes, tha
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:04    1013.8      0.00       0.0       0.0                           1205.9058
-  Global Optimization (Phase 33)
-  Global Optimization (Phase 34)
+    0:01:01  107611.2      0.00       0.0       8.1                           112327.5391
   Global Optimization (Phase 35)
   Global Optimization (Phase 36)
   Global Optimization (Phase 37)
@@ -257,36 +628,45 @@ Information: The target library(s) contains cell(s), other than black boxes, tha
   Global Optimization (Phase 41)
   Global Optimization (Phase 42)
   Global Optimization (Phase 43)
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+  Global Optimization (Phase 48)
+  Global Optimization (Phase 49)
+  Global Optimization (Phase 50)
+    0:01:04  103549.0      0.00       0.0       0.0                           109062.9219
+    0:01:04  103549.0      0.00       0.0       0.0                           109062.9219
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
-    0:00:04    1013.8      0.00       0.0       0.0                           1203.7957
+    0:01:05  103547.5      0.00       0.0       0.0                           109060.3047
+    0:01:06  103433.8      0.00       0.0       0.0                           109200.5000
+    0:01:06  103433.8      0.00       0.0       0.0                           109200.5000
+    0:01:08  103367.5      0.00       0.0       0.0                           109128.0000
+    0:01:09  103307.0      0.00       0.0       0.0                           108995.3984
+    0:01:09  103307.0      0.00       0.0       0.0                           108995.3984
+    0:01:09  103239.4      0.00       0.0       0.0                           108976.4609
 Loading db file '/tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db'
 
 
@@ -295,6 +675,8 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
 
   Optimization Complete
   ---------------------
+Warning: Design 'router' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'outSouth/clk': 1207 load(s), 1 driver(s)
 Information: State dependent leakage is now switched from off to on.
 Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
 1
@@ -304,19 +686,20 @@ Information: Propagating switching activity (low effort zero delay simulation). 
 set verilogout_no_tri TRUE
 TRUE
 write -hierarchy -format verilog -output "${top_level}.nl.v"
-Writing verilog file '/homes/user3/fall16/jer2201/ee6321/labs/lab2/dc_shell_cmrf8sf/lfsr1.nl.v'.
+Writing verilog file '/homes/user3/fall16/jer2201/AdvancedElectronics/project/dc_shell_cmrf8sf/router.nl.v'.
 1
 # Generate Standard Delay Format (SDF) file
 write_sdf -context verilog "${top_level}.temp.sdf"
 Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
-Information: Writing timing information to file '/homes/user3/fall16/jer2201/ee6321/labs/lab2/dc_shell_cmrf8sf/lfsr1.temp.sdf'. (WT-3)
+Information: Writing timing information to file '/homes/user3/fall16/jer2201/AdvancedElectronics/project/dc_shell_cmrf8sf/router.temp.sdf'. (WT-3)
 Information: Updating design information... (UID-85)
+Warning: Design 'router' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
 1
 # Generate report file
 set maxpaths 20
 20
 set rpt_file "${top_level}.dc.rpt"
-lfsr1.dc.rpt
+router.dc.rpt
 check_design > $rpt_file
 report_area  >> ${rpt_file}
 report_power -hier -analysis_effort medium >> ${rpt_file}

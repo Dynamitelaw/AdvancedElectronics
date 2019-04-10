@@ -7,7 +7,10 @@
 
 //Include dependencies
 `include "globalVariables.v"
-`include "router.v"
+//`include "router.v"
+//`include "../dc_shell_cmrf8sf/router.nl.v"
+`timescale 1ns/1ps
+`define SD #0.010
 
 module routerTestbench;
 	//Instantiate modules
@@ -72,13 +75,16 @@ module routerTestbench;
 	wire writeOut_WEST;
 	wire [`DATA_WIDTH -1:0] dataOut_WEST;
 	
-	//Cache bank IO
-	reg [`DATA_WIDTH -1:0] cacheDataOut = 0;
+	//Cache bank IO	
+	wire [`DATA_WIDTH -1:0] cacheDataIn_A;
+	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_A;
+	reg [`DATA_WIDTH -1:0] cacheDataOut_A = 0;
+	wire memWrite_A;
 	
-	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddress;
-	wire [`DATA_WIDTH -1:0] cacheDataIn;
-	wire memRead;
-	wire memWrite;
+	wire [`DATA_WIDTH -1:0] cacheDataIn_B;
+	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_B;
+	reg [`DATA_WIDTH -1:0] cacheDataOut_B = 0;
+	wire memWrite_B;
 	
 	router router4(
 		.clk(clk),
@@ -86,7 +92,6 @@ module routerTestbench;
 		.localRouterAddress(localAddress),
 	
 		//North port (1)
-		.portEnable_NORTH(portEnable_NORTH),
 		.destinationAddressIn_NORTH(destinationAddressIn_NORTH),
 		.requesterAddressIn_NORTH(requesterAddressIn_NORTH),
 		.readIn_NORTH(readIn_NORTH),
@@ -100,7 +105,6 @@ module routerTestbench;
 		.dataOut_NORTH(dataOut_NORTH),
 	
 		//South port (2)
-		.portEnable_SOUTH(portEnable_SOUTH),
 		.destinationAddressIn_SOUTH(destinationAddressIn_SOUTH),
 		.requesterAddressIn_SOUTH(requesterAddressIn_SOUTH),
 		.readIn_SOUTH(readIn_SOUTH),
@@ -114,7 +118,6 @@ module routerTestbench;
 		.dataOut_SOUTH(dataOut_SOUTH),
 		
 		//East port (3)
-		.portEnable_EAST(portEnable_EAST),
 		.destinationAddressIn_EAST(destinationAddressIn_EAST),
 		.requesterAddressIn_EAST(requesterAddressIn_EAST),
 		.readIn_EAST(readIn_EAST),
@@ -128,7 +131,6 @@ module routerTestbench;
 		.dataOut_EAST(dataOut_EAST),
 		
 		//West port (4)
-		.portEnable_WEST(portEnable_WEST),
 		.destinationAddressIn_WEST(destinationAddressIn_WEST),
 		.requesterAddressIn_WEST(requesterAddressIn_WEST),
 		.readIn_WEST(readIn_WEST),
@@ -142,12 +144,15 @@ module routerTestbench;
 		.dataOut_WEST(dataOut_WEST),
 		
 		//Cache bank IO
-		.cacheDataOut(cacheDataOut),
+		.cacheDataIn_A(cacheDataIn_A),
+		.cacheAddressIn_A(cacheAddressIn_A),
+		.cacheDataOut_A(cacheDataOut_A),
+		.memWrite_A(memWrite_A),
 	
-		.cacheAddress(cacheAddress),
-		.cacheDataIn(cacheDataIn),
-		.memRead(memRead),
-		.memWrite(memWrite)
+		.cacheDataIn_B(cacheDataIn_B),
+		.cacheAddressIn_B(cacheAddressIn_B),
+		.cacheDataOut_B(cacheDataOut_B),
+		.memWrite_B(memWrite_B)
 		);
 	
 	initial
@@ -159,25 +164,25 @@ module routerTestbench;
 		//Set packet destinations
 		writeIn_NORTH <= 1;
 		dataIn_NORTH <= 2;
-		destinationAddressIn_NORTH <= 4'd2;
+		destinationAddressIn_NORTH <= {4'd2, {`CACHE_BANK_ADDRESS_WIDTH{1'b0}}};
 		
 		writeIn_SOUTH <= 1;
 		dataIn_SOUTH <= 4;
-		destinationAddressIn_SOUTH <= 4'd4;
+		destinationAddressIn_SOUTH <= {4'd4, {`CACHE_BANK_ADDRESS_WIDTH{1'b0}}};
 		
 		writeIn_EAST <= 1;
 		dataIn_EAST <= 8;
-		destinationAddressIn_EAST <= 4'd8;
+		destinationAddressIn_EAST <= {4'd8, {`CACHE_BANK_ADDRESS_WIDTH{1'b0}}};
 		
 		writeIn_WEST <= 1;
 		dataIn_WEST <= 6;
-		destinationAddressIn_WEST <= 4'd6;
+		destinationAddressIn_WEST <= {4'd6, {`CACHE_BANK_ADDRESS_WIDTH{1'b0}}};
 		#1
 		
 		reset <= 0;
 		
 		#7
-		$finish;
+		$stop;
 	end
 	
 	//Clock toggling

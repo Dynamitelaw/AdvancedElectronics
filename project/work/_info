@@ -2670,6 +2670,27 @@ R10
 !i113 1
 R11
 n@b@u@f@x8@t@s
+vcacheAccessArbiter
+Z13 !s110 1554856798
+!i10b 1
+!s100 z@;`P3?i07X>4Mi68h:1j0
+IGG6aG4XMVXk]G:3O?I@i[1
+R3
+Z14 d/user3/fall16/jer2201/AdvancedElectronics/project
+Z15 w1554856321
+Z16 8dc_shell_cmrf8sf/router.nl.v
+Z17 Fdc_shell_cmrf8sf/router.nl.v
+L0 2
+R7
+r1
+!s85 0
+31
+Z18 !s108 1554856798.635584
+Z19 !s107 dc_shell_cmrf8sf/router.nl.v|
+Z20 !s90 -reportprogress|300|-incr|dc_shell_cmrf8sf/router.nl.v|
+!i113 1
+R11
+ncache@access@arbiter
 vCLKAND2X12TS
 R1
 R2
@@ -4980,6 +5001,28 @@ R10
 !i113 1
 R11
 n@h@o@l@d@x1@t@s
+vincomingPortHandler
+Z21 !s10a 1554855104
+Z22 !s110 1554855922
+!i10b 1
+!s100 l7faUbbEHLgfVJcdE[fPg2
+IiB>1amDD<:KLlOh^nV6VK1
+R3
+R14
+Z23 w1554855104
+Z24 8rtl/router.v
+Z25 Frtl/router.v
+L0 532
+R7
+r1
+!s85 0
+31
+Z26 !s108 1554855922.745105
+Z27 !s107 rtl/outputportarbiter.v|rtl/cacheAccessArbiter.v|rtl/globalVariables.v|rtl/router.v|
+Z28 !s90 -reportprogress|300|-incr|rtl/router.v|
+!i113 1
+R11
+nincoming@port@handler
 vINVX12TS
 R1
 R12
@@ -8873,6 +8916,117 @@ R10
 !i113 1
 R11
 n@o@r4@x@l@t@s
+voutputPortArbiter
+R21
+R22
+!i10b 1
+!s100 nXVjA^PSd]@1KQ<If?d@<1
+IU4]PZ[TP?ej:J_BKFUKh^2
+R3
+R14
+R23
+Frtl/outputportarbiter.v
+R24
+R25
+L0 11
+R7
+r1
+!s85 0
+31
+R26
+R27
+R28
+!i113 1
+R11
+noutput@port@arbiter
+voutputPortArbiter_0
+Z29 !s10a 1554856321
+Z30 !s110 1554856065
+!i10b 1
+!s100 k`WL?nh78UgPS[Oh0f10?0
+IS`:aAMg@LjUlY]an:Wo7e3
+R3
+R14
+Z31 w1554855636
+R16
+R17
+L0 1834
+R7
+r1
+!s85 0
+31
+Z32 !s108 1554856065.546474
+R19
+R20
+!i113 1
+R11
+noutput@port@arbiter_0
+voutputPortArbiter_1
+R29
+R30
+!i10b 1
+!s100 5<^NZ1IbT_Ibb_J?585NK3
+IYTkhPCBGR_N<31DAe_Hfn0
+R3
+R14
+R31
+R16
+R17
+L0 4897
+R7
+r1
+!s85 0
+31
+R32
+R19
+R20
+!i113 1
+R11
+noutput@port@arbiter_1
+voutputPortArbiter_2
+R29
+R30
+!i10b 1
+!s100 VFS8B@e4OXb0M76CAEm9`3
+IYL_VNIicTE:ReG<8=dHU00
+R3
+R14
+R31
+R16
+R17
+L0 7965
+R7
+r1
+!s85 0
+31
+R32
+R19
+R20
+!i113 1
+R11
+noutput@port@arbiter_2
+voutputPortArbiter_3
+R29
+R30
+!i10b 1
+!s100 TPEAI5;g=Z8nAbG4^gX>L1
+IT>@GOYdZa<MnGCFOPV1W`2
+R3
+R14
+R31
+R16
+R17
+L0 11028
+R7
+r1
+!s85 0
+31
+R32
+R19
+R20
+!i113 1
+R11
+noutput@port@arbiter_3
 vRF1R1WX1TS
 R1
 R2
@@ -8983,6 +9137,48 @@ R10
 !i113 1
 R11
 n@r@f@r@d@x4@t@s
+vrouter
+R13
+!i10b 1
+!s100 hGYYJILdAUb^b5>nC`A_j3
+IWamnG8XOd`1P>H>[OOL=20
+R3
+R14
+R15
+R16
+R17
+L0 14093
+R7
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 1
+R11
+vrouterTestbench
+!s10a 1554855974
+!s110 1554855816
+!i10b 1
+!s100 SoW4j^I?0mWgLeIKE[nY13
+ISHHnIf<Z5>kBYkV5;]Wa`2
+R3
+R14
+w1554855804
+8rtl/TEST_router.v
+Frtl/TEST_router.v
+L0 15
+R7
+r1
+!s85 0
+31
+!s108 1554855815.764036
+!s107 rtl/../dc_shell_cmrf8sf/router.nl.v|rtl/globalVariables.v|rtl/TEST_router.v|
+!s90 -reportprogress|300|-incr|rtl/TEST_router.v|
+!i113 1
+R11
+nrouter@testbench
 vSDFFHQX1TS
 R1
 R2

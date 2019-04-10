@@ -22,7 +22,7 @@ module cacheAccessArbiter(
 	
 	output wire readReady_NORTH,
 	output wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_NORTH,
-	output reg [`DATA_WIDTH -1:0] cacheDataOut_NORTH,
+	output wire [`DATA_WIDTH -1:0] cacheDataOut_NORTH,
 	
 	//South Port
 	input [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_SOUTH,
@@ -33,7 +33,7 @@ module cacheAccessArbiter(
 	
 	output wire readReady_SOUTH,
 	output wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_SOUTH,
-	output reg [`DATA_WIDTH -1:0] cacheDataOut_SOUTH,
+	output wire [`DATA_WIDTH -1:0] cacheDataOut_SOUTH,
 	
 	//East Port
 	input [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_EAST,
@@ -44,7 +44,7 @@ module cacheAccessArbiter(
 	
 	output wire readReady_EAST,
 	output wire [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressOut_EAST,
-	output reg [`DATA_WIDTH -1:0] cacheDataOut_EAST,
+	output wire [`DATA_WIDTH -1:0] cacheDataOut_EAST,
 	
 	//West Port
 	input [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_WEST,
@@ -93,6 +93,13 @@ module cacheAccessArbiter(
 	assign requesterAddress_Concatenated[1] = requesterAddressIn_SOUTH;
 	assign requesterAddress_Concatenated[2] = requesterAddressIn_EAST;
 	assign requesterAddress_Concatenated[3] = requesterAddressIn_WEST;
+	
+	//Array of wires to concatenate dataOut ports
+	reg [`DATA_WIDTH -1:0] dataOut_Concatenated [3:0];
+	assign cacheDataOut_NORTH = dataOut_Concatenated[0];
+	assign cacheDataOut_SOUTH = dataOut_Concatenated[1];
+	assign cacheDataOut_EAST = dataOut_Concatenated[2];
+	assign cacheDataOut_WEST = dataOut_Concatenated[3];
 	
 	//Array of wires to concatenate readReady ports
 	reg readReady_Concatenated [3:0];
@@ -194,11 +201,6 @@ module cacheAccessArbiter(
 	always @ (negedge clk) begin
 		//Synchronous reset
 		if (reset) begin
-			requesterAddressOut_Concatenated[0] <= 0;
-			requesterAddressOut_Concatenated[1] <= 0;
-			requesterAddressOut_Concatenated[2] <= 0;
-			requesterAddressOut_Concatenated[3] <= 0;
-
 			cacheDataIn_A <= 0;
 			cacheAddressIn_A <= 0;
 			memWrite_A <= 1;
@@ -321,18 +323,44 @@ module cacheAccessArbiter(
 	//Rising edge events
 	integer q;
 	always @ (posedge clk) begin
-		//Update request variables on rising edge
-		for (q=0; q<4; q=q+1) begin
-			if (prevRequesterPort_A == q) begin
-				readReady_Concatenated[q] <= prevMemRead_A;
-				requesterAddressOut_Concatenated[q] <= prevRequesterAddress_A;
+		if (reset) begin
+			requesterAddressOut_Concatenated[0] <= 0;
+			requesterAddressOut_Concatenated[1] <= 0;
+			requesterAddressOut_Concatenated[2] <= 0;
+			requesterAddressOut_Concatenated[3] <= 0;
+		end
+		
+		else begin
+			//Update request variables on rising edge
+			for (q=0; q<4; q=q+1) begin
+				if (prevRequesterPort_A == q) begin
+					readReady_Concatenated[q] <= prevMemRead_A;
+					requesterAddressOut_Concatenated[q] <= prevRequesterAddress_A;
+				end
+				else if (prevRequesterPort_B == q) begin
+					readReady_Concatenated[q] <= prevMemRead_B;
+					requesterAddressOut_Concatenated[q] <= prevRequesterAddress_B;
+				end
+				else begin
+					readReady_Concatenated[q] <= 0;
+				end
 			end
-			else if (prevRequesterPort_B == q) begin
-				readReady_Concatenated[q] <= prevMemRead_B;
-				requesterAddressOut_Concatenated[q] <= prevRequesterAddress_B;
-			end
-			else begin
-				readReady_Concatenated[q] <= 0;
+		end
+	end
+	
+	integer r;
+	always @ (*) begin
+		if (clk) begin
+			for (r=0; r<4; r=r+1) begin
+				if (prevRequesterPort_A == q) begin
+					dataOut_Concatenated[q] = cacheDataOut_A;
+				end
+				else if (prevRequesterPort_B == q) begin
+					dataOut_Concatenated[q] = cacheDataOut_B;
+				end
+				else begin
+					dataOut_Concatenated[q] = 0;
+				end
 			end
 		end
 	end	

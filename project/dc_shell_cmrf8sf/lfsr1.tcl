@@ -8,9 +8,9 @@
 #########################################
 set BEHAVIORROOT "../rtl/"
 #set top_level
-set top_level lfsr1
+set top_level router
 source -verbose "common.tcl"
-read_verilog {../rtl/lfsr1.v}
+read_verilog {../rtl/router.v}
 list_designs
 
 #########################################
