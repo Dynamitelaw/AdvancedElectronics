@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version J-2014.09-SP2 for amd64 -- Nov 25, 2014
-#@ # Date:   Tue Apr  9 22:00:10 2019
+#@ # Date:   Thu Apr 11 21:08:36 2019
 #@ # Run by: jer2201@cadpc01
 #@ 
 
@@ -3770,6 +3770,7 @@ source -echo -verbose /homes/user3/fall16/jer2201/AdvancedElectronics/project/dc
 #@ set BEHAVIORROOT "../rtl/"
 #@ #set top_level
 #@ set top_level router
+#@ #set top_level incomingPortHandler
 #@ source -verbose "common.tcl"
 #@ # -- Starting source common.tcl
 
@@ -3782,6 +3783,7 @@ source -echo -verbose /homes/user3/fall16/jer2201/AdvancedElectronics/project/dc
 #@ # -- End source common.tcl
 
 #@ read_verilog {../rtl/router.v}
+#@ #read_verilog {../rtl/incomingPortHandler.v}
 #@ list_designs
 #@ 
 #@ #########################################
@@ -3840,7 +3842,7 @@ source -echo -verbose /homes/user3/fall16/jer2201/AdvancedElectronics/project/dc
 #@ # Compile for combinational logic       #
 #@ #########################################
 #@ check_design
-#@ compile_ultra
+#@ compile_ultra -no_autoungroup
 #@ 
 #@ #########################################
 #@ # Write outputs                         #

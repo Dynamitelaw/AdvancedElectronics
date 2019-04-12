@@ -9,7 +9,7 @@
 `include "globalVariables.v"
 //`include "router.v"
 //`include "../dc_shell_cmrf8sf/router.nl.v"
-`timescale 1ns/1ps
+`timescale 1000ns/1ps
 `define SD #1
 
 module routerTestbench;

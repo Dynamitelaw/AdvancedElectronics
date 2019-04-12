@@ -33,6 +33,7 @@ set BEHAVIORROOT "../rtl/"
 #set top_level
 set top_level router
 router
+#set top_level incomingPortHandler
 source -verbose "common.tcl"
 . /tools4/syn2007.12/libraries/syn/
 dw_foundation.sldb
@@ -53,6 +54,8 @@ Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl
 Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/globalVariables.v
 Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/outputportarbiter.v
 Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/incomingPortHandler.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/globalVariables.v
 Reading with Presto HDL Compiler (equivalent to -rtl option).
 Running PRESTO HDLC
 Compiling source file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v
@@ -65,6 +68,8 @@ Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAcces
 Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:122: the undeclared symbol 'cacheReadAddress_2' assumed to have the default net type, which is 'wire'. (VER-936)
 Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:123: the undeclared symbol 'cacheReadAddress_3' assumed to have the default net type, which is 'wire'. (VER-936)
 Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/outputportarbiter.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/incomingPortHandler.v
 Opening include file /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/globalVariables.v
 Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:194: signed to unsigned assignment occurs. (VER-318)
 Warning:  /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:239: signed to unsigned assignment occurs. (VER-318)
@@ -240,7 +245,18 @@ Statistics for MUX_OPs
 ================================================================
 
 Inferred memory devices in process
-	in routine router line 460 in file
+	in routine incomingPortHandler line 72 in file
+		'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/incomingPortHandler.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+|     memRead_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| outputPortSelect_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|     memWrite_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+================================================================================
+
+Inferred memory devices in process
+	in routine router line 462 in file
 		'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v'.
 ================================================================================================
 |            Register Name             |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
@@ -266,22 +282,12 @@ Inferred memory devices in process
 |  requesterAddressInBuffer_WEST_reg   | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
 |        readInBuffer_WEST_reg         | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
 ================================================================================================
-
-Inferred memory devices in process
-	in routine incomingPortHandler line 557 in file
-		'/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v'.
-================================================================================
-|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-================================================================================
-|     memRead_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-| outputPortSelect_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
-|     memWrite_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-================================================================================
 Presto compilation completed successfully.
 Current design is now '/homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/cacheAccessArbiter.db:cacheAccessArbiter'
 Loaded 4 designs.
 Current design is 'cacheAccessArbiter'.
-cacheAccessArbiter outputPortArbiter router incomingPortHandler
+cacheAccessArbiter outputPortArbiter incomingPortHandler router
+#read_verilog {../rtl/incomingPortHandler.v}
 list_designs
 cacheAccessArbiter (*)  outputPortArbiter
 incomingPortHandler     router
@@ -334,7 +340,7 @@ check_design
 ****************************************
 check_design summary:
 Version:     J-2014.09-SP2
-Date:        Tue Apr  9 22:00:13 2019
+Date:        Thu Apr 11 21:08:38 2019
 ****************************************
 
                    Name                                            Total
@@ -378,10 +384,9 @@ Warning: In design 'incomingPortHandler', port 'requesterAddressIn[2]' is not co
 Warning: In design 'incomingPortHandler', port 'requesterAddressIn[1]' is not connected to any nets. (LINT-28)
 Warning: In design 'incomingPortHandler', port 'requesterAddressIn[0]' is not connected to any nets. (LINT-28)
 1
-compile_ultra
+compile_ultra -no_autoungroup
 Information: Performing power optimization. (PWR-850)
-Analyzing: "/tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db"
-Library analysis succeeded.
+Alib files are up-to-date.
 Information: Evaluating DesignWare library utilization. (UISN-27)
 
 ============================================================================
@@ -397,11 +402,6 @@ Information: There are 31 potential problems in your design. Please run 'check_d
 
 
 Loaded alib file './alib-52/scx3_cmos8rf_lpvt_tt_1p2v_25c.db.alib'
-Information: Ungrouping hierarchy inNorth before Pass 1 (OPT-776)
-Information: Ungrouping hierarchy inSouth before Pass 1 (OPT-776)
-Information: Ungrouping hierarchy inEast before Pass 1 (OPT-776)
-Information: Ungrouping hierarchy inWest before Pass 1 (OPT-776)
-Information: Ungrouping 4 of 10 hierarchies before Pass 1 (OPT-775)
 Information: State dependent leakage is now switched from on to off.
 
   Beginning Pass 1 Mapping
@@ -414,7 +414,8 @@ Information: In design 'cacheAccessArbiter', the register 'i_reg[0]' is removed 
 Information: Added key list 'DesignWare' to design 'outputPortArbiter_0'. (DDB-72)
  Implement Synthetic for 'outputPortArbiter_0'.
   Processing 'router'
-Information: Added key list 'DesignWare' to design 'router'. (DDB-72)
+  Processing 'incomingPortHandler_0'
+Information: Added key list 'DesignWare' to design 'incomingPortHandler_0'. (DDB-72)
 
   Updating timing information
 Information: The register 'cacheController/addressToWriteBuffer_reg[7][0]' will be removed. (OPT-1207)
@@ -450,10 +451,10 @@ Information: The register 'cacheController/isWrite_reg[6]' is a constant and wil
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:47  168184.8      0.00       0.0    4377.4                           264509.7812
-    0:00:47  168184.8      0.00       0.0    4377.4                           264509.7812
-    0:00:47  168184.8      0.00       0.0    4377.4                           264509.7812
-    0:00:47  168184.8      0.00       0.0    4377.4                           264509.7812
+    0:00:47  168569.3      0.00       0.0    4324.2                           265780.0000
+    0:00:47  168569.3      0.00       0.0    4324.2                           265780.0000
+    0:00:47  168569.3      0.00       0.0    4324.2                           265780.0000
+    0:00:47  168569.3      0.00       0.0    4324.2                           265780.0000
   Re-synthesis Optimization (Phase 1)
   Re-synthesis Optimization (Phase 2)
   Global Optimization (Phase 1)
@@ -487,7 +488,7 @@ Information: The register 'cacheController/isWrite_reg[6]' is a constant and wil
   Global Optimization (Phase 29)
   Global Optimization (Phase 30)
   Global Optimization (Phase 31)
-    0:00:52   98221.0      0.00       0.0    4348.4                           107333.7578
+    0:00:52   98177.8      0.00       0.0    4295.4                           107385.1641
 
 
 
@@ -498,28 +499,28 @@ Information: The register 'cacheController/isWrite_reg[6]' is a constant and wil
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:52   98221.0      0.00       0.0    4348.4                           107333.7578
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
+    0:00:52   98177.8      0.00       0.0    4295.4                           107385.1641
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
 
   Beginning Delay Optimization
   ----------------------------
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
 
 
   Beginning Design Rule Fixing  (max_transition)  (max_fanout)  (max_capacitance)
@@ -529,25 +530,25 @@ Information: The register 'cacheController/isWrite_reg[6]' is a constant and wil
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:53   98192.2      0.00       0.0    4348.4                           107144.7422
+    0:00:52   98149.0      0.00       0.0    4295.4                           107190.8984
   Global Optimization (Phase 32)
   Global Optimization (Phase 33)
   Global Optimization (Phase 34)
-    0:00:56  102009.6      0.00       0.0    2402.1 cacheController/net19101  109449.5156
-    0:00:57  104878.1      0.00       0.0    1205.1 outWest/read_reg[2]       111314.1016
-    0:00:57  105621.1      0.00       0.0     910.1 outSouth/net29787         111775.5312
-    0:00:58  106336.8      0.00       0.0     615.1 outWest/net29916          112212.2734
-    0:00:59  108803.5      0.00       0.0     314.1 net33172                  113781.7109
-    0:00:59  109222.6      0.00       0.0     191.0 outSouth/readRequesterAddress[2] 114088.2344
-    0:01:00  109582.6      0.00       0.0       0.0                           114325.2500
-    0:01:00  109582.6      0.00       0.0       0.0                           114325.2500
+    0:00:55  101926.1      0.00       0.0    2358.1 cacheController/net19078  109453.8594
+    0:00:56  104731.2      0.00       0.0    1173.1 outEast/net26989          111246.5547
+    0:00:57  105505.9      0.00       0.0     874.1 outSouth/net29757         111731.8750
+    0:00:58  106217.3      0.00       0.0     581.1 outWest/net29908          112169.4141
+    0:00:58  108486.7      0.00       0.0     349.1 writeInBuffer_EAST        113634.7422
+    0:00:59  109156.3      0.00       0.0      50.0 outNorth/selectBit_WEST   114106.0469
+    0:01:00  109265.8      0.00       0.0       0.0                           114180.1953
+    0:01:00  109265.8      0.00       0.0       0.0                           114180.1953
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:00  109582.6      0.00       0.0       0.0                           114325.2500
-    0:01:01  109336.3      0.00       0.0       6.0                           114198.2500
+    0:01:00  109265.8      0.00       0.0       0.0                           114180.1953
+    0:01:00  109019.5      0.00       0.0       6.0                           114053.2031
 
 
   Beginning Leakage Power Optimization  (max_leakage_power 0)
@@ -557,7 +558,7 @@ Information: The register 'cacheController/isWrite_reg[6]' is a constant and wil
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:02  109323.4      0.00       0.0       6.0                           114196.4141
+    0:01:01  109006.6      0.00       0.0       6.0                           114051.3594
   Global Optimization (Phase 35)
   Global Optimization (Phase 36)
   Global Optimization (Phase 37)
@@ -574,38 +575,38 @@ Information: The register 'cacheController/isWrite_reg[6]' is a constant and wil
   Global Optimization (Phase 48)
   Global Optimization (Phase 49)
   Global Optimization (Phase 50)
-    0:01:05  105169.0      0.00       0.0       0.0                           110891.4766
-    0:01:05  105169.0      0.00       0.0       0.0                           110891.4766
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
+    0:01:04  104895.4      0.00       0.0       0.0                           110775.4297
+    0:01:04  104895.4      0.00       0.0       0.0                           110775.4297
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:06  105150.2      0.00       0.0       0.0                           110863.2266
-    0:01:07  105032.2      0.00       0.0       0.0                           110892.8125
-    0:01:07  105032.2      0.00       0.0       0.0                           110892.8125
-    0:01:09  104999.0      0.00       0.0       0.0                           110847.3125
-    0:01:10  104917.0      0.00       0.0       0.0                           110712.9531
-    0:01:10  104917.0      0.00       0.0       0.0                           110712.9531
-    0:01:10  104868.0      0.00       0.0       0.0                           110747.2578
+    0:01:05  104889.6      0.00       0.0       0.0                           110766.5781
+    0:01:06  104811.8      0.00       0.0       0.0                           110741.5781
+    0:01:06  104811.8      0.00       0.0       0.0                           110741.5781
+    0:01:08  104739.8      0.00       0.0       0.0                           110672.0000
+    0:01:09  104703.8      0.00       0.0       0.0                           110594.5781
+    0:01:09  104703.8      0.00       0.0       0.0                           110594.5781
+    0:01:10  104679.4      0.00       0.0       0.0                           110609.1250
 Loading db file '/tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db'
 
 
@@ -615,7 +616,7 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
   Optimization Complete
   ---------------------
 Warning: Design 'router' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
-     Net 'outSouth/clk': 1231 load(s), 1 driver(s)
+     Net 'inSouth/clk': 1231 load(s), 1 driver(s)
 Information: State dependent leakage is now switched from off to on.
 Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
 1
