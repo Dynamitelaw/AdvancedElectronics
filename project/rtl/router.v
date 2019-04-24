@@ -77,11 +77,13 @@ module router(
 	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_A,
 	input [`DATA_WIDTH -1:0] cacheDataOut_A,
 	output wire memWrite_A,
+	input portA_writtenTo,
 	
 	output wire [`DATA_WIDTH -1:0] cacheDataIn_B,
 	output wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_B,
 	input [`DATA_WIDTH -1:0] cacheDataOut_B,
-	output wire memWrite_B
+	output wire memWrite_B,
+	input portB_writtenTo
 	);
 	
 	/* ##############################

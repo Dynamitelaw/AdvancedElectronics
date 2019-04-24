@@ -137,8 +137,7 @@ module router(
 		.writeIn(writeInBuffer_NORTH),
 		.outputPortSelect(outputPortSelect_NORTH),
 		.memRead(memRead_NORTH),
-		.memWrite(memWrite_NORTH),
-		.Leroy()
+		.memWrite(memWrite_NORTH)
 		);
 	
 	//South
@@ -155,8 +154,7 @@ module router(
 		.writeIn(writeInBuffer_SOUTH),
 		.outputPortSelect(outputPortSelect_SOUTH),
 		.memRead(memRead_SOUTH),
-		.memWrite(memWrite_SOUTH),
-		.Leroy()
+		.memWrite(memWrite_SOUTH)
 		);
 		
 	//East
@@ -173,8 +171,7 @@ module router(
 		.writeIn(writeInBuffer_EAST),
 		.outputPortSelect(outputPortSelect_EAST),
 		.memRead(memRead_EAST),
-		.memWrite(memWrite_EAST),
-		.Leroy()
+		.memWrite(memWrite_EAST)
 		);
 	
 	//West
@@ -191,8 +188,7 @@ module router(
 		.writeIn(writeInBuffer_WEST),
 		.outputPortSelect(outputPortSelect_WEST),
 		.memRead(memRead_WEST),
-		.memWrite(memWrite_WEST),
-		.Leroy()
+		.memWrite(memWrite_WEST)
 		);
 		
 	
