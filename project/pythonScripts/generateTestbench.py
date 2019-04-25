@@ -299,7 +299,8 @@ for cycle in range(3,cycles+1,1):
 # Write footer
 #---------------------------------
 
-footer = "\t\t$stop;\n"
+footer = "\t\t$display(\"Error = %d\", ERROR);\n"
+footer += "\t\t$stop;\n"
 footer += "\tend // initial\n"
 footer += "endmodule // NetworkGeneratedTestBench\n\n\n"
 footer += "/*\nHey, it's me, Monika!\n"

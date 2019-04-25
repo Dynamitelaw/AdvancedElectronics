@@ -8,7 +8,7 @@
 //Include dependencies
 `include "globalVariables.v"
 `include "router.v"
-`include ""
+`include "cacheBank.v"
 //`include "../dc_shell_cmrf8sf/router.nl.v"
 
 
@@ -54,7 +54,7 @@ module network(
 	);
 	
 	
-	parameter networkHeight = `NETWORK_HEIGH;
+	parameter networkHeight = `NETWORK_HEIGHT;
 	parameter networkWidth = `NETWORK_WIDTH;
 	
 	parameter port0_NodeID = networkWidth/2;
@@ -324,7 +324,7 @@ module network(
 		assign Node[port2_NodeID].dataIn_NORTH = dataIn_port2;
 		
 		//Port 3 (West/Left)
-		assign Node[port3_NodeID].destinationAddressIn_NORTH  destinationAddressIn_port3;
+		assign Node[port3_NodeID].destinationAddressIn_NORTH = destinationAddressIn_port3;
 		assign Node[port3_NodeID].requesterAddressIn_NORTH = destinationAddressIn_port3;
 		assign Node[port3_NodeID].readIn_NORTH = readIn_port3;
 		assign Node[port3_NodeID].writeIn_NORTH = writeIn_port3;
