@@ -195,7 +195,7 @@ module NetworkGeneratedTestBench ;
 		.dataIn_port2(dataIn_port2),
 		.readReady_port2(readReady_port2),
 		.dataOut_port2(dataOut_port2),
-		//Access port (West/Left)
+		//Access port 3 (West/Left)
 		.destinationAddressIn_port3(destinationAddressIn_port3),
 		.readIn_port3(readIn_port3),
 		.writeIn_port3(writeIn_port3),
@@ -253,7 +253,9 @@ module NetworkGeneratedTestBench ;
 
 	//Begin testbench
 	initial begin
-		//Reset network
+		//===========================
+		// Reset network
+		//===========================
 		reset <= 1;
 		#1
 
