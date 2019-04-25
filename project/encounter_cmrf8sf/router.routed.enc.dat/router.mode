@@ -1,0 +1,208 @@
+catch { setDesignMode -flowEffort high }
+catch { setDesignMode -process 130 }
+catch { setAnalysisMode -analysisType onChipVariation }
+catch { setAnalysisMode -clkSrcPath true }
+catch { setAnalysisMode -clockPropagation sdcControl }
+catch { setAnalysisMode -virtualIPO false }
+catch { setOptMode -deleteInst true }
+catch { setOptMode -drcMargin 0 }
+catch { setOptMode -effort high }
+catch { setOptMode -fixCap true }
+catch { setOptMode -fixDrc true }
+catch { setOptMode -fixFanoutLoad true }
+catch { setOptMode -holdTargetSlack 0.2 }
+catch { setOptMode -moveInst true }
+catch { setOptMode -reclaimArea true }
+catch { setOptMode -setupTargetSlack 0 }
+catch { setOptMode -simplifyNetlist false }
+catch { setOptMode -usefulSkew false }
+catch { setOptMode -yieldEffort none }
+setExtractRCMode  -effortLevel low -engine postRoute -total_c_th 0 -relative_c_th 1 -coupling_c_th 0.4 -minNetTermNrToBeInMem 50
+catch { setCTSMode -engine ck }
+catch { setCTSMode -moveGateLimit 25 }
+catch {setNanoRouteMode -quiet -drouteAntennaFactor 1.000000}
+catch {setNanoRouteMode -quiet -droutePostRouteSpreadWire "false"}
+catch {setNanoRouteMode -quiet -drouteStartIteration 0}
+catch {setNanoRouteMode -quiet -routeTopRoutingLayer 3}
+catch {setNanoRouteMode -quiet -routeWithSiPostRouteFix false}
+
+catch { setPlaceMode -congEffort high }
+catch { setPlaceMode -incrPlaceForOpt true }
+catch { setPlaceMode -modulePlan true }
+catch { setPlaceMode -timingDriven true }
+setDontUse ADDFX2TS false
+setDontUse ADDHX4TS false
+setDontUse AND2X8TS false
+setDontUse AND3X2TS false
+setDontUse AND3X4TS false
+setDontUse AND3X6TS false
+setDontUse AND3X8TS false
+setDontUse AND4X6TS false
+setDontUse AND4X8TS false
+setDontUse AO21X1TS false
+setDontUse AO21X4TS false
+setDontUse AO22X1TS false
+setDontUse AO22X4TS false
+setDontUse AOI211X4TS false
+setDontUse AOI21X4TS false
+setDontUse AOI221X4TS false
+setDontUse AOI222X4TS false
+setDontUse AOI22X1TS false
+setDontUse AOI22XLTS false
+setDontUse AOI2BB1X1TS false
+setDontUse AOI2BB1X4TS false
+setDontUse AOI2BB2X1TS false
+setDontUse AOI31X4TS false
+setDontUse AOI32X4TS false
+setDontUse AOI33X4TS false
+setDontUse BENCX2TS false
+setDontUse CLKINVX12TS false
+setDontUse CLKINVX16TS false
+setDontUse CLKINVX20TS false
+setDontUse CLKINVX3TS false
+setDontUse CLKINVX4TS false
+setDontUse CLKINVX6TS false
+setDontUse CLKINVX8TS false
+setDontUse CLKMX2X2TS false
+setDontUse CLKMX2X3TS false
+setDontUse CLKMX2X4TS false
+setDontUse CMPR22X4TS false
+setDontUse CMPR42X1TS false
+setDontUse DFFHQX4TS false
+setDontUse DFFHQX8TS false
+setDontUse DFFNSRX4TS false
+setDontUse DFFQX1TS false
+setDontUse DFFQX2TS false
+setDontUse DFFQX4TS false
+setDontUse DFFQXLTS false
+setDontUse DFFRHQX4TS false
+setDontUse DFFRHQX8TS false
+setDontUse DFFRX4TS false
+setDontUse DFFSHQX2TS false
+setDontUse DFFSHQX8TS false
+setDontUse DFFSRHQX8TS false
+setDontUse DFFSRX4TS false
+setDontUse DFFSX2TS false
+setDontUse DFFTRX4TS false
+setDontUse DFFX4TS false
+setDontUse DFFXLTS false
+setDontUse EDFFHQX2TS false
+setDontUse EDFFTRX1TS false
+setDontUse EDFFTRX4TS false
+setDontUse EDFFX2TS false
+setDontUse INVX12TS false
+setDontUse INVX16TS false
+setDontUse INVX20TS false
+setDontUse INVX3TS false
+setDontUse INVX4TS false
+setDontUse INVX6TS false
+setDontUse INVX8TS false
+setDontUse MDFFHQX2TS false
+setDontUse MX2X1TS false
+setDontUse MX2X2TS false
+setDontUse MX2X4TS false
+setDontUse MX2X6TS false
+setDontUse MX2X8TS false
+setDontUse MX2XLTS false
+setDontUse MX3X1TS false
+setDontUse MX3XLTS false
+setDontUse MX4X1TS false
+setDontUse MXI2X1TS false
+setDontUse MXI2X2TS false
+setDontUse MXI2X4TS false
+setDontUse MXI2XLTS false
+setDontUse MXI3X1TS false
+setDontUse MXI3XLTS false
+setDontUse MXI4X2TS false
+setDontUse NAND2BX2TS false
+setDontUse NAND2BX4TS false
+setDontUse NAND2X2TS false
+setDontUse NAND3BX2TS false
+setDontUse NAND3BX4TS false
+setDontUse NAND3X2TS false
+setDontUse NAND4BBX2TS false
+setDontUse NAND4BBX4TS false
+setDontUse NAND4BX1TS false
+setDontUse NAND4X2TS false
+setDontUse NOR2BX4TS false
+setDontUse NOR2X2TS false
+setDontUse NOR2X4TS false
+setDontUse NOR2X6TS false
+setDontUse NOR2X8TS false
+setDontUse NOR3BX1TS false
+setDontUse NOR3BX2TS false
+setDontUse NOR3X1TS false
+setDontUse NOR3X2TS false
+setDontUse NOR4BBX1TS false
+setDontUse NOR4BBXLTS false
+setDontUse NOR4BX1TS false
+setDontUse NOR4BXLTS false
+setDontUse NOR4XLTS false
+setDontUse OA21X2TS false
+setDontUse OA21X4TS false
+setDontUse OA22X1TS false
+setDontUse OA22X4TS false
+setDontUse OAI211X4TS false
+setDontUse OAI21X4TS false
+setDontUse OAI221X4TS false
+setDontUse OAI222X2TS false
+setDontUse OAI222X4TS false
+setDontUse OAI22X1TS false
+setDontUse OAI22XLTS false
+setDontUse OAI2BB1X4TS false
+setDontUse OAI2BB2XLTS false
+setDontUse OAI31X4TS false
+setDontUse OAI32X4TS false
+setDontUse OAI33X4TS false
+setDontUse OR2X2TS false
+setDontUse OR2X6TS false
+setDontUse OR2X8TS false
+setDontUse OR3X4TS false
+setDontUse OR3X6TS false
+setDontUse OR3X8TS false
+setDontUse OR4X4TS false
+setDontUse SDFFHQX2TS false
+setDontUse SDFFNSRX4TS false
+setDontUse SDFFRHQX8TS false
+setDontUse SDFFRX4TS false
+setDontUse SDFFSHQX2TS false
+setDontUse SDFFSRHQX2TS false
+setDontUse SDFFSRX4TS false
+setDontUse SDFFSX4TS false
+setDontUse SDFFTRX4TS false
+setDontUse SDFFX4TS false
+setDontUse SEDFFHQX8TS false
+setDontUse SEDFFTRX4TS false
+setDontUse SEDFFX2TS false
+setDontUse SEDFFX4TS false
+setDontUse SMDFFHQX1TS false
+setDontUse SMDFFHQX2TS false
+setDontUse TBUFX12TS false
+setDontUse TLATNCAX2TS false
+setDontUse TLATNSRX2TS false
+setDontUse TLATNSRXLTS false
+setDontUse TLATNTSCAX12TS false
+setDontUse TLATNTSCAX16TS false
+setDontUse TLATNX1TS false
+setDontUse TLATSRX2TS false
+setDontUse TLATSRXLTS false
+setDontUse TLATX1TS false
+setDontUse TLATXLTS false
+setDontUse XNOR2X1TS false
+setDontUse XNOR3X2TS false
+setDontUse XNOR3X4TS false
+setDontUse XOR2X2TS false
+setDontUse XOR3X2TS false
+setDontUse XOR3X4TS false
+catch { setIlmMode -keepHighFanoutPorts true -loopBack false -keepFlatten true -keepMaxLevelPath false }
+catch { setDelayCalMode -enable_high_fanout true }
+catch { setDelayCalMode -engine aae }
+catch { setDelayCalMode -ignore_clock_idealness false }
+catch { setDelayCalMode -ignoreNetLoad false }
+catch { setDelayCalMode -SIAware true }
+catch { setTrialRouteMode -maxRouteLayer 3 }
+catch { setHierMode -disableArt false }
+catch { setHierMode -reportPostRouteArtTiming false }
+catch { setHierMode -trialRouteHonorReadOnly false }
+catch { setImportMode -keepEmptyModule true }
+catch { setImportMode -treatUndefinedCellAsBbox false }

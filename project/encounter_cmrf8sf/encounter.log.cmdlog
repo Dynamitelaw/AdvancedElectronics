@@ -1,7 +1,7 @@
 #######################################################
 #                                                     
 #  Encounter Command Logging File                     
-#  Created on Wed Feb 27 22:15:05 2019                
+#  Created on Wed Apr 24 21:16:43 2019                
 #                                                     
 #######################################################
 
@@ -15,8 +15,8 @@
 
 set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
 suppressMessage ENCEXT-2799
-set init_verilog ../dc_shell_cmrf8sf/lfsr1.nl.v
-set init_io_file ./lfsr1.io
+set init_verilog ../dc_shell_cmrf8sf/router.nl.v
+set init_io_file ./router.io
 set init_lef_file {/tools2/courses/ee6321/share/ibm13rflpvt/lef/ibm13_8lm_2thick_3rf_tech.lef /tools2/courses/ee6321/share/ibm13rflpvt/lef/ibm13rflpvt_macros.lef}
 set init_mmmc_file ./config/mmmc.view
 set init_import_mode {-treatUndefinedCellAsBbox 0 -keepEmptyModule 1}
@@ -24,7 +24,7 @@ set init_pwr_net VDD
 set init_gnd_net VSS
 set_message -no_limit
 init_design
-floorPlan -s 47 32 10 10 10 10
+floorPlan -d 370.8 370.8 10 10 10 10
 redraw
 fit
 globalNetConnect VDD -type tiehi -inst * -verbose
@@ -32,12 +32,12 @@ globalNetConnect VSS -type tielo -inst * -verbose
 globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
 globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
 applyGlobalNets
-addRing -layer {top M1 bottom M1 left M2 right M2} -spacing 1 -width 3 -nets {VDD VSS}
+addRing -layer {top M3 bottom M3 left M2 right M2} -spacing 1 -width 3 -nets {VDD VSS}
 redraw
 sroute
-loadIoFile ./lfsr1.io
+loadIoFile ./router.io
 redraw
-saveFPlan lfsr1.fp
+saveFPlan router.fp
 setDesignMode -process 130 -flowEffort high
 setTrialRouteMode -maxRouteLayer 3
 setPlaceMode -timingDriven true -congEffort high -modulePlan true
@@ -48,16 +48,16 @@ globalNetConnect VSS -type tielo -inst * -verbose
 globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
 globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
 redraw
-saveDesign lfsr1.placed.enc
+saveDesign router.placed.enc
 checkPlace
 buildTimingGraph
 redraw
-specifyClockTree -file lfsr1.cts.manual
+specifyClockTree -file router.cts.manual
 setCTSMode -engine ck
 ckSynthesis -clk clk -fix_added_buffers -forceReconvergent
 redraw
-saveDesign lfsr1.opted.enc
-savePlace lfsr1.place
+saveDesign router.opted.enc
+savePlace router.place
 changeUseClockNetStatus -noFixedNetWires
 globalDetailRoute
 redraw
@@ -80,7 +80,7 @@ globalNetConnect VSS -type pgpin -pin {VSS } -override
 globalNetConnect VDD -type tiehi
 globalNetConnect VSS -type tielo
 applyGlobalNets
-saveDesign lfsr1.routed.enc
+saveDesign router.routed.enc
 verifyGeometry
 addFiller -cell FILL16TS FILL1TS FILL2TS FILL32TS FILL4TS FILL64TS FILL8TS -prefix IBM13RFLPVT_FILLER -fillBoundary
 verifyGeometry
@@ -91,13 +91,13 @@ verifyConnectivity -type regular -error 1000 -warning 50
 verifyProcessAntenna
 report_power -leakage -cap -nworst -pg_pin
 reportGateCount
-lefOut lfsr1.lef -5.5 -PGpinLayers 4 -specifyTopLayer 4 -stripePin
-defOut -floorplan -netlist -routing lfsr1.final.def
-streamOut lfsr1.gds -mapFile /tools2/courses/ee6321/share/ibm13rflpvt/mapfiles/enc2gds.map -libName ibm13rflpvt -structureName lfsr1 -stripes 1 -units 1000 -mode ALL
-saveNetlist -phys -excludeLeafCell -excludeCellInst {FILL1TS FILL2TS FILL4TS FILL8TS FILL16TS FILL32TS FILL64TS} lfsr1.phy.v
-saveNetlist lfsr1.nophy.v
-extractRC -outfile lfsr1.cap
-rcOut -spef lfsr1.spef
+lefOut router.lef -5.5 -PGpinLayers 4 -specifyTopLayer 4 -stripePin
+defOut -floorplan -netlist -routing router.final.def
+streamOut router.gds -mapFile /tools2/courses/ee6321/share/ibm13rflpvt/mapfiles/enc2gds.map -libName ibm13rflpvt -structureName router -stripes 1 -units 1000 -mode ALL
+saveNetlist -phys -excludeLeafCell -excludeCellInst {FILL1TS FILL2TS FILL4TS FILL8TS FILL16TS FILL32TS FILL64TS} router.phy.v
+saveNetlist router.nophy.v
+extractRC -outfile router.cap
+rcOut -spef router.spef
 write_sdf "$designName.sdf"
 setAnalysisMode -checkType hold -useDetailRC true
 report_timing > "$designName.hold.rpt"
@@ -106,4 +106,4 @@ report_timing > "$designName.setup.rpt"
 reportCapViolation -outfile final_cap.tarpt
 verifyGeometry
 verifyConnectivity -type all
-reportCritNet -outfile lfsr1.critnet.rpt
+reportCritNet -outfile router.critnet.rpt

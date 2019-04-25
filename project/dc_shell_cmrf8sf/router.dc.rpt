@@ -2,19 +2,21 @@
 ****************************************
 check_design summary:
 Version:     J-2014.09-SP2
-Date:        Thu Apr 11 21:09:56 2019
+Date:        Wed Apr 24 14:38:24 2019
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Inputs/Outputs                                                     48
-    Unconnected ports (LINT-28)                                    48
+Inputs/Outputs                                                     50
+    Unconnected ports (LINT-28)                                    50
 
 Cells                                                              52
     Connected to power or ground (LINT-32)                         48
     Nets connected to multiple pins on same cell (LINT-33)          4
 --------------------------------------------------------------------------------
 
+Warning: In design 'router', port 'portA_writtenTo' is not connected to any nets. (LINT-28)
+Warning: In design 'router', port 'portB_writtenTo' is not connected to any nets. (LINT-28)
 Warning: In design 'incomingPortHandler_0', port 'destinationAddressIn[7]' is not connected to any nets. (LINT-28)
 Warning: In design 'incomingPortHandler_0', port 'destinationAddressIn[6]' is not connected to any nets. (LINT-28)
 Warning: In design 'incomingPortHandler_0', port 'destinationAddressIn[5]' is not connected to any nets. (LINT-28)
@@ -173,14 +175,14 @@ Warning: In design 'router', the same net is connected to more than one pin on s
 Report : area
 Design : router
 Version: J-2014.09-SP2
-Date   : Thu Apr 11 21:09:56 2019
+Date   : Wed Apr 24 14:38:24 2019
 ****************************************
 
 Library(s) Used:
 
     scx3_cmos8rf_lpvt_tt_1p2v_25c (File: /tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db)
 
-Number of ports:                          240
+Number of ports:                          242
 Number of nets:                           916
 Number of cells:                          616
 Number of combinational cells:            511
@@ -208,7 +210,7 @@ Report : power
         -analysis_effort medium
 Design : router
 Version: J-2014.09-SP2
-Date   : Thu Apr 11 21:09:57 2019
+Date   : Wed Apr 24 14:38:25 2019
 ****************************************
 
 
@@ -242,7 +244,7 @@ router                                    0.174    2.372 1.12e+05    2.546 100.0
   cacheController (cacheAccessArbiter) 1.02e-02    0.294 1.56e+04    0.305  12.0
   inWest (incomingPortHandler_1)       5.84e-04 8.82e-03  357.411 9.40e-03   0.4
   inEast (incomingPortHandler_2)       6.50e-04 1.09e-02  373.577 1.15e-02   0.5
-  inSouth (incomingPortHandler_3)      6.43e-04 1.19e-02  367.430 1.26e-02   0.5
+  inSouth (incomingPortHandler_3)      6.42e-04 1.19e-02  367.430 1.26e-02   0.5
   inNorth (incomingPortHandler_0)      6.34e-04 1.48e-02  385.608 1.54e-02   0.6
 1
  
@@ -250,7 +252,7 @@ router                                    0.174    2.372 1.12e+05    2.546 100.0
 Report : design
 Design : router
 Version: J-2014.09-SP2
-Date   : Thu Apr 11 21:09:57 2019
+Date   : Wed Apr 24 14:38:25 2019
 ****************************************
 
 Design allows ideal nets on clock nets.
@@ -317,7 +319,7 @@ Design Parameters:
 Report : cell
 Design : router
 Version: J-2014.09-SP2
-Date   : Thu Apr 11 21:09:57 2019
+Date   : Wed Apr 24 14:38:25 2019
 ****************************************
 
 Attributes:
@@ -1634,7 +1636,7 @@ Report : port
         -verbose
 Design : router
 Version: J-2014.09-SP2
-Date   : Thu Apr 11 21:09:57 2019
+Date   : Wed Apr 24 14:38:25 2019
 ****************************************
 
 
@@ -1809,6 +1811,10 @@ localRouterAddress[1]
 localRouterAddress[2]
                in      0.0000   0.0000   --       0.00   --         
 localRouterAddress[3]
+               in      0.0000   0.0000   --       0.00   --         
+portA_writtenTo
+               in      0.0000   0.0000   --       0.00   --         
+portB_writtenTo
                in      0.0000   0.0000   --       0.00   --         
 readIn_EAST    in      0.0000   0.0000   --       0.00   --         
 readIn_NORTH   in      0.0000   0.0000   --       0.00   --         
@@ -2275,6 +2281,10 @@ localRouterAddress[1]
 localRouterAddress[2]
                    1      --              --              --        -- 
 localRouterAddress[3]
+                   1      --              --              --        -- 
+portA_writtenTo
+                   1      --              --              --        -- 
+portB_writtenTo
                    1      --              --              --        -- 
 readIn_EAST        1      --              --              --        -- 
 readIn_NORTH       1      --              --              --        -- 
@@ -2743,6 +2753,10 @@ localRouterAddress[2]
               0.00    0.00    0.00    0.00  clk       2.00  
 localRouterAddress[3]
               0.00    0.00    0.00    0.00  clk       2.00  
+portA_writtenTo
+              0.00    0.00    0.00    0.00  clk       2.00  
+portB_writtenTo
+              0.00    0.00    0.00    0.00  clk       2.00  
 readIn_EAST   0.00    0.00    0.00    0.00  clk       2.00  
 readIn_NORTH
               0.00    0.00    0.00    0.00  clk       2.00  
@@ -2972,6 +2986,10 @@ localRouterAddress[2]
               --      --     --      --     --      --     --     --        -- 
 localRouterAddress[3]
               --      --     --      --     --      --     --     --        -- 
+portA_writtenTo
+              --      --     --      --     --      --     --     --        -- 
+portB_writtenTo
+              --      --     --      --     --      --     --     --        -- 
 readIn_EAST   --      --     --      --     --      --     --     --        -- 
 readIn_NORTH
               --      --     --      --     --      --     --     --        -- 
@@ -3200,6 +3218,10 @@ localRouterAddress[1]
 localRouterAddress[2]
               --      --      --      -- 
 localRouterAddress[3]
+              --      --      --      -- 
+portA_writtenTo
+              --      --      --      -- 
+portB_writtenTo
               --      --      --      -- 
 readIn_EAST   --      --      --      -- 
 readIn_NORTH
@@ -3511,7 +3533,7 @@ writeOut_WEST
 Report : compile_options
 Design : router
 Version: J-2014.09-SP2
-Date   : Thu Apr 11 21:09:57 2019
+Date   : Wed Apr 24 14:38:25 2019
 ****************************************
 
 Design                                   Compile Option         Value
@@ -3575,7 +3597,7 @@ Report : constraint
         -verbose
 Design : router
 Version: J-2014.09-SP2
-Date   : Thu Apr 11 21:09:57 2019
+Date   : Wed Apr 24 14:38:25 2019
 ****************************************
 
 
@@ -7472,7 +7494,7 @@ Report : timing
         -max_paths 20
 Design : router
 Version: J-2014.09-SP2
-Date   : Thu Apr 11 21:09:57 2019
+Date   : Wed Apr 24 14:38:25 2019
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.

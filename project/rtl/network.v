@@ -8,7 +8,7 @@
 //Include dependencies
 `include "globalVariables.v"
 `include "router.v"
-`include "cacheBank.v"
+`include ""
 //`include "../dc_shell_cmrf8sf/router.nl.v"
 
 
@@ -22,7 +22,7 @@ module network(
 	input writeIn_port0,
 	input [`DATA_WIDTH -1:0] dataIn_port0,
 	
-	output wire readReady_port0,
+	output readReady_port0,
 	output wire [`DATA_WIDTH -1:0] dataOut_port0,
 	
 	//Access port 1 (South/Bottom)
@@ -31,7 +31,7 @@ module network(
 	input writeIn_port1,
 	input [`DATA_WIDTH -1:0] dataIn_port1,
 	
-	output wire readReady_port1,
+	output readReady_port1,
 	output wire [`DATA_WIDTH -1:0] dataOut_port1,
 	
 	//Access port 2 (East/Right)
@@ -40,7 +40,7 @@ module network(
 	input writeIn_port2,
 	input [`DATA_WIDTH -1:0] dataIn_port2,
 	
-	output wire readReady_port2,
+	output readReady_port2,
 	output wire [`DATA_WIDTH -1:0] dataOut_port2,
 	
 	//Access port (West/Left)
@@ -49,12 +49,12 @@ module network(
 	input writeIn_port3,
 	input [`DATA_WIDTH -1:0] dataIn_port3,
 	
-	output wire readReady_port3,
+	output readReady_port3,
 	output wire [`DATA_WIDTH -1:0] dataOut_port3
 	);
 	
 	
-	parameter networkHeight = `NETWORK_HEIGHT;
+	parameter networkHeight = `NETWORK_HEIGH;
 	parameter networkWidth = `NETWORK_WIDTH;
 	
 	parameter port0_NodeID = networkWidth/2;
@@ -207,7 +207,7 @@ module network(
 				);
 				
 			//Cache bank instance				
-			cacheBank localCacheBank( 
+			cacheBank CacheBank( 
 				.clk(clk),
 				.reset(reset),
 	
@@ -309,54 +309,12 @@ module network(
 		assign Node[port0_NodeID].writeIn_NORTH = writeIn_port0;
 		assign Node[port0_NodeID].dataIn_NORTH = dataIn_port0;
 		
-		responseCatcher responseCatcher_0(
-			.clk(clk),
-			.reset(reset),
-			//Access port IO
-			.localAddress(port0_NodeID),
-			.readyReady(readReady_port0),
-			.dataOut(dataOut_port0),
-			//portA probes
-			.requesterAddressIn_A(Node[port0_NodeID].requesterAddressIn_SOUTH),
-			.readIn_A(Node[port0_NodeID].readIn_SOUTH),
-			.dataIn_A(Node[port0_NodeID].dataIn_SOUTH),
-			//portA probes
-			.requesterAddressIn_B(Node[port0_NodeID].requesterAddressIn_EAST),
-			.readIn_B(Node[port0_NodeID].readIn_EAST),
-			.dataIn_B(Node[port0_NodeID].dataIn_EAST),
-			//portA probes
-			.requesterAddressIn_C(Node[port0_NodeID].requesterAddressIn_WEST),
-			.readIn_C(Node[port0_NodeID].readIn_WEST),
-			.dataIn_C(Node[port0_NodeID].dataIn_WEST)
-			);
-		
 		//Port 1 (South/Bottom)
 		assign Node[port1_NodeID].destinationAddressIn_NORTH = destinationAddressIn_port1;
 		assign Node[port1_NodeID].requesterAddressIn_NORTH = destinationAddressIn_port1;
 		assign Node[port1_NodeID].readIn_NORTH = readIn_port1;
 		assign Node[port1_NodeID].writeIn_NORTH = writeIn_port1;
 		assign Node[port1_NodeID].dataIn_NORTH = dataIn_port1;
-		
-		responseCatcher responseCatcher_1(
-			.clk(clk),
-			.reset(reset),
-			//Access port IO
-			.localAddress(port1_NodeID),
-			.readyReady(readReady_port1),
-			.dataOut(dataOut_port1),
-			//portA probes
-			.requesterAddressIn_A(Node[port1_NodeID].requesterAddressIn_NORTH),
-			.readIn_A(Node[port1_NodeID].readIn_NORTH),
-			.dataIn_A(Node[port1_NodeID].dataIn_NORTH),
-			//portB probes
-			.requesterAddressIn_B(Node[port1_NodeID].requesterAddressIn_EAST),
-			.readIn_B(Node[port1_NodeID].readIn_EAST),
-			.dataIn_B(Node[port1_NodeID].dataIn_EAST),
-			//portC probes
-			.requesterAddressIn_C(Node[port1_NodeID].requesterAddressIn_WEST),
-			.readIn_C(Node[port1_NodeID].readIn_WEST),
-			.dataIn_C(Node[port1_NodeID].dataIn_WEST)
-			);
 		
 		//Port 2 (East/Right)
 		assign Node[port2_NodeID].destinationAddressIn_NORTH = destinationAddressIn_port2;
@@ -365,113 +323,13 @@ module network(
 		assign Node[port2_NodeID].writeIn_NORTH = writeIn_port2;
 		assign Node[port2_NodeID].dataIn_NORTH = dataIn_port2;
 		
-		responseCatcher responseCatcher_2(
-			.clk(clk),
-			.reset(reset),
-			//Access port IO
-			.localAddress(port2_NodeID),
-			.readyReady(readReady_port2),
-			.dataOut(dataOut_port2),
-			//portA probes
-			.requesterAddressIn_A(Node[port2_NodeID].requesterAddressIn_NORTH),
-			.readIn_A(Node[port2_NodeID].readIn_NORTH),
-			.dataIn_A(Node[port2_NodeID].dataIn_NORTH),
-			//portB probes
-			.requesterAddressIn_B(Node[port2_NodeID].requesterAddressIn_SOUTH),
-			.readIn_B(Node[port2_NodeID].readIn_SOUTH),
-			.dataIn_B(Node[port2_NodeID].dataIn_SOUTH),
-			//portC probes
-			.requesterAddressIn_C(Node[port2_NodeID].requesterAddressIn_WEST),
-			.readIn_C(Node[port2_NodeID].readIn_WEST),
-			.dataIn_C(Node[port2_NodeID].dataIn_WEST)
-			);
-		
 		//Port 3 (West/Left)
-		assign Node[port3_NodeID].destinationAddressIn_NORTH = destinationAddressIn_port3;
+		assign Node[port3_NodeID].destinationAddressIn_NORTH  destinationAddressIn_port3;
 		assign Node[port3_NodeID].requesterAddressIn_NORTH = destinationAddressIn_port3;
 		assign Node[port3_NodeID].readIn_NORTH = readIn_port3;
 		assign Node[port3_NodeID].writeIn_NORTH = writeIn_port3;
 		assign Node[port3_NodeID].dataIn_NORTH = dataIn_port3;
 		
-		responseCatcher responseCatcher_3(
-			.clk(clk),
-			.reset(reset),
-			//Access port IO
-			.localAddress(port3_NodeID),
-			.readyReady(readReady_port3),
-			.dataOut(dataOut_port3),
-			//portA probes
-			.requesterAddressIn_A(Node[port3_NodeID].requesterAddressIn_NORTH),
-			.readIn_A(Node[port3_NodeID].readIn_NORTH),
-			.dataIn_A(Node[port3_NodeID].dataIn_NORTH),
-			//portB probes
-			.requesterAddressIn_B(Node[port3_NodeID].requesterAddressIn_SOUTH),
-			.readIn_B(Node[port3_NodeID].readIn_SOUTH),
-			.dataIn_B(Node[port3_NodeID].dataIn_SOUTH),
-			//portC probes
-			.requesterAddressIn_C(Node[port3_NodeID].requesterAddressIn_EAST),
-			.readIn_C(Node[port3_NodeID].readIn_EAST),
-			.dataIn_C(Node[port3_NodeID].dataIn_EAST)
-			);
-			
 	endgenerate
 
-endmodule
-
-
-/*
- *
- */
-module responseCatcher(
-	input clk,
-	input reset,
-	
-	//Access port IO
-	input [`NETWORK_ADDRESS_WIDTH -1:0] localAddress,
-	output reg readyReady,
-	output reg [`DATA_WIDTH -1:0] dataOut,
-	
-	//portA probes
-	input [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_A,
-	input readIn_A,
-	input [`DATA_WIDTH -1:0] dataIn_A,
-	
-	//portB probes
-	input [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_B,
-	input readIn_B,
-	input [`DATA_WIDTH -1:0] dataIn_B,
-	
-	//portC probes
-	input [`NETWORK_ADDRESS_WIDTH -1:0] requesterAddressIn_C,
-	input readIn_C,
-	input [`DATA_WIDTH -1:0] dataIn_C
-	);
-	
-	always @ (posedge clk) begin
-		if (reset) begin
-			readyReady <= 0;
-			dataOut <= 0;
-		end
-		
-		else begin
-			if (requesterAddressIn_A == localAddress) begin
-				readyReady <= readIn_A;
-				dataOut <= dataIn_A;
-			end
-			
-			else if (requesterAddressIn_B == localAddress) begin
-				readyReady <= readIn_B;
-				dataOut <= dataIn_B;
-			end
-			
-			else if (requesterAddressIn_C == localAddress) begin
-				readyReady <= readIn_C;
-				dataOut <= dataIn_C;
-			end
-			
-			else begin
-				readyReady <= 0;
-			end
-		end
-	end
 endmodule

@@ -3,13 +3,13 @@
 #################################################
 
 # Verilog netlist.
-set init_verilog {../dc_shell_cmrf8sf/lfsr1.nl.v}
+set init_verilog {../dc_shell_cmrf8sf/router.nl.v}
 
 # Top module.
-set init_design {lfsr1}
+set init_design {router}
 
 # IO file.
-set init_io_file {./lfsr1.io}
+set init_io_file {./router.io}
 
 # Set the name of your .lef file
 set init_lef_file {/tools2/courses/ee6321/share/ibm13rflpvt/lef/ibm13_8lm_2thick_3rf_tech.lef /tools2/courses/ee6321/share/ibm13rflpvt/lef/ibm13rflpvt_macros.lef}

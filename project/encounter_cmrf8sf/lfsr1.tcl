@@ -3,7 +3,7 @@
 ###################################
 
 ## Setup design 
-set designName lfsr1
+set designName router
 source ./config/config.globals
 set_message -no_limit
 init_design
@@ -11,25 +11,25 @@ init_design
 
 ## Set the parameters for the floorplan (it is up to you to use these parameters or not)
 ################# FILL OUT PARAMETERS (OPTIONAL) #################
-set std_cell_height 3.76
-set core_width 37
+#set std_cell_height 3.76
+#set core_width 37
 #core_height should be a multiple of the std_cell_height
-set core_height 30.08
+#set core_height 30.08
 #you should iterate the core width and height to make the density close to 0.7
-set ring_left_width 3
-set ring_right_width 3 
-set ring_top_width 3
-set ring_bottom_width 3
-set ring_left_space 3 
-set ring_right_space 3
-set ring_top_space 3
-set ring_bottom_space 3
-set ring_offset 0
+#set ring_left_width 3
+#set ring_right_width 3 
+#set ring_top_width 3
+#set ring_bottom_width 3
+#set ring_left_space 3 
+#set ring_right_space 3
+#set ring_top_space 3
+#set ring_bottom_space 3
+#set ring_offset 0
 ##################################################################
 
 
 ############### Create the floorplan (FILL OUT)  #################
-floorPlan -s 47 32 10 10 10 10 
+floorPlan -d 370.8 370.8 10 10 10 10 
 ##################################################################
  redraw
  fit
@@ -54,7 +54,7 @@ applyGlobalNets
 
 
 ############## Add power rings (FILL OUT) ########################
-addRing -layer {top M1 bottom M1 left M2 right M2} -spacing 1 -width 3 -nets {VDD VSS}
+addRing -layer {top M3 bottom M3 left M2 right M2} -spacing 1 -width 3 -nets {VDD VSS}
 ##################################################################
 redraw
 
