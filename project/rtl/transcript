@@ -9,96 +9,62 @@
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
 # Loading project AdvDgtl_Lab
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
-vsim -t ns work.routerTestbench
+vsim work.NetworkGeneratedTestBench
 # vsim 
-# Start time: 19:39:34 on Apr 09,2019
+# Start time: 18:40:50 on Apr 25,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading work.routerTestbench
+# Loading work.NetworkGeneratedTestBench
+# Loading work.network
+# Loading work.responseCatcher
 # Loading work.router
 # Loading work.incomingPortHandler
 # Loading work.cacheAccessArbiter
 # Loading work.outputPortArbiter
-# ** Error: (vsim-3389) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(87): Port 'portEnable_NORTH' not found in the connected module (4th connection).
-#         Region: :routerTestbench:router4
-# ** Error: (vsim-3389) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(87): Port 'portEnable_SOUTH' not found in the connected module (15th connection).
-#         Region: :routerTestbench:router4
-# ** Error: (vsim-3389) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(87): Port 'portEnable_EAST' not found in the connected module (26th connection).
-#         Region: :routerTestbench:router4
-# ** Error: (vsim-3389) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(87): Port 'portEnable_WEST' not found in the connected module (37th connection).
-#         Region: :routerTestbench:router4
-# ** Fatal: (vsim-3365) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(87): Too many port connections. Expected 51, found 55.
-#    Time: 0 ns  Iteration: 0  Instance: :routerTestbench:router4 File: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v
-# FATAL ERROR while loading design
-# Error loading design
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
-vsim -t ns work.routerTestbench
-# vsim 
-# Start time: 19:40:22 on Apr 09,2019
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading work.routerTestbench
-# Loading work.router
-# Loading work.incomingPortHandler
-# Loading work.cacheAccessArbiter
-# Loading work.outputPortArbiter
-add wave -position insertpoint sim/:routerTestbench:router4:*
+# Loading work.cacheBank
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[0]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[1]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[2]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[3]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[4]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[5]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[6]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[7]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[8]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[9]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[10]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[11]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[12]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[13]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[14]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[15]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(312): [PCDPC] - Port size (4) does not match connection size (32) for port 'localAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(430).
+#         Region: :NetworkGeneratedTestBench:Network:responseCatcher_0
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(340): [PCDPC] - Port size (4) does not match connection size (32) for port 'localAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(430).
+#         Region: :NetworkGeneratedTestBench:Network:responseCatcher_1
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(368): [PCDPC] - Port size (4) does not match connection size (32) for port 'localAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(430).
+#         Region: :NetworkGeneratedTestBench:Network:responseCatcher_2
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(396): [PCDPC] - Port size (4) does not match connection size (32) for port 'localAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(430).
+#         Region: :NetworkGeneratedTestBench:Network:responseCatcher_3
 run
-# ** Note: $stop    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(183)
-#    Time: 10 ns  Iteration: 0  Instance: :routerTestbench
-# Break in Module routerTestbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v line 183
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v failed with 1 errors.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 1 failed with 1 error.
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v failed with 1 errors.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 1 failed with 1 error.
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v failed with 1 errors.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 1 failed with 1 error.
+# ** Note: $stop    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_networkTestbench_Generated.v(2754)
+#    Time: 201 ps  Iteration: 0  Instance: :NetworkGeneratedTestBench
+# Break in Module NetworkGeneratedTestBench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_networkTestbench_Generated.v line 2754
 # Compile of lfsr1.v was successful.
 # Compile of test.v was successful.
 # Compile of router.v was successful.
@@ -109,167 +75,63 @@ run
 # Compile of testoutportarbiter.v was successful.
 # Compile of cacheAccessArbiter.v was successful.
 # Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
+# Compile of network.v was successful.
+# Compile of TEST_networkTestbench_Generated.v was successful.
+# 12 compiles, 0 failed with no errors.
 restart
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading work.routerTestbench
+# Loading work.NetworkGeneratedTestBench
+# Loading work.network
+# Loading work.responseCatcher
 # Loading work.router
 # Loading work.incomingPortHandler
 # Loading work.cacheAccessArbiter
 # Loading work.outputPortArbiter
+# Loading work.cacheBank
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[0]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[1]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[2]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[3]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[4]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[5]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[6]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[7]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[8]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[9]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[10]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[11]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[12]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[13]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[14]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(138): [PCDPC] - Port size (4) does not match connection size (32) for port 'localRouterAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/router.v(21).
+#         Region: :NetworkGeneratedTestBench:Network:Node[15]:rtr
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(312): [PCDPC] - Port size (4) does not match connection size (32) for port 'localAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(430).
+#         Region: :NetworkGeneratedTestBench:Network:responseCatcher_0
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(340): [PCDPC] - Port size (4) does not match connection size (32) for port 'localAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(430).
+#         Region: :NetworkGeneratedTestBench:Network:responseCatcher_1
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(368): [PCDPC] - Port size (4) does not match connection size (32) for port 'localAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(430).
+#         Region: :NetworkGeneratedTestBench:Network:responseCatcher_2
+# ** Warning: (vsim-3015) /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(396): [PCDPC] - Port size (4) does not match connection size (32) for port 'localAddress'. The port definition is at: /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/network.v(430).
+#         Region: :NetworkGeneratedTestBench:Network:responseCatcher_3
 run
-# ** Note: $stop    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(183)
-#    Time: 10 ns  Iteration: 0  Instance: :routerTestbench
-# Break in Module routerTestbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v line 183
-add wave -position insertpoint sim/:routerTestbench:router4:cacheController:*
-restart
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-run
-# ** Note: $stop    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(183)
-#    Time: 10 ns  Iteration: 0  Instance: :routerTestbench
-# Break in Module routerTestbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v line 183
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
-restart
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading work.routerTestbench
-# Loading work.router
-# Loading work.incomingPortHandler
-# Loading work.cacheAccessArbiter
-# Loading work.outputPortArbiter
-run
-# ** Note: $stop    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(183)
-#    Time: 10 ns  Iteration: 0  Instance: :routerTestbench
-# Break in Module routerTestbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v line 183
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
-restart
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading work.routerTestbench
-# Loading work.router
-# Loading work.incomingPortHandler
-# Loading work.cacheAccessArbiter
-# Loading work.outputPortArbiter
-add wave -position insertpoint sim/:routerTestbench:router4:inSouth:*
-run
-# ** Note: $stop    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(183)
-#    Time: 10 ns  Iteration: 0  Instance: :routerTestbench
-# Break in Module routerTestbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v line 183
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
-restart
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading work.routerTestbench
-# Loading work.router
-# Loading work.incomingPortHandler
-# Loading work.cacheAccessArbiter
-# Loading work.outputPortArbiter
-run
-# ** Note: $stop    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(183)
-#    Time: 10 ns  Iteration: 0  Instance: :routerTestbench
-# Break in Module routerTestbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v line 183
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
-restart
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading work.routerTestbench
-# Loading work.router
-# Loading work.incomingPortHandler
-# Loading work.cacheAccessArbiter
-# Loading work.outputPortArbiter
-run
-# ** Note: $stop    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v(183)
-#    Time: 10 ns  Iteration: 0  Instance: :routerTestbench
-# Break in Module routerTestbench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_router.v line 183
-add wave -position insertpoint sim/:routerTestbench:router4:*
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v failed with 1 errors.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 1 failed with 1 error.
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
-# Compile of lfsr1.v was successful.
-# Compile of test.v was successful.
-# Compile of router.v was successful.
-# Compile of globalVariables.v was successful.
-# Compile of TEST_router.v was successful.
-# Compile of TEST_network.v was successful.
-# Compile of syncRAM.v was successful.
-# Compile of testoutportarbiter.v was successful.
-# Compile of cacheAccessArbiter.v was successful.
-# Compile of test_cacheAccessArbiter.v was successful.
-# 10 compiles, 0 failed with no errors.
-vsim -t ns work.routerTestbench
-# vsim 
-# Start time: 20:19:55 on Apr 09,2019
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading work.routerTestbench
-# Loading work.router
-# Loading work.incomingPortHandler
-# Loading work.cacheAccessArbiter
-# Loading work.outputPortArbiter
-# End time: 20:25:16 on Apr 09,2019, Elapsed time: 0:05:21
-# Errors: 0, Warnings: 1
+# Error = 0
+# ** Note: $stop    : /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_networkTestbench_Generated.v(2757)
+#    Time: 201 ps  Iteration: 0  Instance: :NetworkGeneratedTestBench
+# Break in Module NetworkGeneratedTestBench at /homes/user3/fall16/jer2201/AdvancedElectronics/project/rtl/TEST_networkTestbench_Generated.v line 2757
+# End time: 18:41:31 on Apr 25,2019, Elapsed time: 0:00:41
+# Errors: 0, Warnings: 42

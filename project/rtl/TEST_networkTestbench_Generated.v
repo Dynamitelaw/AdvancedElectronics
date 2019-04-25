@@ -77,7 +77,7 @@ module NetworkGeneratedTestBench ;
 		.dataIn_port2(dataIn_port2),
 		.readReady_port2(readReady_port2),
 		.dataOut_port2(dataOut_port2),
-		//Access port (West/Left)
+		//Access port 3 (West/Left)
 		.destinationAddressIn_port3(destinationAddressIn_port3),
 		.readIn_port3(readIn_port3),
 		.writeIn_port3(writeIn_port3),
@@ -135,7 +135,9 @@ module NetworkGeneratedTestBench ;
 
 	//Begin testbench
 	initial begin
-		//Reset network
+		//===========================
+		// Reset network
+		//===========================
 		reset <= 1;
 		#1
 
@@ -167,13 +169,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 14 -> address 3272
-		destinationAddressIn_port0 <= 12'd3272;
-		dataIn_port0 <= 6'd14;
+			//Port0: write 35 -> address 2868
+		destinationAddressIn_port0 <= 12'd2868;
+		dataIn_port0 <= 6'd35;
 		writeIn_port0 <= 1;
-			//Port3: write 27 -> address 11
-		destinationAddressIn_port3 <= 12'd11;
-		dataIn_port3 <= 6'd27;
+			//Port2: write 49 -> address 3858
+		destinationAddressIn_port2 <= 12'd3858;
+		dataIn_port2 <= 6'd49;
+		writeIn_port2 <= 1;
+			//Port3: write 11 -> address 839
+		destinationAddressIn_port3 <= 12'd839;
+		dataIn_port3 <= 6'd11;
 		writeIn_port3 <= 1;
 		#1
 
@@ -189,17 +195,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: read 14 from address 3272
-		destinationAddressIn_port0 <= 12'd3272;
-		expectedData_port0 <= 6'd14;
-		readIn_port0 <= 1;
-			//Port2: write 35 -> address 2846
-		destinationAddressIn_port2 <= 12'd2846;
-		dataIn_port2 <= 6'd35;
-		writeIn_port2 <= 1;
-			//Port3: read 27 from address 11
-		destinationAddressIn_port3 <= 12'd11;
-		expectedData_port3 <= 6'd27;
+			//Port1: write 11 -> address 1425
+		destinationAddressIn_port1 <= 12'd1425;
+		dataIn_port1 <= 6'd11;
+		writeIn_port1 <= 1;
+			//Port2: read 49 from address 3858
+		destinationAddressIn_port2 <= 12'd3858;
+		expectedData_port2 <= 6'd49;
+		readIn_port2 <= 1;
+			//Port3: read 11 from address 839
+		destinationAddressIn_port3 <= 12'd839;
+		expectedData_port3 <= 6'd11;
 		readIn_port3 <= 1;
 		#1
 
@@ -215,17 +221,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 10 -> address 1008
-		destinationAddressIn_port0 <= 12'd1008;
-		dataIn_port0 <= 6'd10;
-		writeIn_port0 <= 1;
-			//Port2: write 58 -> address 1058
-		destinationAddressIn_port2 <= 12'd1058;
-		dataIn_port2 <= 6'd58;
+			//Port0: read 35 from address 2868
+		destinationAddressIn_port0 <= 12'd2868;
+		expectedData_port0 <= 6'd35;
+		readIn_port0 <= 1;
+			//Port1: read 11 from address 1425
+		destinationAddressIn_port1 <= 12'd1425;
+		expectedData_port1 <= 6'd11;
+		readIn_port1 <= 1;
+			//Port2: write 14 -> address 3710
+		destinationAddressIn_port2 <= 12'd3710;
+		dataIn_port2 <= 6'd14;
 		writeIn_port2 <= 1;
-			//Port3: write 25 -> address 3667
-		destinationAddressIn_port3 <= 12'd3667;
-		dataIn_port3 <= 6'd25;
+			//Port3: write 31 -> address 215
+		destinationAddressIn_port3 <= 12'd215;
+		dataIn_port3 <= 6'd31;
 		writeIn_port3 <= 1;
 		#1
 
@@ -241,17 +251,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 8 -> address 2924
-		destinationAddressIn_port0 <= 12'd2924;
-		dataIn_port0 <= 6'd8;
+			//Port0: write 7 -> address 1760
+		destinationAddressIn_port0 <= 12'd1760;
+		dataIn_port0 <= 6'd7;
 		writeIn_port0 <= 1;
-			//Port2: write 9 -> address 3030
-		destinationAddressIn_port2 <= 12'd3030;
-		dataIn_port2 <= 6'd9;
+			//Port1: write 18 -> address 333
+		destinationAddressIn_port1 <= 12'd333;
+		dataIn_port1 <= 6'd18;
+		writeIn_port1 <= 1;
+			//Port2: write 25 -> address 3166
+		destinationAddressIn_port2 <= 12'd3166;
+		dataIn_port2 <= 6'd25;
 		writeIn_port2 <= 1;
-			//Port3: write 30 -> address 2091
-		destinationAddressIn_port3 <= 12'd2091;
-		dataIn_port3 <= 6'd30;
+			//Port3: write 16 -> address 3427
+		destinationAddressIn_port3 <= 12'd3427;
+		dataIn_port3 <= 6'd16;
 		writeIn_port3 <= 1;
 		#1
 
@@ -267,21 +281,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 7 -> address 2576
-		destinationAddressIn_port0 <= 12'd2576;
-		dataIn_port0 <= 6'd7;
+			//Port0: write 38 -> address 2192
+		destinationAddressIn_port0 <= 12'd2192;
+		dataIn_port0 <= 6'd38;
 		writeIn_port0 <= 1;
-			//Port1: write 10 -> address 1569
-		destinationAddressIn_port1 <= 12'd1569;
-		dataIn_port1 <= 6'd10;
+			//Port1: write 50 -> address 1981
+		destinationAddressIn_port1 <= 12'd1981;
+		dataIn_port1 <= 6'd50;
 		writeIn_port1 <= 1;
-			//Port2: read 58 from address 1058
-		destinationAddressIn_port2 <= 12'd1058;
-		expectedData_port2 <= 6'd58;
-		readIn_port2 <= 1;
-			//Port3: write 40 -> address 2767
-		destinationAddressIn_port3 <= 12'd2767;
-		dataIn_port3 <= 6'd40;
+			//Port3: write 58 -> address 2003
+		destinationAddressIn_port3 <= 12'd2003;
+		dataIn_port3 <= 6'd58;
 		writeIn_port3 <= 1;
 		#1
 
@@ -297,17 +307,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 36 -> address 1868
-		destinationAddressIn_port0 <= 12'd1868;
-		dataIn_port0 <= 6'd36;
+			//Port0: write 52 -> address 3176
+		destinationAddressIn_port0 <= 12'd3176;
+		dataIn_port0 <= 6'd52;
 		writeIn_port0 <= 1;
-			//Port2: write 57 -> address 2770
-		destinationAddressIn_port2 <= 12'd2770;
-		dataIn_port2 <= 6'd57;
+			//Port1: write 28 -> address 2585
+		destinationAddressIn_port1 <= 12'd2585;
+		dataIn_port1 <= 6'd28;
+		writeIn_port1 <= 1;
+			//Port2: write 4 -> address 2842
+		destinationAddressIn_port2 <= 12'd2842;
+		dataIn_port2 <= 6'd4;
 		writeIn_port2 <= 1;
-			//Port3: write 49 -> address 1115
-		destinationAddressIn_port3 <= 12'd1115;
-		dataIn_port3 <= 6'd49;
+			//Port3: write 32 -> address 727
+		destinationAddressIn_port3 <= 12'd727;
+		dataIn_port3 <= 6'd32;
 		writeIn_port3 <= 1;
 		#1
 
@@ -323,14 +337,22 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 21 -> address 1913
-		destinationAddressIn_port1 <= 12'd1913;
-		dataIn_port1 <= 6'd21;
+			//Port0: write 23 -> address 2340
+		destinationAddressIn_port0 <= 12'd2340;
+		dataIn_port0 <= 6'd23;
+		writeIn_port0 <= 1;
+			//Port1: write 38 -> address 1309
+		destinationAddressIn_port1 <= 12'd1309;
+		dataIn_port1 <= 6'd38;
 		writeIn_port1 <= 1;
-			//Port2: write 2 -> address 210
-		destinationAddressIn_port2 <= 12'd210;
-		dataIn_port2 <= 6'd2;
+			//Port2: write 43 -> address 1406
+		destinationAddressIn_port2 <= 12'd1406;
+		dataIn_port2 <= 6'd43;
 		writeIn_port2 <= 1;
+			//Port3: write 34 -> address 967
+		destinationAddressIn_port3 <= 12'd967;
+		dataIn_port3 <= 6'd34;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 10==
@@ -345,21 +367,13 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 61 -> address 3484
-		destinationAddressIn_port0 <= 12'd3484;
-		dataIn_port0 <= 6'd61;
-		writeIn_port0 <= 1;
-			//Port1: write 51 -> address 2601
-		destinationAddressIn_port1 <= 12'd2601;
-		dataIn_port1 <= 6'd51;
+			//Port1: write 56 -> address 1021
+		destinationAddressIn_port1 <= 12'd1021;
+		dataIn_port1 <= 6'd56;
 		writeIn_port1 <= 1;
-			//Port2: write 21 -> address 3102
-		destinationAddressIn_port2 <= 12'd3102;
-		dataIn_port2 <= 6'd21;
-		writeIn_port2 <= 1;
-			//Port3: write 48 -> address 2863
-		destinationAddressIn_port3 <= 12'd2863;
-		dataIn_port3 <= 6'd48;
+			//Port3: write 18 -> address 3487
+		destinationAddressIn_port3 <= 12'd3487;
+		dataIn_port3 <= 6'd18;
 		writeIn_port3 <= 1;
 		#1
 
@@ -375,14 +389,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 38 -> address 2832
-		destinationAddressIn_port0 <= 12'd2832;
-		dataIn_port0 <= 6'd38;
+			//Port0: write 4 -> address 832
+		destinationAddressIn_port0 <= 12'd832;
+		dataIn_port0 <= 6'd4;
 		writeIn_port0 <= 1;
-			//Port2: write 15 -> address 458
-		destinationAddressIn_port2 <= 12'd458;
-		dataIn_port2 <= 6'd15;
+			//Port2: write 21 -> address 3018
+		destinationAddressIn_port2 <= 12'd3018;
+		dataIn_port2 <= 6'd21;
 		writeIn_port2 <= 1;
+			//Port3: write 49 -> address 3351
+		destinationAddressIn_port3 <= 12'd3351;
+		dataIn_port3 <= 6'd49;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 12==
@@ -397,18 +415,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 62 -> address 1804
-		destinationAddressIn_port0 <= 12'd1804;
-		dataIn_port0 <= 6'd62;
+			//Port0: write 8 -> address 3012
+		destinationAddressIn_port0 <= 12'd3012;
+		dataIn_port0 <= 6'd8;
 		writeIn_port0 <= 1;
-			//Port1: read 21 from address 1913
-		destinationAddressIn_port1 <= 12'd1913;
-		expectedData_port1 <= 6'd21;
-		readIn_port1 <= 1;
-			//Port2: write 51 -> address 2050
-		destinationAddressIn_port2 <= 12'd2050;
-		dataIn_port2 <= 6'd51;
-		writeIn_port2 <= 1;
+			//Port1: write 6 -> address 2489
+		destinationAddressIn_port1 <= 12'd2489;
+		dataIn_port1 <= 6'd6;
+		writeIn_port1 <= 1;
+			//Port3: write 39 -> address 1659
+		destinationAddressIn_port3 <= 12'd1659;
+		dataIn_port3 <= 6'd39;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 13==
@@ -423,20 +441,16 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 40 -> address 3812
-		destinationAddressIn_port0 <= 12'd3812;
-		dataIn_port0 <= 6'd40;
+			//Port0: write 19 -> address 472
+		destinationAddressIn_port0 <= 12'd472;
+		dataIn_port0 <= 6'd19;
 		writeIn_port0 <= 1;
-			//Port1: write 2 -> address 745
-		destinationAddressIn_port1 <= 12'd745;
-		dataIn_port1 <= 6'd2;
-		writeIn_port1 <= 1;
-			//Port2: write 30 -> address 74
-		destinationAddressIn_port2 <= 12'd74;
-		dataIn_port2 <= 6'd30;
+			//Port2: write 8 -> address 1502
+		destinationAddressIn_port2 <= 12'd1502;
+		dataIn_port2 <= 6'd8;
 		writeIn_port2 <= 1;
-			//Port3: write 6 -> address 723
-		destinationAddressIn_port3 <= 12'd723;
+			//Port3: write 6 -> address 859
+		destinationAddressIn_port3 <= 12'd859;
 		dataIn_port3 <= 6'd6;
 		writeIn_port3 <= 1;
 		#1
@@ -453,18 +467,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 21 -> address 3740
-		destinationAddressIn_port0 <= 12'd3740;
-		dataIn_port0 <= 6'd21;
+			//Port0: write 3 -> address 2392
+		destinationAddressIn_port0 <= 12'd2392;
+		dataIn_port0 <= 6'd3;
 		writeIn_port0 <= 1;
-			//Port1: write 0 -> address 2921
-		destinationAddressIn_port1 <= 12'd2921;
-		dataIn_port1 <= 6'd0;
+			//Port1: write 40 -> address 37
+		destinationAddressIn_port1 <= 12'd37;
+		dataIn_port1 <= 6'd40;
 		writeIn_port1 <= 1;
-			//Port2: write 55 -> address 34
-		destinationAddressIn_port2 <= 12'd34;
-		dataIn_port2 <= 6'd55;
-		writeIn_port2 <= 1;
+			//Port3: write 54 -> address 907
+		destinationAddressIn_port3 <= 12'd907;
+		dataIn_port3 <= 6'd54;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 15==
@@ -479,17 +493,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 11 -> address 1873
-		destinationAddressIn_port1 <= 12'd1873;
-		dataIn_port1 <= 6'd11;
-		writeIn_port1 <= 1;
-			//Port2: write 18 -> address 3630
-		destinationAddressIn_port2 <= 12'd3630;
-		dataIn_port2 <= 6'd18;
+			//Port0: write 14 -> address 1980
+		destinationAddressIn_port0 <= 12'd1980;
+		dataIn_port0 <= 6'd14;
+		writeIn_port0 <= 1;
+			//Port2: write 21 -> address 810
+		destinationAddressIn_port2 <= 12'd810;
+		dataIn_port2 <= 6'd21;
 		writeIn_port2 <= 1;
-			//Port3: write 0 -> address 2603
-		destinationAddressIn_port3 <= 12'd2603;
-		dataIn_port3 <= 6'd0;
+			//Port3: write 22 -> address 2763
+		destinationAddressIn_port3 <= 12'd2763;
+		dataIn_port3 <= 6'd22;
 		writeIn_port3 <= 1;
 		#1
 
@@ -505,18 +519,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 49 -> address 3208
-		destinationAddressIn_port0 <= 12'd3208;
-		dataIn_port0 <= 6'd49;
+			//Port0: write 50 -> address 3924
+		destinationAddressIn_port0 <= 12'd3924;
+		dataIn_port0 <= 6'd50;
 		writeIn_port0 <= 1;
-			//Port1: write 35 -> address 77
-		destinationAddressIn_port1 <= 12'd77;
-		dataIn_port1 <= 6'd35;
+			//Port1: write 13 -> address 721
+		destinationAddressIn_port1 <= 12'd721;
+		dataIn_port1 <= 6'd13;
 		writeIn_port1 <= 1;
-			//Port2: write 53 -> address 886
-		destinationAddressIn_port2 <= 12'd886;
-		dataIn_port2 <= 6'd53;
-		writeIn_port2 <= 1;
+			//Port3: write 31 -> address 519
+		destinationAddressIn_port3 <= 12'd519;
+		dataIn_port3 <= 6'd31;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 17==
@@ -531,13 +545,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port2: write 17 -> address 1534
-		destinationAddressIn_port2 <= 12'd1534;
-		dataIn_port2 <= 6'd17;
+			//Port0: write 53 -> address 2796
+		destinationAddressIn_port0 <= 12'd2796;
+		dataIn_port0 <= 6'd53;
+		writeIn_port0 <= 1;
+			//Port1: write 31 -> address 4053
+		destinationAddressIn_port1 <= 12'd4053;
+		dataIn_port1 <= 6'd31;
+		writeIn_port1 <= 1;
+			//Port2: write 50 -> address 1690
+		destinationAddressIn_port2 <= 12'd1690;
+		dataIn_port2 <= 6'd50;
 		writeIn_port2 <= 1;
-			//Port3: write 39 -> address 2803
-		destinationAddressIn_port3 <= 12'd2803;
-		dataIn_port3 <= 6'd39;
+			//Port3: write 16 -> address 567
+		destinationAddressIn_port3 <= 12'd567;
+		dataIn_port3 <= 6'd16;
 		writeIn_port3 <= 1;
 		#1
 
@@ -553,21 +575,13 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 14 -> address 676
-		destinationAddressIn_port0 <= 12'd676;
-		dataIn_port0 <= 6'd14;
+			//Port0: write 42 -> address 2928
+		destinationAddressIn_port0 <= 12'd2928;
+		dataIn_port0 <= 6'd42;
 		writeIn_port0 <= 1;
-			//Port1: write 58 -> address 2189
-		destinationAddressIn_port1 <= 12'd2189;
-		dataIn_port1 <= 6'd58;
-		writeIn_port1 <= 1;
-			//Port2: write 46 -> address 1642
-		destinationAddressIn_port2 <= 12'd1642;
-		dataIn_port2 <= 6'd46;
-		writeIn_port2 <= 1;
-			//Port3: write 10 -> address 1171
-		destinationAddressIn_port3 <= 12'd1171;
-		dataIn_port3 <= 6'd10;
+			//Port3: write 11 -> address 3011
+		destinationAddressIn_port3 <= 12'd3011;
+		dataIn_port3 <= 6'd11;
 		writeIn_port3 <= 1;
 		#1
 
@@ -583,17 +597,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 47 -> address 3200
-		destinationAddressIn_port0 <= 12'd3200;
-		dataIn_port0 <= 6'd47;
+			//Port0: write 16 -> address 2508
+		destinationAddressIn_port0 <= 12'd2508;
+		dataIn_port0 <= 6'd16;
 		writeIn_port0 <= 1;
-			//Port2: write 3 -> address 2334
-		destinationAddressIn_port2 <= 12'd2334;
-		dataIn_port2 <= 6'd3;
+			//Port1: write 34 -> address 601
+		destinationAddressIn_port1 <= 12'd601;
+		dataIn_port1 <= 6'd34;
+		writeIn_port1 <= 1;
+			//Port2: write 55 -> address 1458
+		destinationAddressIn_port2 <= 12'd1458;
+		dataIn_port2 <= 6'd55;
 		writeIn_port2 <= 1;
-			//Port3: write 48 -> address 2983
-		destinationAddressIn_port3 <= 12'd2983;
-		dataIn_port3 <= 6'd48;
+			//Port3: write 39 -> address 2935
+		destinationAddressIn_port3 <= 12'd2935;
+		dataIn_port3 <= 6'd39;
 		writeIn_port3 <= 1;
 		#1
 
@@ -609,18 +627,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 31 -> address 1441
-		destinationAddressIn_port1 <= 12'd1441;
-		dataIn_port1 <= 6'd31;
+			//Port0: write 10 -> address 608
+		destinationAddressIn_port0 <= 12'd608;
+		dataIn_port0 <= 6'd10;
+		writeIn_port0 <= 1;
+			//Port1: write 61 -> address 2213
+		destinationAddressIn_port1 <= 12'd2213;
+		dataIn_port1 <= 6'd61;
 		writeIn_port1 <= 1;
-			//Port2: write 17 -> address 734
-		destinationAddressIn_port2 <= 12'd734;
+			//Port2: write 17 -> address 2150
+		destinationAddressIn_port2 <= 12'd2150;
 		dataIn_port2 <= 6'd17;
 		writeIn_port2 <= 1;
-			//Port3: write 32 -> address 947
-		destinationAddressIn_port3 <= 12'd947;
-		dataIn_port3 <= 6'd32;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 21==
@@ -635,14 +653,22 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 33 -> address 1164
-		destinationAddressIn_port0 <= 12'd1164;
-		dataIn_port0 <= 6'd33;
+			//Port0: write 17 -> address 1232
+		destinationAddressIn_port0 <= 12'd1232;
+		dataIn_port0 <= 6'd17;
 		writeIn_port0 <= 1;
-			//Port1: write 18 -> address 2101
-		destinationAddressIn_port1 <= 12'd2101;
-		dataIn_port1 <= 6'd18;
+			//Port1: write 25 -> address 2565
+		destinationAddressIn_port1 <= 12'd2565;
+		dataIn_port1 <= 6'd25;
 		writeIn_port1 <= 1;
+			//Port2: write 54 -> address 2370
+		destinationAddressIn_port2 <= 12'd2370;
+		dataIn_port2 <= 6'd54;
+		writeIn_port2 <= 1;
+			//Port3: write 52 -> address 2119
+		destinationAddressIn_port3 <= 12'd2119;
+		dataIn_port3 <= 6'd52;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 22==
@@ -657,18 +683,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 20 -> address 184
-		destinationAddressIn_port0 <= 12'd184;
-		dataIn_port0 <= 6'd20;
+			//Port0: write 50 -> address 268
+		destinationAddressIn_port0 <= 12'd268;
+		dataIn_port0 <= 6'd50;
 		writeIn_port0 <= 1;
-			//Port1: write 26 -> address 3877
-		destinationAddressIn_port1 <= 12'd3877;
-		dataIn_port1 <= 6'd26;
-		writeIn_port1 <= 1;
-			//Port2: write 35 -> address 1902
-		destinationAddressIn_port2 <= 12'd1902;
-		dataIn_port2 <= 6'd35;
+			//Port2: write 32 -> address 3286
+		destinationAddressIn_port2 <= 12'd3286;
+		dataIn_port2 <= 6'd32;
 		writeIn_port2 <= 1;
+			//Port3: write 28 -> address 527
+		destinationAddressIn_port3 <= 12'd527;
+		dataIn_port3 <= 6'd28;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 23==
@@ -683,22 +709,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 42 -> address 2912
-		destinationAddressIn_port0 <= 12'd2912;
-		dataIn_port0 <= 6'd42;
+			//Port0: write 63 -> address 224
+		destinationAddressIn_port0 <= 12'd224;
+		dataIn_port0 <= 6'd63;
 		writeIn_port0 <= 1;
-			//Port1: write 19 -> address 3985
-		destinationAddressIn_port1 <= 12'd3985;
-		dataIn_port1 <= 6'd19;
+			//Port1: write 53 -> address 3621
+		destinationAddressIn_port1 <= 12'd3621;
+		dataIn_port1 <= 6'd53;
 		writeIn_port1 <= 1;
-			//Port2: write 52 -> address 1130
-		destinationAddressIn_port2 <= 12'd1130;
-		dataIn_port2 <= 6'd52;
+			//Port2: write 33 -> address 2138
+		destinationAddressIn_port2 <= 12'd2138;
+		dataIn_port2 <= 6'd33;
 		writeIn_port2 <= 1;
-			//Port3: write 35 -> address 2615
-		destinationAddressIn_port3 <= 12'd2615;
-		dataIn_port3 <= 6'd35;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 24==
@@ -713,13 +735,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 62 -> address 2524
-		destinationAddressIn_port0 <= 12'd2524;
-		dataIn_port0 <= 6'd62;
+			//Port0: write 21 -> address 2040
+		destinationAddressIn_port0 <= 12'd2040;
+		dataIn_port0 <= 6'd21;
 		writeIn_port0 <= 1;
-			//Port3: write 29 -> address 3647
-		destinationAddressIn_port3 <= 12'd3647;
-		dataIn_port3 <= 6'd29;
+			//Port1: write 55 -> address 3293
+		destinationAddressIn_port1 <= 12'd3293;
+		dataIn_port1 <= 6'd55;
+		writeIn_port1 <= 1;
+			//Port2: write 62 -> address 1366
+		destinationAddressIn_port2 <= 12'd1366;
+		dataIn_port2 <= 6'd62;
+		writeIn_port2 <= 1;
+			//Port3: write 13 -> address 2715
+		destinationAddressIn_port3 <= 12'd2715;
+		dataIn_port3 <= 6'd13;
 		writeIn_port3 <= 1;
 		#1
 
@@ -735,17 +765,13 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 56 -> address 1525
-		destinationAddressIn_port1 <= 12'd1525;
-		dataIn_port1 <= 6'd56;
+			//Port1: write 60 -> address 2977
+		destinationAddressIn_port1 <= 12'd2977;
+		dataIn_port1 <= 6'd60;
 		writeIn_port1 <= 1;
-			//Port2: write 42 -> address 3334
-		destinationAddressIn_port2 <= 12'd3334;
-		dataIn_port2 <= 6'd42;
-		writeIn_port2 <= 1;
-			//Port3: write 19 -> address 547
-		destinationAddressIn_port3 <= 12'd547;
-		dataIn_port3 <= 6'd19;
+			//Port3: write 50 -> address 747
+		destinationAddressIn_port3 <= 12'd747;
+		dataIn_port3 <= 6'd50;
 		writeIn_port3 <= 1;
 		#1
 
@@ -761,21 +787,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 30 -> address 2016
-		destinationAddressIn_port0 <= 12'd2016;
-		dataIn_port0 <= 6'd30;
+			//Port0: write 1 -> address 2544
+		destinationAddressIn_port0 <= 12'd2544;
+		dataIn_port0 <= 6'd1;
 		writeIn_port0 <= 1;
-			//Port1: write 44 -> address 1309
-		destinationAddressIn_port1 <= 12'd1309;
-		dataIn_port1 <= 6'd44;
-		writeIn_port1 <= 1;
-			//Port2: write 54 -> address 2570
-		destinationAddressIn_port2 <= 12'd2570;
-		dataIn_port2 <= 6'd54;
+			//Port2: write 0 -> address 86
+		destinationAddressIn_port2 <= 12'd86;
+		dataIn_port2 <= 6'd0;
 		writeIn_port2 <= 1;
-			//Port3: write 15 -> address 323
-		destinationAddressIn_port3 <= 12'd323;
-		dataIn_port3 <= 6'd15;
+			//Port3: write 8 -> address 187
+		destinationAddressIn_port3 <= 12'd187;
+		dataIn_port3 <= 6'd8;
 		writeIn_port3 <= 1;
 		#1
 
@@ -791,22 +813,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 38 -> address 2440
-		destinationAddressIn_port0 <= 12'd2440;
-		dataIn_port0 <= 6'd38;
+			//Port0: write 19 -> address 2048
+		destinationAddressIn_port0 <= 12'd2048;
+		dataIn_port0 <= 6'd19;
 		writeIn_port0 <= 1;
-			//Port1: write 22 -> address 3385
-		destinationAddressIn_port1 <= 12'd3385;
-		dataIn_port1 <= 6'd22;
+			//Port1: write 24 -> address 313
+		destinationAddressIn_port1 <= 12'd313;
+		dataIn_port1 <= 6'd24;
 		writeIn_port1 <= 1;
-			//Port2: write 23 -> address 3434
-		destinationAddressIn_port2 <= 12'd3434;
-		dataIn_port2 <= 6'd23;
+			//Port2: write 7 -> address 130
+		destinationAddressIn_port2 <= 12'd130;
+		dataIn_port2 <= 6'd7;
 		writeIn_port2 <= 1;
-			//Port3: write 48 -> address 2559
-		destinationAddressIn_port3 <= 12'd2559;
-		dataIn_port3 <= 6'd48;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 28==
@@ -821,21 +839,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 16 -> address 2800
-		destinationAddressIn_port0 <= 12'd2800;
-		dataIn_port0 <= 6'd16;
+			//Port0: write 34 -> address 1308
+		destinationAddressIn_port0 <= 12'd1308;
+		dataIn_port0 <= 6'd34;
 		writeIn_port0 <= 1;
-			//Port1: write 23 -> address 4045
-		destinationAddressIn_port1 <= 12'd4045;
-		dataIn_port1 <= 6'd23;
+			//Port1: write 32 -> address 3861
+		destinationAddressIn_port1 <= 12'd3861;
+		dataIn_port1 <= 6'd32;
 		writeIn_port1 <= 1;
-			//Port2: write 41 -> address 2534
-		destinationAddressIn_port2 <= 12'd2534;
-		dataIn_port2 <= 6'd41;
-		writeIn_port2 <= 1;
-			//Port3: write 47 -> address 3711
-		destinationAddressIn_port3 <= 12'd3711;
-		dataIn_port3 <= 6'd47;
+			//Port3: write 11 -> address 2239
+		destinationAddressIn_port3 <= 12'd2239;
+		dataIn_port3 <= 6'd11;
 		writeIn_port3 <= 1;
 		#1
 
@@ -851,17 +865,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 33 -> address 753
-		destinationAddressIn_port1 <= 12'd753;
-		dataIn_port1 <= 6'd33;
+			//Port0: write 52 -> address 2824
+		destinationAddressIn_port0 <= 12'd2824;
+		dataIn_port0 <= 6'd52;
+		writeIn_port0 <= 1;
+			//Port1: write 59 -> address 769
+		destinationAddressIn_port1 <= 12'd769;
+		dataIn_port1 <= 6'd59;
 		writeIn_port1 <= 1;
-			//Port2: write 27 -> address 618
-		destinationAddressIn_port2 <= 12'd618;
-		dataIn_port2 <= 6'd27;
+			//Port2: write 53 -> address 4050
+		destinationAddressIn_port2 <= 12'd4050;
+		dataIn_port2 <= 6'd53;
 		writeIn_port2 <= 1;
-			//Port3: read 48 from address 2983
-		destinationAddressIn_port3 <= 12'd2983;
-		expectedData_port3 <= 6'd48;
+			//Port3: read 18 from address 3487
+		destinationAddressIn_port3 <= 12'd3487;
+		expectedData_port3 <= 6'd18;
 		readIn_port3 <= 1;
 		#1
 
@@ -877,21 +895,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: read 62 from address 2524
-		destinationAddressIn_port0 <= 12'd2524;
-		expectedData_port0 <= 6'd62;
+			//Port0: read 19 from address 472
+		destinationAddressIn_port0 <= 12'd472;
+		expectedData_port0 <= 6'd19;
 		readIn_port0 <= 1;
-			//Port1: write 22 -> address 193
-		destinationAddressIn_port1 <= 12'd193;
-		dataIn_port1 <= 6'd22;
+			//Port1: write 40 -> address 2005
+		destinationAddressIn_port1 <= 12'd2005;
+		dataIn_port1 <= 6'd40;
 		writeIn_port1 <= 1;
-			//Port2: write 32 -> address 1162
-		destinationAddressIn_port2 <= 12'd1162;
-		dataIn_port2 <= 6'd32;
+			//Port2: write 63 -> address 182
+		destinationAddressIn_port2 <= 12'd182;
+		dataIn_port2 <= 6'd63;
 		writeIn_port2 <= 1;
-			//Port3: write 33 -> address 719
-		destinationAddressIn_port3 <= 12'd719;
-		dataIn_port3 <= 6'd33;
+			//Port3: write 61 -> address 2971
+		destinationAddressIn_port3 <= 12'd2971;
+		dataIn_port3 <= 6'd61;
 		writeIn_port3 <= 1;
 		#1
 
@@ -907,21 +925,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 56 -> address 3888
-		destinationAddressIn_port0 <= 12'd3888;
-		dataIn_port0 <= 6'd56;
+			//Port0: write 57 -> address 2928
+		destinationAddressIn_port0 <= 12'd2928;
+		dataIn_port0 <= 6'd57;
 		writeIn_port0 <= 1;
-			//Port1: write 19 -> address 4021
-		destinationAddressIn_port1 <= 12'd4021;
-		dataIn_port1 <= 6'd19;
-		writeIn_port1 <= 1;
-			//Port2: write 59 -> address 2662
-		destinationAddressIn_port2 <= 12'd2662;
-		dataIn_port2 <= 6'd59;
-		writeIn_port2 <= 1;
-			//Port3: write 23 -> address 1415
-		destinationAddressIn_port3 <= 12'd1415;
-		dataIn_port3 <= 6'd23;
+			//Port1: read 13 from address 721
+		destinationAddressIn_port1 <= 12'd721;
+		expectedData_port1 <= 6'd13;
+		readIn_port1 <= 1;
+			//Port2: read 0 from address 86
+		destinationAddressIn_port2 <= 12'd86;
+		expectedData_port2 <= 6'd0;
+		readIn_port2 <= 1;
+			//Port3: write 59 -> address 3059
+		destinationAddressIn_port3 <= 12'd3059;
+		dataIn_port3 <= 6'd59;
 		writeIn_port3 <= 1;
 		#1
 
@@ -937,21 +955,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 16 -> address 4032
-		destinationAddressIn_port0 <= 12'd4032;
-		dataIn_port0 <= 6'd16;
+			//Port0: write 28 -> address 1744
+		destinationAddressIn_port0 <= 12'd1744;
+		dataIn_port0 <= 6'd28;
 		writeIn_port0 <= 1;
-			//Port1: write 11 -> address 653
-		destinationAddressIn_port1 <= 12'd653;
-		dataIn_port1 <= 6'd11;
+			//Port1: write 41 -> address 2489
+		destinationAddressIn_port1 <= 12'd2489;
+		dataIn_port1 <= 6'd41;
 		writeIn_port1 <= 1;
-			//Port2: write 46 -> address 418
-		destinationAddressIn_port2 <= 12'd418;
-		dataIn_port2 <= 6'd46;
+			//Port2: write 16 -> address 3942
+		destinationAddressIn_port2 <= 12'd3942;
+		dataIn_port2 <= 6'd16;
 		writeIn_port2 <= 1;
-			//Port3: write 63 -> address 3819
-		destinationAddressIn_port3 <= 12'd3819;
-		dataIn_port3 <= 6'd63;
+			//Port3: write 27 -> address 475
+		destinationAddressIn_port3 <= 12'd475;
+		dataIn_port3 <= 6'd27;
 		writeIn_port3 <= 1;
 		#1
 
@@ -967,17 +985,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 55 -> address 389
-		destinationAddressIn_port1 <= 12'd389;
-		dataIn_port1 <= 6'd55;
+			//Port0: write 29 -> address 2088
+		destinationAddressIn_port0 <= 12'd2088;
+		dataIn_port0 <= 6'd29;
+		writeIn_port0 <= 1;
+			//Port1: write 9 -> address 3417
+		destinationAddressIn_port1 <= 12'd3417;
+		dataIn_port1 <= 6'd9;
 		writeIn_port1 <= 1;
-			//Port2: write 38 -> address 1302
-		destinationAddressIn_port2 <= 12'd1302;
-		dataIn_port2 <= 6'd38;
-		writeIn_port2 <= 1;
-			//Port3: write 45 -> address 747
-		destinationAddressIn_port3 <= 12'd747;
-		dataIn_port3 <= 6'd45;
+			//Port3: write 62 -> address 975
+		destinationAddressIn_port3 <= 12'd975;
+		dataIn_port3 <= 6'd62;
 		writeIn_port3 <= 1;
 		#1
 
@@ -993,22 +1011,14 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 37 -> address 3764
-		destinationAddressIn_port0 <= 12'd3764;
-		dataIn_port0 <= 6'd37;
+			//Port0: write 15 -> address 1672
+		destinationAddressIn_port0 <= 12'd1672;
+		dataIn_port0 <= 6'd15;
 		writeIn_port0 <= 1;
-			//Port1: write 7 -> address 3677
-		destinationAddressIn_port1 <= 12'd3677;
-		dataIn_port1 <= 6'd7;
-		writeIn_port1 <= 1;
-			//Port2: read 27 from address 618
-		destinationAddressIn_port2 <= 12'd618;
-		expectedData_port2 <= 6'd27;
-		readIn_port2 <= 1;
-			//Port3: write 2 -> address 1051
-		destinationAddressIn_port3 <= 12'd1051;
-		dataIn_port3 <= 6'd2;
-		writeIn_port3 <= 1;
+			//Port2: write 2 -> address 570
+		destinationAddressIn_port2 <= 12'd570;
+		dataIn_port2 <= 6'd2;
+		writeIn_port2 <= 1;
 		#1
 
 		//==Cycle 35==
@@ -1023,21 +1033,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 54 -> address 464
-		destinationAddressIn_port0 <= 12'd464;
-		dataIn_port0 <= 6'd54;
+			//Port0: write 31 -> address 2092
+		destinationAddressIn_port0 <= 12'd2092;
+		dataIn_port0 <= 6'd31;
 		writeIn_port0 <= 1;
-			//Port1: write 48 -> address 2525
-		destinationAddressIn_port1 <= 12'd2525;
-		dataIn_port1 <= 6'd48;
+			//Port1: write 20 -> address 3737
+		destinationAddressIn_port1 <= 12'd3737;
+		dataIn_port1 <= 6'd20;
 		writeIn_port1 <= 1;
-			//Port2: write 42 -> address 3826
-		destinationAddressIn_port2 <= 12'd3826;
-		dataIn_port2 <= 6'd42;
-		writeIn_port2 <= 1;
-			//Port3: write 5 -> address 2743
-		destinationAddressIn_port3 <= 12'd2743;
-		dataIn_port3 <= 6'd5;
+			//Port3: write 44 -> address 3467
+		destinationAddressIn_port3 <= 12'd3467;
+		dataIn_port3 <= 6'd44;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1053,21 +1059,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 14 -> address 556
-		destinationAddressIn_port0 <= 12'd556;
-		dataIn_port0 <= 6'd14;
+			//Port0: write 11 -> address 1452
+		destinationAddressIn_port0 <= 12'd1452;
+		dataIn_port0 <= 6'd11;
 		writeIn_port0 <= 1;
-			//Port1: write 0 -> address 1621
-		destinationAddressIn_port1 <= 12'd1621;
-		dataIn_port1 <= 6'd0;
+			//Port1: write 15 -> address 1413
+		destinationAddressIn_port1 <= 12'd1413;
+		dataIn_port1 <= 6'd15;
 		writeIn_port1 <= 1;
-			//Port2: write 13 -> address 326
-		destinationAddressIn_port2 <= 12'd326;
-		dataIn_port2 <= 6'd13;
-		writeIn_port2 <= 1;
-			//Port3: write 56 -> address 1003
-		destinationAddressIn_port3 <= 12'd1003;
-		dataIn_port3 <= 6'd56;
+			//Port3: write 38 -> address 955
+		destinationAddressIn_port3 <= 12'd955;
+		dataIn_port3 <= 6'd38;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1083,10 +1085,14 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 4 -> address 3673
-		destinationAddressIn_port1 <= 12'd3673;
-		dataIn_port1 <= 6'd4;
+			//Port1: write 7 -> address 3281
+		destinationAddressIn_port1 <= 12'd3281;
+		dataIn_port1 <= 6'd7;
 		writeIn_port1 <= 1;
+			//Port2: write 17 -> address 1694
+		destinationAddressIn_port2 <= 12'd1694;
+		dataIn_port2 <= 6'd17;
+		writeIn_port2 <= 1;
 		#1
 
 		//==Cycle 38==
@@ -1101,17 +1107,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: read 48 from address 2525
-		destinationAddressIn_port1 <= 12'd2525;
-		expectedData_port1 <= 6'd48;
-		readIn_port1 <= 1;
-			//Port2: write 38 -> address 3030
-		destinationAddressIn_port2 <= 12'd3030;
-		dataIn_port2 <= 6'd38;
+			//Port0: write 48 -> address 2392
+		destinationAddressIn_port0 <= 12'd2392;
+		dataIn_port0 <= 6'd48;
+		writeIn_port0 <= 1;
+			//Port1: write 3 -> address 2169
+		destinationAddressIn_port1 <= 12'd2169;
+		dataIn_port1 <= 6'd3;
+		writeIn_port1 <= 1;
+			//Port2: write 39 -> address 3558
+		destinationAddressIn_port2 <= 12'd3558;
+		dataIn_port2 <= 6'd39;
 		writeIn_port2 <= 1;
-			//Port3: write 33 -> address 1011
-		destinationAddressIn_port3 <= 12'd1011;
-		dataIn_port3 <= 6'd33;
+			//Port3: write 46 -> address 787
+		destinationAddressIn_port3 <= 12'd787;
+		dataIn_port3 <= 6'd46;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1127,18 +1137,10 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 1 -> address 768
-		destinationAddressIn_port0 <= 12'd768;
-		dataIn_port0 <= 6'd1;
+			//Port0: write 16 -> address 976
+		destinationAddressIn_port0 <= 12'd976;
+		dataIn_port0 <= 6'd16;
 		writeIn_port0 <= 1;
-			//Port1: write 37 -> address 3981
-		destinationAddressIn_port1 <= 12'd3981;
-		dataIn_port1 <= 6'd37;
-		writeIn_port1 <= 1;
-			//Port2: write 49 -> address 2706
-		destinationAddressIn_port2 <= 12'd2706;
-		dataIn_port2 <= 6'd49;
-		writeIn_port2 <= 1;
 		#1
 
 		//==Cycle 40==
@@ -1153,17 +1155,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 18 -> address 1849
-		destinationAddressIn_port1 <= 12'd1849;
-		dataIn_port1 <= 6'd18;
+			//Port1: write 34 -> address 1589
+		destinationAddressIn_port1 <= 12'd1589;
+		dataIn_port1 <= 6'd34;
 		writeIn_port1 <= 1;
-			//Port2: write 27 -> address 58
-		destinationAddressIn_port2 <= 12'd58;
-		dataIn_port2 <= 6'd27;
+			//Port2: write 57 -> address 818
+		destinationAddressIn_port2 <= 12'd818;
+		dataIn_port2 <= 6'd57;
 		writeIn_port2 <= 1;
-			//Port3: write 36 -> address 31
-		destinationAddressIn_port3 <= 12'd31;
-		dataIn_port3 <= 6'd36;
+			//Port3: write 29 -> address 515
+		destinationAddressIn_port3 <= 12'd515;
+		dataIn_port3 <= 6'd29;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1179,22 +1181,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 27 -> address 1188
-		destinationAddressIn_port0 <= 12'd1188;
-		dataIn_port0 <= 6'd27;
+			//Port0: write 56 -> address 4000
+		destinationAddressIn_port0 <= 12'd4000;
+		dataIn_port0 <= 6'd56;
 		writeIn_port0 <= 1;
-			//Port1: write 14 -> address 2201
-		destinationAddressIn_port1 <= 12'd2201;
-		dataIn_port1 <= 6'd14;
+			//Port1: write 63 -> address 3765
+		destinationAddressIn_port1 <= 12'd3765;
+		dataIn_port1 <= 6'd63;
 		writeIn_port1 <= 1;
-			//Port2: write 6 -> address 2506
-		destinationAddressIn_port2 <= 12'd2506;
-		dataIn_port2 <= 6'd6;
+			//Port2: write 3 -> address 1694
+		destinationAddressIn_port2 <= 12'd1694;
+		dataIn_port2 <= 6'd3;
 		writeIn_port2 <= 1;
-			//Port3: write 37 -> address 1495
-		destinationAddressIn_port3 <= 12'd1495;
-		dataIn_port3 <= 6'd37;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 42==
@@ -1209,13 +1207,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 51 -> address 1177
-		destinationAddressIn_port1 <= 12'd1177;
-		dataIn_port1 <= 6'd51;
+			//Port0: write 48 -> address 3496
+		destinationAddressIn_port0 <= 12'd3496;
+		dataIn_port0 <= 6'd48;
+		writeIn_port0 <= 1;
+			//Port1: write 59 -> address 137
+		destinationAddressIn_port1 <= 12'd137;
+		dataIn_port1 <= 6'd59;
 		writeIn_port1 <= 1;
-			//Port3: write 38 -> address 3339
-		destinationAddressIn_port3 <= 12'd3339;
-		dataIn_port3 <= 6'd38;
+			//Port2: write 49 -> address 858
+		destinationAddressIn_port2 <= 12'd858;
+		dataIn_port2 <= 6'd49;
+		writeIn_port2 <= 1;
+			//Port3: write 35 -> address 1799
+		destinationAddressIn_port3 <= 12'd1799;
+		dataIn_port3 <= 6'd35;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1231,16 +1237,16 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 31 -> address 3452
-		destinationAddressIn_port0 <= 12'd3452;
-		dataIn_port0 <= 6'd31;
+			//Port0: write 45 -> address 3924
+		destinationAddressIn_port0 <= 12'd3924;
+		dataIn_port0 <= 6'd45;
 		writeIn_port0 <= 1;
-			//Port2: write 52 -> address 2330
-		destinationAddressIn_port2 <= 12'd2330;
-		dataIn_port2 <= 6'd52;
+			//Port2: write 33 -> address 2282
+		destinationAddressIn_port2 <= 12'd2282;
+		dataIn_port2 <= 6'd33;
 		writeIn_port2 <= 1;
-			//Port3: write 32 -> address 2223
-		destinationAddressIn_port3 <= 12'd2223;
+			//Port3: write 32 -> address 567
+		destinationAddressIn_port3 <= 12'd567;
 		dataIn_port3 <= 6'd32;
 		writeIn_port3 <= 1;
 		#1
@@ -1257,18 +1263,22 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 8 -> address 3164
-		destinationAddressIn_port0 <= 12'd3164;
-		dataIn_port0 <= 6'd8;
+			//Port0: write 57 -> address 712
+		destinationAddressIn_port0 <= 12'd712;
+		dataIn_port0 <= 6'd57;
 		writeIn_port0 <= 1;
-			//Port1: write 15 -> address 3849
-		destinationAddressIn_port1 <= 12'd3849;
-		dataIn_port1 <= 6'd15;
+			//Port1: write 8 -> address 3669
+		destinationAddressIn_port1 <= 12'd3669;
+		dataIn_port1 <= 6'd8;
 		writeIn_port1 <= 1;
-			//Port2: write 38 -> address 3758
-		destinationAddressIn_port2 <= 12'd3758;
-		dataIn_port2 <= 6'd38;
+			//Port2: write 23 -> address 898
+		destinationAddressIn_port2 <= 12'd898;
+		dataIn_port2 <= 6'd23;
 		writeIn_port2 <= 1;
+			//Port3: write 0 -> address 3931
+		destinationAddressIn_port3 <= 12'd3931;
+		dataIn_port3 <= 6'd0;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 45==
@@ -1283,22 +1293,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 39 -> address 948
-		destinationAddressIn_port0 <= 12'd948;
-		dataIn_port0 <= 6'd39;
+			//Port0: write 56 -> address 804
+		destinationAddressIn_port0 <= 12'd804;
+		dataIn_port0 <= 6'd56;
 		writeIn_port0 <= 1;
-			//Port1: write 46 -> address 3857
-		destinationAddressIn_port1 <= 12'd3857;
-		dataIn_port1 <= 6'd46;
+			//Port1: write 57 -> address 2837
+		destinationAddressIn_port1 <= 12'd2837;
+		dataIn_port1 <= 6'd57;
 		writeIn_port1 <= 1;
-			//Port2: write 14 -> address 1974
-		destinationAddressIn_port2 <= 12'd1974;
-		dataIn_port2 <= 6'd14;
+			//Port2: write 5 -> address 1970
+		destinationAddressIn_port2 <= 12'd1970;
+		dataIn_port2 <= 6'd5;
 		writeIn_port2 <= 1;
-			//Port3: write 3 -> address 3995
-		destinationAddressIn_port3 <= 12'd3995;
-		dataIn_port3 <= 6'd3;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 46==
@@ -1313,14 +1319,14 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 49 -> address 2688
-		destinationAddressIn_port0 <= 12'd2688;
-		dataIn_port0 <= 6'd49;
+			//Port0: write 38 -> address 3200
+		destinationAddressIn_port0 <= 12'd3200;
+		dataIn_port0 <= 6'd38;
 		writeIn_port0 <= 1;
-			//Port3: write 61 -> address 2823
-		destinationAddressIn_port3 <= 12'd2823;
-		dataIn_port3 <= 6'd61;
-		writeIn_port3 <= 1;
+			//Port2: write 52 -> address 3518
+		destinationAddressIn_port2 <= 12'd3518;
+		dataIn_port2 <= 6'd52;
+		writeIn_port2 <= 1;
 		#1
 
 		//==Cycle 47==
@@ -1335,21 +1341,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 42 -> address 3908
-		destinationAddressIn_port0 <= 12'd3908;
-		dataIn_port0 <= 6'd42;
+			//Port0: write 10 -> address 3204
+		destinationAddressIn_port0 <= 12'd3204;
+		dataIn_port0 <= 6'd10;
 		writeIn_port0 <= 1;
-			//Port1: write 23 -> address 4073
-		destinationAddressIn_port1 <= 12'd4073;
-		dataIn_port1 <= 6'd23;
+			//Port1: write 33 -> address 4057
+		destinationAddressIn_port1 <= 12'd4057;
+		dataIn_port1 <= 6'd33;
 		writeIn_port1 <= 1;
-			//Port2: write 62 -> address 850
-		destinationAddressIn_port2 <= 12'd850;
-		dataIn_port2 <= 6'd62;
+			//Port2: write 15 -> address 3790
+		destinationAddressIn_port2 <= 12'd3790;
+		dataIn_port2 <= 6'd15;
 		writeIn_port2 <= 1;
-			//Port3: write 7 -> address 3791
-		destinationAddressIn_port3 <= 12'd3791;
-		dataIn_port3 <= 6'd7;
+			//Port3: write 3 -> address 1579
+		destinationAddressIn_port3 <= 12'd1579;
+		dataIn_port3 <= 6'd3;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1365,17 +1371,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 19 -> address 1756
-		destinationAddressIn_port0 <= 12'd1756;
-		dataIn_port0 <= 6'd19;
+			//Port0: write 3 -> address 2552
+		destinationAddressIn_port0 <= 12'd2552;
+		dataIn_port0 <= 6'd3;
 		writeIn_port0 <= 1;
-			//Port1: write 61 -> address 2049
-		destinationAddressIn_port1 <= 12'd2049;
-		dataIn_port1 <= 6'd61;
-		writeIn_port1 <= 1;
-			//Port3: write 48 -> address 2155
-		destinationAddressIn_port3 <= 12'd2155;
-		dataIn_port3 <= 6'd48;
+			//Port2: write 53 -> address 2250
+		destinationAddressIn_port2 <= 12'd2250;
+		dataIn_port2 <= 6'd53;
+		writeIn_port2 <= 1;
+			//Port3: write 6 -> address 1211
+		destinationAddressIn_port3 <= 12'd1211;
+		dataIn_port3 <= 6'd6;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1391,14 +1397,10 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 50 -> address 3284
-		destinationAddressIn_port0 <= 12'd3284;
-		dataIn_port0 <= 6'd50;
-		writeIn_port0 <= 1;
-			//Port2: write 1 -> address 2070
-		destinationAddressIn_port2 <= 12'd2070;
-		dataIn_port2 <= 6'd1;
-		writeIn_port2 <= 1;
+			//Port1: write 18 -> address 661
+		destinationAddressIn_port1 <= 12'd661;
+		dataIn_port1 <= 6'd18;
+		writeIn_port1 <= 1;
 		#1
 
 		//==Cycle 50==
@@ -1413,18 +1415,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 26 -> address 684
-		destinationAddressIn_port0 <= 12'd684;
-		dataIn_port0 <= 6'd26;
-		writeIn_port0 <= 1;
-			//Port1: write 19 -> address 1149
-		destinationAddressIn_port1 <= 12'd1149;
-		dataIn_port1 <= 6'd19;
+			//Port1: write 1 -> address 1693
+		destinationAddressIn_port1 <= 12'd1693;
+		dataIn_port1 <= 6'd1;
 		writeIn_port1 <= 1;
-			//Port2: write 16 -> address 1682
-		destinationAddressIn_port2 <= 12'd1682;
-		dataIn_port2 <= 6'd16;
+			//Port2: write 46 -> address 1578
+		destinationAddressIn_port2 <= 12'd1578;
+		dataIn_port2 <= 6'd46;
 		writeIn_port2 <= 1;
+			//Port3: write 61 -> address 2075
+		destinationAddressIn_port3 <= 12'd2075;
+		dataIn_port3 <= 6'd61;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 51==
@@ -1439,18 +1441,22 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 11 -> address 1352
-		destinationAddressIn_port0 <= 12'd1352;
-		dataIn_port0 <= 6'd11;
+			//Port0: write 29 -> address 596
+		destinationAddressIn_port0 <= 12'd596;
+		dataIn_port0 <= 6'd29;
 		writeIn_port0 <= 1;
-			//Port1: write 31 -> address 2221
-		destinationAddressIn_port1 <= 12'd2221;
-		dataIn_port1 <= 6'd31;
+			//Port1: write 16 -> address 3705
+		destinationAddressIn_port1 <= 12'd3705;
+		dataIn_port1 <= 6'd16;
 		writeIn_port1 <= 1;
-			//Port2: write 22 -> address 2190
-		destinationAddressIn_port2 <= 12'd2190;
-		dataIn_port2 <= 6'd22;
+			//Port2: write 48 -> address 806
+		destinationAddressIn_port2 <= 12'd806;
+		dataIn_port2 <= 6'd48;
 		writeIn_port2 <= 1;
+			//Port3: write 34 -> address 3747
+		destinationAddressIn_port3 <= 12'd3747;
+		dataIn_port3 <= 6'd34;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 52==
@@ -1465,18 +1471,14 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 40 -> address 1213
-		destinationAddressIn_port1 <= 12'd1213;
-		dataIn_port1 <= 6'd40;
-		writeIn_port1 <= 1;
-			//Port2: write 27 -> address 510
-		destinationAddressIn_port2 <= 12'd510;
-		dataIn_port2 <= 6'd27;
+			//Port0: write 34 -> address 760
+		destinationAddressIn_port0 <= 12'd760;
+		dataIn_port0 <= 6'd34;
+		writeIn_port0 <= 1;
+			//Port2: write 32 -> address 3738
+		destinationAddressIn_port2 <= 12'd3738;
+		dataIn_port2 <= 6'd32;
 		writeIn_port2 <= 1;
-			//Port3: write 59 -> address 2263
-		destinationAddressIn_port3 <= 12'd2263;
-		dataIn_port3 <= 6'd59;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 53==
@@ -1491,14 +1493,14 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 25 -> address 1592
-		destinationAddressIn_port0 <= 12'd1592;
-		dataIn_port0 <= 6'd25;
+			//Port0: write 23 -> address 328
+		destinationAddressIn_port0 <= 12'd328;
+		dataIn_port0 <= 6'd23;
 		writeIn_port0 <= 1;
-			//Port3: write 28 -> address 2731
-		destinationAddressIn_port3 <= 12'd2731;
-		dataIn_port3 <= 6'd28;
-		writeIn_port3 <= 1;
+			//Port2: write 5 -> address 4086
+		destinationAddressIn_port2 <= 12'd4086;
+		dataIn_port2 <= 6'd5;
+		writeIn_port2 <= 1;
 		#1
 
 		//==Cycle 54==
@@ -1513,14 +1515,14 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 49 -> address 3201
-		destinationAddressIn_port1 <= 12'd3201;
-		dataIn_port1 <= 6'd49;
-		writeIn_port1 <= 1;
-			//Port3: write 38 -> address 2879
-		destinationAddressIn_port3 <= 12'd2879;
-		dataIn_port3 <= 6'd38;
-		writeIn_port3 <= 1;
+			//Port0: write 53 -> address 696
+		destinationAddressIn_port0 <= 12'd696;
+		dataIn_port0 <= 6'd53;
+		writeIn_port0 <= 1;
+			//Port2: write 43 -> address 3834
+		destinationAddressIn_port2 <= 12'd3834;
+		dataIn_port2 <= 6'd43;
+		writeIn_port2 <= 1;
 		#1
 
 		//==Cycle 55==
@@ -1535,17 +1537,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: read 14 from address 3272
-		destinationAddressIn_port0 <= 12'd3272;
-		expectedData_port0 <= 6'd14;
-		readIn_port0 <= 1;
-			//Port2: write 1 -> address 6
-		destinationAddressIn_port2 <= 12'd6;
-		dataIn_port2 <= 6'd1;
+			//Port0: write 18 -> address 3940
+		destinationAddressIn_port0 <= 12'd3940;
+		dataIn_port0 <= 6'd18;
+		writeIn_port0 <= 1;
+			//Port2: write 54 -> address 594
+		destinationAddressIn_port2 <= 12'd594;
+		dataIn_port2 <= 6'd54;
 		writeIn_port2 <= 1;
-			//Port3: read 5 from address 2743
-		destinationAddressIn_port3 <= 12'd2743;
-		expectedData_port3 <= 6'd5;
+			//Port3: read 49 from address 3351
+		destinationAddressIn_port3 <= 12'd3351;
+		expectedData_port3 <= 6'd49;
 		readIn_port3 <= 1;
 		#1
 
@@ -1561,21 +1563,13 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 11 -> address 28
-		destinationAddressIn_port0 <= 12'd28;
-		dataIn_port0 <= 6'd11;
+			//Port0: write 28 -> address 2800
+		destinationAddressIn_port0 <= 12'd2800;
+		dataIn_port0 <= 6'd28;
 		writeIn_port0 <= 1;
-			//Port1: write 18 -> address 25
-		destinationAddressIn_port1 <= 12'd25;
-		dataIn_port1 <= 6'd18;
-		writeIn_port1 <= 1;
-			//Port2: write 55 -> address 1070
-		destinationAddressIn_port2 <= 12'd1070;
-		dataIn_port2 <= 6'd55;
-		writeIn_port2 <= 1;
-			//Port3: write 60 -> address 2967
-		destinationAddressIn_port3 <= 12'd2967;
-		dataIn_port3 <= 6'd60;
+			//Port3: write 20 -> address 163
+		destinationAddressIn_port3 <= 12'd163;
+		dataIn_port3 <= 6'd20;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1591,17 +1585,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 5 -> address 737
-		destinationAddressIn_port1 <= 12'd737;
-		dataIn_port1 <= 6'd5;
+			//Port0: read 21 from address 2040
+		destinationAddressIn_port0 <= 12'd2040;
+		expectedData_port0 <= 6'd21;
+		readIn_port0 <= 1;
+			//Port1: write 4 -> address 157
+		destinationAddressIn_port1 <= 12'd157;
+		dataIn_port1 <= 6'd4;
 		writeIn_port1 <= 1;
-			//Port2: write 44 -> address 4058
-		destinationAddressIn_port2 <= 12'd4058;
-		dataIn_port2 <= 6'd44;
-		writeIn_port2 <= 1;
-			//Port3: write 42 -> address 1591
-		destinationAddressIn_port3 <= 12'd1591;
-		dataIn_port3 <= 6'd42;
+			//Port2: read 5 from address 1970
+		destinationAddressIn_port2 <= 12'd1970;
+		expectedData_port2 <= 6'd5;
+		readIn_port2 <= 1;
+			//Port3: write 29 -> address 1827
+		destinationAddressIn_port3 <= 12'd1827;
+		dataIn_port3 <= 6'd29;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1617,13 +1615,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port2: write 25 -> address 166
-		destinationAddressIn_port2 <= 12'd166;
-		dataIn_port2 <= 6'd25;
+			//Port0: write 3 -> address 3756
+		destinationAddressIn_port0 <= 12'd3756;
+		dataIn_port0 <= 6'd3;
+		writeIn_port0 <= 1;
+			//Port1: read 24 from address 313
+		destinationAddressIn_port1 <= 12'd313;
+		expectedData_port1 <= 6'd24;
+		readIn_port1 <= 1;
+			//Port2: write 49 -> address 1922
+		destinationAddressIn_port2 <= 12'd1922;
+		dataIn_port2 <= 6'd49;
 		writeIn_port2 <= 1;
-			//Port3: write 19 -> address 423
-		destinationAddressIn_port3 <= 12'd423;
-		dataIn_port3 <= 6'd19;
+			//Port3: write 42 -> address 2671
+		destinationAddressIn_port3 <= 12'd2671;
+		dataIn_port3 <= 6'd42;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1639,22 +1645,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 42 -> address 2868
-		destinationAddressIn_port0 <= 12'd2868;
-		dataIn_port0 <= 6'd42;
+			//Port0: write 55 -> address 896
+		destinationAddressIn_port0 <= 12'd896;
+		dataIn_port0 <= 6'd55;
 		writeIn_port0 <= 1;
-			//Port1: write 38 -> address 4041
-		destinationAddressIn_port1 <= 12'd4041;
-		dataIn_port1 <= 6'd38;
+			//Port1: write 41 -> address 1285
+		destinationAddressIn_port1 <= 12'd1285;
+		dataIn_port1 <= 6'd41;
 		writeIn_port1 <= 1;
-			//Port2: read 32 from address 1162
-		destinationAddressIn_port2 <= 12'd1162;
-		expectedData_port2 <= 6'd32;
-		readIn_port2 <= 1;
-			//Port3: write 30 -> address 3887
-		destinationAddressIn_port3 <= 12'd3887;
-		dataIn_port3 <= 6'd30;
-		writeIn_port3 <= 1;
+			//Port2: write 20 -> address 646
+		destinationAddressIn_port2 <= 12'd646;
+		dataIn_port2 <= 6'd20;
+		writeIn_port2 <= 1;
 		#1
 
 		//==Cycle 60==
@@ -1669,17 +1671,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 56 -> address 244
-		destinationAddressIn_port0 <= 12'd244;
-		dataIn_port0 <= 6'd56;
+			//Port0: write 21 -> address 1872
+		destinationAddressIn_port0 <= 12'd1872;
+		dataIn_port0 <= 6'd21;
 		writeIn_port0 <= 1;
-			//Port2: write 12 -> address 4022
-		destinationAddressIn_port2 <= 12'd4022;
-		dataIn_port2 <= 6'd12;
+			//Port2: write 52 -> address 3178
+		destinationAddressIn_port2 <= 12'd3178;
+		dataIn_port2 <= 6'd52;
 		writeIn_port2 <= 1;
-			//Port3: write 51 -> address 2199
-		destinationAddressIn_port3 <= 12'd2199;
-		dataIn_port3 <= 6'd51;
+			//Port3: write 2 -> address 687
+		destinationAddressIn_port3 <= 12'd687;
+		dataIn_port3 <= 6'd2;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1695,14 +1697,22 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 35 -> address 704
-		destinationAddressIn_port0 <= 12'd704;
-		dataIn_port0 <= 6'd35;
+			//Port0: write 58 -> address 936
+		destinationAddressIn_port0 <= 12'd936;
+		dataIn_port0 <= 6'd58;
 		writeIn_port0 <= 1;
-			//Port2: write 41 -> address 3298
-		destinationAddressIn_port2 <= 12'd3298;
-		dataIn_port2 <= 6'd41;
+			//Port1: write 9 -> address 97
+		destinationAddressIn_port1 <= 12'd97;
+		dataIn_port1 <= 6'd9;
+		writeIn_port1 <= 1;
+			//Port2: write 10 -> address 3786
+		destinationAddressIn_port2 <= 12'd3786;
+		dataIn_port2 <= 6'd10;
 		writeIn_port2 <= 1;
+			//Port3: write 43 -> address 3923
+		destinationAddressIn_port3 <= 12'd3923;
+		dataIn_port3 <= 6'd43;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 62==
@@ -1717,18 +1727,22 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 18 -> address 1372
-		destinationAddressIn_port0 <= 12'd1372;
-		dataIn_port0 <= 6'd18;
+			//Port0: write 16 -> address 1512
+		destinationAddressIn_port0 <= 12'd1512;
+		dataIn_port0 <= 6'd16;
 		writeIn_port0 <= 1;
-			//Port1: write 57 -> address 1537
-		destinationAddressIn_port1 <= 12'd1537;
-		dataIn_port1 <= 6'd57;
+			//Port1: write 53 -> address 2105
+		destinationAddressIn_port1 <= 12'd2105;
+		dataIn_port1 <= 6'd53;
 		writeIn_port1 <= 1;
-			//Port2: write 10 -> address 1602
-		destinationAddressIn_port2 <= 12'd1602;
-		dataIn_port2 <= 6'd10;
+			//Port2: write 18 -> address 3962
+		destinationAddressIn_port2 <= 12'd3962;
+		dataIn_port2 <= 6'd18;
 		writeIn_port2 <= 1;
+			//Port3: write 1 -> address 2323
+		destinationAddressIn_port3 <= 12'd2323;
+		dataIn_port3 <= 6'd1;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 63==
@@ -1743,21 +1757,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 58 -> address 1852
-		destinationAddressIn_port0 <= 12'd1852;
-		dataIn_port0 <= 6'd58;
+			//Port0: write 17 -> address 2272
+		destinationAddressIn_port0 <= 12'd2272;
+		dataIn_port0 <= 6'd17;
 		writeIn_port0 <= 1;
-			//Port1: read 56 from address 1525
-		destinationAddressIn_port1 <= 12'd1525;
-		expectedData_port1 <= 6'd56;
-		readIn_port1 <= 1;
-			//Port2: write 17 -> address 214
-		destinationAddressIn_port2 <= 12'd214;
-		dataIn_port2 <= 6'd17;
+			//Port1: write 37 -> address 1017
+		destinationAddressIn_port1 <= 12'd1017;
+		dataIn_port1 <= 6'd37;
+		writeIn_port1 <= 1;
+			//Port2: write 47 -> address 2514
+		destinationAddressIn_port2 <= 12'd2514;
+		dataIn_port2 <= 6'd47;
 		writeIn_port2 <= 1;
-			//Port3: write 6 -> address 3095
-		destinationAddressIn_port3 <= 12'd3095;
-		dataIn_port3 <= 6'd6;
+			//Port3: write 34 -> address 2415
+		destinationAddressIn_port3 <= 12'd2415;
+		dataIn_port3 <= 6'd34;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1773,21 +1787,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 19 -> address 2044
-		destinationAddressIn_port0 <= 12'd2044;
-		dataIn_port0 <= 6'd19;
-		writeIn_port0 <= 1;
-			//Port1: write 38 -> address 2829
-		destinationAddressIn_port1 <= 12'd2829;
-		dataIn_port1 <= 6'd38;
+			//Port1: write 6 -> address 2161
+		destinationAddressIn_port1 <= 12'd2161;
+		dataIn_port1 <= 6'd6;
 		writeIn_port1 <= 1;
-			//Port2: write 26 -> address 2246
-		destinationAddressIn_port2 <= 12'd2246;
-		dataIn_port2 <= 6'd26;
+			//Port2: write 14 -> address 1930
+		destinationAddressIn_port2 <= 12'd1930;
+		dataIn_port2 <= 6'd14;
 		writeIn_port2 <= 1;
-			//Port3: write 61 -> address 1879
-		destinationAddressIn_port3 <= 12'd1879;
-		dataIn_port3 <= 6'd61;
+			//Port3: write 44 -> address 3115
+		destinationAddressIn_port3 <= 12'd3115;
+		dataIn_port3 <= 6'd44;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1803,17 +1813,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 26 -> address 968
-		destinationAddressIn_port0 <= 12'd968;
-		dataIn_port0 <= 6'd26;
+			//Port0: write 21 -> address 2300
+		destinationAddressIn_port0 <= 12'd2300;
+		dataIn_port0 <= 6'd21;
 		writeIn_port0 <= 1;
-			//Port1: write 31 -> address 1613
-		destinationAddressIn_port1 <= 12'd1613;
-		dataIn_port1 <= 6'd31;
+			//Port1: write 44 -> address 1837
+		destinationAddressIn_port1 <= 12'd1837;
+		dataIn_port1 <= 6'd44;
 		writeIn_port1 <= 1;
-			//Port3: write 34 -> address 3755
-		destinationAddressIn_port3 <= 12'd3755;
-		dataIn_port3 <= 6'd34;
+			//Port3: write 20 -> address 1007
+		destinationAddressIn_port3 <= 12'd1007;
+		dataIn_port3 <= 6'd20;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1829,21 +1839,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 9 -> address 1868
-		destinationAddressIn_port0 <= 12'd1868;
-		dataIn_port0 <= 6'd9;
+			//Port0: write 48 -> address 840
+		destinationAddressIn_port0 <= 12'd840;
+		dataIn_port0 <= 6'd48;
 		writeIn_port0 <= 1;
-			//Port1: write 52 -> address 3877
-		destinationAddressIn_port1 <= 12'd3877;
-		dataIn_port1 <= 6'd52;
+			//Port1: write 11 -> address 3937
+		destinationAddressIn_port1 <= 12'd3937;
+		dataIn_port1 <= 6'd11;
 		writeIn_port1 <= 1;
-			//Port2: write 16 -> address 2722
-		destinationAddressIn_port2 <= 12'd2722;
-		dataIn_port2 <= 6'd16;
+			//Port2: write 13 -> address 250
+		destinationAddressIn_port2 <= 12'd250;
+		dataIn_port2 <= 6'd13;
 		writeIn_port2 <= 1;
-			//Port3: write 24 -> address 1519
-		destinationAddressIn_port3 <= 12'd1519;
-		dataIn_port3 <= 6'd24;
+			//Port3: write 42 -> address 943
+		destinationAddressIn_port3 <= 12'd943;
+		dataIn_port3 <= 6'd42;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1859,22 +1869,14 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 17 -> address 1100
-		destinationAddressIn_port0 <= 12'd1100;
-		dataIn_port0 <= 6'd17;
+			//Port0: write 38 -> address 692
+		destinationAddressIn_port0 <= 12'd692;
+		dataIn_port0 <= 6'd38;
 		writeIn_port0 <= 1;
-			//Port1: write 61 -> address 2641
-		destinationAddressIn_port1 <= 12'd2641;
-		dataIn_port1 <= 6'd61;
+			//Port1: write 42 -> address 685
+		destinationAddressIn_port1 <= 12'd685;
+		dataIn_port1 <= 6'd42;
 		writeIn_port1 <= 1;
-			//Port2: write 8 -> address 1382
-		destinationAddressIn_port2 <= 12'd1382;
-		dataIn_port2 <= 6'd8;
-		writeIn_port2 <= 1;
-			//Port3: write 58 -> address 1359
-		destinationAddressIn_port3 <= 12'd1359;
-		dataIn_port3 <= 6'd58;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 68==
@@ -1889,21 +1891,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 54 -> address 3484
-		destinationAddressIn_port0 <= 12'd3484;
-		dataIn_port0 <= 6'd54;
+			//Port0: write 62 -> address 3084
+		destinationAddressIn_port0 <= 12'd3084;
+		dataIn_port0 <= 6'd62;
 		writeIn_port0 <= 1;
-			//Port1: write 62 -> address 3865
-		destinationAddressIn_port1 <= 12'd3865;
-		dataIn_port1 <= 6'd62;
+			//Port1: write 37 -> address 3773
+		destinationAddressIn_port1 <= 12'd3773;
+		dataIn_port1 <= 6'd37;
 		writeIn_port1 <= 1;
-			//Port2: write 23 -> address 1638
-		destinationAddressIn_port2 <= 12'd1638;
-		dataIn_port2 <= 6'd23;
+			//Port2: write 8 -> address 2778
+		destinationAddressIn_port2 <= 12'd2778;
+		dataIn_port2 <= 6'd8;
 		writeIn_port2 <= 1;
-			//Port3: write 0 -> address 2415
-		destinationAddressIn_port3 <= 12'd2415;
-		dataIn_port3 <= 6'd0;
+			//Port3: write 16 -> address 2627
+		destinationAddressIn_port3 <= 12'd2627;
+		dataIn_port3 <= 6'd16;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1919,22 +1921,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 6 -> address 632
-		destinationAddressIn_port0 <= 12'd632;
-		dataIn_port0 <= 6'd6;
+			//Port0: write 18 -> address 3940
+		destinationAddressIn_port0 <= 12'd3940;
+		dataIn_port0 <= 6'd18;
 		writeIn_port0 <= 1;
-			//Port1: write 0 -> address 189
-		destinationAddressIn_port1 <= 12'd189;
-		dataIn_port1 <= 6'd0;
+			//Port1: write 57 -> address 1289
+		destinationAddressIn_port1 <= 12'd1289;
+		dataIn_port1 <= 6'd57;
 		writeIn_port1 <= 1;
-			//Port2: write 43 -> address 3798
-		destinationAddressIn_port2 <= 12'd3798;
-		dataIn_port2 <= 6'd43;
+			//Port2: write 11 -> address 2174
+		destinationAddressIn_port2 <= 12'd2174;
+		dataIn_port2 <= 6'd11;
 		writeIn_port2 <= 1;
-			//Port3: write 44 -> address 4043
-		destinationAddressIn_port3 <= 12'd4043;
-		dataIn_port3 <= 6'd44;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 70==
@@ -1949,17 +1947,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 46 -> address 3249
-		destinationAddressIn_port1 <= 12'd3249;
-		dataIn_port1 <= 6'd46;
+			//Port0: write 10 -> address 808
+		destinationAddressIn_port0 <= 12'd808;
+		dataIn_port0 <= 6'd10;
+		writeIn_port0 <= 1;
+			//Port1: write 55 -> address 569
+		destinationAddressIn_port1 <= 12'd569;
+		dataIn_port1 <= 6'd55;
 		writeIn_port1 <= 1;
-			//Port2: write 61 -> address 2418
-		destinationAddressIn_port2 <= 12'd2418;
-		dataIn_port2 <= 6'd61;
+			//Port2: write 25 -> address 3106
+		destinationAddressIn_port2 <= 12'd3106;
+		dataIn_port2 <= 6'd25;
 		writeIn_port2 <= 1;
-			//Port3: write 24 -> address 3767
-		destinationAddressIn_port3 <= 12'd3767;
-		dataIn_port3 <= 6'd24;
+			//Port3: write 61 -> address 935
+		destinationAddressIn_port3 <= 12'd935;
+		dataIn_port3 <= 6'd61;
 		writeIn_port3 <= 1;
 		#1
 
@@ -1975,21 +1977,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 12 -> address 852
-		destinationAddressIn_port0 <= 12'd852;
-		dataIn_port0 <= 6'd12;
+			//Port0: write 10 -> address 1816
+		destinationAddressIn_port0 <= 12'd1816;
+		dataIn_port0 <= 6'd10;
 		writeIn_port0 <= 1;
-			//Port1: write 17 -> address 2021
-		destinationAddressIn_port1 <= 12'd2021;
-		dataIn_port1 <= 6'd17;
+			//Port1: write 39 -> address 2985
+		destinationAddressIn_port1 <= 12'd2985;
+		dataIn_port1 <= 6'd39;
 		writeIn_port1 <= 1;
-			//Port2: write 16 -> address 3886
-		destinationAddressIn_port2 <= 12'd3886;
-		dataIn_port2 <= 6'd16;
+			//Port2: write 7 -> address 706
+		destinationAddressIn_port2 <= 12'd706;
+		dataIn_port2 <= 6'd7;
 		writeIn_port2 <= 1;
-			//Port3: write 34 -> address 2719
-		destinationAddressIn_port3 <= 12'd2719;
-		dataIn_port3 <= 6'd34;
+			//Port3: write 61 -> address 1363
+		destinationAddressIn_port3 <= 12'd1363;
+		dataIn_port3 <= 6'd61;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2005,21 +2007,13 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 44 -> address 2164
-		destinationAddressIn_port0 <= 12'd2164;
-		dataIn_port0 <= 6'd44;
+			//Port0: write 46 -> address 1556
+		destinationAddressIn_port0 <= 12'd1556;
+		dataIn_port0 <= 6'd46;
 		writeIn_port0 <= 1;
-			//Port1: write 50 -> address 441
-		destinationAddressIn_port1 <= 12'd441;
-		dataIn_port1 <= 6'd50;
-		writeIn_port1 <= 1;
-			//Port2: write 16 -> address 2034
-		destinationAddressIn_port2 <= 12'd2034;
-		dataIn_port2 <= 6'd16;
-		writeIn_port2 <= 1;
-			//Port3: write 12 -> address 407
-		destinationAddressIn_port3 <= 12'd407;
-		dataIn_port3 <= 6'd12;
+			//Port3: write 1 -> address 3859
+		destinationAddressIn_port3 <= 12'd3859;
+		dataIn_port3 <= 6'd1;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2035,9 +2029,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port3: write 33 -> address 2739
-		destinationAddressIn_port3 <= 12'd2739;
-		dataIn_port3 <= 6'd33;
+			//Port0: write 30 -> address 1328
+		destinationAddressIn_port0 <= 12'd1328;
+		dataIn_port0 <= 6'd30;
+		writeIn_port0 <= 1;
+			//Port1: write 21 -> address 609
+		destinationAddressIn_port1 <= 12'd609;
+		dataIn_port1 <= 6'd21;
+		writeIn_port1 <= 1;
+			//Port2: write 52 -> address 3298
+		destinationAddressIn_port2 <= 12'd3298;
+		dataIn_port2 <= 6'd52;
+		writeIn_port2 <= 1;
+			//Port3: write 40 -> address 1131
+		destinationAddressIn_port3 <= 12'd1131;
+		dataIn_port3 <= 6'd40;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2053,21 +2059,13 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 61 -> address 1728
-		destinationAddressIn_port0 <= 12'd1728;
-		dataIn_port0 <= 6'd61;
-		writeIn_port0 <= 1;
-			//Port1: write 57 -> address 2033
-		destinationAddressIn_port1 <= 12'd2033;
-		dataIn_port1 <= 6'd57;
+			//Port1: write 11 -> address 3289
+		destinationAddressIn_port1 <= 12'd3289;
+		dataIn_port1 <= 6'd11;
 		writeIn_port1 <= 1;
-			//Port2: write 22 -> address 3986
-		destinationAddressIn_port2 <= 12'd3986;
-		dataIn_port2 <= 6'd22;
-		writeIn_port2 <= 1;
-			//Port3: write 34 -> address 3135
-		destinationAddressIn_port3 <= 12'd3135;
-		dataIn_port3 <= 6'd34;
+			//Port3: write 44 -> address 1219
+		destinationAddressIn_port3 <= 12'd1219;
+		dataIn_port3 <= 6'd44;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2083,14 +2081,6 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 30 -> address 3236
-		destinationAddressIn_port0 <= 12'd3236;
-		dataIn_port0 <= 6'd30;
-		writeIn_port0 <= 1;
-			//Port3: write 11 -> address 2771
-		destinationAddressIn_port3 <= 12'd2771;
-		dataIn_port3 <= 6'd11;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 76==
@@ -2105,21 +2095,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 46 -> address 744
-		destinationAddressIn_port0 <= 12'd744;
-		dataIn_port0 <= 6'd46;
+			//Port0: write 21 -> address 268
+		destinationAddressIn_port0 <= 12'd268;
+		dataIn_port0 <= 6'd21;
 		writeIn_port0 <= 1;
-			//Port1: write 16 -> address 1085
-		destinationAddressIn_port1 <= 12'd1085;
-		dataIn_port1 <= 6'd16;
-		writeIn_port1 <= 1;
-			//Port2: write 25 -> address 1978
-		destinationAddressIn_port2 <= 12'd1978;
-		dataIn_port2 <= 6'd25;
+			//Port2: write 34 -> address 718
+		destinationAddressIn_port2 <= 12'd718;
+		dataIn_port2 <= 6'd34;
 		writeIn_port2 <= 1;
-			//Port3: write 21 -> address 599
-		destinationAddressIn_port3 <= 12'd599;
-		dataIn_port3 <= 6'd21;
+			//Port3: write 43 -> address 2571
+		destinationAddressIn_port3 <= 12'd2571;
+		dataIn_port3 <= 6'd43;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2135,21 +2121,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 56 -> address 576
-		destinationAddressIn_port0 <= 12'd576;
-		dataIn_port0 <= 6'd56;
+			//Port0: write 44 -> address 2952
+		destinationAddressIn_port0 <= 12'd2952;
+		dataIn_port0 <= 6'd44;
 		writeIn_port0 <= 1;
-			//Port1: write 30 -> address 645
-		destinationAddressIn_port1 <= 12'd645;
-		dataIn_port1 <= 6'd30;
+			//Port1: write 46 -> address 1353
+		destinationAddressIn_port1 <= 12'd1353;
+		dataIn_port1 <= 6'd46;
 		writeIn_port1 <= 1;
-			//Port2: write 55 -> address 1366
-		destinationAddressIn_port2 <= 12'd1366;
-		dataIn_port2 <= 6'd55;
+			//Port2: write 62 -> address 3290
+		destinationAddressIn_port2 <= 12'd3290;
+		dataIn_port2 <= 6'd62;
 		writeIn_port2 <= 1;
-			//Port3: write 59 -> address 639
-		destinationAddressIn_port3 <= 12'd639;
-		dataIn_port3 <= 6'd59;
+			//Port3: write 40 -> address 4063
+		destinationAddressIn_port3 <= 12'd4063;
+		dataIn_port3 <= 6'd40;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2165,17 +2151,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 14 -> address 392
-		destinationAddressIn_port0 <= 12'd392;
-		dataIn_port0 <= 6'd14;
+			//Port0: write 47 -> address 1180
+		destinationAddressIn_port0 <= 12'd1180;
+		dataIn_port0 <= 6'd47;
 		writeIn_port0 <= 1;
-			//Port1: write 28 -> address 1913
-		destinationAddressIn_port1 <= 12'd1913;
-		dataIn_port1 <= 6'd28;
+			//Port1: write 26 -> address 3949
+		destinationAddressIn_port1 <= 12'd3949;
+		dataIn_port1 <= 6'd26;
 		writeIn_port1 <= 1;
-			//Port3: write 50 -> address 1859
-		destinationAddressIn_port3 <= 12'd1859;
-		dataIn_port3 <= 6'd50;
+			//Port2: write 22 -> address 1794
+		destinationAddressIn_port2 <= 12'd1794;
+		dataIn_port2 <= 6'd22;
+		writeIn_port2 <= 1;
+			//Port3: write 22 -> address 1675
+		destinationAddressIn_port3 <= 12'd1675;
+		dataIn_port3 <= 6'd22;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2191,17 +2181,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 49 -> address 3933
-		destinationAddressIn_port1 <= 12'd3933;
-		dataIn_port1 <= 6'd49;
+			//Port0: write 32 -> address 60
+		destinationAddressIn_port0 <= 12'd60;
+		dataIn_port0 <= 6'd32;
+		writeIn_port0 <= 1;
+			//Port1: write 63 -> address 1493
+		destinationAddressIn_port1 <= 12'd1493;
+		dataIn_port1 <= 6'd63;
 		writeIn_port1 <= 1;
-			//Port2: write 48 -> address 1158
-		destinationAddressIn_port2 <= 12'd1158;
-		dataIn_port2 <= 6'd48;
+			//Port2: write 1 -> address 722
+		destinationAddressIn_port2 <= 12'd722;
+		dataIn_port2 <= 6'd1;
 		writeIn_port2 <= 1;
-			//Port3: write 22 -> address 3571
-		destinationAddressIn_port3 <= 12'd3571;
-		dataIn_port3 <= 6'd22;
+			//Port3: write 7 -> address 315
+		destinationAddressIn_port3 <= 12'd315;
+		dataIn_port3 <= 6'd7;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2217,18 +2211,22 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: read 62 from address 1804
-		destinationAddressIn_port0 <= 12'd1804;
-		expectedData_port0 <= 6'd62;
-		readIn_port0 <= 1;
-			//Port1: write 2 -> address 3981
-		destinationAddressIn_port1 <= 12'd3981;
-		dataIn_port1 <= 6'd2;
+			//Port0: write 4 -> address 3108
+		destinationAddressIn_port0 <= 12'd3108;
+		dataIn_port0 <= 6'd4;
+		writeIn_port0 <= 1;
+			//Port1: write 19 -> address 421
+		destinationAddressIn_port1 <= 12'd421;
+		dataIn_port1 <= 6'd19;
 		writeIn_port1 <= 1;
-			//Port2: write 30 -> address 3158
-		destinationAddressIn_port2 <= 12'd3158;
-		dataIn_port2 <= 6'd30;
+			//Port2: write 35 -> address 362
+		destinationAddressIn_port2 <= 12'd362;
+		dataIn_port2 <= 6'd35;
 		writeIn_port2 <= 1;
+			//Port3: write 7 -> address 795
+		destinationAddressIn_port3 <= 12'd795;
+		dataIn_port3 <= 6'd7;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 81==
@@ -2243,21 +2241,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 21 -> address 1068
-		destinationAddressIn_port0 <= 12'd1068;
-		dataIn_port0 <= 6'd21;
-		writeIn_port0 <= 1;
-			//Port1: write 4 -> address 1565
-		destinationAddressIn_port1 <= 12'd1565;
-		dataIn_port1 <= 6'd4;
+			//Port1: write 58 -> address 1849
+		destinationAddressIn_port1 <= 12'd1849;
+		dataIn_port1 <= 6'd58;
 		writeIn_port1 <= 1;
-			//Port2: write 18 -> address 802
-		destinationAddressIn_port2 <= 12'd802;
-		dataIn_port2 <= 6'd18;
+			//Port2: write 53 -> address 1870
+		destinationAddressIn_port2 <= 12'd1870;
+		dataIn_port2 <= 6'd53;
 		writeIn_port2 <= 1;
-			//Port3: read 47 from address 3711
-		destinationAddressIn_port3 <= 12'd3711;
-		expectedData_port3 <= 6'd47;
+			//Port3: read 59 from address 3059
+		destinationAddressIn_port3 <= 12'd3059;
+		expectedData_port3 <= 6'd59;
 		readIn_port3 <= 1;
 		#1
 
@@ -2273,18 +2267,22 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 19 -> address 2368
-		destinationAddressIn_port0 <= 12'd2368;
-		dataIn_port0 <= 6'd19;
-		writeIn_port0 <= 1;
-			//Port1: write 42 -> address 965
-		destinationAddressIn_port1 <= 12'd965;
-		dataIn_port1 <= 6'd42;
+			//Port0: read 44 from address 2952
+		destinationAddressIn_port0 <= 12'd2952;
+		expectedData_port0 <= 6'd44;
+		readIn_port0 <= 1;
+			//Port1: write 4 -> address 2693
+		destinationAddressIn_port1 <= 12'd2693;
+		dataIn_port1 <= 6'd4;
 		writeIn_port1 <= 1;
-			//Port2: write 22 -> address 3098
-		destinationAddressIn_port2 <= 12'd3098;
-		dataIn_port2 <= 6'd22;
+			//Port2: write 6 -> address 2490
+		destinationAddressIn_port2 <= 12'd2490;
+		dataIn_port2 <= 6'd6;
 		writeIn_port2 <= 1;
+			//Port3: write 51 -> address 407
+		destinationAddressIn_port3 <= 12'd407;
+		dataIn_port3 <= 6'd51;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 83==
@@ -2299,21 +2297,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 35 -> address 500
-		destinationAddressIn_port0 <= 12'd500;
-		dataIn_port0 <= 6'd35;
+			//Port0: write 40 -> address 3804
+		destinationAddressIn_port0 <= 12'd3804;
+		dataIn_port0 <= 6'd40;
 		writeIn_port0 <= 1;
-			//Port1: write 2 -> address 3769
-		destinationAddressIn_port1 <= 12'd3769;
-		dataIn_port1 <= 6'd2;
+			//Port1: write 9 -> address 233
+		destinationAddressIn_port1 <= 12'd233;
+		dataIn_port1 <= 6'd9;
 		writeIn_port1 <= 1;
-			//Port2: write 18 -> address 1006
-		destinationAddressIn_port2 <= 12'd1006;
-		dataIn_port2 <= 6'd18;
+			//Port2: write 8 -> address 326
+		destinationAddressIn_port2 <= 12'd326;
+		dataIn_port2 <= 6'd8;
 		writeIn_port2 <= 1;
-			//Port3: write 11 -> address 1559
-		destinationAddressIn_port3 <= 12'd1559;
-		dataIn_port3 <= 6'd11;
+			//Port3: write 52 -> address 295
+		destinationAddressIn_port3 <= 12'd295;
+		dataIn_port3 <= 6'd52;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2329,13 +2327,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port2: write 26 -> address 2850
-		destinationAddressIn_port2 <= 12'd2850;
-		dataIn_port2 <= 6'd26;
+			//Port0: write 9 -> address 3748
+		destinationAddressIn_port0 <= 12'd3748;
+		dataIn_port0 <= 6'd9;
+		writeIn_port0 <= 1;
+			//Port1: read 59 from address 137
+		destinationAddressIn_port1 <= 12'd137;
+		expectedData_port1 <= 6'd59;
+		readIn_port1 <= 1;
+			//Port2: write 21 -> address 3126
+		destinationAddressIn_port2 <= 12'd3126;
+		dataIn_port2 <= 6'd21;
 		writeIn_port2 <= 1;
-			//Port3: write 4 -> address 591
-		destinationAddressIn_port3 <= 12'd591;
-		dataIn_port3 <= 6'd4;
+			//Port3: write 56 -> address 2723
+		destinationAddressIn_port3 <= 12'd2723;
+		dataIn_port3 <= 6'd56;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2351,14 +2357,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 30 -> address 1641
-		destinationAddressIn_port1 <= 12'd1641;
-		dataIn_port1 <= 6'd30;
+			//Port0: write 13 -> address 1828
+		destinationAddressIn_port0 <= 12'd1828;
+		dataIn_port0 <= 6'd13;
+		writeIn_port0 <= 1;
+			//Port1: write 46 -> address 981
+		destinationAddressIn_port1 <= 12'd981;
+		dataIn_port1 <= 6'd46;
 		writeIn_port1 <= 1;
-			//Port2: write 36 -> address 1786
-		destinationAddressIn_port2 <= 12'd1786;
-		dataIn_port2 <= 6'd36;
-		writeIn_port2 <= 1;
+			//Port3: write 35 -> address 135
+		destinationAddressIn_port3 <= 12'd135;
+		dataIn_port3 <= 6'd35;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 86==
@@ -2373,21 +2383,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 55 -> address 2444
-		destinationAddressIn_port0 <= 12'd2444;
-		dataIn_port0 <= 6'd55;
+			//Port0: write 32 -> address 1412
+		destinationAddressIn_port0 <= 12'd1412;
+		dataIn_port0 <= 6'd32;
 		writeIn_port0 <= 1;
-			//Port1: write 59 -> address 349
-		destinationAddressIn_port1 <= 12'd349;
-		dataIn_port1 <= 6'd59;
+			//Port1: write 62 -> address 1317
+		destinationAddressIn_port1 <= 12'd1317;
+		dataIn_port1 <= 6'd62;
 		writeIn_port1 <= 1;
-			//Port2: read 36 from address 1786
-		destinationAddressIn_port2 <= 12'd1786;
-		expectedData_port2 <= 6'd36;
-		readIn_port2 <= 1;
-			//Port3: write 48 -> address 1931
-		destinationAddressIn_port3 <= 12'd1931;
-		dataIn_port3 <= 6'd48;
+			//Port3: write 36 -> address 3819
+		destinationAddressIn_port3 <= 12'd3819;
+		dataIn_port3 <= 6'd36;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2403,17 +2409,17 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 58 -> address 2028
-		destinationAddressIn_port0 <= 12'd2028;
-		dataIn_port0 <= 6'd58;
+			//Port0: write 45 -> address 1164
+		destinationAddressIn_port0 <= 12'd1164;
+		dataIn_port0 <= 6'd45;
 		writeIn_port0 <= 1;
-			//Port1: write 51 -> address 3597
-		destinationAddressIn_port1 <= 12'd3597;
-		dataIn_port1 <= 6'd51;
-		writeIn_port1 <= 1;
-			//Port3: write 21 -> address 1059
-		destinationAddressIn_port3 <= 12'd1059;
-		dataIn_port3 <= 6'd21;
+			//Port2: write 44 -> address 890
+		destinationAddressIn_port2 <= 12'd890;
+		dataIn_port2 <= 6'd44;
+		writeIn_port2 <= 1;
+			//Port3: write 58 -> address 1067
+		destinationAddressIn_port3 <= 12'd1067;
+		dataIn_port3 <= 6'd58;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2429,13 +2435,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: read 38 from address 4041
-		destinationAddressIn_port1 <= 12'd4041;
-		expectedData_port1 <= 6'd38;
-		readIn_port1 <= 1;
-			//Port3: write 31 -> address 579
-		destinationAddressIn_port3 <= 12'd579;
-		dataIn_port3 <= 6'd31;
+			//Port0: write 57 -> address 232
+		destinationAddressIn_port0 <= 12'd232;
+		dataIn_port0 <= 6'd57;
+		writeIn_port0 <= 1;
+			//Port1: write 34 -> address 2177
+		destinationAddressIn_port1 <= 12'd2177;
+		dataIn_port1 <= 6'd34;
+		writeIn_port1 <= 1;
+			//Port2: write 24 -> address 470
+		destinationAddressIn_port2 <= 12'd470;
+		dataIn_port2 <= 6'd24;
+		writeIn_port2 <= 1;
+			//Port3: write 34 -> address 1899
+		destinationAddressIn_port3 <= 12'd1899;
+		dataIn_port3 <= 6'd34;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2451,17 +2465,13 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 16 -> address 1968
-		destinationAddressIn_port0 <= 12'd1968;
-		dataIn_port0 <= 6'd16;
-		writeIn_port0 <= 1;
-			//Port1: write 16 -> address 113
-		destinationAddressIn_port1 <= 12'd113;
-		dataIn_port1 <= 6'd16;
-		writeIn_port1 <= 1;
-			//Port3: write 25 -> address 1915
-		destinationAddressIn_port3 <= 12'd1915;
-		dataIn_port3 <= 6'd25;
+			//Port2: write 9 -> address 1586
+		destinationAddressIn_port2 <= 12'd1586;
+		dataIn_port2 <= 6'd9;
+		writeIn_port2 <= 1;
+			//Port3: write 2 -> address 2719
+		destinationAddressIn_port3 <= 12'd2719;
+		dataIn_port3 <= 6'd2;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2477,14 +2487,22 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 10 -> address 48
-		destinationAddressIn_port0 <= 12'd48;
-		dataIn_port0 <= 6'd10;
+			//Port0: write 11 -> address 2552
+		destinationAddressIn_port0 <= 12'd2552;
+		dataIn_port0 <= 6'd11;
 		writeIn_port0 <= 1;
-			//Port2: write 3 -> address 2342
-		destinationAddressIn_port2 <= 12'd2342;
-		dataIn_port2 <= 6'd3;
+			//Port1: write 46 -> address 2673
+		destinationAddressIn_port1 <= 12'd2673;
+		dataIn_port1 <= 6'd46;
+		writeIn_port1 <= 1;
+			//Port2: write 59 -> address 2778
+		destinationAddressIn_port2 <= 12'd2778;
+		dataIn_port2 <= 6'd59;
 		writeIn_port2 <= 1;
+			//Port3: write 2 -> address 3155
+		destinationAddressIn_port3 <= 12'd3155;
+		dataIn_port3 <= 6'd2;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 91==
@@ -2499,17 +2517,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 42 -> address 1048
-		destinationAddressIn_port0 <= 12'd1048;
-		dataIn_port0 <= 6'd42;
+			//Port0: write 59 -> address 1152
+		destinationAddressIn_port0 <= 12'd1152;
+		dataIn_port0 <= 6'd59;
 		writeIn_port0 <= 1;
-			//Port2: write 58 -> address 3246
-		destinationAddressIn_port2 <= 12'd3246;
-		dataIn_port2 <= 6'd58;
-		writeIn_port2 <= 1;
-			//Port3: write 9 -> address 3719
-		destinationAddressIn_port3 <= 12'd3719;
-		dataIn_port3 <= 6'd9;
+			//Port1: write 0 -> address 3537
+		destinationAddressIn_port1 <= 12'd3537;
+		dataIn_port1 <= 6'd0;
+		writeIn_port1 <= 1;
+			//Port2: read 24 from address 470
+		destinationAddressIn_port2 <= 12'd470;
+		expectedData_port2 <= 6'd24;
+		readIn_port2 <= 1;
+			//Port3: write 12 -> address 387
+		destinationAddressIn_port3 <= 12'd387;
+		dataIn_port3 <= 6'd12;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2525,13 +2547,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 62 -> address 701
-		destinationAddressIn_port1 <= 12'd701;
-		dataIn_port1 <= 6'd62;
+			//Port0: write 33 -> address 1692
+		destinationAddressIn_port0 <= 12'd1692;
+		dataIn_port0 <= 6'd33;
+		writeIn_port0 <= 1;
+			//Port1: write 30 -> address 3577
+		destinationAddressIn_port1 <= 12'd3577;
+		dataIn_port1 <= 6'd30;
 		writeIn_port1 <= 1;
-			//Port3: write 48 -> address 15
-		destinationAddressIn_port3 <= 12'd15;
-		dataIn_port3 <= 6'd48;
+			//Port2: write 41 -> address 1490
+		destinationAddressIn_port2 <= 12'd1490;
+		dataIn_port2 <= 6'd41;
+		writeIn_port2 <= 1;
+			//Port3: write 43 -> address 1467
+		destinationAddressIn_port3 <= 12'd1467;
+		dataIn_port3 <= 6'd43;
 		writeIn_port3 <= 1;
 		#1
 
@@ -2547,18 +2577,14 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 18 -> address 2784
-		destinationAddressIn_port0 <= 12'd2784;
-		dataIn_port0 <= 6'd18;
+			//Port0: write 36 -> address 1880
+		destinationAddressIn_port0 <= 12'd1880;
+		dataIn_port0 <= 6'd36;
 		writeIn_port0 <= 1;
-			//Port1: write 60 -> address 1573
-		destinationAddressIn_port1 <= 12'd1573;
-		dataIn_port1 <= 6'd60;
-		writeIn_port1 <= 1;
-			//Port2: write 43 -> address 3918
-		destinationAddressIn_port2 <= 12'd3918;
-		dataIn_port2 <= 6'd43;
-		writeIn_port2 <= 1;
+			//Port3: write 29 -> address 1595
+		destinationAddressIn_port3 <= 12'd1595;
+		dataIn_port3 <= 6'd29;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 94==
@@ -2573,22 +2599,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 38 -> address 3552
-		destinationAddressIn_port0 <= 12'd3552;
-		dataIn_port0 <= 6'd38;
+			//Port0: write 32 -> address 448
+		destinationAddressIn_port0 <= 12'd448;
+		dataIn_port0 <= 6'd32;
 		writeIn_port0 <= 1;
-			//Port1: write 44 -> address 1585
-		destinationAddressIn_port1 <= 12'd1585;
-		dataIn_port1 <= 6'd44;
+			//Port1: write 36 -> address 725
+		destinationAddressIn_port1 <= 12'd725;
+		dataIn_port1 <= 6'd36;
 		writeIn_port1 <= 1;
-			//Port2: write 54 -> address 2110
+			//Port2: write 63 -> address 2110
 		destinationAddressIn_port2 <= 12'd2110;
-		dataIn_port2 <= 6'd54;
+		dataIn_port2 <= 6'd63;
 		writeIn_port2 <= 1;
-			//Port3: write 40 -> address 3667
-		destinationAddressIn_port3 <= 12'd3667;
-		dataIn_port3 <= 6'd40;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 95==
@@ -2603,18 +2625,10 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port1: write 34 -> address 2257
-		destinationAddressIn_port1 <= 12'd2257;
-		dataIn_port1 <= 6'd34;
+			//Port1: write 53 -> address 229
+		destinationAddressIn_port1 <= 12'd229;
+		dataIn_port1 <= 6'd53;
 		writeIn_port1 <= 1;
-			//Port2: write 28 -> address 2658
-		destinationAddressIn_port2 <= 12'd2658;
-		dataIn_port2 <= 6'd28;
-		writeIn_port2 <= 1;
-			//Port3: write 53 -> address 3863
-		destinationAddressIn_port3 <= 12'd3863;
-		dataIn_port3 <= 6'd53;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 96==
@@ -2629,18 +2643,22 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 0 -> address 2628
-		destinationAddressIn_port0 <= 12'd2628;
-		dataIn_port0 <= 6'd0;
+			//Port0: write 10 -> address 2640
+		destinationAddressIn_port0 <= 12'd2640;
+		dataIn_port0 <= 6'd10;
 		writeIn_port0 <= 1;
-			//Port1: write 53 -> address 765
-		destinationAddressIn_port1 <= 12'd765;
-		dataIn_port1 <= 6'd53;
+			//Port1: write 45 -> address 557
+		destinationAddressIn_port1 <= 12'd557;
+		dataIn_port1 <= 6'd45;
 		writeIn_port1 <= 1;
-			//Port2: write 0 -> address 518
-		destinationAddressIn_port2 <= 12'd518;
-		dataIn_port2 <= 6'd0;
+			//Port2: write 12 -> address 2766
+		destinationAddressIn_port2 <= 12'd2766;
+		dataIn_port2 <= 6'd12;
 		writeIn_port2 <= 1;
+			//Port3: write 8 -> address 3955
+		destinationAddressIn_port3 <= 12'd3955;
+		dataIn_port3 <= 6'd8;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 97==
@@ -2655,22 +2673,14 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 20 -> address 1328
-		destinationAddressIn_port0 <= 12'd1328;
-		dataIn_port0 <= 6'd20;
+			//Port0: write 58 -> address 684
+		destinationAddressIn_port0 <= 12'd684;
+		dataIn_port0 <= 6'd58;
 		writeIn_port0 <= 1;
-			//Port1: write 59 -> address 941
-		destinationAddressIn_port1 <= 12'd941;
-		dataIn_port1 <= 6'd59;
-		writeIn_port1 <= 1;
-			//Port2: write 6 -> address 4066
-		destinationAddressIn_port2 <= 12'd4066;
-		dataIn_port2 <= 6'd6;
+			//Port2: write 9 -> address 2202
+		destinationAddressIn_port2 <= 12'd2202;
+		dataIn_port2 <= 6'd9;
 		writeIn_port2 <= 1;
-			//Port3: write 21 -> address 4047
-		destinationAddressIn_port3 <= 12'd4047;
-		dataIn_port3 <= 6'd21;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 98==
@@ -2685,22 +2695,10 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 56 -> address 416
-		destinationAddressIn_port0 <= 12'd416;
-		dataIn_port0 <= 6'd56;
-		writeIn_port0 <= 1;
-			//Port1: write 51 -> address 249
-		destinationAddressIn_port1 <= 12'd249;
-		dataIn_port1 <= 6'd51;
+			//Port1: write 26 -> address 2577
+		destinationAddressIn_port1 <= 12'd2577;
+		dataIn_port1 <= 6'd26;
 		writeIn_port1 <= 1;
-			//Port2: write 11 -> address 3802
-		destinationAddressIn_port2 <= 12'd3802;
-		dataIn_port2 <= 6'd11;
-		writeIn_port2 <= 1;
-			//Port3: write 22 -> address 3783
-		destinationAddressIn_port3 <= 12'd3783;
-		dataIn_port3 <= 6'd22;
-		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 99==
@@ -2715,10 +2713,18 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 7 -> address 2480
-		destinationAddressIn_port0 <= 12'd2480;
-		dataIn_port0 <= 6'd7;
+			//Port0: write 52 -> address 764
+		destinationAddressIn_port0 <= 12'd764;
+		dataIn_port0 <= 6'd52;
 		writeIn_port0 <= 1;
+			//Port1: write 30 -> address 1225
+		destinationAddressIn_port1 <= 12'd1225;
+		dataIn_port1 <= 6'd30;
+		writeIn_port1 <= 1;
+			//Port3: write 42 -> address 1335
+		destinationAddressIn_port3 <= 12'd1335;
+		dataIn_port3 <= 6'd42;
+		writeIn_port3 <= 1;
 		#1
 
 		//==Cycle 100==
@@ -2733,24 +2739,21 @@ module NetworkGeneratedTestBench ;
 		writeIn_port3 <= 0;
 		#1
 		//Negedge
-			//Port0: write 35 -> address 3104
-		destinationAddressIn_port0 <= 12'd3104;
-		dataIn_port0 <= 6'd35;
+			//Port0: write 47 -> address 4032
+		destinationAddressIn_port0 <= 12'd4032;
+		dataIn_port0 <= 6'd47;
 		writeIn_port0 <= 1;
-			//Port1: write 12 -> address 2349
-		destinationAddressIn_port1 <= 12'd2349;
-		dataIn_port1 <= 6'd12;
+			//Port1: write 11 -> address 1925
+		destinationAddressIn_port1 <= 12'd1925;
+		dataIn_port1 <= 6'd11;
 		writeIn_port1 <= 1;
-			//Port2: write 4 -> address 3526
-		destinationAddressIn_port2 <= 12'd3526;
-		dataIn_port2 <= 6'd4;
+			//Port2: write 20 -> address 1706
+		destinationAddressIn_port2 <= 12'd1706;
+		dataIn_port2 <= 6'd20;
 		writeIn_port2 <= 1;
-			//Port3: write 33 -> address 3447
-		destinationAddressIn_port3 <= 12'd3447;
-		dataIn_port3 <= 6'd33;
-		writeIn_port3 <= 1;
 		#1
 
+		$display("Error = %d", ERROR);
 		$stop;
 	end // initial
 endmodule // NetworkGeneratedTestBench
