@@ -31,7 +31,7 @@ parameter DPTH  = `CACHE_BANK_LINES;
 
 //internal variables
 reg [DPTH-1:0] isWritten;
-reg [DAT-1:0] SRAM [DPTH-1:0];
+
 
 
 
