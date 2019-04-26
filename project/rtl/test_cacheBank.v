@@ -1,6 +1,6 @@
 
 `include "globalVariables.v"
-`include "cacheBank.v"
+`include "cacheBank_new.v"
 `timescale 1ns / 1ps
 `define SD #1000
 

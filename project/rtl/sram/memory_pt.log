@@ -1,0 +1,304 @@
+
+                            PrimeTime (R)
+             Version J-2014.12 for RHEL64 -- Nov 23, 2014
+                Copyright (c) 1988-2014 Synopsys, Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys, Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+#################################################
+# Primetime 
+# Script for static timing analysis
+# MS 7/2015
+#################################################
+#################################################
+# Units are defined in the .lib file
+# time: ns
+#################################################
+## Global
+set sh_enable_page_mode true
+false
+set power_enable_analysis true
+true
+## Setting files/paths
+set verilog_files {./memory_netlist.nl.v}
+./memory_netlist.nl.v
+#set spef_files {lfsr1.spef}
+set my_toplevel memory_netlist
+memory_netlist
+set search_path "."
+.
+set link_path "* memory_tt_1p2v_25c_syn.lib" 
+* memory_tt_1p2v_25c_syn.lib
+## Read design
+read_lib "memory_tt_1p2v_25c_syn.lib"
+Information: Checked out license 'PrimeTime-PX' (PT-019)
+Beginning read_lib...
+Reading '/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/sram/memory_tt_1p2v_25c_syn.lib' ...
+Technology library 'USERLIB' read successfully
+1
+read_verilog $verilog_files
+1
+link_design -keep_sub_designs $my_toplevel
+Loading verilog file '/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/sram/memory_netlist.nl.v'
+Linking design memory_netlist...
+Design 'memory_netlist' was successfully linked.
+Information: There are 44 cells and 43 nets in the design
+ (LNK-047)
+1
+#read_parasitics -keep_capacitive_coupling $spef_files
+## Timing Constraints
+source ./timing.tcl
+Warning: Setting input delay on clock port (clk) relative to a clock (clk) defined at the same port. Command is ignored. (UITE-489)
+1
+1
+###################################################
+## Run STA 
+###################################################
+check_timing
+Information: Checking 'no_input_delay'.
+Information: Checking 'no_driving_cell'.
+Information: Checking 'unconstrained_endpoints'.
+Information: Checking 'unexpandable_clocks'.
+Information: Checking 'latch_fanout'.
+Information: Checking 'no_clock'.
+Information: Checking 'partial_input_delay'.
+Information: Checking 'generic'.
+Information: Checking 'loops'.
+Information: Checking 'generated_clocks'.
+Information: Checking 'pulse_clock_non_pulse_clock_merge'.
+Information: Checking 'pll_configuration'.
+check_timing succeeded.
+1
+report_design
+****************************************
+Report : design
+Design : memory_netlist
+Version: J-2014.12
+Date   : Wed Apr 24 12:26:39 2019
+****************************************
+
+Design Attribute                         Value
+---------------------------------------------------------------------------
+Operating Conditions:
+  analysis_type                          on_chip_variation
+  operating_condition_min_name           tt_1p2v_25c
+  process_min                            1
+  temperature_min                        25
+  voltage_min                            1.2
+  tree_type_min                          balanced_case
+
+  operating_condition_max_name           tt_1p2v_25c
+  process_max                            1
+  temperature_max                        25
+  voltage_max                            1.2
+  tree_type_max                          balanced_case
+
+Wire Load:                               (use report_wire_load for more information)
+  wire_load_mode                         top
+  wire_load_model_max                    --
+  wire_load_model_min                    --
+  wire_load_selection_group_max          --
+  wire_load_selection_group_min          --
+  wire_load_min_block_size               0
+
+Design Rules:
+  max_capacitance                        --
+  min_capacitance                        --
+  max_fanout                             --
+  max_transition                         --
+  static_integrity                       --
+  dynamic_integrity                      --
+  max_area                               --
+
+Timing Ranges:
+  early_factor                           --
+  late_factor                            --
+
+Pin Input Delays:
+None specified.
+
+Pin Output Delays:
+None specified.
+Fast Analysis:                           disabled
+
+1
+report_reference
+****************************************
+Report : reference
+Design : memory_netlist
+Version: J-2014.12
+Date   : Wed Apr 24 12:26:39 2019
+****************************************
+
+
+Attributes:
+    b - black-box (unknown)
+    h - hierarchical
+    n - noncombinational
+    u - contains unmapped logic
+    A - abstracted timing model
+    E - extracted timing model
+    S - Stamp timing model
+    Q - Quick timing model (QTM)
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+--------------------------------------------------------------------------------
+memory             USERLIB       17624.11    1        17624.11     b,n
+--------------------------------------------------------------------------------
+Total 1 references                                    17624.11
+1
+report_constraint
+****************************************
+Report : constraint
+Design : memory_netlist
+Version: J-2014.12
+Date   : Wed Apr 24 12:26:39 2019
+****************************************
+
+                                                   Weighted
+    Group (max_delay/setup)      Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                          0.00      1.00      0.00
+    -----------------------------------------------------
+    max_delay/setup                                  0.00
+
+                                                   Weighted
+    Group (min_delay/hold)       Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                          0.00      1.00      0.00
+    -----------------------------------------------------
+    min_delay/hold                                   0.00
+
+    Constraint                                       Cost
+    -----------------------------------------------------
+    max_delay/setup                                  0.00  (MET)
+    min_delay/hold                                   0.00  (MET)
+    sequential_clock_pulse_width                     0.00  (MET)
+    min_period                                       0.00  (MET)
+    max_capacitance                                  0.00  (MET)
+    max_transition                                   0.00  (MET)
+
+1
+report_constraint -all_violators -significant_digits 3
+****************************************
+Report : constraint
+	-all_violators
+	-path slack_only
+Design : memory_netlist
+Version: J-2014.12
+Date   : Wed Apr 24 12:26:39 2019
+****************************************
+
+
+
+
+1
+report_timing -significant_digits 3
+****************************************
+Report : timing
+	-path_type full
+	-delay_type max
+	-max_paths 1
+	-sort_by slack
+Design : memory_netlist
+Version: J-2014.12
+Date   : Wed Apr 24 12:26:39 2019
+****************************************
+
+
+  Startpoint: mem1 (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: data_out[0]
+               (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             0.000      0.000
+  mem1/CLK (memory)                       0.000      0.000 r
+  mem1/Q[0] (memory)                      1.658      1.658 r
+  data_out[0] (out)                       0.000      1.658 r
+  data arrival time                                  1.658
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             0.000     10.000
+  clock reconvergence pessimism           0.000     10.000
+  output external delay                  -0.050      9.950
+  data required time                                 9.950
+  ---------------------------------------------------------------
+  data required time                                 9.950
+  data arrival time                                 -1.658
+  ---------------------------------------------------------------
+  slack (MET)                                        8.292
+
+
+1
+## Power analysis
+#read_vcd -strip_path /testbench/DUT_0 FIR.vcd
+#estimate_clock_network_power sc_svtgp_025_res/HS65_GS_BFX4
+#update_power
+#create_power_waveforms -output "vcd"
+#report_power -include_estimated_clock_network
+report_power
+Warning: Neither event file or switching activity data present for power estimation. The command will propagate switching activity values for power calculation.  (PWR-246)
+Information: Running averaged power analysis... (PWR-601)
+****************************************
+Report : Averaged Power
+Design : memory_netlist
+Version: J-2014.12
+Date   : Wed Apr 24 12:26:39 2019
+****************************************
+
+
+
+  Attributes
+  ----------
+      i  -  Including register clock pin internal power
+      u  -  User defined power group
+
+                        Internal  Switching  Leakage    Total
+Power Group             Power     Power      Power      Power   (     %)  Attrs
+--------------------------------------------------------------------------------
+clock_network              0.0000    0.0000    0.0000    0.0000 ( 0.00%)  i
+register                   0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+combinational              0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+sequential                 0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+memory                  5.774e-04 5.760e-07 4.680e-08 5.780e-04 (100.00%) 
+io_pad                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+black_box                  0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+
+  Net Switching Power  = 5.760e-07   ( 0.10%)
+  Cell Internal Power  = 5.774e-04   (99.89%)
+  Cell Leakage Power   = 4.680e-08   ( 0.01%)
+                         ---------
+Total Power            = 5.780e-04  (100.00%)
+
+1
+#report_power -hierarchy
+#report_lfsr1ing_activity -average_activity -hierarchy -base_clock $clk_port
+#report_lfsr1ing_activity 
+# Exiting primetime
+quit
+Information: Defining new variable 'my_toplevel'. (CMD-041)
+Information: Defining new variable 'typical_wire_load'. (CMD-041)
+Information: Defining new variable 'clk_name'. (CMD-041)
+Information: Defining new variable 'typical_output_delay'. (CMD-041)
+Information: Defining new variable 'clk_period'. (CMD-041)
+Information: Defining new variable 'verilog_files'. (CMD-041)
+Information: Defining new variable 'typical_input_delay'. (CMD-041)
+Information: Defining new variable 'clk_transition'. (CMD-041)
+Information: Defining new variable 'clk_uncertainty'. (CMD-041)
+Information: Defining new variable 'clk_port'. (CMD-041)
+
+Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full, 0 logical)
+Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
+Maximum memory usage for this session: 426.45 MB
+CPU usage for this session: 1 seconds 
+Elapsed time for this session: 11 seconds
+Diagnostics summary: 2 warnings, 13 informationals
+
+Thank you for using pt_shell!
