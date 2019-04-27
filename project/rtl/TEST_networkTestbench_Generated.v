@@ -6,7 +6,7 @@
 `include "network.v"
 `include "globalVariables.v"
 
-
+`timescale 1us/1ps
 module NetworkGeneratedTestBench ;
 	reg reset = 0;
 	reg clk = 0;
