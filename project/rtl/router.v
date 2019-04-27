@@ -135,8 +135,8 @@ module router(
 		.localRouterAddress(localRouterAddress),
 		.destinationAddressIn(destinationAddressIn_NORTH),
 		.requesterAddressIn(requesterAddressIn_NORTH),
-		.readIn(readInBuffer_NORTH),
-		.writeIn(writeInBuffer_NORTH),
+		.readIn(readIn_NORTH),
+		.writeIn(writeIn_NORTH),
 		.outputPortSelect(outputPortSelect_NORTH),
 		.memRead(memRead_NORTH),
 		.memWrite(memWrite_NORTH)
@@ -152,8 +152,8 @@ module router(
 		.localRouterAddress(localRouterAddress),
 		.destinationAddressIn(destinationAddressIn_SOUTH),
 		.requesterAddressIn(requesterAddressIn_SOUTH),
-		.readIn(readInBuffer_SOUTH),
-		.writeIn(writeInBuffer_SOUTH),
+		.readIn(readIn_SOUTH),
+		.writeIn(writeIn_SOUTH),
 		.outputPortSelect(outputPortSelect_SOUTH),
 		.memRead(memRead_SOUTH),
 		.memWrite(memWrite_SOUTH)
@@ -169,8 +169,8 @@ module router(
 		.localRouterAddress(localRouterAddress),
 		.destinationAddressIn(destinationAddressIn_EAST),
 		.requesterAddressIn(requesterAddressIn_EAST),
-		.readIn(readInBuffer_EAST),
-		.writeIn(writeInBuffer_EAST),
+		.readIn(readIn_EAST),
+		.writeIn(writeIn_EAST),
 		.outputPortSelect(outputPortSelect_EAST),
 		.memRead(memRead_EAST),
 		.memWrite(memWrite_EAST)
@@ -186,8 +186,8 @@ module router(
 		.localRouterAddress(localRouterAddress),
 		.destinationAddressIn(destinationAddressIn_WEST),
 		.requesterAddressIn(requesterAddressIn_WEST),
-		.readIn(readInBuffer_WEST),
-		.writeIn(writeInBuffer_WEST),
+		.readIn(readIn_WEST),
+		.writeIn(writeIn_WEST),
 		.outputPortSelect(outputPortSelect_WEST),
 		.memRead(memRead_WEST),
 		.memWrite(memWrite_WEST)

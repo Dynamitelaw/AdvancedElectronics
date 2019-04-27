@@ -8,8 +8,8 @@
 //Include dependencies
 `include "globalVariables.v"
 `include "router.v"
-`include "cacheBank.v"
-//`include "cacheBank_new.v"
+//`include "cacheBank.v"
+`include "cacheBank_new.v"
 //`include "../dc_shell_cmrf8sf/router.nl.v"
 
 
@@ -305,7 +305,7 @@ module network(
 		
 		//Port 0 (North/Top)
 		assign Node[port0_NodeID].destinationAddressIn_NORTH = destinationAddressIn_port0;
-		assign Node[port0_NodeID].requesterAddressIn_NORTH = destinationAddressIn_port0;
+		assign Node[port0_NodeID].requesterAddressIn_NORTH = port0_NodeID;
 		assign Node[port0_NodeID].readIn_NORTH = readIn_port0;
 		assign Node[port0_NodeID].writeIn_NORTH = writeIn_port0;
 		assign Node[port0_NodeID].dataIn_NORTH = dataIn_port0;
@@ -332,11 +332,11 @@ module network(
 			);
 		
 		//Port 1 (South/Bottom)
-		assign Node[port1_NodeID].destinationAddressIn_NORTH = destinationAddressIn_port1;
-		assign Node[port1_NodeID].requesterAddressIn_NORTH = destinationAddressIn_port1;
-		assign Node[port1_NodeID].readIn_NORTH = readIn_port1;
-		assign Node[port1_NodeID].writeIn_NORTH = writeIn_port1;
-		assign Node[port1_NodeID].dataIn_NORTH = dataIn_port1;
+		assign Node[port1_NodeID].destinationAddressIn_SOUTH = destinationAddressIn_port1;
+		assign Node[port1_NodeID].requesterAddressIn_SOUTH = port1_NodeID;
+		assign Node[port1_NodeID].readIn_SOUTH = readIn_port1;
+		assign Node[port1_NodeID].writeIn_SOUTH = writeIn_port1;
+		assign Node[port1_NodeID].dataIn_SOUTH = dataIn_port1;
 		
 		responseCatcher responseCatcher_1(
 			.clk(clk),
@@ -360,11 +360,11 @@ module network(
 			);
 		
 		//Port 2 (East/Right)
-		assign Node[port2_NodeID].destinationAddressIn_NORTH = destinationAddressIn_port2;
-		assign Node[port2_NodeID].requesterAddressIn_NORTH = destinationAddressIn_port2;
-		assign Node[port2_NodeID].readIn_NORTH = readIn_port2;
-		assign Node[port2_NodeID].writeIn_NORTH = writeIn_port2;
-		assign Node[port2_NodeID].dataIn_NORTH = dataIn_port2;
+		assign Node[port2_NodeID].destinationAddressIn_EAST = destinationAddressIn_port2;
+		assign Node[port2_NodeID].requesterAddressIn_EAST = port2_NodeID;
+		assign Node[port2_NodeID].readIn_EAST = readIn_port2;
+		assign Node[port2_NodeID].writeIn_EAST = writeIn_port2;
+		assign Node[port2_NodeID].dataIn_EAST = dataIn_port2;
 		
 		responseCatcher responseCatcher_2(
 			.clk(clk),
@@ -388,11 +388,11 @@ module network(
 			);
 		
 		//Port 3 (West/Left)
-		assign Node[port3_NodeID].destinationAddressIn_NORTH = destinationAddressIn_port3;
-		assign Node[port3_NodeID].requesterAddressIn_NORTH = destinationAddressIn_port3;
-		assign Node[port3_NodeID].readIn_NORTH = readIn_port3;
-		assign Node[port3_NodeID].writeIn_NORTH = writeIn_port3;
-		assign Node[port3_NodeID].dataIn_NORTH = dataIn_port3;
+		assign Node[port3_NodeID].destinationAddressIn_WEST = destinationAddressIn_port3;
+		assign Node[port3_NodeID].requesterAddressIn_WEST = port3_NodeID;
+		assign Node[port3_NodeID].readIn_WEST = readIn_port3;
+		assign Node[port3_NodeID].writeIn_WEST = writeIn_port3;
+		assign Node[port3_NodeID].dataIn_WEST = dataIn_port3;
 		
 		responseCatcher responseCatcher_3(
 			.clk(clk),
@@ -416,7 +416,15 @@ module network(
 			);
 			
 	endgenerate
-
+	
+	/*
+	initial begin
+		$display("Port 0 ID = %d\n", port0_NodeID);
+		$display("Port 1 ID = %d\n", port1_NodeID);
+		$display("Port 2 ID = %d\n", port2_NodeID);
+		$display("Port 3 ID = %d\n", port3_NodeID);
+	end
+	*/
 endmodule
 
 

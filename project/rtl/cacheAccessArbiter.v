@@ -117,10 +117,6 @@ module cacheAccessArbiter(
 	
 	//Read wire assignments
 	assign memRead = memRead_WEST || memRead_EAST|| memRead_SOUTH || memRead_NORTH;
-	assign cacheReadAddress_0 = cacheAddressIn_NORTH;
-	assign cacheReadAddress_1 = cacheAddressIn_SOUTH;
-	assign cacheReadAddress_2 = cacheAddressIn_EAST;
-	assign cacheReadAddress_3 = cacheAddressIn_WEST;
 	
 	//Store request variables so we know where to send read reults
 	reg prevMemRead_A;
@@ -225,7 +221,14 @@ module cacheAccessArbiter(
 		
 		else begin 
 			//if (|(totalAccesses)) nextEmptyBuffer <= nextEmptyBuffer + totalAccesses - 1;
-			if ((|(totalAccesses)) || nextEmptyBuffer) nextEmptyBuffer <= nextEmptyBuffer + totalAccesses - bufferShiftAmount;
+			//if ((|(totalAccesses)) || nextEmptyBuffer) nextEmptyBuffer <= nextEmptyBuffer + totalAccesses - bufferShiftAmount;
+			if ((|(totalAccesses)) || nextEmptyBuffer) begin
+				if (nextEmptyBuffer) begin
+					nextEmptyBuffer <= nextEmptyBuffer + totalAccesses - bufferShiftAmount;
+				end
+				else
+					nextEmptyBuffer <= totalAccesses - 1;
+				end
 						
 			//Nothing currently in buffer, sound out up to two requests immediately, then buffer the rest
 			if (nextEmptyBuffer == 0) begin
@@ -300,7 +303,8 @@ module cacheAccessArbiter(
 						prevMemRead_B <= 0;
 					end
 					
-					if (k<`BUFFER_SIZE-bufferShiftAmount-1) begin 
+					//if (k<`BUFFER_SIZE-bufferShiftAmount-1) begin 
+					if (k<nextEmptyBuffer) begin 
 						dataToWriteBuffer[k] <= dataToWriteBuffer[k+bufferShiftAmount];
 						addressToWriteBuffer[k] <= addressToWriteBuffer[k+bufferShiftAmount];
 						requesterAddressBuffer[k] <= requesterAddress_Concatenated[k+bufferShiftAmount];
@@ -363,6 +367,26 @@ module cacheAccessArbiter(
 				end
 			end
 		end
-	end	
+	end
+	
+	
+	wire [`DATA_WIDTH -1:0] PROBE_dataToWriteBuffer [`BUFFER_SIZE-1 :0];	
+	assign PROBE_dataToWriteBuffer[0] = dataToWriteBuffer[0];
+	assign PROBE_dataToWriteBuffer[1] = dataToWriteBuffer[1];
+	assign PROBE_dataToWriteBuffer[2] = dataToWriteBuffer[2];
+	assign PROBE_dataToWriteBuffer[3] = dataToWriteBuffer[3];
+	assign PROBE_dataToWriteBuffer[4] = dataToWriteBuffer[4];
+	assign PROBE_dataToWriteBuffer[5] = dataToWriteBuffer[5];
+	assign PROBE_dataToWriteBuffer[6] = dataToWriteBuffer[6];
+	assign PROBE_dataToWriteBuffer[7] = dataToWriteBuffer[7];
+	wire [`CACHE_BANK_ADDRESS_WIDTH -1:0] PROBE_addressToWriteBuffer [`BUFFER_SIZE-1:0];	
+	assign PROBE_addressToWriteBuffer[0] = addressToWriteBuffer[0];
+	assign PROBE_addressToWriteBuffer[1] = addressToWriteBuffer[1];
+	assign PROBE_addressToWriteBuffer[2] = addressToWriteBuffer[2];
+	assign PROBE_addressToWriteBuffer[3] = addressToWriteBuffer[3];
+	assign PROBE_addressToWriteBuffer[4] = addressToWriteBuffer[4];
+	assign PROBE_addressToWriteBuffer[5] = addressToWriteBuffer[5];
+	assign PROBE_addressToWriteBuffer[6] = addressToWriteBuffer[6];
+	assign PROBE_addressToWriteBuffer[7] = addressToWriteBuffer[7];
 endmodule 
 

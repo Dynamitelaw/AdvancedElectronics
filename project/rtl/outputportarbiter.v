@@ -157,7 +157,14 @@ module outputPortArbiter(
 
 	//Handle output writing
 	always @ (negedge clk) begin
-		if(~empty) begin
+		if (reset) begin
+			dataOut <= 0;
+			destinationAddressOut <= 0;
+			requesterAddressOut <= 0;
+			readOut <= 0;
+			writeOut <= 0;
+		end
+		else if(~empty) begin
 			//read out at every posedge when FIFO buffer is not empty
 			dataOut <= dataoutbuffer[read_reg];
 			destinationAddressOut <= destinationAddressbuffer[read_reg];
