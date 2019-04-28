@@ -71,6 +71,7 @@ module cacheAccessArbiter(
 	
 	
 	wire [3:0] localWrites = {memWrite_WEST, memWrite_EAST, memWrite_SOUTH, memWrite_NORTH};  //Concatenate local write signals
+	wire [3:0] localReads = {memRead_WEST, memRead_EAST, memRead_SOUTH, memRead_NORTH};  //Concatenate local read signals
 	wire [3:0] localAccessRequests = {memWrite_WEST || memRead_WEST, memWrite_EAST || memRead_EAST, memWrite_SOUTH || memRead_SOUTH, memWrite_NORTH || memRead_NORTH};  //Concatenate local write signals
 	
 	//Array of wires to concatenate dataIn ports
@@ -134,6 +135,7 @@ module cacheAccessArbiter(
 	reg [`CACHE_BANK_ADDRESS_WIDTH -1:0] requesterAddressBuffer [`BUFFER_SIZE-1:0];
 	reg [1:0] requesterPortBuffer [`BUFFER_SIZE-1:0];
 	reg [`BUFFER_SIZE-1:0] isWrite;
+	reg [`BUFFER_SIZE-1:0] isRead;
 
 	reg [`BIT_SIZE-1:0] nextEmptyBuffer;
 	
@@ -185,10 +187,13 @@ module cacheAccessArbiter(
 	assign incrementerArray[3] = indexIncrementer_WEST;
 	
 		//How far do we shift the buffer
+	/*
 	reg [1:0] bufferShiftAmount;
 	always @(nextEmptyBuffer) begin
 		bufferShiftAmount =  nextEmptyBuffer > 1 ? 2 : 1;
 	end
+	*/
+	parameter bufferShiftAmount = 2;
 
 	//Falling edge events
 	integer i;
@@ -215,21 +220,17 @@ module cacheAccessArbiter(
 				addressToWriteBuffer[k] <= 0;
 				requesterAddressBuffer[k] <= 0;
 				isWrite[k] <= 0;
+				isRead[k] <= 0;
 				requesterPortBuffer[k] <= 0;
 			end
 		end
 		
 		else begin 
-			//if (|(totalAccesses)) nextEmptyBuffer <= nextEmptyBuffer + totalAccesses - 1;
-			//if ((|(totalAccesses)) || nextEmptyBuffer) nextEmptyBuffer <= nextEmptyBuffer + totalAccesses - bufferShiftAmount;
+			//Determine next empty buffer			
 			if ((|(totalAccesses)) || nextEmptyBuffer) begin
-				if (nextEmptyBuffer) begin
-					nextEmptyBuffer <= nextEmptyBuffer + totalAccesses - bufferShiftAmount;
-				end
-				else
-					nextEmptyBuffer <= totalAccesses - 1;
-				end
-						
+				nextEmptyBuffer <= (nextEmptyBuffer + totalAccesses - bufferShiftAmount < `BUFFER_SIZE-1) ? nextEmptyBuffer + totalAccesses - bufferShiftAmount : 0;
+			end
+					
 			//Nothing currently in buffer, sound out up to two requests immediately, then buffer the rest
 			if (nextEmptyBuffer == 0) begin
 				for (i=0; i < 4; i=i+1) begin
@@ -254,6 +255,7 @@ module cacheAccessArbiter(
 						addressToWriteBuffer[nextEmptyBuffer + incrementerArray[i] - bufferShiftAmount] <= cacheAddress_Concatenated[i];
 						requesterAddressBuffer[nextEmptyBuffer + incrementerArray[i] - bufferShiftAmount] <= requesterAddress_Concatenated[i];
 						isWrite[nextEmptyBuffer + incrementerArray[i] - bufferShiftAmount] <= localWrites[i];
+						isRead[nextEmptyBuffer + incrementerArray[i] - bufferShiftAmount] <= localReads[i];
 						requesterPortBuffer[nextEmptyBuffer + incrementerArray[i] - bufferShiftAmount] <= i;
 					end
 				end
@@ -276,34 +278,31 @@ module cacheAccessArbiter(
 						addressToWriteBuffer[nextEmptyBuffer + incrementerArray[j] - bufferShiftAmount] <= cacheAddress_Concatenated[j];
 						requesterAddressBuffer[nextEmptyBuffer + incrementerArray[i] - bufferShiftAmount] <= requesterAddress_Concatenated[j];
 						isWrite[nextEmptyBuffer + incrementerArray[i] - bufferShiftAmount] <= localWrites[j];
+						isRead[nextEmptyBuffer + incrementerArray[i] - bufferShiftAmount] <= localReads[j];
 						requesterPortBuffer[nextEmptyBuffer + incrementerArray[i] - bufferShiftAmount] <= j;
 					end
 				end
 								
-				//Shift buffer contents as 0th packet is sent
+				//Shift buffer contents as 0th and 1st packet is sent
 				for (k=0; k < `BUFFER_SIZE; k=k+1) begin
 					if (k==0) begin
 						memWrite_A <= ~isWrite[k];
 						cacheDataIn_A <= dataToWriteBuffer[k];
 						cacheAddressIn_A <= addressToWriteBuffer[k];
 						prevRequesterAddress_A <= requesterAddressBuffer[k];
-						prevMemRead_A <= ~isWrite[k];
+						prevMemRead_A <= isRead[k];
 						prevRequesterPort_A <= requesterPortBuffer[k];
 					end
 					
-					if ((k==1) && (nextEmptyBuffer > 1)) begin  //buffer has at least 2 requests in it. Send 2nd request
+					if (k==1) begin
 						memWrite_B <= ~isWrite[k];
 						cacheDataIn_B <= dataToWriteBuffer[k];
 						cacheAddressIn_B <= addressToWriteBuffer[k];
 						prevRequesterAddress_B <= requesterAddressBuffer[k];
-						prevMemRead_B <= ~isWrite[k];
+						prevMemRead_B <= isRead[k];
 						prevRequesterPort_B <= requesterPortBuffer[k];
 					end
-					else begin
-						prevMemRead_B <= 0;
-					end
-					
-					//if (k<`BUFFER_SIZE-bufferShiftAmount-1) begin 
+					 
 					if (k<nextEmptyBuffer) begin 
 						dataToWriteBuffer[k] <= dataToWriteBuffer[k+bufferShiftAmount];
 						addressToWriteBuffer[k] <= addressToWriteBuffer[k+bufferShiftAmount];
@@ -317,6 +316,7 @@ module cacheAccessArbiter(
 						addressToWriteBuffer[k] <= 0;
 						requesterAddressBuffer[k] <= 0;
 						isWrite[k] <= 0;
+						isRead[k] <= 0;
 						requesterPortBuffer[k] <= 0;
 					end
 				end	

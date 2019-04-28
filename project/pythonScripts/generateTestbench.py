@@ -20,7 +20,7 @@ class portTester:
 	maxAddress = 2**addressWidth - 1
 	maxDataEntry = 2**dataWidth - 1
 
-	maxReadTime = 2*(networkWidth+networkHeight+4)
+	maxReadTime = 2*(networkWidth+networkHeight+8)
 
 	NONE = 0
 	READ = 1
@@ -38,7 +38,7 @@ class portTester:
 	def generateInstruction(self, cycle, probability):
 		instructionType = self.NONE
 
-		readAllowed = True if ((cycle-self.previousReadCycle > self.maxReadTime) and (len(self.simulatedMemorySpace) > 0)) else False
+		readAllowed = True if ((cycle-self.previousReadCycle > self.maxReadTime) and (len(self.simulatedMemorySpace) > 0) and (self.portID == 0)) else False
 		if (random.random() < probability):
 			#Generate an instruction this cycle
 			instructionType = self.WRITE
@@ -93,14 +93,14 @@ def generateCycleCommands(cycle, portTester0, portTester1, portTester2, portTest
 	commands += "\t\twriteIn_port2 <= 0;\n"
 	commands += "\t\treadIn_port3 <= 0;\n"
 	commands += "\t\twriteIn_port3 <= 0;\n"
-	commands += "\t\t#1\n"
+	commands += "\t\t#11\n"
 
 	commands += "\t\t//Negedge\n"
 	commands += portTester0.generateInstruction(cycle, 0.8)
 	commands += portTester1.generateInstruction(cycle, 0.8)
 	commands += portTester2.generateInstruction(cycle, 0.8)
 	commands += portTester3.generateInstruction(cycle, 0.8)
-	commands += "\t\t#1\n\n"
+	commands += "\t\t#9\n\n"
 
 	return commands
 
@@ -123,6 +123,8 @@ header = """/*
 
 `include "network.v"
 `include "globalVariables.v"
+
+`timescale 1us/1ps
 
 
 module NetworkGeneratedTestBench ;
@@ -246,7 +248,7 @@ module NetworkGeneratedTestBench ;
 
 	//Clock toggling
 	always begin
-		#1  //2-step period
+		#10  //20-step period
 		clk <= ~clk;
 	end
 	
@@ -257,19 +259,19 @@ module NetworkGeneratedTestBench ;
 		// Reset network
 		//===========================
 		reset <= 1;
-		#1
+		#10
 
 		//==Cycle 1==
 		//Posedge
-		#1
+		#10
 		//Negedge
-		#1
+		#10
 		//==Cycle 2==
 		//Posedge
 		reset <= 0;
-		#1
+		#10
 		//Negedge
-		#1
+		#11
 
 		//===========================
 		// Start reading and writing
@@ -288,7 +290,7 @@ portTester1 = portTester(1)
 portTester2 = portTester(2)
 portTester3 = portTester(3)
 
-cycles = 100
+cycles = 500
 
 for cycle in range(3,cycles+1,1):
 	commands = generateCycleCommands(cycle, portTester0, portTester1, portTester2, portTester3)
