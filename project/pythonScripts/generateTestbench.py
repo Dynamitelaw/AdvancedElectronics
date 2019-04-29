@@ -10,11 +10,11 @@ import random
 #===================================================
 
 class portTester:
-	dataWidth = 6
-	networkAddressWidth = 4
+	dataWidth = 32
+	networkAddressWidth = 8
 	cacheAddressWidth = 8
-	networkWidth = 4
-	networkHeight = 4
+	networkWidth = 16
+	networkHeight = 16
 
 	addressWidth = networkAddressWidth + cacheAddressWidth
 	maxAddress = 2**addressWidth - 1
