@@ -1,49 +1,0 @@
-10
-
-dir
-4
-https://opencores.org/ocsvn/cachecontroller/cachecontroller/trunk
-https://opencores.org/ocsvn/cachecontroller
-
-
-
-2010-01-07T11:07:17.611099Z
-4
-chinthakaak
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-318e7a2c-3eac-4a56-9975-28820fe12fae
-
-bench
-dir
-
-rtl
-dir
-
-doc
-dir
-
-backend
-dir
-
-sim
-dir
-
-sw
-dir
-
-syn
-dir
-
