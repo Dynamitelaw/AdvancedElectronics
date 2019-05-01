@@ -15,13 +15,13 @@
 //           			IBM CMRF8SF-LPVT Process
 //      version:		2009Q1V1
 //      comment:		
-//      configuration:	 -instname CacheMem -words 256 -bits 6 -frequency 1 -ring_width 4.0 -mux 8 -write_mask off -wp_size 8 -top_layer "met5-8" -power_type rings -horiz met1 -vert met2 -cust_comment "" -bus_notation on -left_bus_delim "[" -right_bus_delim "]" -pwr_gnd_rename "VDD:VDD,GND:VSS" -prefix "" -pin_space 0.0 -name_case upper -check_instname on -diodes on -inside_ring_type GND -drive 6 -dpccm on -asvm on -corners ff_1p32v_m40c,ff_1p65v_125c,tt_1p2v_25c,ss_1p08v_125c
+//      configuration:	 -instname CacheMem -words 256 -bits 32 -frequency 1000 -ring_width 4.0 -mux 8 -write_mask off -wp_size 8 -top_layer "met5-8" -power_type rings -horiz met3 -vert met4 -cust_comment "" -bus_notation on -left_bus_delim "[" -right_bus_delim "]" -pwr_gnd_rename "VDD:VDD,GND:VSS" -prefix "" -pin_space 0.0 -name_case upper -check_instname on -diodes on -inside_ring_type GND -drive 6 -dpccm on -asvm on -corners ff_1p32v_m40c,ff_1p65v_125c,tt_1p2v_25c,ss_1p08v_125c
 //
 //      Verilog model for Synchronous Dual-Port Ram
 //
 //      Instance Name:              CacheMem
 //      Words:                      256
-//      Bits:                       6
+//      Bits:                       32
 //      Mux:                        8
 //      Drive:                      6
 //      Write Mask:                 Off
@@ -31,7 +31,7 @@
 //      Redundant Columns:          0
 //      Test Muxes                  Off
 //
-//      Creation Date:  2019-04-26 03:27:29Z
+//      Creation Date:  2019-05-01 00:07:51Z
 //      Version: 	2009Q1V1
 //
 //      Modeling Assumptions: This model supports full gate level simulation
@@ -64,7 +64,7 @@
                 AB,
                 DB
                 );
-   parameter                BITS = 6;
+   parameter                BITS = 32;
    parameter                WORD_DEPTH = 256;
    parameter                ADDR_WIDTH = 8;
    parameter                WORDX = {BITS{1'bx}};
@@ -72,7 +72,7 @@
    parameter                ADDRX = {ADDR_WIDTH{1'bx}};
    parameter                ADDR1 = {ADDR_WIDTH{1'b1}};
    parameter                WEN_WIDTH = 1;
-   parameter                WP_SIZE    = 6 ;
+   parameter                WP_SIZE    = 32 ;
    parameter                RCOLS = 0;
    parameter                MASKX = {WEN_WIDTH{1'bx}};
    parameter                MASK1 = {WEN_WIDTH{1'b1}};
@@ -85,18 +85,18 @@
    parameter                RCA_WIDTH = 1;
    parameter                RED_COLUMNS = 2;
 	
-   output [5:0]             QA;
-   output [5:0]             QB;
+   output [31:0]            QA;
+   output [31:0]            QB;
    input                    CLKA;
    input                    CENA;
    input                    WENA;
    input [7:0]              AA;
-   input [5:0]              DA;
+   input [31:0]             DA;
    input                    CLKB;
    input                    CENB;
    input                    WENB;
    input [7:0]              AB;
-   input [5:0]              DB;
+   input [31:0]             DB;
 
    reg [BITS+RED_COLUMNS-1:0]             mem [0:WORD_DEPTH-1];
    reg [BITS+RED_COLUMNS-1:0]             rows [(MUX*4)-1:0];   // added 2 bits for column redundancy
@@ -115,6 +115,32 @@
    reg                      NOT_AA1;
    reg                      NOT_AA0;
    reg [ADDR_WIDTH-1:0]     NOT_AA;
+   reg                      NOT_DA31;
+   reg                      NOT_DA30;
+   reg                      NOT_DA29;
+   reg                      NOT_DA28;
+   reg                      NOT_DA27;
+   reg                      NOT_DA26;
+   reg                      NOT_DA25;
+   reg                      NOT_DA24;
+   reg                      NOT_DA23;
+   reg                      NOT_DA22;
+   reg                      NOT_DA21;
+   reg                      NOT_DA20;
+   reg                      NOT_DA19;
+   reg                      NOT_DA18;
+   reg                      NOT_DA17;
+   reg                      NOT_DA16;
+   reg                      NOT_DA15;
+   reg                      NOT_DA14;
+   reg                      NOT_DA13;
+   reg                      NOT_DA12;
+   reg                      NOT_DA11;
+   reg                      NOT_DA10;
+   reg                      NOT_DA9;
+   reg                      NOT_DA8;
+   reg                      NOT_DA7;
+   reg                      NOT_DA6;
    reg                      NOT_DA5;
    reg                      NOT_DA4;
    reg                      NOT_DA3;
@@ -133,6 +159,32 @@
    reg                      NOT_AB1;
    reg                      NOT_AB0;
    reg [ADDR_WIDTH-1:0]     NOT_AB;
+   reg                      NOT_DB31;
+   reg                      NOT_DB30;
+   reg                      NOT_DB29;
+   reg                      NOT_DB28;
+   reg                      NOT_DB27;
+   reg                      NOT_DB26;
+   reg                      NOT_DB25;
+   reg                      NOT_DB24;
+   reg                      NOT_DB23;
+   reg                      NOT_DB22;
+   reg                      NOT_DB21;
+   reg                      NOT_DB20;
+   reg                      NOT_DB19;
+   reg                      NOT_DB18;
+   reg                      NOT_DB17;
+   reg                      NOT_DB16;
+   reg                      NOT_DB15;
+   reg                      NOT_DB14;
+   reg                      NOT_DB13;
+   reg                      NOT_DB12;
+   reg                      NOT_DB11;
+   reg                      NOT_DB10;
+   reg                      NOT_DB9;
+   reg                      NOT_DB8;
+   reg                      NOT_DB7;
+   reg                      NOT_DB6;
    reg                      NOT_DB5;
    reg                      NOT_DB4;
    reg                      NOT_DB3;
@@ -223,6 +275,32 @@
                NOT_AA1,
                NOT_AA0};
       NOT_DA = {
+               NOT_DA31,
+               NOT_DA30,
+               NOT_DA29,
+               NOT_DA28,
+               NOT_DA27,
+               NOT_DA26,
+               NOT_DA25,
+               NOT_DA24,
+               NOT_DA23,
+               NOT_DA22,
+               NOT_DA21,
+               NOT_DA20,
+               NOT_DA19,
+               NOT_DA18,
+               NOT_DA17,
+               NOT_DA16,
+               NOT_DA15,
+               NOT_DA14,
+               NOT_DA13,
+               NOT_DA12,
+               NOT_DA11,
+               NOT_DA10,
+               NOT_DA9,
+               NOT_DA8,
+               NOT_DA7,
+               NOT_DA6,
                NOT_DA5,
                NOT_DA4,
                NOT_DA3,
@@ -244,6 +322,32 @@
                NOT_AB1,
                NOT_AB0};
       NOT_DB = {
+               NOT_DB31,
+               NOT_DB30,
+               NOT_DB29,
+               NOT_DB28,
+               NOT_DB27,
+               NOT_DB26,
+               NOT_DB25,
+               NOT_DB24,
+               NOT_DB23,
+               NOT_DB22,
+               NOT_DB21,
+               NOT_DB20,
+               NOT_DB19,
+               NOT_DB18,
+               NOT_DB17,
+               NOT_DB16,
+               NOT_DB15,
+               NOT_DB14,
+               NOT_DB13,
+               NOT_DB12,
+               NOT_DB11,
+               NOT_DB10,
+               NOT_DB9,
+               NOT_DB8,
+               NOT_DB7,
+               NOT_DB6,
                NOT_DB5,
                NOT_DB4,
                NOT_DB3,
@@ -1162,12 +1266,64 @@
       end
    endfunction
 
+   buf (QA[31], _QA[31]);
+   buf (QA[30], _QA[30]);
+   buf (QA[29], _QA[29]);
+   buf (QA[28], _QA[28]);
+   buf (QA[27], _QA[27]);
+   buf (QA[26], _QA[26]);
+   buf (QA[25], _QA[25]);
+   buf (QA[24], _QA[24]);
+   buf (QA[23], _QA[23]);
+   buf (QA[22], _QA[22]);
+   buf (QA[21], _QA[21]);
+   buf (QA[20], _QA[20]);
+   buf (QA[19], _QA[19]);
+   buf (QA[18], _QA[18]);
+   buf (QA[17], _QA[17]);
+   buf (QA[16], _QA[16]);
+   buf (QA[15], _QA[15]);
+   buf (QA[14], _QA[14]);
+   buf (QA[13], _QA[13]);
+   buf (QA[12], _QA[12]);
+   buf (QA[11], _QA[11]);
+   buf (QA[10], _QA[10]);
+   buf (QA[9], _QA[9]);
+   buf (QA[8], _QA[8]);
+   buf (QA[7], _QA[7]);
+   buf (QA[6], _QA[6]);
    buf (QA[5], _QA[5]);
    buf (QA[4], _QA[4]);
    buf (QA[3], _QA[3]);
    buf (QA[2], _QA[2]);
    buf (QA[1], _QA[1]);
    buf (QA[0], _QA[0]);
+   buf (QB[31], _QB[31]);
+   buf (QB[30], _QB[30]);
+   buf (QB[29], _QB[29]);
+   buf (QB[28], _QB[28]);
+   buf (QB[27], _QB[27]);
+   buf (QB[26], _QB[26]);
+   buf (QB[25], _QB[25]);
+   buf (QB[24], _QB[24]);
+   buf (QB[23], _QB[23]);
+   buf (QB[22], _QB[22]);
+   buf (QB[21], _QB[21]);
+   buf (QB[20], _QB[20]);
+   buf (QB[19], _QB[19]);
+   buf (QB[18], _QB[18]);
+   buf (QB[17], _QB[17]);
+   buf (QB[16], _QB[16]);
+   buf (QB[15], _QB[15]);
+   buf (QB[14], _QB[14]);
+   buf (QB[13], _QB[13]);
+   buf (QB[12], _QB[12]);
+   buf (QB[11], _QB[11]);
+   buf (QB[10], _QB[10]);
+   buf (QB[9], _QB[9]);
+   buf (QB[8], _QB[8]);
+   buf (QB[7], _QB[7]);
+   buf (QB[6], _QB[6]);
    buf (QB[5], _QB[5]);
    buf (QB[4], _QB[4]);
    buf (QB[3], _QB[3]);
@@ -1185,6 +1341,32 @@
    buf (_AA[2], AA[2]);
    buf (_AA[1], AA[1]);
    buf (_AA[0], AA[0]);
+   buf (_DA[31], DA[31]);
+   buf (_DA[30], DA[30]);
+   buf (_DA[29], DA[29]);
+   buf (_DA[28], DA[28]);
+   buf (_DA[27], DA[27]);
+   buf (_DA[26], DA[26]);
+   buf (_DA[25], DA[25]);
+   buf (_DA[24], DA[24]);
+   buf (_DA[23], DA[23]);
+   buf (_DA[22], DA[22]);
+   buf (_DA[21], DA[21]);
+   buf (_DA[20], DA[20]);
+   buf (_DA[19], DA[19]);
+   buf (_DA[18], DA[18]);
+   buf (_DA[17], DA[17]);
+   buf (_DA[16], DA[16]);
+   buf (_DA[15], DA[15]);
+   buf (_DA[14], DA[14]);
+   buf (_DA[13], DA[13]);
+   buf (_DA[12], DA[12]);
+   buf (_DA[11], DA[11]);
+   buf (_DA[10], DA[10]);
+   buf (_DA[9], DA[9]);
+   buf (_DA[8], DA[8]);
+   buf (_DA[7], DA[7]);
+   buf (_DA[6], DA[6]);
    buf (_DA[5], DA[5]);
    buf (_DA[4], DA[4]);
    buf (_DA[3], DA[3]);
@@ -1202,6 +1384,32 @@
    buf (_AB[2], AB[2]);
    buf (_AB[1], AB[1]);
    buf (_AB[0], AB[0]);
+   buf (_DB[31], DB[31]);
+   buf (_DB[30], DB[30]);
+   buf (_DB[29], DB[29]);
+   buf (_DB[28], DB[28]);
+   buf (_DB[27], DB[27]);
+   buf (_DB[26], DB[26]);
+   buf (_DB[25], DB[25]);
+   buf (_DB[24], DB[24]);
+   buf (_DB[23], DB[23]);
+   buf (_DB[22], DB[22]);
+   buf (_DB[21], DB[21]);
+   buf (_DB[20], DB[20]);
+   buf (_DB[19], DB[19]);
+   buf (_DB[18], DB[18]);
+   buf (_DB[17], DB[17]);
+   buf (_DB[16], DB[16]);
+   buf (_DB[15], DB[15]);
+   buf (_DB[14], DB[14]);
+   buf (_DB[13], DB[13]);
+   buf (_DB[12], DB[12]);
+   buf (_DB[11], DB[11]);
+   buf (_DB[10], DB[10]);
+   buf (_DB[9], DB[9]);
+   buf (_DB[8], DB[8]);
+   buf (_DB[7], DB[7]);
+   buf (_DB[6], DB[6]);
    buf (_DB[5], DB[5]);
    buf (_DB[4], DB[4]);
    buf (_DB[3], DB[3]);
@@ -1305,6 +1513,32 @@
 	    NOT_AA2 or
 	    NOT_AA1 or
 	    NOT_AA0 or
+	    NOT_DA31 or
+	    NOT_DA30 or
+	    NOT_DA29 or
+	    NOT_DA28 or
+	    NOT_DA27 or
+	    NOT_DA26 or
+	    NOT_DA25 or
+	    NOT_DA24 or
+	    NOT_DA23 or
+	    NOT_DA22 or
+	    NOT_DA21 or
+	    NOT_DA20 or
+	    NOT_DA19 or
+	    NOT_DA18 or
+	    NOT_DA17 or
+	    NOT_DA16 or
+	    NOT_DA15 or
+	    NOT_DA14 or
+	    NOT_DA13 or
+	    NOT_DA12 or
+	    NOT_DA11 or
+	    NOT_DA10 or
+	    NOT_DA9 or
+	    NOT_DA8 or
+	    NOT_DA7 or
+	    NOT_DA6 or
 	    NOT_DA5 or
 	    NOT_DA4 or
 	    NOT_DA3 or
@@ -1321,6 +1555,32 @@
 	    NOT_AB2 or
 	    NOT_AB1 or
 	    NOT_AB0 or
+	    NOT_DB31 or
+	    NOT_DB30 or
+	    NOT_DB29 or
+	    NOT_DB28 or
+	    NOT_DB27 or
+	    NOT_DB26 or
+	    NOT_DB25 or
+	    NOT_DB24 or
+	    NOT_DB23 or
+	    NOT_DB22 or
+	    NOT_DB21 or
+	    NOT_DB20 or
+	    NOT_DB19 or
+	    NOT_DB18 or
+	    NOT_DB17 or
+	    NOT_DB16 or
+	    NOT_DB15 or
+	    NOT_DB14 or
+	    NOT_DB13 or
+	    NOT_DB12 or
+	    NOT_DB11 or
+	    NOT_DB10 or
+	    NOT_DB9 or
+	    NOT_DB8 or
+	    NOT_DB7 or
+	    NOT_DB6 or
 	    NOT_DB5 or
 	    NOT_DB4 or
 	    NOT_DB3 or
@@ -1346,6 +1606,32 @@
 	    NOT_AA2 or
 	    NOT_AA1 or
 	    NOT_AA0 or
+	    NOT_DA31 or
+	    NOT_DA30 or
+	    NOT_DA29 or
+	    NOT_DA28 or
+	    NOT_DA27 or
+	    NOT_DA26 or
+	    NOT_DA25 or
+	    NOT_DA24 or
+	    NOT_DA23 or
+	    NOT_DA22 or
+	    NOT_DA21 or
+	    NOT_DA20 or
+	    NOT_DA19 or
+	    NOT_DA18 or
+	    NOT_DA17 or
+	    NOT_DA16 or
+	    NOT_DA15 or
+	    NOT_DA14 or
+	    NOT_DA13 or
+	    NOT_DA12 or
+	    NOT_DA11 or
+	    NOT_DA10 or
+	    NOT_DA9 or
+	    NOT_DA8 or
+	    NOT_DA7 or
+	    NOT_DA6 or
 	    NOT_DA5 or
 	    NOT_DA4 or
 	    NOT_DA3 or
@@ -1362,6 +1648,32 @@
 	    NOT_AB2 or
 	    NOT_AB1 or
 	    NOT_AB0 or
+	    NOT_DB31 or
+	    NOT_DB30 or
+	    NOT_DB29 or
+	    NOT_DB28 or
+	    NOT_DB27 or
+	    NOT_DB26 or
+	    NOT_DB25 or
+	    NOT_DB24 or
+	    NOT_DB23 or
+	    NOT_DB22 or
+	    NOT_DB21 or
+	    NOT_DB20 or
+	    NOT_DB19 or
+	    NOT_DB18 or
+	    NOT_DB17 or
+	    NOT_DB16 or
+	    NOT_DB15 or
+	    NOT_DB14 or
+	    NOT_DB13 or
+	    NOT_DB12 or
+	    NOT_DB11 or
+	    NOT_DB10 or
+	    NOT_DB9 or
+	    NOT_DB8 or
+	    NOT_DB7 or
+	    NOT_DB6 or
 	    NOT_DB5 or
 	    NOT_DB4 or
 	    NOT_DB3 or
@@ -1486,6 +1798,58 @@
       $setuphold(posedge CLKA &&& flagA, negedge AA[1], 1.000, 0.500, NOT_AA1);
       $setuphold(posedge CLKA &&& flagA, posedge AA[0], 1.000, 0.500, NOT_AA0);
       $setuphold(posedge CLKA &&& flagA, negedge AA[0], 1.000, 0.500, NOT_AA0);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[31], 1.000, 0.500, NOT_DA31);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[31], 1.000, 0.500, NOT_DA31);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[30], 1.000, 0.500, NOT_DA30);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[30], 1.000, 0.500, NOT_DA30);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[29], 1.000, 0.500, NOT_DA29);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[29], 1.000, 0.500, NOT_DA29);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[28], 1.000, 0.500, NOT_DA28);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[28], 1.000, 0.500, NOT_DA28);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[27], 1.000, 0.500, NOT_DA27);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[27], 1.000, 0.500, NOT_DA27);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[26], 1.000, 0.500, NOT_DA26);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[26], 1.000, 0.500, NOT_DA26);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[25], 1.000, 0.500, NOT_DA25);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[25], 1.000, 0.500, NOT_DA25);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[24], 1.000, 0.500, NOT_DA24);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[24], 1.000, 0.500, NOT_DA24);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[23], 1.000, 0.500, NOT_DA23);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[23], 1.000, 0.500, NOT_DA23);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[22], 1.000, 0.500, NOT_DA22);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[22], 1.000, 0.500, NOT_DA22);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[21], 1.000, 0.500, NOT_DA21);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[21], 1.000, 0.500, NOT_DA21);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[20], 1.000, 0.500, NOT_DA20);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[20], 1.000, 0.500, NOT_DA20);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[19], 1.000, 0.500, NOT_DA19);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[19], 1.000, 0.500, NOT_DA19);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[18], 1.000, 0.500, NOT_DA18);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[18], 1.000, 0.500, NOT_DA18);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[17], 1.000, 0.500, NOT_DA17);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[17], 1.000, 0.500, NOT_DA17);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[16], 1.000, 0.500, NOT_DA16);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[16], 1.000, 0.500, NOT_DA16);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[15], 1.000, 0.500, NOT_DA15);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[15], 1.000, 0.500, NOT_DA15);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[14], 1.000, 0.500, NOT_DA14);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[14], 1.000, 0.500, NOT_DA14);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[13], 1.000, 0.500, NOT_DA13);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[13], 1.000, 0.500, NOT_DA13);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[12], 1.000, 0.500, NOT_DA12);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[12], 1.000, 0.500, NOT_DA12);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[11], 1.000, 0.500, NOT_DA11);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[11], 1.000, 0.500, NOT_DA11);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[10], 1.000, 0.500, NOT_DA10);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[10], 1.000, 0.500, NOT_DA10);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[9], 1.000, 0.500, NOT_DA9);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[9], 1.000, 0.500, NOT_DA9);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[8], 1.000, 0.500, NOT_DA8);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[8], 1.000, 0.500, NOT_DA8);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[7], 1.000, 0.500, NOT_DA7);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[7], 1.000, 0.500, NOT_DA7);
+      $setuphold(posedge CLKA &&& DA_flag, posedge DA[6], 1.000, 0.500, NOT_DA6);
+      $setuphold(posedge CLKA &&& DA_flag, negedge DA[6], 1.000, 0.500, NOT_DA6);
       $setuphold(posedge CLKA &&& DA_flag, posedge DA[5], 1.000, 0.500, NOT_DA5);
       $setuphold(posedge CLKA &&& DA_flag, negedge DA[5], 1.000, 0.500, NOT_DA5);
       $setuphold(posedge CLKA &&& DA_flag, posedge DA[4], 1.000, 0.500, NOT_DA4);
@@ -1519,6 +1883,58 @@
       $setuphold(posedge CLKB &&& flagB, negedge AB[1], 1.000, 0.500, NOT_AB1);
       $setuphold(posedge CLKB &&& flagB, posedge AB[0], 1.000, 0.500, NOT_AB0);
       $setuphold(posedge CLKB &&& flagB, negedge AB[0], 1.000, 0.500, NOT_AB0);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[31], 1.000, 0.500, NOT_DB31);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[31], 1.000, 0.500, NOT_DB31);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[30], 1.000, 0.500, NOT_DB30);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[30], 1.000, 0.500, NOT_DB30);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[29], 1.000, 0.500, NOT_DB29);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[29], 1.000, 0.500, NOT_DB29);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[28], 1.000, 0.500, NOT_DB28);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[28], 1.000, 0.500, NOT_DB28);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[27], 1.000, 0.500, NOT_DB27);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[27], 1.000, 0.500, NOT_DB27);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[26], 1.000, 0.500, NOT_DB26);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[26], 1.000, 0.500, NOT_DB26);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[25], 1.000, 0.500, NOT_DB25);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[25], 1.000, 0.500, NOT_DB25);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[24], 1.000, 0.500, NOT_DB24);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[24], 1.000, 0.500, NOT_DB24);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[23], 1.000, 0.500, NOT_DB23);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[23], 1.000, 0.500, NOT_DB23);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[22], 1.000, 0.500, NOT_DB22);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[22], 1.000, 0.500, NOT_DB22);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[21], 1.000, 0.500, NOT_DB21);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[21], 1.000, 0.500, NOT_DB21);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[20], 1.000, 0.500, NOT_DB20);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[20], 1.000, 0.500, NOT_DB20);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[19], 1.000, 0.500, NOT_DB19);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[19], 1.000, 0.500, NOT_DB19);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[18], 1.000, 0.500, NOT_DB18);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[18], 1.000, 0.500, NOT_DB18);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[17], 1.000, 0.500, NOT_DB17);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[17], 1.000, 0.500, NOT_DB17);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[16], 1.000, 0.500, NOT_DB16);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[16], 1.000, 0.500, NOT_DB16);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[15], 1.000, 0.500, NOT_DB15);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[15], 1.000, 0.500, NOT_DB15);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[14], 1.000, 0.500, NOT_DB14);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[14], 1.000, 0.500, NOT_DB14);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[13], 1.000, 0.500, NOT_DB13);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[13], 1.000, 0.500, NOT_DB13);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[12], 1.000, 0.500, NOT_DB12);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[12], 1.000, 0.500, NOT_DB12);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[11], 1.000, 0.500, NOT_DB11);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[11], 1.000, 0.500, NOT_DB11);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[10], 1.000, 0.500, NOT_DB10);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[10], 1.000, 0.500, NOT_DB10);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[9], 1.000, 0.500, NOT_DB9);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[9], 1.000, 0.500, NOT_DB9);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[8], 1.000, 0.500, NOT_DB8);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[8], 1.000, 0.500, NOT_DB8);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[7], 1.000, 0.500, NOT_DB7);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[7], 1.000, 0.500, NOT_DB7);
+      $setuphold(posedge CLKB &&& DB_flag, posedge DB[6], 1.000, 0.500, NOT_DB6);
+      $setuphold(posedge CLKB &&& DB_flag, negedge DB[6], 1.000, 0.500, NOT_DB6);
       $setuphold(posedge CLKB &&& DB_flag, posedge DB[5], 1.000, 0.500, NOT_DB5);
       $setuphold(posedge CLKB &&& DB_flag, negedge DB[5], 1.000, 0.500, NOT_DB5);
       $setuphold(posedge CLKB &&& DB_flag, posedge DB[4], 1.000, 0.500, NOT_DB4);
@@ -1544,6 +1960,32 @@
       $width(negedge CLKB, 1.000, 0, NOT_CLKB_MINL);
       $period(posedge CLKB, 3.000, NOT_CLKB_PER);
 
+      (CLKA => QA[31])=(1.000, 1.000);
+      (CLKA => QA[30])=(1.000, 1.000);
+      (CLKA => QA[29])=(1.000, 1.000);
+      (CLKA => QA[28])=(1.000, 1.000);
+      (CLKA => QA[27])=(1.000, 1.000);
+      (CLKA => QA[26])=(1.000, 1.000);
+      (CLKA => QA[25])=(1.000, 1.000);
+      (CLKA => QA[24])=(1.000, 1.000);
+      (CLKA => QA[23])=(1.000, 1.000);
+      (CLKA => QA[22])=(1.000, 1.000);
+      (CLKA => QA[21])=(1.000, 1.000);
+      (CLKA => QA[20])=(1.000, 1.000);
+      (CLKA => QA[19])=(1.000, 1.000);
+      (CLKA => QA[18])=(1.000, 1.000);
+      (CLKA => QA[17])=(1.000, 1.000);
+      (CLKA => QA[16])=(1.000, 1.000);
+      (CLKA => QA[15])=(1.000, 1.000);
+      (CLKA => QA[14])=(1.000, 1.000);
+      (CLKA => QA[13])=(1.000, 1.000);
+      (CLKA => QA[12])=(1.000, 1.000);
+      (CLKA => QA[11])=(1.000, 1.000);
+      (CLKA => QA[10])=(1.000, 1.000);
+      (CLKA => QA[9])=(1.000, 1.000);
+      (CLKA => QA[8])=(1.000, 1.000);
+      (CLKA => QA[7])=(1.000, 1.000);
+      (CLKA => QA[6])=(1.000, 1.000);
       (CLKA => QA[5])=(1.000, 1.000);
       (CLKA => QA[4])=(1.000, 1.000);
       (CLKA => QA[3])=(1.000, 1.000);
@@ -1551,6 +1993,32 @@
       (CLKA => QA[1])=(1.000, 1.000);
       (CLKA => QA[0])=(1.000, 1.000);
 
+      (CLKB => QB[31])=(1.000, 1.000);
+      (CLKB => QB[30])=(1.000, 1.000);
+      (CLKB => QB[29])=(1.000, 1.000);
+      (CLKB => QB[28])=(1.000, 1.000);
+      (CLKB => QB[27])=(1.000, 1.000);
+      (CLKB => QB[26])=(1.000, 1.000);
+      (CLKB => QB[25])=(1.000, 1.000);
+      (CLKB => QB[24])=(1.000, 1.000);
+      (CLKB => QB[23])=(1.000, 1.000);
+      (CLKB => QB[22])=(1.000, 1.000);
+      (CLKB => QB[21])=(1.000, 1.000);
+      (CLKB => QB[20])=(1.000, 1.000);
+      (CLKB => QB[19])=(1.000, 1.000);
+      (CLKB => QB[18])=(1.000, 1.000);
+      (CLKB => QB[17])=(1.000, 1.000);
+      (CLKB => QB[16])=(1.000, 1.000);
+      (CLKB => QB[15])=(1.000, 1.000);
+      (CLKB => QB[14])=(1.000, 1.000);
+      (CLKB => QB[13])=(1.000, 1.000);
+      (CLKB => QB[12])=(1.000, 1.000);
+      (CLKB => QB[11])=(1.000, 1.000);
+      (CLKB => QB[10])=(1.000, 1.000);
+      (CLKB => QB[9])=(1.000, 1.000);
+      (CLKB => QB[8])=(1.000, 1.000);
+      (CLKB => QB[7])=(1.000, 1.000);
+      (CLKB => QB[6])=(1.000, 1.000);
       (CLKB => QB[5])=(1.000, 1.000);
       (CLKB => QB[4])=(1.000, 1.000);
       (CLKB => QB[3])=(1.000, 1.000);
