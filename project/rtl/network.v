@@ -9,7 +9,7 @@
 `include "globalVariables.v"
 `include "router.v"
 //`include "cacheBank.v"
-`include "cacheBank_new.v"
+`include "cacheBank.nl.v"
 //`include "../dc_shell_cmrf8sf/router.nl.v"
 
 

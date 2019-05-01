@@ -1,5 +1,8 @@
 `include "globalVariables.v"
-`include "CacheMem.v"
+//`include "CacheMem.v"
+
+`timescale 1 ns/1 ps
+`celldefine
 
 module cacheBank( 
 	input clk,
@@ -20,23 +23,26 @@ module cacheBank(
 	output reg portB_writtenTo
 	);
 
+//CacheMem Memory( .QA(cacheDataOut_A), .QB(cacheDataOut_B), .CLKA(clk), .CENA(reset), .WENA(memWrite_A), .AA(cacheAddressIn_A), .DA(cacheDataIn_A), .CLKB(clk), .CENB(reset), .WENB(memWrite_B), .AB(cacheAddressIn_B), .DB(cacheDataIn_B));
 
+
+endmodule
+`endcelldefine
 	     
 
 // parameters for the width 
-
+/*
 parameter ADR   = `CACHE_BANK_ADDRESS_WIDTH;
 parameter DAT   = `DATA_WIDTH;
 parameter DPTH  = `CACHE_BANK_LINES;
 
 //internal variables
 reg [DPTH-1:0] isWritten;
+*/
 
 
 
 
-
-CacheMem Memory( .QA(cacheDataOut_A), .QB(cacheDataOut_B), .CLKA(clk), .CENA(reset), .WENA(memWrite_A), .AA(cacheAddressIn_A), .DA(cacheDataIn_A), .CLKB(clk), .CENB(reset), .WENB(memWrite_B), .AB(cacheAddressIn_B), .DB(cacheDataIn_B));
 
 /*always @ (posedge clk)
 
@@ -70,4 +76,4 @@ begin
   	end
 end
 */	
-endmodule
+

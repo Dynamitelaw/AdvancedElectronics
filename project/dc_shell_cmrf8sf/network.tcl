@@ -8,10 +8,10 @@
 #########################################
 set BEHAVIORROOT "../rtl/"
 #set top_level
-set top_level cacheBank_new
+set top_level network
 #set top_level incomingPortHandler
 source -verbose "common.tcl"
-read_verilog {../rtl/cacheBank_new.v}
+read_verilog {../rtl/network.v}
 #read_verilog {../rtl/incomingPortHandler.v}
 list_designs
 

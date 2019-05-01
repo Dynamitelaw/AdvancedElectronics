@@ -8,10 +8,10 @@
 #########################################
 set BEHAVIORROOT "../rtl/"
 #set top_level
-set top_level router
+set top_level cacheBank_new
 #set top_level incomingPortHandler
 source -verbose "common.tcl"
-read_verilog {../rtl/router.v}
+read_verilog {../rtl/cacheBank_new.v}
 #read_verilog {../rtl/incomingPortHandler.v}
 list_designs
 
@@ -31,7 +31,7 @@ set_max_area 0
 # Compile for combinational logic       #
 #########################################
 check_design
-#compile_ultra
+compile_ultra -no_autoungroup
 
 #########################################
 # Write outputs                         #

@@ -1,21 +1,33 @@
-1:29:22 PM - ARM Physical IP, Inc.
-1:29:22 PM - Linux cadpc02 2.6.32-754.11.1.el6.x86_64 #1 SMP Tue Feb 26 15:38:56 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
-1:29:22 PM - Version 2009Q1V1
-1:29:22 PM - GUI version 5.6.13
-1:29:22 PM - 
-1:29:22 PM - CONFIDENTIAL AND PROPRIETARY SOFTWARE OF ARM PHYSICAL IP, INC.
-1:29:22 PM - 
-1:29:22 PM - Copyright (c) 1993 - 2019 ARM Physical IP, Inc.  All Rights Reserved.
-1:29:22 PM - 
-1:29:22 PM - Use of this Software is subject to the terms and conditions of the
-1:29:22 PM - applicable license agreement with ARM Physical IP, Inc. 
-1:29:22 PM - In addition, this Software is protected by patents, copyright law 
-1:29:22 PM - and international treaties.
-1:29:22 PM - 
-1:29:22 PM - The copyright notice(s) in this Software does not indicate actual or
-1:29:22 PM - intended publication of this Software.
-1:29:22 PM - 
-1:29:22 PM - High Speed/Density Dual Port SRAM Generator, IBM CMRF8SF-LPVT Process
-1:29:22 PM - 
-1:29:22 PM - Log file is ACI.log
-1:29:22 PM - 
+7:05:47 PM - ARM Physical IP, Inc.
+7:05:47 PM - Linux micro10 2.6.32-754.2.1.el6.x86_64 #1 SMP Fri Jul 13 12:50:12 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+7:05:47 PM - Version 2009Q1V1
+7:05:47 PM - GUI version 5.6.13
+7:05:47 PM - 
+7:05:47 PM - CONFIDENTIAL AND PROPRIETARY SOFTWARE OF ARM PHYSICAL IP, INC.
+7:05:47 PM - 
+7:05:47 PM - Copyright (c) 1993 - 2019 ARM Physical IP, Inc.  All Rights Reserved.
+7:05:47 PM - 
+7:05:47 PM - Use of this Software is subject to the terms and conditions of the
+7:05:47 PM - applicable license agreement with ARM Physical IP, Inc. 
+7:05:47 PM - In addition, this Software is protected by patents, copyright law 
+7:05:47 PM - and international treaties.
+7:05:47 PM - 
+7:05:47 PM - The copyright notice(s) in this Software does not indicate actual or
+7:05:47 PM - intended publication of this Software.
+7:05:47 PM - 
+7:05:47 PM - High Speed/Density Dual Port SRAM Generator, IBM CMRF8SF-LPVT Process
+7:05:47 PM - 
+7:05:47 PM - Log file is ACI.log
+7:05:47 PM - 
+7:07:49 PM - ASCII Datatable updated
+7:07:51 PM - command: /user3/fall16/smn2164/AdvancedElectronics/project/mem_comp/ra2shd_v20/bin/ra2shd_v20 verilog -instname CacheMem -words 256 -bits 32 -frequency 1000 -ring_width 4.0 -mux 8 -write_mask off -wp_size 8 -top_layer "met5-8" -power_type rings -horiz met3 -vert met4 -cust_comment "" -bus_notation on -left_bus_delim "[" -right_bus_delim "]" -pwr_gnd_rename "VDD:VDD,GND:VSS" -prefix "" -pin_space 0.0 -name_case upper -check_instname on -diodes on -inside_ring_type GND -drive 6 -dpccm on -asvm on -corners ff_1p32v_m40c,ff_1p65v_125c,tt_1p2v_25c,ss_1p08v_125c
+7:07:51 PM - Verilog Model generator succeeded, created:
+7:07:51 PM -    CacheMem.v
+7:28:07 PM - Parameters have not changed since last ASCII Datatable update
+7:28:08 PM - command: /user3/fall16/smn2164/AdvancedElectronics/project/mem_comp/ra2shd_v20/bin/ra2shd_v20 primetime -instname CacheMem -words 256 -bits 32 -frequency 1000 -ring_width 4.0 -mux 8 -write_mask off -wp_size 8 -top_layer "met5-8" -power_type rings -horiz met3 -vert met4 -cust_comment "" -bus_notation on -left_bus_delim "[" -right_bus_delim "]" -pwr_gnd_rename "VDD:VDD,GND:VSS" -prefix "" -pin_space 0.0 -name_case upper -check_instname on -diodes on -inside_ring_type GND -drive 6 -dpccm on -asvm on -corners ff_1p32v_m40c,ff_1p65v_125c,tt_1p2v_25c,ss_1p08v_125c
+7:28:10 PM - PrimeTime Model generator succeeded, created:
+7:28:10 PM -    CacheMem_ff_1p32v_m40c.data
+7:28:10 PM -    CacheMem_ff_1p65v_125c.data
+7:28:10 PM -    CacheMem_tt_1p2v_25c.data
+7:28:10 PM -    CacheMem_ss_1p08v_125c.data
+7:28:10 PM -    CacheMem.mod

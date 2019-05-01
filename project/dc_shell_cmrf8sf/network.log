@@ -1,0 +1,1129 @@
+
+                      Design Compiler Graphical
+                            DC Ultra (TM)
+                             DFTMAX (TM)
+                         Power Compiler (TM)
+                           DesignWare (R)
+                           DC Expert (TM)
+                         Design Vision (TM)
+                          HDL Compiler (TM)
+                         VHDL Compiler (TM)
+                            DFT Compiler
+                        Library Compiler (TM)
+                         Design Compiler(R)
+
+          Version J-2014.09-SP2 for RHEL64 -- Nov 25, 2014
+               Copyright (c) 1988-2014 Synopsys, Inc.
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+Initializing...
+#########################################
+# TCL script for Design Compiler        #
+# 2012 Mingoo Seok                      #
+#########################################
+#########################################
+# READ Design and Library               #
+#########################################
+set BEHAVIORROOT "../rtl/"
+../rtl/
+#set top_level
+set top_level network
+network
+#set top_level incomingPortHandler
+source -verbose "common.tcl"
+. /tools4/syn2007.12/libraries/syn/
+dw_foundation.sldb
+* /tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db dw_foundation.sldb
+/tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db
+/tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db
+read_verilog {../rtl/network.v}
+Loading db file '/tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db'
+Loading db file '/usr/cad/syn/libraries/syn/dw_foundation.sldb'
+Loading db file '/usr/cad/syn/libraries/syn/gtech.db'
+Loading db file '/usr/cad/syn/libraries/syn/standard.sldb'
+  Loading link library 'scx3_cmos8rf_lpvt_tt_1p2v_25c'
+  Loading link library 'gtech'
+Loading verilog file '/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.v'
+Detecting input file type automatically (-rtl or -netlist).
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/router.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/outputportarbiter.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/incomingPortHandler.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheBank.nl.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/router.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:120: the undeclared symbol 'memRead' assumed to have the default net type, which is 'wire'. (VER-936)
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/outputportarbiter.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/incomingPortHandler.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheBank.nl.v
+Opening include file /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/globalVariables.v
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.v:244: A unnamed generate block with an LRM-defined name 'genblk1' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.v:237: A unnamed generate block with an LRM-defined name 'genblk1' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.v:260: A unnamed generate block with an LRM-defined name 'genblk2' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.v:253: A unnamed generate block with an LRM-defined name 'genblk2' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.v:276: A unnamed generate block with an LRM-defined name 'genblk3' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.v:269: A unnamed generate block with an LRM-defined name 'genblk3' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.v:292: A unnamed generate block with an LRM-defined name 'genblk4' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.v:285: A unnamed generate block with an LRM-defined name 'genblk4' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:231: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:259: signed to unsigned assignment occurs. (VER-318)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:282: signed to unsigned assignment occurs. (VER-318)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:243: signed to unsigned assignment occurs. (VER-318)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:251: signed to unsigned assignment occurs. (VER-318)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:306: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:340: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:344: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:359: signed to unsigned conversion occurs. (VER-318)
+Warning:  /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v:362: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine cacheAccessArbiter line 202 in file
+		'/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v'.
+======================================================================================
+|       Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+======================================================================================
+|           i_reg            | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|    nextEmptyBuffer_reg     | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   dataToWriteBuffer_reg    | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+|     prevMemRead_B_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        isWrite_reg         | Flip-flop |   8   |  N  | N  | N  | N  | N  | N  | N  |
+|     prevMemRead_A_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     cacheDataIn_B_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|         isRead_reg         | Flip-flop |   2   |  N  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  addressToWriteBuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  prevRequesterPort_B_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|    cacheAddressIn_A_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+| prevRequesterAddress_B_reg | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterPortBuffer_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|  prevRequesterPort_A_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+| prevRequesterAddress_A_reg | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|     cacheDataIn_A_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|       memWrite_B_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    cacheAddressIn_B_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+| requesterAddressBuffer_reg | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+| requesterAddressBuffer_reg | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       memWrite_A_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+======================================================================================
+
+Inferred memory devices in process
+	in routine cacheAccessArbiter line 329 in file
+		'/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v'.
+================================================================================================
+|            Register Name             |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================================
+| requesterAddressOut_Concatenated_reg | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+| requesterAddressOut_Concatenated_reg | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+| requesterAddressOut_Concatenated_reg | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+| requesterAddressOut_Concatenated_reg | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|      readReady_Concatenated_reg      | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+================================================================================================
+
+Inferred memory devices in process
+	in routine cacheAccessArbiter line 356 in file
+		'/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.v'.
+================================================================================
+|      Register Name       | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| dataOut_Concatenated_reg | Latch |  128  |  Y  | N  | N  | N  | -  | -  | -  |
+================================================================================
+Statistics for MUX_OPs
+=================================================================
+|    block name/line     | Inputs | Outputs | # sel inputs | MB |
+=================================================================
+| cacheAccessArbiter/279 |   4    |    2    |      2       | N  |
+=================================================================
+
+Statistics for case statements in always block at line 159 in file
+	'/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/outputportarbiter.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           177            |     no/auto      |
+===============================================
+
+Inferred memory devices in process
+	in routine outputPortArbiter line 143 in file
+		'/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/outputportarbiter.v'.
+========================================================================================
+|        Register Name         |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+========================================================================================
+|      readOutbuffer_reg       | Flip-flop |   8   |  N  | N  | N  | N  | N  | N  | N  |
+|      writeOutbuffer_reg      | Flip-flop |   8   |  N  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      dataoutbuffer_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   7   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   7   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   7   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   7   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   7   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   7   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   7   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressbuffer_reg  | Flip-flop |   7   |  N  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressbuffer_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+========================================================================================
+
+Inferred memory devices in process
+	in routine outputPortArbiter line 159 in file
+		'/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/outputportarbiter.v'.
+=====================================================================================
+|       Register Name       |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=====================================================================================
+|        dataOut_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressOut_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressOut_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|        readOut_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       writeOut_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+=====================================================================================
+
+Inferred memory devices in process
+	in routine outputPortArbiter line 227 in file
+		'/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/outputportarbiter.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    full_reg_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    empty_reg_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    write_reg_reg    | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|    read_reg_reg     | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+================================================================
+|   block name/line     | Inputs | Outputs | # sel inputs | MB |
+================================================================
+| outputPortArbiter/169 |   8    |   32    |      3       | N  |
+| outputPortArbiter/170 |   8    |   16    |      3       | N  |
+| outputPortArbiter/171 |   8    |    8    |      3       | N  |
+| outputPortArbiter/172 |   8    |    2    |      3       | N  |
+================================================================
+
+Inferred memory devices in process
+	in routine incomingPortHandler line 72 in file
+		'/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/incomingPortHandler.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+|     memRead_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| outputPortSelect_reg | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|     memWrite_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+================================================================================
+
+Inferred memory devices in process
+	in routine router line 464 in file
+		'/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/router.v'.
+================================================================================================
+|            Register Name             |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================================
+|        writeInBuffer_WEST_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        dataInBuffer_WEST_reg         | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressInBuffer_NORTH_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressInBuffer_NORTH_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|        readInBuffer_NORTH_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       writeInBuffer_NORTH_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        dataInBuffer_NORTH_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressInBuffer_SOUTH_reg | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressInBuffer_SOUTH_reg  | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|        readInBuffer_SOUTH_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       writeInBuffer_SOUTH_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        dataInBuffer_SOUTH_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressInBuffer_EAST_reg  | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressInBuffer_EAST_reg   | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|        readInBuffer_EAST_reg         | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        writeInBuffer_EAST_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        dataInBuffer_EAST_reg         | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+| destinationAddressInBuffer_WEST_reg  | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+|  requesterAddressInBuffer_WEST_reg   | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|        readInBuffer_WEST_reg         | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+================================================================================================
+
+Inferred memory devices in process
+	in routine responseCatcher line 459 in file
+		'/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   readyReady_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     dataOut_reg     | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/cacheAccessArbiter.db:cacheAccessArbiter'
+Loaded 7 designs.
+Current design is 'cacheAccessArbiter'.
+cacheAccessArbiter outputPortArbiter incomingPortHandler router cacheBank network responseCatcher
+#read_verilog {../rtl/incomingPortHandler.v}
+list_designs
+cacheAccessArbiter (*)  network                 router
+cacheBank               outputPortArbiter
+incomingPortHandler     responseCatcher
+1
+#########################################
+# Design Constranits                    #
+#########################################
+current_design $top_level
+Current design is 'network'.
+{network}
+link
+
+  Linking design 'network'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (7 designs)               /homes/user3/fall16/smn2164/AdvancedElectronics/project/rtl/network.db, etc
+  scx3_cmos8rf_lpvt_tt_1p2v_25c (library) /tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db
+  dw_foundation.sldb (library) /usr/cad/syn/libraries/syn/dw_foundation.sldb
+
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localRouterAddress' of reference to 'router' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'router' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localAddress' of reference to 'responseCatcher' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'responseCatcher' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localAddress' of reference to 'responseCatcher' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'responseCatcher' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localAddress' of reference to 'responseCatcher' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'responseCatcher' in 'network'. (LINK-5)
+Error: Width mismatch on port 'localAddress' of reference to 'responseCatcher' in 'network'. (LINK-3)
+Warning: Unable to resolve reference 'responseCatcher' in 'network'. (LINK-5)
+0
+source -verbose "timing.tcl"
+12
+0
+1.5
+0
+3
+0.001
+1
+1
+1
+1
+1
+1
+1
+1
+1
+set_max_capacitance 0.001 [all_inputs]
+1
+set_max_fanout 4 $top_level
+1
+set_max_fanout 2 [all_inputs]
+1
+set_max_area 0 
+1
+#########################################
+# Compile for combinational logic       #
+#########################################
+check_design
+ 
+****************************************
+check_design summary:
+Version:     J-2014.09-SP2
+Date:        Tue Apr 30 20:55:34 2019
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                    202
+    Multiply driven inputs (LINT-6)                               202
+
+Designs                                                             1
+    Black box (LINT-55)                                             1
+
+Nets                                                                2
+    Multiply driven net with constant driver (LINT-54)              2
+
+Tristate                                                            2
+    A tristate bus has a non tri-state driver (LINT-34)             2
+--------------------------------------------------------------------------------
+
+Warning: In design 'network', input port 'clk' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'reset' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port0[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'readIn_port0' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'writeIn_port0' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[31]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[30]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[29]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[28]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[27]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[26]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[25]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[24]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[23]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[22]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[21]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[20]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[19]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[18]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[17]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[16]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port0[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port1[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'readIn_port1' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'writeIn_port1' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[31]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[30]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[29]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[28]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[27]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[26]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[25]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[24]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[23]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[22]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[21]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[20]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[19]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[18]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[17]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[16]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port1[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port2[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'readIn_port2' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'writeIn_port2' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[31]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[30]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[29]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[28]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[27]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[26]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[25]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[24]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[23]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[22]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[21]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[20]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[19]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[18]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[17]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[16]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port2[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'destinationAddressIn_port3[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'readIn_port3' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'writeIn_port3' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[31]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[30]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[29]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[28]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[27]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[26]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[25]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[24]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[23]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[22]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[21]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[20]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[19]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[18]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[17]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[16]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', input port 'dataIn_port3[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'network', three-state bus '*Logic0*' has non three-state driver 'U2/**logic_0**'. (LINT-34)
+Warning: In design 'network', three-state bus '*Logic1*' has non three-state driver 'U1/**logic_1**'. (LINT-34)
+Warning: In design 'network', multiply-driven net '*Logic0*' is driven by constant 0. (LINT-54)
+Warning: In design 'network', multiply-driven net '*Logic1*' is driven by constant 1. (LINT-54)
+Information: Design 'cacheBank' does not contain any cells or nets. (LINT-55)
+1
+compile_ultra -no_autoungroup
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | J-2014.09-DWBB_201409.2 |     *     |
+| Licensed DW Building Blocks        | J-2014.09-DWBB_201409.2 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 206 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+

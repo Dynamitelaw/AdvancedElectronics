@@ -1,7 +1,7 @@
 #@ # 
 #@ # Running dc_shell Version J-2014.09-SP2 for amd64 -- Nov 25, 2014
-#@ # Date:   Wed Apr 24 14:37:06 2019
-#@ # Run by: zz2550@cadpc02
+#@ # Date:   Tue Apr 30 20:55:27 2019
+#@ # Run by: smn2164@micro10
 #@ 
 
 source /usr/cad/syn/admin/setup/.synopsys_dc.setup
@@ -3756,8 +3756,8 @@ source /usr/cad/syn/admin/setup/.synopsys_dc.setup
 #@ 
 #@ # -- End source /usr/cad/syn/admin/setup/.synopsys_dc.setup
 
-source -echo -verbose /homes/user/stud/fall18/zz2550/6321project/AdvancedElectronics/project/dc_shell_cmrf8sf/lfsr1.tcl
-#@ # -- Starting source /homes/user/stud/fall18/zz2550/6321project/AdvancedElectronics/project/dc_shell_cmrf8sf/lfsr1.tcl
+source -echo -verbose /homes/user3/fall16/smn2164/AdvancedElectronics/project/dc_shell_cmrf8sf/network.tcl
+#@ # -- Starting source /homes/user3/fall16/smn2164/AdvancedElectronics/project/dc_shell_cmrf8sf/network.tcl
 
 #@ #########################################
 #@ # TCL script for Design Compiler        #
@@ -3769,7 +3769,7 @@ source -echo -verbose /homes/user/stud/fall18/zz2550/6321project/AdvancedElectro
 #@ #########################################
 #@ set BEHAVIORROOT "../rtl/"
 #@ #set top_level
-#@ set top_level router
+#@ set top_level network
 #@ #set top_level incomingPortHandler
 #@ source -verbose "common.tcl"
 #@ # -- Starting source common.tcl
@@ -3782,7 +3782,7 @@ source -echo -verbose /homes/user/stud/fall18/zz2550/6321project/AdvancedElectro
 #@ 
 #@ # -- End source common.tcl
 
-#@ read_verilog {../rtl/router.v}
+#@ read_verilog {../rtl/network.v}
 #@ #read_verilog {../rtl/incomingPortHandler.v}
 #@ list_designs
 #@ 
@@ -3843,26 +3843,3 @@ source -echo -verbose /homes/user/stud/fall18/zz2550/6321project/AdvancedElectro
 #@ #########################################
 #@ check_design
 #@ compile_ultra -no_autoungroup
-#@ 
-#@ #########################################
-#@ # Write outputs                         #
-#@ #########################################
-#@ set verilogout_no_tri TRUE
-#@ write -hierarchy -format verilog -output "${top_level}.nl.v"
-#@ 
-#@ # Generate Standard Delay Format (SDF) file
-#@ write_sdf -context verilog "${top_level}.temp.sdf"
-#@ # Generate report file
-#@ set maxpaths 20
-#@ set rpt_file "${top_level}.dc.rpt"
-#@ check_design > $rpt_file
-#@ report_area  >> ${rpt_file}
-#@ report_power -hier -analysis_effort medium >> ${rpt_file}
-#@ report_design >> ${rpt_file}
-#@ report_cell >> ${rpt_file}
-#@ report_port -verbose >> ${rpt_file}
-#@ report_compile_options >> ${rpt_file}
-#@ report_constraint -all_violators -verbose >> ${rpt_file}
-#@ report_timing -path full -delay max -max_paths $maxpaths -nworst 100 >> ${rpt_file}
-#@ 
-#@ quit

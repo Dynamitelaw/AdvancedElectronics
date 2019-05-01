@@ -1,0 +1,1034 @@
+/*
+ *      CONFIDENTIAL  AND  PROPRIETARY SOFTWARE OF ARM Physical IP, INC.
+ *      
+ *      Copyright (c) 1993-2019  ARM Physical IP, Inc.  All  Rights Reserved.
+ *      
+ *      Use of this Software is subject to the terms and conditions  of the
+ *      applicable license agreement with ARM Physical IP, Inc.  In addition,
+ *      this Software is protected by patents, copyright law and international
+ *      treaties.
+ *      
+ *      The copyright notice(s) in this Software does not indicate actual or
+ *      intended publication of this Software.
+ *      
+ *      name:			High Speed/Density Dual Port SRAM Generator
+ *           			IBM CMRF8SF-LPVT Process
+ *      version:		2009Q1V1
+ *      comment:		
+ *      configuration:	 -instname CacheMem -words 256 -bits 6 -frequency 1 -ring_width 4.0 -mux 8 -write_mask off -wp_size 8 -top_layer "met5-8" -power_type rings -horiz met1 -vert met2 -cust_comment "" -bus_notation on -left_bus_delim "[" -right_bus_delim "]" -pwr_gnd_rename "VDD:VDD,GND:VSS" -prefix "" -pin_space 0.0 -name_case upper -check_instname on -diodes on -inside_ring_type GND -drive 6 -dpccm on -asvm on -libname USERLIB -corners ff_1p32v_m40c,ff_1p65v_125c,tt_1p2v_25c,ss_1p08v_125c
+ *
+ *      Synopsys model for Synchronous Dual-Port Ram
+ *
+ *      Library Name:   USERLIB
+ *      Instance Name:  CacheMem
+ *      Words:          256
+ *      Word Width:     6
+ *      Mux:            8
+ *      Corner:        ff_1p65v_125c
+ *
+ *      Creation Date:  2019-04-26 05:34:12Z
+ *      Version:        2009Q1V1
+ *
+ *      Verified With: Synopsys Design Compiler
+ *
+ *      Modeling Assumptions: This library contains a black box description
+ *          for a memory element.  At the library level, a
+ *          default_max_transition constraint is set to the maximum
+ *          characterized input slew.  Each output has a max_capacitance
+ *          constraint set to the highest characterized output load.  These two
+ *          constraints force Design Compiler to synthesize circuits that
+ *          operate within the characterization space.  The user can tighten
+ *          these constraints, if desired.  When writing SDF from Design
+ *          Compiler, use the version 2.1 option.  This ensures the SDF will
+ *          annotate to simulation models provided with this generator.
+ *
+ *      Modeling Limitations: 
+ *          Due to limitations of the .lib format, some data reduction was
+ *          necessary.  When reducing data, minimum values were chosen for the
+ *          fast case corner and maximum values were used for the typical and
+ *          best case corners.  It is recommended that critical timing and
+ *          setup and hold times be checked at all corners.
+ *
+ *      Known Bugs: None.
+ *
+ *      Known Work Arounds: N/A
+ *
+ */
+
+library(USERLIB) {
+	delay_model		: table_lookup;
+	revision		: 1.1;	
+	date			: "2019-04-26 05:34:12Z";
+	comment			: "Confidential Information of ARM Physical IP, Inc.  Use subject to ARM Physical IP, Inc. license.  Copyright (c) 1993-2019 ARM Physical IP, Inc.";
+	time_unit		: "1ns";
+	voltage_unit		: "1V";
+	current_unit		: "1mA";
+	leakage_power_unit	: "1mW";
+	nom_process		: 1;
+	nom_temperature		: 125.000;
+	nom_voltage		: 1.650;
+	capacitive_load_unit	 (1,pf);
+
+	pulling_resistance_unit	        : "1kohm";
+
+	/* additional header data */
+	default_cell_leakage_power      : 0;
+	default_fanout_load		: 1;
+	default_inout_pin_cap		: 0.005;
+	default_input_pin_cap		: 0.005;
+	default_output_pin_cap		: 0.0;
+	default_max_transition		: 0.750;
+
+        /* default attributes */
+        default_leakage_power_density : 0.0;
+        slew_derate_from_library      : 1.000;
+        slew_lower_threshold_pct_fall : 10.000;
+        slew_upper_threshold_pct_fall : 90.000;
+        slew_lower_threshold_pct_rise : 10.000;
+        slew_upper_threshold_pct_rise : 90.000;
+        input_threshold_pct_fall      : 50.000;
+        input_threshold_pct_rise      : 50.000;
+        output_threshold_pct_fall     : 50.000;
+        output_threshold_pct_rise     : 50.000;
+
+ 	/* k-factors */
+ 	k_process_cell_fall             : 1;
+ 	k_process_cell_leakage_power    : 0;
+ 	k_process_cell_rise             : 1;
+ 	k_process_fall_transition       : 1;
+ 	k_process_hold_fall             : 1;
+ 	k_process_hold_rise             : 1;
+ 	k_process_internal_power        : 0;
+ 	k_process_min_pulse_width_high  : 1;
+ 	k_process_min_pulse_width_low   : 1;
+ 	k_process_pin_cap               : 0;
+ 	k_process_recovery_fall         : 1;
+ 	k_process_recovery_rise         : 1;
+ 	k_process_rise_transition       : 1;
+ 	k_process_setup_fall            : 1;
+ 	k_process_setup_rise            : 1;
+ 	k_process_wire_cap              : 0;
+ 	k_process_wire_res              : 0;
+	k_temp_cell_fall		: 0.000;
+	k_temp_cell_rise		: 0.000;
+	k_temp_hold_fall                : 0.000;
+	k_temp_hold_rise                : 0.000;
+	k_temp_min_pulse_width_high     : 0.000;
+	k_temp_min_pulse_width_low      : 0.000;
+	k_temp_min_period               : 0.000;
+	k_temp_rise_propagation         : 0.000;
+	k_temp_fall_propagation         : 0.000;
+	k_temp_rise_transition          : 0.0;
+	k_temp_fall_transition          : 0.0;
+	k_temp_recovery_fall            : 0.000;
+	k_temp_recovery_rise            : 0.000;
+	k_temp_setup_fall               : 0.000;
+	k_temp_setup_rise               : 0.000;
+	k_volt_cell_fall                : 0.000;
+	k_volt_cell_rise                : 0.000;
+	k_volt_hold_fall                : 0.000;
+	k_volt_hold_rise                : 0.000;
+	k_volt_min_pulse_width_high     : 0.000;
+	k_volt_min_pulse_width_low      : 0.000;
+	k_volt_min_period               : 0.000;
+	k_volt_rise_propagation         : 0.000;
+	k_volt_fall_propagation         : 0.000;
+	k_volt_rise_transition	        : 0.0;
+	k_volt_fall_transition	        : 0.0;
+	k_volt_recovery_fall            : 0.000;
+	k_volt_recovery_rise            : 0.000;
+	k_volt_setup_fall               : 0.000;
+	k_volt_setup_rise               : 0.000;
+
+
+        operating_conditions(ff_1p65v_125c) {
+		process	 : 1;
+		temperature	 : 125.000;
+		voltage	 : 1.650;
+		tree_type	 : balanced_tree;
+	}
+        default_operating_conditions : ff_1p65v_125c;
+	wire_load("sample") {
+		resistance	 : 1.6e-05;
+		capacitance	 : 0.0002;
+		area	 : 1.7;
+  		slope	 : 500;
+		fanout_length	 (1,500);
+	}
+        lu_table_template(CacheMem_bist_mux_delay_template) {
+           variable_1 : input_net_transition;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        lu_table_template(CacheMem_mux_mem_out_delay_template) {
+           variable_1 : input_net_transition;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        lu_table_template(CacheMem_mem_out_delay_template) {
+           variable_1 : input_net_transition;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	lu_table_template(CacheMem_bist_mux_slew_template) {
+           variable_1 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	lu_table_template(CacheMem_mem_out_slew_template) {
+           variable_1 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	lu_table_template(CacheMem_clk_setup_constraint_template) {
+           variable_1 : related_pin_transition;
+           variable_2 : constrained_pin_transition;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	lu_table_template(CacheMem_constraint_template) {
+           variable_1 : related_pin_transition;
+           variable_2 : constrained_pin_transition;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        power_lut_template(CacheMem_energy_template_clkslew_load) {
+           variable_1 : input_transition_time;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        power_lut_template(CacheMem_energy_template_sigslew_load) {
+           variable_1 : input_transition_time;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        power_lut_template(CacheMem_energy_template_load) {
+           variable_1 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        power_lut_template(CacheMem_energy_template_clkslew) {
+           variable_1 : input_transition_time;
+               index_1 ("1000, 1001");
+        }
+        power_lut_template(CacheMem_energy_template_sigslew) {
+           variable_1 : input_transition_time;
+               index_1 ("1000, 1001");
+        }
+	library_features(report_delay_calculation);
+	type (CacheMem_DATA) {
+		base_type : array ;
+		data_type : bit ;
+		bit_width : 6;
+		bit_from : 5;
+		bit_to : 0 ;
+		downto : true ;
+	}
+	type (CacheMem_UPM) {
+		base_type : array ;
+		data_type : bit ;
+		bit_width : 3;
+		bit_from : 2;
+		bit_to : 0 ;
+		downto : true ;
+	}
+	type (CacheMem_ADDRESS) {
+		base_type : array ;
+		data_type : bit ;
+		bit_width : 8;
+		bit_from : 7;
+		bit_to : 0 ;
+		downto : true ;
+	}
+cell(CacheMem) {
+	area		 : 41173.920;
+	dont_use	 : TRUE;
+	dont_touch	 : TRUE;
+        interface_timing : TRUE;
+	memory() {
+		type : ram;
+		address_width : 8;
+		word_width : 6;
+	}
+        bus(QA)   {
+                bus_type : CacheMem_DATA;
+		direction : output;
+		max_capacitance : 0.860;
+                memory_read() {
+			address : AA;
+		}
+                timing() {
+                        related_pin :   "CLKA" ;
+                        timing_type : rising_edge ;
+                        timing_sense : non_unate;
+                        cell_rise(CacheMem_mem_out_delay_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.000, 0.030, 0.060, 0.120, 0.280, 0.560, 0.860");
+                        values ( \
+                          "0.637, 0.656, 0.675, 0.712, 0.789, 0.921, 1.063", \
+                          "0.643, 0.662, 0.681, 0.718, 0.795, 0.927, 1.069", \
+                          "0.650, 0.669, 0.688, 0.726, 0.802, 0.935, 1.077", \
+                          "0.665, 0.684, 0.703, 0.741, 0.817, 0.950, 1.092", \
+                          "0.695, 0.714, 0.733, 0.771, 0.847, 0.980, 1.122", \
+                          "0.725, 0.744, 0.763, 0.801, 0.877, 1.010, 1.152", \
+                          "0.748, 0.766, 0.785, 0.823, 0.899, 1.032, 1.174" \
+                        )
+                        }
+                        rise_transition(CacheMem_mem_out_slew_template) {
+                        index_1 ("0.000, 0.030, 0.060, 0.120, 0.280, 0.560, 0.860");
+                        values ("0.023, 0.063, 0.104, 0.185, 0.401, 0.778, 1.183")
+                        }
+                        cell_fall(CacheMem_mem_out_delay_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.000, 0.030, 0.060, 0.120, 0.280, 0.560, 0.860");
+                        values ( \
+                          "0.637, 0.656, 0.675, 0.712, 0.789, 0.921, 1.063", \
+                          "0.643, 0.662, 0.681, 0.718, 0.795, 0.927, 1.069", \
+                          "0.650, 0.669, 0.688, 0.726, 0.802, 0.935, 1.077", \
+                          "0.665, 0.684, 0.703, 0.741, 0.817, 0.950, 1.092", \
+                          "0.695, 0.714, 0.733, 0.771, 0.847, 0.980, 1.122", \
+                          "0.725, 0.744, 0.763, 0.801, 0.877, 1.010, 1.152", \
+                          "0.748, 0.766, 0.785, 0.823, 0.899, 1.032, 1.174" \
+                        )
+                        }
+                        fall_transition(CacheMem_mem_out_slew_template) {
+                        index_1 ("0.000, 0.030, 0.060, 0.120, 0.280, 0.560, 0.860");
+                        values ("0.028, 0.056, 0.084, 0.141, 0.290, 0.552, 0.833")
+                        }
+                }
+        }
+        bus(QB)   {
+                bus_type : CacheMem_DATA;
+		direction : output;
+		max_capacitance : 0.860;
+                memory_read() {
+			address : AB;
+		}
+                timing() {
+                        related_pin :   "CLKB" ;
+                        timing_type : rising_edge ;
+                        timing_sense : non_unate;
+                        cell_rise(CacheMem_mem_out_delay_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.000, 0.030, 0.060, 0.120, 0.280, 0.560, 0.860");
+                        values ( \
+                          "0.637, 0.656, 0.675, 0.712, 0.789, 0.921, 1.063", \
+                          "0.643, 0.662, 0.681, 0.718, 0.795, 0.927, 1.069", \
+                          "0.650, 0.669, 0.688, 0.726, 0.802, 0.935, 1.077", \
+                          "0.665, 0.684, 0.703, 0.741, 0.817, 0.950, 1.092", \
+                          "0.695, 0.714, 0.733, 0.771, 0.847, 0.980, 1.122", \
+                          "0.725, 0.744, 0.763, 0.801, 0.877, 1.010, 1.152", \
+                          "0.748, 0.766, 0.785, 0.823, 0.899, 1.032, 1.174" \
+                        )
+                        }
+                        rise_transition(CacheMem_mem_out_slew_template) {
+                        index_1 ("0.000, 0.030, 0.060, 0.120, 0.280, 0.560, 0.860");
+                        values ("0.023, 0.063, 0.104, 0.185, 0.401, 0.778, 1.183")
+                        }
+                        cell_fall(CacheMem_mem_out_delay_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.000, 0.030, 0.060, 0.120, 0.280, 0.560, 0.860");
+                        values ( \
+                          "0.637, 0.656, 0.675, 0.712, 0.789, 0.921, 1.063", \
+                          "0.643, 0.662, 0.681, 0.718, 0.795, 0.927, 1.069", \
+                          "0.650, 0.669, 0.688, 0.726, 0.802, 0.935, 1.077", \
+                          "0.665, 0.684, 0.703, 0.741, 0.817, 0.950, 1.092", \
+                          "0.695, 0.714, 0.733, 0.771, 0.847, 0.980, 1.122", \
+                          "0.725, 0.744, 0.763, 0.801, 0.877, 1.010, 1.152", \
+                          "0.748, 0.766, 0.785, 0.823, 0.899, 1.032, 1.174" \
+                        )
+                        }
+                        fall_transition(CacheMem_mem_out_slew_template) {
+                        index_1 ("0.000, 0.030, 0.060, 0.120, 0.280, 0.560, 0.860");
+                        values ("0.028, 0.056, 0.084, 0.141, 0.290, 0.552, 0.833")
+                        }
+                }
+        }
+        pin(CLKA)   {
+		direction : input;
+		capacitance : 0.128;
+                clock : true;
+                max_transition : 0.750;
+                timing() {
+                        related_pin     : "CLKB" ;
+                        timing_type     : setup_rising ;
+                        rise_constraint(CacheMem_clk_setup_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741" \
+                        )
+                        }
+                 }
+                min_pulse_width_high : 0.073 ;
+                min_pulse_width_low  : 0.088 ;
+                min_period           : 1.156 ;
+
+
+                internal_power(){
+                        when : "(!CENA & ! \
+                                 (WENA) \
+                                ) \
+                                 ";
+                        rise_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("177.862, 177.862")
+                        }
+                        fall_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+                internal_power(){
+                        when : "(!CENA & \
+                                 (WENA) \
+                                ) \
+                                 ";
+                        rise_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("111.818, 111.818")
+                        }
+                        fall_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+         internal_power(){
+                 when : "(CENA)";
+                        rise_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.309, 0.309")
+                        }
+                        fall_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+        }
+
+        pin(CENA)   {
+                direction : input;
+                capacitance : 0.008;
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : setup_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.478, 0.480, 0.483, 0.488, 0.499, 0.509, 0.517", \
+                          "0.472, 0.474, 0.477, 0.482, 0.493, 0.503, 0.511", \
+                          "0.465, 0.467, 0.469, 0.475, 0.485, 0.496, 0.504", \
+                          "0.450, 0.452, 0.454, 0.460, 0.470, 0.481, 0.489", \
+                          "0.420, 0.422, 0.424, 0.430, 0.440, 0.451, 0.459", \
+                          "0.390, 0.392, 0.395, 0.400, 0.410, 0.421, 0.429", \
+                          "0.367, 0.369, 0.372, 0.377, 0.388, 0.399, 0.407" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.416, 0.417, 0.418, 0.421, 0.427, 0.432, 0.436", \
+                          "0.410, 0.411, 0.412, 0.415, 0.421, 0.426, 0.430", \
+                          "0.402, 0.404, 0.405, 0.408, 0.413, 0.418, 0.423", \
+                          "0.388, 0.389, 0.390, 0.393, 0.398, 0.404, 0.408", \
+                          "0.358, 0.359, 0.360, 0.363, 0.368, 0.374, 0.378", \
+                          "0.328, 0.329, 0.330, 0.333, 0.338, 0.344, 0.348", \
+                          "0.305, 0.306, 0.308, 0.310, 0.316, 0.321, 0.325" \
+                        )
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : hold_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.244, 0.242, 0.239, 0.235, 0.235, 0.235, 0.235", \
+                          "0.274, 0.271, 0.269, 0.264, 0.253, 0.242, 0.235", \
+                          "0.296, 0.294, 0.291, 0.286, 0.275, 0.265, 0.257" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235" \
+                        )
+                        }
+               }
+        }
+        pin(WENA){
+                direction : input;
+                capacitance : 0.008;
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : setup_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.574, 0.577, 0.580, 0.587, 0.601, 0.614, 0.625", \
+                          "0.568, 0.571, 0.574, 0.581, 0.595, 0.608, 0.619", \
+                          "0.561, 0.563, 0.567, 0.574, 0.587, 0.601, 0.611", \
+                          "0.546, 0.548, 0.552, 0.559, 0.572, 0.586, 0.596", \
+                          "0.516, 0.518, 0.522, 0.529, 0.542, 0.556, 0.566", \
+                          "0.486, 0.488, 0.492, 0.499, 0.512, 0.526, 0.536", \
+                          "0.463, 0.466, 0.469, 0.476, 0.490, 0.504, 0.514" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.568, 0.570, 0.571, 0.575, 0.581, 0.588, 0.593", \
+                          "0.562, 0.564, 0.565, 0.569, 0.575, 0.582, 0.587", \
+                          "0.555, 0.556, 0.558, 0.561, 0.568, 0.575, 0.580", \
+                          "0.540, 0.541, 0.543, 0.546, 0.553, 0.560, 0.565", \
+                          "0.510, 0.511, 0.513, 0.516, 0.523, 0.530, 0.535", \
+                          "0.480, 0.481, 0.483, 0.486, 0.493, 0.500, 0.505", \
+                          "0.458, 0.459, 0.461, 0.464, 0.471, 0.477, 0.482" \
+                        )
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : hold_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310" \
+                        )
+                        }
+               }
+        }
+        bus(AA)   {
+                bus_type : CacheMem_ADDRESS;
+                direction : input;
+                capacitance : 0.017;
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : setup_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.429, 0.429, 0.429, 0.429, 0.429, 0.429, 0.429", \
+                          "0.423, 0.423, 0.423, 0.423, 0.423, 0.423, 0.423", \
+                          "0.415, 0.415, 0.415, 0.415, 0.415, 0.415, 0.415", \
+                          "0.400, 0.400, 0.400, 0.400, 0.400, 0.400, 0.400", \
+                          "0.370, 0.370, 0.370, 0.370, 0.370, 0.370, 0.370", \
+                          "0.340, 0.340, 0.340, 0.340, 0.340, 0.340, 0.341", \
+                          "0.318, 0.318, 0.318, 0.318, 0.318, 0.318, 0.318" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.377, 0.379, 0.381, 0.386, 0.395, 0.404, 0.411", \
+                          "0.371, 0.373, 0.375, 0.380, 0.389, 0.398, 0.405", \
+                          "0.364, 0.366, 0.368, 0.372, 0.381, 0.390, 0.397", \
+                          "0.349, 0.351, 0.353, 0.357, 0.366, 0.375, 0.382", \
+                          "0.319, 0.321, 0.323, 0.327, 0.336, 0.345, 0.352", \
+                          "0.289, 0.291, 0.293, 0.298, 0.307, 0.315, 0.322", \
+                          "0.267, 0.268, 0.271, 0.275, 0.284, 0.293, 0.300" \
+                        )
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : hold_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.182, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.182, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.182, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.194, 0.194, 0.194, 0.194, 0.194, 0.194, 0.194", \
+                          "0.224, 0.224, 0.224, 0.224, 0.224, 0.224, 0.224", \
+                          "0.254, 0.254, 0.254, 0.254, 0.254, 0.254, 0.254", \
+                          "0.276, 0.276, 0.276, 0.276, 0.276, 0.276, 0.276" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.182, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.182, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.183, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.198, 0.196, 0.194, 0.189, 0.182, 0.182, 0.182", \
+                          "0.228, 0.226, 0.224, 0.219, 0.210, 0.201, 0.195", \
+                          "0.258, 0.256, 0.254, 0.249, 0.240, 0.231, 0.225", \
+                          "0.280, 0.278, 0.276, 0.272, 0.263, 0.254, 0.247" \
+                        )
+                        }
+               }
+                internal_power(){
+                        when : "CENA";
+                        rise_power(CacheMem_energy_template_sigslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.543, 0.543")
+                        }
+                        fall_power(CacheMem_energy_template_sigslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.543, 0.543")
+                        }
+                }
+        }
+        bus(DA)   {
+                bus_type : CacheMem_DATA;
+                memory_write() {
+                        address : AA;
+                        clocked_on : "CLKA";
+                }
+                direction : input;
+                capacitance : 0.001;
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : setup_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.412, 0.410, 0.408, 0.404, 0.395, 0.386, 0.380", \
+                          "0.406, 0.404, 0.402, 0.398, 0.389, 0.380, 0.374", \
+                          "0.398, 0.397, 0.394, 0.390, 0.381, 0.373, 0.366", \
+                          "0.383, 0.382, 0.379, 0.375, 0.366, 0.358, 0.351", \
+                          "0.353, 0.352, 0.350, 0.345, 0.337, 0.328, 0.321", \
+                          "0.323, 0.322, 0.320, 0.315, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.439, 0.444, 0.450, 0.463, 0.489, 0.514, 0.533", \
+                          "0.433, 0.438, 0.444, 0.457, 0.483, 0.508, 0.527", \
+                          "0.426, 0.431, 0.437, 0.450, 0.475, 0.500, 0.519", \
+                          "0.411, 0.416, 0.422, 0.435, 0.460, 0.485, 0.505", \
+                          "0.381, 0.386, 0.392, 0.405, 0.430, 0.456, 0.475", \
+                          "0.351, 0.356, 0.362, 0.375, 0.400, 0.426, 0.445", \
+                          "0.328, 0.333, 0.340, 0.352, 0.378, 0.403, 0.422" \
+                        )
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : hold_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.315, 0.323, 0.330", \
+                          "0.328, 0.330, 0.332, 0.336, 0.345, 0.353, 0.360", \
+                          "0.350, 0.352, 0.354, 0.358, 0.367, 0.376, 0.382" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.340, 0.335, 0.329, 0.316, 0.310, 0.310, 0.310", \
+                          "0.370, 0.365, 0.359, 0.346, 0.321, 0.310, 0.310", \
+                          "0.393, 0.388, 0.381, 0.369, 0.343, 0.318, 0.310" \
+                        )
+                        }
+               }
+        }
+        pin(CLKB)   {
+		direction : input;
+		capacitance : 0.128;
+                clock : true;
+                max_transition : 0.750;
+                timing() {
+                        related_pin     : "CLKA" ;
+                        timing_type     : setup_rising ;
+                        rise_constraint(CacheMem_clk_setup_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741", \
+                          "0.741, 0.741, 0.741, 0.741, 0.741, 0.741, 0.741" \
+                        )
+                        }
+                 }
+                min_pulse_width_high : 0.073 ;
+                min_pulse_width_low  : 0.088 ;
+                min_period           : 1.156 ;
+
+
+                internal_power(){
+                        when : "(!CENB & ! \
+                                 (WENB) \
+                                ) \
+                                 ";
+                        rise_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("177.862, 177.862")
+                        }
+                        fall_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+                internal_power(){
+                        when : "(!CENB & \
+                                 (WENB) \
+                                ) \
+                                 ";
+                        rise_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("111.818, 111.818")
+                        }
+                        fall_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+         internal_power(){
+                 when : "(CENB)";
+                        rise_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.309, 0.309")
+                        }
+                        fall_power(CacheMem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+        }
+
+        pin(CENB)   {
+                direction : input;
+                capacitance : 0.008;
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : setup_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.478, 0.480, 0.483, 0.488, 0.499, 0.509, 0.517", \
+                          "0.472, 0.474, 0.477, 0.482, 0.493, 0.503, 0.511", \
+                          "0.465, 0.467, 0.469, 0.475, 0.485, 0.496, 0.504", \
+                          "0.450, 0.452, 0.454, 0.460, 0.470, 0.481, 0.489", \
+                          "0.420, 0.422, 0.424, 0.430, 0.440, 0.451, 0.459", \
+                          "0.390, 0.392, 0.395, 0.400, 0.410, 0.421, 0.429", \
+                          "0.367, 0.369, 0.372, 0.377, 0.388, 0.399, 0.407" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.416, 0.417, 0.418, 0.421, 0.427, 0.432, 0.436", \
+                          "0.410, 0.411, 0.412, 0.415, 0.421, 0.426, 0.430", \
+                          "0.402, 0.404, 0.405, 0.408, 0.413, 0.418, 0.423", \
+                          "0.388, 0.389, 0.390, 0.393, 0.398, 0.404, 0.408", \
+                          "0.358, 0.359, 0.360, 0.363, 0.368, 0.374, 0.378", \
+                          "0.328, 0.329, 0.330, 0.333, 0.338, 0.344, 0.348", \
+                          "0.305, 0.306, 0.308, 0.310, 0.316, 0.321, 0.325" \
+                        )
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : hold_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.244, 0.242, 0.239, 0.235, 0.235, 0.235, 0.235", \
+                          "0.274, 0.271, 0.269, 0.264, 0.253, 0.242, 0.235", \
+                          "0.296, 0.294, 0.291, 0.286, 0.275, 0.265, 0.257" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235", \
+                          "0.235, 0.235, 0.235, 0.235, 0.235, 0.235, 0.235" \
+                        )
+                        }
+               }
+        }
+        pin(WENB){
+                direction : input;
+                capacitance : 0.008;
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : setup_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.574, 0.577, 0.580, 0.587, 0.601, 0.614, 0.625", \
+                          "0.568, 0.571, 0.574, 0.581, 0.595, 0.608, 0.619", \
+                          "0.561, 0.563, 0.567, 0.574, 0.587, 0.601, 0.611", \
+                          "0.546, 0.548, 0.552, 0.559, 0.572, 0.586, 0.596", \
+                          "0.516, 0.518, 0.522, 0.529, 0.542, 0.556, 0.566", \
+                          "0.486, 0.488, 0.492, 0.499, 0.512, 0.526, 0.536", \
+                          "0.463, 0.466, 0.469, 0.476, 0.490, 0.504, 0.514" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.568, 0.570, 0.571, 0.575, 0.581, 0.588, 0.593", \
+                          "0.562, 0.564, 0.565, 0.569, 0.575, 0.582, 0.587", \
+                          "0.555, 0.556, 0.558, 0.561, 0.568, 0.575, 0.580", \
+                          "0.540, 0.541, 0.543, 0.546, 0.553, 0.560, 0.565", \
+                          "0.510, 0.511, 0.513, 0.516, 0.523, 0.530, 0.535", \
+                          "0.480, 0.481, 0.483, 0.486, 0.493, 0.500, 0.505", \
+                          "0.458, 0.459, 0.461, 0.464, 0.471, 0.477, 0.482" \
+                        )
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : hold_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310" \
+                        )
+                        }
+               }
+        }
+        bus(AB)   {
+                bus_type : CacheMem_ADDRESS;
+                direction : input;
+                capacitance : 0.017;
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : setup_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.429, 0.429, 0.429, 0.429, 0.429, 0.429, 0.429", \
+                          "0.423, 0.423, 0.423, 0.423, 0.423, 0.423, 0.423", \
+                          "0.415, 0.415, 0.415, 0.415, 0.415, 0.415, 0.415", \
+                          "0.400, 0.400, 0.400, 0.400, 0.400, 0.400, 0.400", \
+                          "0.370, 0.370, 0.370, 0.370, 0.370, 0.370, 0.370", \
+                          "0.340, 0.340, 0.340, 0.340, 0.340, 0.340, 0.341", \
+                          "0.318, 0.318, 0.318, 0.318, 0.318, 0.318, 0.318" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.377, 0.379, 0.381, 0.386, 0.395, 0.404, 0.411", \
+                          "0.371, 0.373, 0.375, 0.380, 0.389, 0.398, 0.405", \
+                          "0.364, 0.366, 0.368, 0.372, 0.381, 0.390, 0.397", \
+                          "0.349, 0.351, 0.353, 0.357, 0.366, 0.375, 0.382", \
+                          "0.319, 0.321, 0.323, 0.327, 0.336, 0.345, 0.352", \
+                          "0.289, 0.291, 0.293, 0.298, 0.307, 0.315, 0.322", \
+                          "0.267, 0.268, 0.271, 0.275, 0.284, 0.293, 0.300" \
+                        )
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : hold_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.182, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.182, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.182, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.194, 0.194, 0.194, 0.194, 0.194, 0.194, 0.194", \
+                          "0.224, 0.224, 0.224, 0.224, 0.224, 0.224, 0.224", \
+                          "0.254, 0.254, 0.254, 0.254, 0.254, 0.254, 0.254", \
+                          "0.276, 0.276, 0.276, 0.276, 0.276, 0.276, 0.276" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.182, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.182, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.183, 0.182, 0.182, 0.182, 0.182, 0.182, 0.182", \
+                          "0.198, 0.196, 0.194, 0.189, 0.182, 0.182, 0.182", \
+                          "0.228, 0.226, 0.224, 0.219, 0.210, 0.201, 0.195", \
+                          "0.258, 0.256, 0.254, 0.249, 0.240, 0.231, 0.225", \
+                          "0.280, 0.278, 0.276, 0.272, 0.263, 0.254, 0.247" \
+                        )
+                        }
+               }
+                internal_power(){
+                        when : "CENB";
+                        rise_power(CacheMem_energy_template_sigslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.543, 0.543")
+                        }
+                        fall_power(CacheMem_energy_template_sigslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.543, 0.543")
+                        }
+                }
+        }
+        bus(DB)   {
+                bus_type : CacheMem_DATA;
+                memory_write() {
+                        address : AB;
+                        clocked_on : "CLKB";
+                }
+                direction : input;
+                capacitance : 0.001;
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : setup_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.412, 0.410, 0.408, 0.404, 0.395, 0.386, 0.380", \
+                          "0.406, 0.404, 0.402, 0.398, 0.389, 0.380, 0.374", \
+                          "0.398, 0.397, 0.394, 0.390, 0.381, 0.373, 0.366", \
+                          "0.383, 0.382, 0.379, 0.375, 0.366, 0.358, 0.351", \
+                          "0.353, 0.352, 0.350, 0.345, 0.337, 0.328, 0.321", \
+                          "0.323, 0.322, 0.320, 0.315, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.439, 0.444, 0.450, 0.463, 0.489, 0.514, 0.533", \
+                          "0.433, 0.438, 0.444, 0.457, 0.483, 0.508, 0.527", \
+                          "0.426, 0.431, 0.437, 0.450, 0.475, 0.500, 0.519", \
+                          "0.411, 0.416, 0.422, 0.435, 0.460, 0.485, 0.505", \
+                          "0.381, 0.386, 0.392, 0.405, 0.430, 0.456, 0.475", \
+                          "0.351, 0.356, 0.362, 0.375, 0.400, 0.426, 0.445", \
+                          "0.328, 0.333, 0.340, 0.352, 0.378, 0.403, 0.422" \
+                        )
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : hold_rising ;
+                        rise_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.315, 0.323, 0.330", \
+                          "0.328, 0.330, 0.332, 0.336, 0.345, 0.353, 0.360", \
+                          "0.350, 0.352, 0.354, 0.358, 0.367, 0.376, 0.382" \
+                        )
+                        }
+                        fall_constraint(CacheMem_constraint_template) {
+                        index_1 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        index_2 ("0.010, 0.050, 0.100, 0.200, 0.400, 0.600, 0.750");
+                        values ( \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.310, 0.310, 0.310, 0.310, 0.310, 0.310, 0.310", \
+                          "0.340, 0.335, 0.329, 0.316, 0.310, 0.310, 0.310", \
+                          "0.370, 0.365, 0.359, 0.346, 0.321, 0.310, 0.310", \
+                          "0.393, 0.388, 0.381, 0.369, 0.343, 0.318, 0.310" \
+                        )
+                        }
+               }
+        }
+
+        cell_leakage_power : 3.689;
+}
+}
