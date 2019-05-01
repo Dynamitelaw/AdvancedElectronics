@@ -59,8 +59,8 @@ module network(
 	parameter networkWidth = `NETWORK_WIDTH;
 	
 	parameter port0_NodeID = networkWidth/2;
-	parameter port1_NodeID = (networkHeight-1)*networkWidth + networkWidth/2;
-	parameter port2_NodeID = (networkHeight/2)*networkWidth;
+	parameter port1_NodeID = (networkHeight-1)*networkWidth + networkWidth/2 -1;
+	parameter port2_NodeID = (networkHeight/2)*networkWidth -1;
 	parameter port3_NodeID = ((networkHeight-1)/2)*networkWidth;
 	
 	genvar NodeID;
@@ -139,7 +139,7 @@ module network(
 			router rtr(
 				.clk(clk),
 				.reset(reset),
-				.localRouterAddress(NodeID),
+				.localRouterAddress(NodeID[`NETWORK_ADDRESS_WIDTH -1:0]),
 	
 				//North port (1)
 				.destinationAddressIn_NORTH(destinationAddressIn_NORTH),
@@ -314,7 +314,7 @@ module network(
 			.clk(clk),
 			.reset(reset),
 			//Access port IO
-			.localAddress(port0_NodeID),
+			.localAddress(port0_NodeID[`NETWORK_ADDRESS_WIDTH -1:0]),
 			.readyReady(readReady_port0),
 			.dataOut(dataOut_port0),
 			//portA probes
@@ -342,7 +342,7 @@ module network(
 			.clk(clk),
 			.reset(reset),
 			//Access port IO
-			.localAddress(port1_NodeID),
+			.localAddress(port1_NodeID[`NETWORK_ADDRESS_WIDTH -1:0]),
 			.readyReady(readReady_port1),
 			.dataOut(dataOut_port1),
 			//portA probes
@@ -370,7 +370,7 @@ module network(
 			.clk(clk),
 			.reset(reset),
 			//Access port IO
-			.localAddress(port2_NodeID),
+			.localAddress(port2_NodeID[`NETWORK_ADDRESS_WIDTH -1:0]),
 			.readyReady(readReady_port2),
 			.dataOut(dataOut_port2),
 			//portA probes
@@ -398,7 +398,7 @@ module network(
 			.clk(clk),
 			.reset(reset),
 			//Access port IO
-			.localAddress(port3_NodeID),
+			.localAddress(port3_NodeID[`NETWORK_ADDRESS_WIDTH -1:0]),
 			.readyReady(readReady_port3),
 			.dataOut(dataOut_port3),
 			//portA probes

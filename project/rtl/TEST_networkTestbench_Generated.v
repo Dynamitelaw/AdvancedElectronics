@@ -3,7 +3,7 @@
  * Any changes made here will not persist
  */
 
-`include "network.v"
+//`include "network.v"
 `include "globalVariables.v"
 
 `timescale 1us/1ps
