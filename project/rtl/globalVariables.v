@@ -13,7 +13,7 @@ This file contains all global macro definitions
 `define NETWORK_ADDRESS_WIDTH `NETWORK_ROW_ADDRESS_WIDTH+`NETWORK_COLUMN_ADDRESS_WIDTH
 
 `define NETWORK_HEIGHT 16  //cannot exceed 2^NETWORK_ROW_ADDRESS_WIDTH. Should be equal to said value for best access port placement
-`define NETWORK_WIDTH 16  //cannot exceed 2^NETWORK_COLUMN_ADDRESS_WIDTH. Should be equal to said value for best access port placement
+`define NETWORK_WIDTH 16  //cannot exceed 2^NETWORK_COLUMN_ADDRESS_WIDTH. Should be equal to said value for best access port placement 
 
 //Cache-bank globals
 `define CACHE_BANK_ADDRESS_WIDTH 8
