@@ -333,7 +333,10 @@ module cacheAccessArbiter(
 			requesterAddressOut_Concatenated[2] <= 0;
 			requesterAddressOut_Concatenated[3] <= 0;
 			
-			readReady_Concatenated <= 0;
+			readReady_Concatenated[0] <= 1'b0;
+			readReady_Concatenated[1] <= 1'b0;
+			readReady_Concatenated[2] <= 1'b0;
+			readReady_Concatenated[3] <= 1'b0;
 		end
 		
 		else begin
