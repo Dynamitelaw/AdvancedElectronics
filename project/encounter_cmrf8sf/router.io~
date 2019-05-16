@@ -31,8 +31,8 @@ Pin: requesterAddressIn_NORTH[0] N 2 0.2000 0.6000
 Pin: requesterAddressIn_NORTH[1] N 2 0.2000 0.6000
 Pin: requesterAddressIn_NORTH[2] N 2 0.2000 0.6000
 Pin: requesterAddressIn_NORTH[3] N 2 0.2000 0.6000
-Pin: readIn_NORTH
-Pin: writeIn_NORTH
+Pin: readIn_NORTH N 2 0.2000 0.6000
+Pin: writeIn_NORTH N 2 0.2000 0.6000
 Pin: dataIn_NORTH[0] N 2 0.2000 0.6000
 Pin: dataIn_NORTH[1] N 2 0.2000 0.6000
 Pin: dataIn_NORTH[2] N 2 0.2000 0.6000
@@ -57,8 +57,8 @@ Pin: requesterAddressOut_NORTH[0] N 2 0.2000 0.6000
 Pin: requesterAddressOut_NORTH[1] N 2 0.2000 0.6000
 Pin: requesterAddressOut_NORTH[2] N 2 0.2000 0.6000
 Pin: requesterAddressOut_NORTH[3] N 2 0.2000 0.6000
-Pin: readOut_NORTH
-Pin: writeOut_NORTH
+Pin: readOut_NORTH N 2 0.2000 0.6000
+Pin: writeOut_NORTH N 2 0.2000 0.6000
 Pin: dataOut_NORTH[0] N 2 0.2000 0.6000
 Pin: dataOut_NORTH[1] N 2 0.2000 0.6000
 Pin: dataOut_NORTH[2] N 2 0.2000 0.6000
@@ -86,8 +86,8 @@ Pin: requesterAddressIn_SOUTH[0] S 2 0.2000 0.6000
 Pin: requesterAddressIn_SOUTH[1] S 2 0.2000 0.6000
 Pin: requesterAddressIn_SOUTH[2] S 2 0.2000 0.6000
 Pin: requesterAddressIn_SOUTH[3] S 2 0.2000 0.6000
-Pin: readIn_SOUTH
-Pin: writeIn_SOUTH
+Pin: readIn_SOUTH S 2 0.2000 0.6000
+Pin: writeIn_SOUTH S 2 0.2000 0.6000
 Pin: dataIn_SOUTH[0] S 2 0.2000 0.6000
 Pin: dataIn_SOUTH[1] S 2 0.2000 0.6000
 Pin: dataIn_SOUTH[2] S 2 0.2000 0.6000
@@ -112,8 +112,8 @@ Pin: requesterAddressOut_SOUTH[0] S 2 0.2000 0.6000
 Pin: requesterAddressOut_SOUTH[1] S 2 0.2000 0.6000
 Pin: requesterAddressOut_SOUTH[2] S 2 0.2000 0.6000
 Pin: requesterAddressOut_SOUTH[3] S 2 0.2000 0.6000
-Pin: readOut_SOUTH
-Pin: writeOut_SOUTH
+Pin: readOut_SOUTH S 2 0.2000 0.6000
+Pin: writeOut_SOUTH S 2 0.2000 0.6000
 Pin: dataOut_SOUTH[0] S 2 0.2000 0.6000
 Pin: dataOut_SOUTH[1] S 2 0.2000 0.6000
 Pin: dataOut_SOUTH[2] S 2 0.2000 0.6000
@@ -144,8 +144,8 @@ Pin: cacheDataOut_A[2] S 2 0.2000 0.6000
 Pin: cacheDataOut_A[3] S 2 0.2000 0.6000
 Pin: cacheDataOut_A[4] S 2 0.2000 0.6000
 Pin: cacheDataOut_A[5] S 2 0.2000 0.6000
-Pin: memWrite_A
-Pin: portA_writtenTo
+Pin: memWrite_A S 2 0.2000 0.6000
+Pin: portA_writtenTo S 2 0.2000 0.6000
 Offset: 125
 Spacing: 1.5
 Pin: cacheDataIn_B[0] S 2 0.2000 0.6000
@@ -168,9 +168,9 @@ Pin: cacheDataOut_B[2] S 2 0.2000 0.6000
 Pin: cacheDataOut_B[3] S 2 0.2000 0.6000
 Pin: cacheDataOut_B[4] S 2 0.2000 0.6000
 Pin: cacheDataOut_B[5] S 2 0.2000 0.6000
-Pin: memWrite_B
-Pin: portB_writtenTo
-
+Pin: memWrite_B S 2 0.2000 0.6000
+Pin: portB_writtenTo S 2 0.2000 0.6000
+ 
 
 Offset: 12
 Spacing: 1.5
@@ -190,8 +190,8 @@ Pin: requesterAddressIn_EAST[0] E 2 0.2000 0.6000
 Pin: requesterAddressIn_EAST[1] E 2 0.2000 0.6000
 Pin: requesterAddressIn_EAST[2] E 2 0.2000 0.6000
 Pin: requesterAddressIn_EAST[3] E 2 0.2000 0.6000
-Pin: readIn_EAST
-Pin: writeIn_EAST
+Pin: readIn_EAST E 2 0.2000 0.6000
+Pin: writeIn_EAST E 2 0.2000 0.6000
 Pin: dataIn_EAST[0] E 2 0.2000 0.6000
 Pin: dataIn_EAST[1] E 2 0.2000 0.6000
 Pin: dataIn_EAST[2] E 2 0.2000 0.6000
@@ -216,8 +216,8 @@ Pin: requesterAddressOut_EAST[0] E 2 0.2000 0.6000
 Pin: requesterAddressOut_EAST[1] E 2 0.2000 0.6000
 Pin: requesterAddressOut_EAST[2] E 2 0.2000 0.6000
 Pin: requesterAddressOut_EAST[3] E 2 0.2000 0.6000
-Pin: readOut_EAST
-Pin: writeOut_EAST
+Pin: readOut_EAST E 2 0.2000 0.6000
+Pin: writeOut_EAST E 2 0.2000 0.6000
 Pin: dataOut_EAST[0] E 2 0.2000 0.6000
 Pin: dataOut_EAST[1] E 2 0.2000 0.6000
 Pin: dataOut_EAST[2] E 2 0.2000 0.6000
@@ -246,8 +246,8 @@ Pin: requesterAddressIn_WEST[0] W 2 0.2000 0.6000
 Pin: requesterAddressIn_WEST[1] W 2 0.2000 0.6000
 Pin: requesterAddressIn_WEST[2] W 2 0.2000 0.6000
 Pin: requesterAddressIn_WEST[3] W 2 0.2000 0.6000
-Pin: readIn_WEST
-Pin: writeIn_WEST
+Pin: readIn_WEST W 2 0.2000 0.6000
+Pin: writeIn_WEST W 2 0.2000 0.6000
 Pin: dataIn_WEST[0] W 2 0.2000 0.6000
 Pin: dataIn_WEST[1] W 2 0.2000 0.6000
 Pin: dataIn_WEST[2] W 2 0.2000 0.6000
@@ -272,8 +272,8 @@ Pin: requesterAddressOut_WEST[0] W 2 0.2000 0.6000
 Pin: requesterAddressOut_WEST[1] W 2 0.2000 0.6000
 Pin: requesterAddressOut_WEST[2] W 2 0.2000 0.6000
 Pin: requesterAddressOut_WEST[3] W 2 0.2000 0.6000
-Pin: readOut_WEST
-Pin: writeOut_WEST
+Pin: readOut_WEST W 2 0.2000 0.6000
+Pin: writeOut_WEST W 2 0.2000 0.6000
 Pin: dataOut_WEST[0] W 2 0.2000 0.6000
 Pin: dataOut_WEST[1] W 2 0.2000 0.6000
 Pin: dataOut_WEST[2] W 2 0.2000 0.6000
