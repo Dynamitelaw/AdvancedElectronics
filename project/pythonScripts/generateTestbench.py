@@ -38,7 +38,7 @@ class portTester:
 	def generateInstruction(self, cycle, probability):
 		instructionType = self.NONE
 
-		readAllowed = True if ((cycle-self.previousReadCycle > self.maxReadTime) and (len(self.simulatedMemorySpace) > 0) and (self.portID == 0)) else False
+		readAllowed = True if ((cycle-self.previousReadCycle > self.maxReadTime) and (len(self.simulatedMemorySpace) > 0)) else False
 		if (random.random() < probability):
 			#Generate an instruction this cycle
 			instructionType = self.WRITE
@@ -93,14 +93,14 @@ def generateCycleCommands(cycle, portTester0, portTester1, portTester2, portTest
 	commands += "\t\twriteIn_port2 <= 0;\n"
 	commands += "\t\treadIn_port3 <= 0;\n"
 	commands += "\t\twriteIn_port3 <= 0;\n"
-	commands += "\t\t#11\n"
+	commands += "\t\t#5\n"
 
 	commands += "\t\t//Negedge\n"
 	commands += portTester0.generateInstruction(cycle, 0.8)
 	commands += portTester1.generateInstruction(cycle, 0.8)
 	commands += portTester2.generateInstruction(cycle, 0.8)
 	commands += portTester3.generateInstruction(cycle, 0.8)
-	commands += "\t\t#9\n\n"
+	commands += "\t\t#3\n\n"
 
 	return commands
 
@@ -121,10 +121,12 @@ header = """/*
  * Any changes made here will not persist
  */
 
-`include "network.v"
+`include "../dc_shell_cmrf8sf/network_1.nl.v"
+
+//`include "network.v"
 `include "globalVariables.v"
 
-`timescale 1us/1ps
+`timescale 1ns/100ps
 
 
 module NetworkGeneratedTestBench ;
@@ -248,7 +250,7 @@ module NetworkGeneratedTestBench ;
 
 	//Clock toggling
 	always begin
-		#10  //20-step period
+		#4  //8-step period
 		clk <= ~clk;
 	end
 	
@@ -261,19 +263,19 @@ module NetworkGeneratedTestBench ;
 		// Reset network
 		//===========================
 		reset <= 1;
-		#10
+		#4
 
 		//==Cycle 1==
 		//Posedge
-		#10
+		#4
 		//Negedge
-		#10
+		#4
 		//==Cycle 2==
 		//Posedge
 		reset <= 0;
-		#10
+		#4
 		//Negedge
-		#11
+		#5
 
 		//===========================
 		// Start reading and writing
