@@ -82,7 +82,7 @@ module Node(
 	router rtr(
 		.clk(clk),
 		.reset(reset),
-		.localRouterAddress(NodeID[`NETWORK_ADDRESS_WIDTH -1:0]),
+		.localRouterAddress(localRouterAddress),
 
 		//North port (1)
 		.destinationAddressIn_NORTH(destinationAddressIn_NORTH),
