@@ -3,8 +3,8 @@
  */
  
 `include "globalVariables.v"
-`include "cacheBank.nl.v"
-`include "router.v"
+`include "cacheBank.v"
+`include "../dc_shell_cmrf8sf/router.nl.v"
 
 
 module Node(
