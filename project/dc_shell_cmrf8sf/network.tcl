@@ -32,7 +32,6 @@ set_max_area 0
 #########################################
 check_design
 compile_ultra -no_autoungroup
-
 #########################################
 # Write outputs                         #
 #########################################
@@ -55,3 +54,10 @@ report_constraint -all_violators -verbose >> ${rpt_file}
 report_timing -path full -delay max -max_paths $maxpaths -nworst 100 >> ${rpt_file}
 
 quit
+
+
+#set compile_delete_unloaded_sequential_cells false
+#set_dont_touch Node[0].rtr
+#set_dont_touch Node[1].rtr
+#compile -boundary_optimization -map_effort low
+

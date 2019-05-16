@@ -1,0 +1,1 @@
+/homes/user3/fall16/smn2164/AdvancedElectronics/project/encounter_cmrf8sf/lfsr1.sdc
