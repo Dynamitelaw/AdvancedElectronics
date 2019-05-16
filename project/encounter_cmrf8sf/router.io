@@ -2,19 +2,21 @@
 
 Version: 2
 Offset: 11
-Spacing: 2
+Spacing: 4
 Pin: clk W 3 0.2000 0.6000
-Offset: 15
-Pin: reset W 3 0.2000 0.6000
 Offset: 17
+Pin: reset W 3 0.2000 0.6000
+Offset: 25
 Pin: localRouterAddress[0] W 2 0.2000 0.6000
 Pin: localRouterAddress[1] W 2 0.2000 0.6000
 Pin: localRouterAddress[2] W 2 0.2000 0.6000
 Pin: localRouterAddress[3] W 2 0.2000 0.6000
+Pin: localRouterAddress[4] W 2 0.2000 0.6000
+Pin: localRouterAddress[5] W 2 0.2000 0.6000
 
 
 Offset: 12
-Spacing: 1.5
+Spacing: 3
 Pin: destinationAddressIn_NORTH[0] N 2 0.2000 0.6000
 Pin: destinationAddressIn_NORTH[1] N 2 0.2000 0.6000
 Pin: destinationAddressIn_NORTH[2] N 2 0.2000 0.6000
@@ -27,12 +29,28 @@ Pin: destinationAddressIn_NORTH[8] N 2 0.2000 0.6000
 Pin: destinationAddressIn_NORTH[9] N 2 0.2000 0.6000
 Pin: destinationAddressIn_NORTH[10] N 2 0.2000 0.6000
 Pin: destinationAddressIn_NORTH[11] N 2 0.2000 0.6000
+Pin: destinationAddressIn_NORTH[12] N 2 0.2000 0.6000
+Pin: destinationAddressIn_NORTH[13] N 2 0.2000 0.6000
 Pin: requesterAddressIn_NORTH[0] N 2 0.2000 0.6000
 Pin: requesterAddressIn_NORTH[1] N 2 0.2000 0.6000
 Pin: requesterAddressIn_NORTH[2] N 2 0.2000 0.6000
 Pin: requesterAddressIn_NORTH[3] N 2 0.2000 0.6000
+Pin: requesterAddressIn_NORTH[4] N 2 0.2000 0.6000
+Pin: requesterAddressIn_NORTH[5] N 2 0.2000 0.6000
 Pin: readIn_NORTH N 2 0.2000 0.6000
 Pin: writeIn_NORTH N 2 0.2000 0.6000
+Pin: dataIn_NORTH[0] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[1] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[2] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[3] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[4] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[5] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[6] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[7] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[8] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[9] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[10] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[5] N 2 0.2000 0.6000
 Pin: dataIn_NORTH[0] N 2 0.2000 0.6000
 Pin: dataIn_NORTH[1] N 2 0.2000 0.6000
 Pin: dataIn_NORTH[2] N 2 0.2000 0.6000
