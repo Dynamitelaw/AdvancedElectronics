@@ -13,7 +13,7 @@ module cacheBank ( clk, reset, cacheDataIn_A, cacheAddressIn_A, memWrite_A,
   input clk, reset, memWrite_A, memWrite_B;
   output portA_writtenTo, portB_writtenTo;
 
-CacheMem Memory( .QA(cacheDataOut_A), .QB(cacheDataOut_B), .CLKA(clk), .CENA(reset), .WENA(memWrite_A), .AA(cacheAddressIn_A), .DA(cacheDataIn_A), .CLKB(clk), .CENB(reset), .WENB(memWrite_B), .AB(cacheAddressIn_B), .DB(cacheDataIn_B));
+CacheMem Memory( .QA(cacheDataOut_A), .QB(cacheDataOut_B), .CLKA(clk), .CENA(reset), .WENA(memWrite_A), .AA({3'b0, cacheAddressIn_A}), .DA(cacheDataIn_A), .CLKB(clk), .CENB(reset), .WENB(memWrite_B), .AB({3'b0, cacheAddressIn_B}), .DB(cacheDataIn_B));
 
 endmodule
 

@@ -1,0 +1,410 @@
+
+                            PrimeTime (R)
+             Version J-2014.12 for RHEL64 -- Nov 23, 2014
+                Copyright (c) 1988-2014 Synopsys, Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys, Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+# Written by mgseok, May 08
+#################################################
+# ST45nm Library information from .lib file     #
+#  time_unit : "1ns";                           #
+#  voltage_unit : "1V";                         #
+#  current_unit : "1mA";                        # 
+#  pulling_resistance_unit : "1kohm";           #
+#  capacitive_load_unit(1,pf);                  #
+#  default_cell_leakage_power : 4.89642e-08;    #
+#  default_fanout_load : 1;                     # 
+#  default_inout_pin_cap : 0.01;                #
+#  default_input_pin_cap : 0.01;                #
+#  default_leakage_power_density : 3.46968e-08; #
+#  default_max_fanout : 20;                     # 
+#  default_output_pin_cap : 0;                  #
+#  default_wire_load_mode : "enclosed";         #
+#  leakage_power_unit : "1mW";                  # 
+#################################################
+## Global lfsr1es
+set sh_enable_page_mode true
+false
+set power_enable_analysis true
+true
+set power_ui_backward_compatibility true
+Warning: Detected use of obsolete/unsupported feature. Variable
+         power_ui_backward_compatibility will not be available
+         in a future release of the application.
+         Please update your command usage accordingly.
+Information: Enabling 2008.06 PrimeTime PX UI environment.
+true
+## Setting files/paths
+set verilog_files {Node.nl.v}
+Node.nl.v
+set my_toplevel Node
+Node
+set search_path ". ../dc_shell_cmrf8sf/ /tools2/courses/ee6321/share/ibm13rflpvt/synopsys/"
+. ../dc_shell_cmrf8sf/ /tools2/courses/ee6321/share/ibm13rflpvt/synopsys/
+set link_path "* scx3_cmos8rf_lpvt_tt_1p2v_25c.db CacheMem_tt_1p2v_25c_syn.lib" 
+* scx3_cmos8rf_lpvt_tt_1p2v_25c.db CacheMem_tt_1p2v_25c_syn.lib
+## Read design
+read_lib "CacheMem_tt_1p2v_25c_syn.lib"
+Information: Checked out license 'PrimeTime-PX' (PT-019)
+Beginning read_lib...
+Reading '/homes/user3/fall16/jer2201/AdvancedElectronics/project/pt_shell/CacheMem_tt_1p2v_25c_syn.lib' ...
+Technology library 'Cache' read successfully
+1
+read_db "scx3_cmos8rf_lpvt_tt_1p2v_25c.db"
+Loading db file '/tools2/courses/ee6321/share/ibm13rflpvt/synopsys/scx3_cmos8rf_lpvt_tt_1p2v_25c.db'
+Warning: Assuming pin Q of cell DFFNSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell DFFNSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell DFFNSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell DFFNSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell DFFNSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell DFFNSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell DFFNSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell DFFNSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell DFFSRHQX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell DFFSRHQX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell DFFSRHQX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell DFFSRHQX8TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell DFFSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell DFFSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell DFFSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell DFFSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell DFFSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell DFFSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell DFFSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell DFFSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFNSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell SDFFNSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFNSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell SDFFNSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFNSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell SDFFNSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFNSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell SDFFNSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFSRHQX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFSRHQX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFSRHQX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFSRHQX8TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell SDFFSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell SDFFSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell SDFFSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell SDFFSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell SDFFSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell TLATNSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell TLATNSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell TLATNSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell TLATNSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell TLATNSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell TLATNSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell TLATNSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell TLATNSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell TLATSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell TLATSRX1TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell TLATSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell TLATSRX2TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell TLATSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell TLATSRX4TS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin Q of cell TLATSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+Warning: Assuming pin QN of cell TLATSRXLTS represents Q functionality when performing annotation of the cell. (PWR-020)
+1
+read_verilog $verilog_files
+1
+link_design -keep_sub_designs $my_toplevel
+Loading verilog file '/homes/user3/fall16/jer2201/AdvancedElectronics/project/dc_shell_cmrf8sf/Node.nl.v'
+Linking design Node...
+Information: 415 (78.75%) library cells are unused in library scx3_cmos8rf_lpvt_tt_1p2v_25c..... (LNK-045)
+Information: total 415 library cells are unused (LNK-046)
+Design 'Node' was successfully linked.
+Information: There are 21970 cells and 24701 nets in the design
+ (LNK-047)
+1
+set_operating_conditions -analysis_type single
+1
+## Timing Constraint: Clock
+set clk_period 14
+14
+set clk_uncertainty 0
+0
+set clk_transition 0.5
+0.5
+if {[sizeof_collection [get_ports clk]] > 0} {
+  set clk_name "clk"
+  set clk_port "clk"
+  create_clock -name $clk_name -period $clk_period [get_ports $clk_port]
+}
+1
+set_clock_uncertainty $clk_uncertainty [get_clocks $clk_name]
+1
+set_clock_transition $clk_transition [get_clocks $clk_name]
+1
+## Timing Constraint: Input delay or output delay 
+set mydelay 1.5
+1.5
+set_input_delay $mydelay -clock $clk_name [all_inputs] -add_delay
+Warning: Setting input delay on clock port (clk) relative to a clock (clk) defined at the same port. Command is ignored. (UITE-489)
+1
+remove_input_delay -clock $clk_name [find port $clk_name]
+1
+set_output_delay $mydelay -clock $clk_name [all_outputs]
+1
+## Setting driving buffer and output cap
+set_load 0.01 [all_outputs]
+1
+#####################################################################
+#       read switching activity file
+#####################################################################
+#read_vcd "../dump_lfsr.vcd" -strip_path "testbench/lfsr_0"
+##################################################################
+## Units
+##################################################################
+report_units
+****************************************
+Report : units
+Design : Node
+Version: J-2014.12
+Date   : Wed May 15 22:44:26 2019
+****************************************
+
+Units
+---------------------------------------------
+Capacitive_load_unit        : 1e-12 Farad
+Current_unit                : 0.001 Amp
+Resistance_unit             : 1000 Ohm
+Time_unit                   : 1e-09 Second
+Voltage_unit                : 1 Volt
+Internal_power_unit         : 0.001 Watt
+Leakage_power_unit          : 1e-12 Watt
+1
+##################################################################
+## Write script to run STA (report_timing)
+##################################################################
+check_timing
+Warning: Some timing arcs have been disabled for breaking timing loops
+	or because of constant propagation. Use the 'report_disable_timing'
+	command to get the list of these disabled timing arcs. (PTE-003)
+Information: Checking 'no_input_delay'.
+Information: Checking 'no_driving_cell'.
+Information: Checking 'unconstrained_endpoints'.
+Information: Checking 'unexpandable_clocks'.
+Information: Checking 'latch_fanout'.
+Information: Checking 'no_clock'.
+Information: Checking 'partial_input_delay'.
+Information: Checking 'generic'.
+Information: Checking 'loops'.
+Information: Checking 'generated_clocks'.
+Information: Checking 'pulse_clock_non_pulse_clock_merge'.
+Information: Checking 'pll_configuration'.
+check_timing succeeded.
+1
+report_design
+****************************************
+Report : design
+Design : Node
+Version: J-2014.12
+Date   : Wed May 15 22:44:27 2019
+****************************************
+
+Design Attribute                         Value
+---------------------------------------------------------------------------
+Operating Conditions:
+  analysis_type                          single
+  operating_condition_max_name           tt_1p2v_25c
+  process_max                            1
+  temperature_max                        25
+  voltage_max                            1.2
+  tree_type_max                          balanced_case
+
+Wire Load:                               (use report_wire_load for more information)
+  wire_load_mode                         top
+  wire_load_model_max                    --
+  wire_load_selection_group_max          --
+  wire_load_min_block_size               0
+
+Design Rules:
+  max_capacitance                        --
+  min_capacitance                        --
+  max_fanout                             --
+  max_transition                         --
+  static_integrity                       --
+  dynamic_integrity                      --
+  max_area                               --
+
+Timing Ranges:
+  early_factor                           --
+  late_factor                            --
+
+Pin Input Delays:
+None specified.
+
+Pin Output Delays:
+None specified.
+Fast Analysis:                           disabled
+
+1
+report_reference
+****************************************
+Report : reference
+Design : Node
+Version: J-2014.12
+Date   : Wed May 15 22:44:27 2019
+****************************************
+
+
+Attributes:
+    b - black-box (unknown)
+    h - hierarchical
+    n - noncombinational
+    u - contains unmapped logic
+    A - abstracted timing model
+    E - extracted timing model
+    S - Stamp timing model
+    Q - Quick timing model (QTM)
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+--------------------------------------------------------------------------------
+INVXLTS            scx3_cmos8rf_lpvt_tt_1p2v_25c
+                                    4.32     69        298.08      
+cacheBank                        518679.00   1        518679.00    h
+router                           226903.11   1        226903.11    h
+--------------------------------------------------------------------------------
+Total 3 references                                    745880.19
+1
+report_constraint
+****************************************
+Report : constraint
+Design : Node
+Version: J-2014.12
+Date   : Wed May 15 22:44:27 2019
+****************************************
+
+                                                   Weighted
+    Group (max_delay/setup)      Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                          0.00      1.00      0.00
+    -----------------------------------------------------
+    max_delay/setup                                  0.00
+
+                                                   Weighted
+    Group (min_delay/hold)       Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                          0.00      1.00      0.00
+    -----------------------------------------------------
+    min_delay/hold                                   0.00
+
+    Constraint                                       Cost
+    -----------------------------------------------------
+    max_delay/setup                                  0.00  (MET)
+    min_delay/hold                                   0.00  (MET)
+    sequential_clock_pulse_width                     0.00  (MET)
+    clock_tree_pulse_width                           0.00  (MET)
+    min_period                                       0.00  (MET)
+    max_capacitance                                  0.00  (MET)
+    max_transition                                   0.00  (MET)
+
+1
+report_constraint -all_violators
+****************************************
+Report : constraint
+	-all_violators
+	-path slack_only
+Design : Node
+Version: J-2014.12
+Date   : Wed May 15 22:44:27 2019
+****************************************
+
+
+
+
+1
+report_timing
+****************************************
+Report : timing
+	-path_type full
+	-delay_type max
+	-max_paths 1
+	-sort_by slack
+Design : Node
+Version: J-2014.12
+Date   : Wed May 15 22:44:27 2019
+****************************************
+
+
+  Startpoint: localCacheBank/Memory
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: rtr/cacheController/dataOut_Concatenated_reg[0][0]
+               (positive level-sensitive latch clocked by clk)
+  Last common pin: rtr/clk
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  localCacheBank/Memory/CLKB (CacheMem)                   0.00       0.00 r
+  localCacheBank/Memory/QB[0] (CacheMem)                  2.91       2.91 r
+  rtr/cacheController/U2495/Y (INVX2TS)                   0.07       2.98 f
+  rtr/cacheController/U1218/Y (OAI22X1TS)                 0.19       3.17 r
+  rtr/cacheController/dataOut_Concatenated_reg[0][0]/D (TLATXLTS)
+                                                          0.00       3.17 r
+  data arrival time                                                  3.17
+
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock reconvergence pessimism                           0.00       0.00
+  rtr/cacheController/dataOut_Concatenated_reg[0][0]/G (TLATXLTS)
+                                                                     0.00 r
+  time borrowed from endpoint                             3.17       3.17
+  data required time                                                 3.17
+  ------------------------------------------------------------------------------
+  data required time                                                 3.17
+  data arrival time                                                 -3.17
+  ------------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+  Time Borrowing Information
+  ------------------------------------------------------------------
+  clk nominal pulse width                                 7.00 
+  library setup time                                      0.14 
+  ------------------------------------------------------------------
+  max time borrow                                         7.14 
+  actual time borrow                                      3.17 
+  ------------------------------------------------------------------
+
+
+1
+##################################################################
+## Write script to run power analysis (report_power)
+##################################################################
+#check_power
+#create_power_waveforms -output vcd
+#report_power
+##################################################################
+## Output annotated SDF
+##################################################################
+#write_sdf network.sdf
+# Exiting primetime
+quit
+Information: Defining new variable 'mydelay'. (CMD-041)
+Information: Defining new variable 'my_toplevel'. (CMD-041)
+Information: Defining new variable 'clk_name'. (CMD-041)
+Information: Defining new variable 'clk_period'. (CMD-041)
+Information: Defining new variable 'verilog_files'. (CMD-041)
+Information: Defining new variable 'clk_transition'. (CMD-041)
+Information: Defining new variable 'clk_uncertainty'. (CMD-041)
+Information: Defining new variable 'clk_port'. (CMD-041)
+
+Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full, 0 logical)
+Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
+Maximum memory usage for this session: 502.45 MB
+CPU usage for this session: 4 seconds 
+Elapsed time for this session: 12 seconds
+Diagnostics summary: 58 warnings, 12 informationals
+
+Thank you for using pt_shell!
