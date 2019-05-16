@@ -1,5 +1,5 @@
-`include "globalVariables.v"
-//`include "CacheMem.v"
+//`include "globalVariables.v"
+`include "CacheMem.v"
 
 `timescale 1 ns/1 ps
 `celldefine
@@ -9,21 +9,21 @@ module cacheBank(
 	input reset,
 	
 	//Port A
-	input [`DATA_WIDTH -1:0] cacheDataIn_A,
-	input [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_A,
+	input [31:0] cacheDataIn_A,
+	input [7:0] cacheAddressIn_A,
 	input memWrite_A,
-	output wire [`DATA_WIDTH -1:0] cacheDataOut_A,
-	output reg portA_writtenTo,
+	output  [31:0] cacheDataOut_A,
+	output portA_writtenTo,
 	
 	//Port B
-	input [`DATA_WIDTH -1:0] cacheDataIn_B,
-	input [`CACHE_BANK_ADDRESS_WIDTH -1:0] cacheAddressIn_B,
+	input [31:0] cacheDataIn_B,
+	input [7:0] cacheAddressIn_B,
 	input memWrite_B,
-	output wire [`DATA_WIDTH -1:0] cacheDataOut_B,
-	output reg portB_writtenTo
+	output [31:0] cacheDataOut_B,
+	output  portB_writtenTo
 	);
 
-//CacheMem Memory( .QA(cacheDataOut_A), .QB(cacheDataOut_B), .CLKA(clk), .CENA(reset), .WENA(memWrite_A), .AA(cacheAddressIn_A), .DA(cacheDataIn_A), .CLKB(clk), .CENB(reset), .WENB(memWrite_B), .AB(cacheAddressIn_B), .DB(cacheDataIn_B));
+CacheMem Memory( .QA(cacheDataOut_A), .QB(cacheDataOut_B), .CLKA(clk), .CENA(reset), .WENA(memWrite_A), .AA(cacheAddressIn_A), .DA(cacheDataIn_A), .CLKB(clk), .CENB(reset), .WENB(memWrite_B), .AB(cacheAddressIn_B), .DB(cacheDataIn_B));
 
 
 endmodule
