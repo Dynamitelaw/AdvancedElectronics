@@ -1,5 +1,5 @@
 
-`include "../rtl/CacheMem.v"
+//`include "../rtl/CacheMem.v"
 
 module cacheBank ( clk, reset, cacheDataIn_A, cacheAddressIn_A, memWrite_A, 
         cacheDataOut_A, portA_writtenTo, cacheDataIn_B, cacheAddressIn_B, 
