@@ -226,6 +226,9 @@ module cacheAccessArbiter(
 			
 			prevRequesterAddress_A <= 0;
 			prevRequesterAddress_B <= 0;
+			
+			prevRequesterPort_A <= 0;
+			prevRequesterPort_B <= 0;
 		end
 		
 		else begin 
