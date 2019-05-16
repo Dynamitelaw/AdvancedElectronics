@@ -11,7 +11,7 @@ init_design
 
 ## Set the parameters for the floorplan (it is up to you to use these parameters or not)
 ################# FILL OUT PARAMETERS (OPTIONAL) #################
-#set std_cell_height 3.76
+#set std_cell_height 3.6
 #set core_width 37
 #core_height should be a multiple of the std_cell_height
 #set core_height 30.08
@@ -29,7 +29,7 @@ init_design
 
 
 ############### Create the floorplan (FILL OUT)  #################
-floorPlan -d 370.8 370.8 10 10 10 10 
+floorPlan -d 684 630 10 10 10 10 
 ##################################################################
  redraw
  fit
@@ -87,7 +87,7 @@ Puts "####################"
 # placeDesign  -noPrePlaceOpt
 
 #place cells w/ timing constraints
- setTrialRouteMode -maxRouteLayer 3
+ setTrialRouteMode -maxRouteLayer 5
  setPlaceMode -timingDriven true -congEffort high -modulePlan true
  setOptMode -fixFanoutLoad true -effort high -moveInst true -reclaimArea true
  placeDesign -inplaceOpt

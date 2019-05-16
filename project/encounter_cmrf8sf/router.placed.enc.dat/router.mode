@@ -10,7 +10,7 @@ catch { setOptMode -moveInst true }
 catch { setOptMode -reclaimArea true }
 setExtractRCMode  -engine preRoute -total_c_th 0 -relative_c_th 1 -coupling_c_th 0.4
 catch { setCTSMode -moveGateLimit 25 }
-catch {setNanoRouteMode -quiet -routeTopRoutingLayer 3}
+catch {setNanoRouteMode -quiet -routeTopRoutingLayer 5}
 
 catch { setPlaceMode -congEffort high }
 catch { setPlaceMode -modulePlan true }
@@ -19,6 +19,6 @@ catch { setIlmMode -keepHighFanoutPorts true -loopBack false -keepFlatten true -
 catch { setDelayCalMode -engine aae }
 catch { setDelayCalMode -ignore_clock_idealness false }
 catch { setDelayCalMode -ignoreNetLoad false }
-catch { setTrialRouteMode -maxRouteLayer 3 }
+catch { setTrialRouteMode -maxRouteLayer 5 }
 catch { setImportMode -keepEmptyModule true }
 catch { setImportMode -treatUndefinedCellAsBbox false }

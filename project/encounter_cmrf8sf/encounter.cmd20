@@ -1,0 +1,104 @@
+#######################################################
+#                                                     
+#  Encounter Command Logging File                     
+#  Created on Thu May 16 16:11:18 2019                
+#                                                     
+#######################################################
+
+#@(#)CDS: Encounter v14.23-s044_1 (64bit) 03/20/2015 11:30 (Linux 2.6.18-194.el5)
+#@(#)CDS: NanoRoute v14.23-s028 NR150319-1745/14_23-UB (database version 2.30, 255.6.1) {superthreading v1.25}
+#@(#)CDS: CeltIC v14.23-s013_1 (64bit) 03/09/2015 04:15:07 (Linux 2.6.18-194.el5)
+#@(#)CDS: AAE 14.23-s010 (64bit) 03/20/2015 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 14.23-s014_1 (64bit) Mar  9 2015 03:15:25 (Linux 2.6.18-194.el5)
+#@(#)CDS: CPE v14.23-s032
+#@(#)CDS: IQRC/TQRC 14.1.6-s260 (64bit) Mon Mar  2 11:26:49 PST 2015 (Linux 2.6.18-194.el5)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+set init_verilog ../dc_shell_cmrf8sf/router.nl.v
+set init_io_file ./router.io
+set init_lef_file {/tools2/courses/ee6321/share/ibm13rflpvt/lef/ibm13_8lm_2thick_3rf_tech.lef /tools2/courses/ee6321/share/ibm13rflpvt/lef/ibm13rflpvt_macros.lef}
+set init_mmmc_file ./config/mmmc.view
+set init_import_mode {-treatUndefinedCellAsBbox 0 -keepEmptyModule 1}
+set init_pwr_net VDD
+set init_gnd_net VSS
+set_message -no_limit
+init_design
+floorPlan -d 666 612 10 10 10 10
+redraw
+fit
+globalNetConnect VDD -type tiehi -inst * -verbose
+globalNetConnect VSS -type tielo -inst * -verbose
+globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
+globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
+applyGlobalNets
+addRing -layer {top M3 bottom M3 left M2 right M2} -spacing 1 -width 3 -nets {VDD VSS}
+redraw
+sroute
+loadIoFile ./router.io
+redraw
+saveFPlan router.fp
+setDesignMode -process 130 -flowEffort high
+setTrialRouteMode -maxRouteLayer 5
+setPlaceMode -timingDriven true -congEffort high -modulePlan true
+setOptMode -fixFanoutLoad true -effort high -moveInst true -reclaimArea true
+placeDesign -inplaceOpt
+globalNetConnect VDD -type tiehi -inst * -verbose
+globalNetConnect VSS -type tielo -inst * -verbose
+globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
+globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
+redraw
+saveDesign router.placed.enc
+checkPlace
+buildTimingGraph
+redraw
+specifyClockTree -file router.cts.manual
+setCTSMode -engine ck
+ckSynthesis -clk clk -fix_added_buffers -forceReconvergent
+redraw
+saveDesign router.opted.enc
+savePlace router.place
+changeUseClockNetStatus -noFixedNetWires
+globalDetailRoute
+redraw
+setExtractRCMode
+extractRC
+setAnalysisMode -analysisType onChipVariation
+setOptMode -yieldEffort none
+setOptMode -effort high
+setOptMode -drcMargin 0.0
+setOptMode -holdTargetSlack 0.2 -setupTargetSlack 0.0
+setOptMode -simplifyNetlist false
+setOptMode -usefulSkew false
+setOptMode -moveInst true
+setOptMode -reclaimArea true
+setOptMode -fixDRC true
+setOptMode -fixCap true
+optDesign -postRoute -hold
+globalNetConnect VDD -type pgpin -pin {VDD } -
+globalNetConnect
+globalNetConnect VDD -type tiehi
+globalNetConnect VSS -type tielo
+applyGlobalNets
+saveDesign router.routed.enc
+verifyGeometry
+addFiller
+verifyGeometry
+redraw
+clearDrc
+verifyGeometry
+verifyConnectivity -type regular
+reportGateCount
+lefOut router.lef -5.5 -PGpinLayers 4 -specifyTopLayer 4 -stripePin
+defOut -floorplan -netlist -routing router.final.def
+streamOut router.gds -mapFile /tools2/courses/ee6321/share/ibm13rflpvt/mapfiles/enc2gds.map -libName ibm13rflpvt -structureName router -stripes 1 -units 1000 -mode ALL
+saveNetlist -phys -excludeLeafCell -excludeCellInst {FILL1TS FILL2TS FILL4TS FILL8TS FILL16TS FILL32TS FILL64TS} router.phy.v
+saveNetlist router.nophy.v
+setVerifyGeometryMode -area { 0 0 0 0 } -minWidth true -minSpacing true -minArea true -sameNet true -short true -overlap true -offRGrid false -offMGrid true -mergedMGridCheck true -minHole true -implantCheck true -minimumCut true -minStep true -viaEnclosure true -antenna false -insuffMetalOverlap true -pinInBlkg false -diffCellViol true -sameCellViol false -padFillerCellsOverlap true -routingBlkgPinOverlap true -routingCellBlkgOverlap true -regRoutingOnly false -stackedViasOnRegNet false -wireExt true -useNonDefaultSpacing false -maxWidth true -maxNonPrefLength -1 -error 1000
+verifyGeometry
+setVerifyGeometryMode -area { 0 0 0 0 }
+verify_drc -report router.drc.rpt -limit 1000
+extractRC -outfile router.cap
+rcOut -spef router.spef
+write_sdf "$designName.sdf"
