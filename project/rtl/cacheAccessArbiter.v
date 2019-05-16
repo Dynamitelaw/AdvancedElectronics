@@ -223,6 +223,9 @@ module cacheAccessArbiter(
 				isRead[k] <= 0;
 				requesterPortBuffer[k] <= 0;
 			end
+			
+			prevRequesterAddress_A <= 0;
+			prevRequesterAddress_B <= 0;
 		end
 		
 		else begin 
