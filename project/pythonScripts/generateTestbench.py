@@ -93,14 +93,14 @@ def generateCycleCommands(cycle, portTester0, portTester1, portTester2, portTest
 	commands += "\t\twriteIn_port2 <= 0;\n"
 	commands += "\t\treadIn_port3 <= 0;\n"
 	commands += "\t\twriteIn_port3 <= 0;\n"
-	commands += "\t\t#5\n"
+	commands += "\t\t#8\n"
 
 	commands += "\t\t//Negedge\n"
 	commands += portTester0.generateInstruction(cycle, 0.8)
 	commands += portTester1.generateInstruction(cycle, 0.8)
 	commands += portTester2.generateInstruction(cycle, 0.8)
 	commands += portTester3.generateInstruction(cycle, 0.8)
-	commands += "\t\t#3\n\n"
+	commands += "\t\t#6\n\n"
 
 	return commands
 
@@ -250,7 +250,7 @@ module NetworkGeneratedTestBench ;
 
 	//Clock toggling
 	always begin
-		#4  //8-step period
+		#7  //14-step period
 		clk <= ~clk;
 	end
 	
@@ -263,19 +263,19 @@ module NetworkGeneratedTestBench ;
 		// Reset network
 		//===========================
 		reset <= 1;
-		#4
+		#7
 
 		//==Cycle 1==
 		//Posedge
-		#4
+		#7
 		//Negedge
-		#4
+		#7
 		//==Cycle 2==
 		//Posedge
 		reset <= 0;
-		#4
+		#7
 		//Negedge
-		#5
+		#8
 
 		//===========================
 		// Start reading and writing
