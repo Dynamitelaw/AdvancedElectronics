@@ -6,7 +6,7 @@ Offset: 11
 Spacing: 4
 Pin: clk W 3 0.2000 0.6000
 Offset: 17
-Pin: reset W 3 0.2000 0.6000
+Pin: reset_BAR W 3 0.2000 0.6000
 Offset: 25
 Pin: localRouterAddress[0] W 2 0.2000 0.6000
 Pin: localRouterAddress[1] W 2 0.2000 0.6000
@@ -40,63 +40,6 @@ Pin: requesterAddressIn_NORTH[4] N 2 0.2000 0.6000
 Pin: requesterAddressIn_NORTH[5] N 2 0.2000 0.6000
 Pin: readIn_NORTH N 2 0.2000 0.6000
 Pin: writeIn_NORTH N 2 0.2000 0.6000
-Pin: dataIn_NORTH[0] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[1] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[2] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[3] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[4] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[5] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[6] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[7] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[8] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[9] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[10] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[11] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[12] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[13] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[14] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[15] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[16] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[17] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[18] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[19] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[20] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[21] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[22] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[23] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[24] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[25] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[26] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[27] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[28] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[29] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[30] N 2 0.2000 0.6000
-Pin: dataIn_NORTH[31] N 2 0.2000 0.6000
-
-Offset: 200
-Spacing: 3
-Pin: destinationAddressOut_NORTH[0] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[1] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[2] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[3] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[4] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[5] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[6] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[7] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[8] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[9] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[10] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[11] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[12] N 2 0.2000 0.6000
-Pin: destinationAddressOut_NORTH[13] N 2 0.2000 0.6000
-Pin: requesterAddressOut_NORTH[0] N 2 0.2000 0.6000
-Pin: requesterAddressOut_NORTH[1] N 2 0.2000 0.6000
-Pin: requesterAddressOut_NORTH[2] N 2 0.2000 0.6000
-Pin: requesterAddressOut_NORTH[3] N 2 0.2000 0.6000
-Pin: requesterAddressOut_NORTH[4] N 2 0.2000 0.6000
-Pin: requesterAddressOut_NORTH[5] N 2 0.2000 0.6000
-Pin: readOut_NORTH N 2 0.2000 0.6000
-Pin: writeOut_NORTH N 2 0.2000 0.6000
 Pin: dataOut_NORTH[0] N 2 0.2000 0.6000
 Pin: dataOut_NORTH[1] N 2 0.2000 0.6000
 Pin: dataOut_NORTH[2] N 2 0.2000 0.6000
@@ -131,10 +74,68 @@ Pin: dataOut_NORTH[30] N 2 0.2000 0.6000
 Pin: dataOut_NORTH[31] N 2 0.2000 0.6000
 
 
+Offset: 200
+Spacing: 3
+Pin: destinationAddressOut_NORTH[0] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[1] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[2] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[3] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[4] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[5] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[6] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[7] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[8] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[9] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[10] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[11] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[12] N 2 0.2000 0.6000
+Pin: destinationAddressOut_NORTH[13] N 2 0.2000 0.6000
+Pin: requesterAddressOut_NORTH[0] N 2 0.2000 0.6000
+Pin: requesterAddressOut_NORTH[1] N 2 0.2000 0.6000
+Pin: requesterAddressOut_NORTH[2] N 2 0.2000 0.6000
+Pin: requesterAddressOut_NORTH[3] N 2 0.2000 0.6000
+Pin: requesterAddressOut_NORTH[4] N 2 0.2000 0.6000
+Pin: requesterAddressOut_NORTH[5] N 2 0.2000 0.6000
+Pin: readOut_NORTH N 2 0.2000 0.6000
+Pin: writeOut_NORTH N 2 0.2000 0.6000
+Pin: dataIn_NORTH[0] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[1] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[2] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[3] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[4] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[5] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[6] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[7] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[8] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[9] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[10] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[11] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[12] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[13] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[14] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[15] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[16] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[17] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[18] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[19] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[20] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[21] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[22] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[23] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[24] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[25] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[26] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[27] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[28] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[29] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[30] N 2 0.2000 0.6000
+Pin: dataIn_NORTH[31] N 2 0.2000 0.6000
+
+
 
 
 Offset: 12
-Spacing: 2
+Spacing: 3
 Pin: destinationAddressIn_SOUTH[0] S 2 0.2000 0.6000
 Pin: destinationAddressIn_SOUTH[1] S 2 0.2000 0.6000
 Pin: destinationAddressIn_SOUTH[2] S 2 0.2000 0.6000
@@ -190,8 +191,8 @@ Pin: dataIn_SOUTH[29] S 2 0.2000 0.6000
 Pin: dataIn_SOUTH[30] S 2 0.2000 0.6000
 Pin: dataIn_SOUTH[31] S 2 0.2000 0.6000
 
-Offset: 130
-Spacing: 2
+Offset: 200
+Spacing: 3
 Pin: destinationAddressOut_SOUTH[0] S 2 0.2000 0.6000
 Pin: destinationAddressOut_SOUTH[1] S 2 0.2000 0.6000
 Pin: destinationAddressOut_SOUTH[2] S 2 0.2000 0.6000
@@ -250,162 +251,6 @@ Pin: dataOut_SOUTH[31] S 2 0.2000 0.6000
 
 
 
-Offset: 260
-Spacing: 2
-Pin: cacheDataIn_A[0] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[1] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[2] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[3] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[4] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[5] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[6] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[7] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[8] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[9] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[10] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[11] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[12] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[13] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[14] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[15] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[16] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[17] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[18] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[19] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[20] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[21] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[22] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[23] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[24] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[25] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[26] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[27] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[28] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[29] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[30] S 2 0.2000 0.6000
-Pin: cacheDataIn_A[31] S 2 0.2000 0.6000
-Pin: cacheAddressIn_A[0] S 2 0.2000 0.6000
-Pin: cacheAddressIn_A[1] S 2 0.2000 0.6000
-Pin: cacheAddressIn_A[2] S 2 0.2000 0.6000
-Pin: cacheAddressIn_A[3] S 2 0.2000 0.6000
-Pin: cacheAddressIn_A[4] S 2 0.2000 0.6000
-Pin: cacheAddressIn_A[5] S 2 0.2000 0.6000
-Pin: cacheAddressIn_A[6] S 2 0.2000 0.6000
-Pin: cacheAddressIn_A[7] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[0] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[1] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[2] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[3] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[4] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[5] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[6] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[7] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[8] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[9] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[10] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[11] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[12] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[13] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[14] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[15] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[16] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[17] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[18] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[19] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[20] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[21] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[22] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[23] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[24] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[25] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[26] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[27] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[28] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[29] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[30] S 2 0.2000 0.6000
-Pin: cacheDataOut_A[31] S 2 0.2000 0.6000
-
-Pin: memWrite_A S 2 0.2000 0.6000
-Pin: portA_writtenTo S 2 0.2000 0.6000
-
-Offset: 406
-Spacing: 2
-Pin: cacheDataIn_B[0] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[1] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[2] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[3] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[4] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[5] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[6] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[7] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[8] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[9] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[10] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[11] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[12] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[13] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[14] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[15] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[16] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[17] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[18] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[19] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[20] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[21] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[22] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[23] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[24] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[25] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[26] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[27] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[28] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[29] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[30] S 2 0.2000 0.6000
-Pin: cacheDataIn_B[31] S 2 0.2000 0.6000
-Pin: cacheAddressIn_B[0] S 2 0.2000 0.6000
-Pin: cacheAddressIn_B[1] S 2 0.2000 0.6000
-Pin: cacheAddressIn_B[2] S 2 0.2000 0.6000
-Pin: cacheAddressIn_B[3] S 2 0.2000 0.6000
-Pin: cacheAddressIn_B[4] S 2 0.2000 0.6000
-Pin: cacheAddressIn_B[5] S 2 0.2000 0.6000
-Pin: cacheAddressIn_B[6] S 2 0.2000 0.6000
-Pin: cacheAddressIn_B[7] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[0] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[1] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[2] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[3] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[4] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[5] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[6] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[7] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[8] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[9] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[10] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[11] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[12] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[13] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[14] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[15] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[16] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[17] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[18] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[19] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[20] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[21] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[22] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[23] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[24] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[25] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[26] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[27] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[28] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[29] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[30] S 2 0.2000 0.6000
-Pin: cacheDataOut_B[31] S 2 0.2000 0.6000
-
-Pin: memWrite_B S 2 0.2000 0.6000
-Pin: portB_writtenTo S 2 0.2000 0.6000
-
 Offset: 12
 Spacing: 3
 Pin: destinationAddressIn_EAST[0] E 2 0.2000 0.6000
@@ -430,63 +275,6 @@ Pin: requesterAddressIn_EAST[4] E 2 0.2000 0.6000
 Pin: requesterAddressIn_EAST[5] E 2 0.2000 0.6000
 Pin: readIn_EAST E 2 0.2000 0.6000
 Pin: writeIn_EAST E 2 0.2000 0.6000
-Pin: dataIn_EAST[0] E 2 0.2000 0.6000
-Pin: dataIn_EAST[1] E 2 0.2000 0.6000
-Pin: dataIn_EAST[2] E 2 0.2000 0.6000
-Pin: dataIn_EAST[3] E 2 0.2000 0.6000
-Pin: dataIn_EAST[4] E 2 0.2000 0.6000
-Pin: dataIn_EAST[5] E 2 0.2000 0.6000
-Pin: dataIn_EAST[6] E 2 0.2000 0.6000
-Pin: dataIn_EAST[7] E 2 0.2000 0.6000
-Pin: dataIn_EAST[8] E 2 0.2000 0.6000
-Pin: dataIn_EAST[9] E 2 0.2000 0.6000
-Pin: dataIn_EAST[10] E 2 0.2000 0.6000
-Pin: dataIn_EAST[11] E 2 0.2000 0.6000
-Pin: dataIn_EAST[12] E 2 0.2000 0.6000
-Pin: dataIn_EAST[13] E 2 0.2000 0.6000
-Pin: dataIn_EAST[14] E 2 0.2000 0.6000
-Pin: dataIn_EAST[15] E 2 0.2000 0.6000
-Pin: dataIn_EAST[16] E 2 0.2000 0.6000
-Pin: dataIn_EAST[17] E 2 0.2000 0.6000
-Pin: dataIn_EAST[18] E 2 0.2000 0.6000
-Pin: dataIn_EAST[19] E 2 0.2000 0.6000
-Pin: dataIn_EAST[20] E 2 0.2000 0.6000
-Pin: dataIn_EAST[21] E 2 0.2000 0.6000
-Pin: dataIn_EAST[22] E 2 0.2000 0.6000
-Pin: dataIn_EAST[23] E 2 0.2000 0.6000
-Pin: dataIn_EAST[24] E 2 0.2000 0.6000
-Pin: dataIn_EAST[25] E 2 0.2000 0.6000
-Pin: dataIn_EAST[26] E 2 0.2000 0.6000
-Pin: dataIn_EAST[27] E 2 0.2000 0.6000
-Pin: dataIn_EAST[28] E 2 0.2000 0.6000
-Pin: dataIn_EAST[29] E 2 0.2000 0.6000
-Pin: dataIn_EAST[30] E 2 0.2000 0.6000
-Pin: dataIn_EAST[31] E 2 0.2000 0.6000
-
-Offset: 200
-Spacing: 3
-Pin: destinationAddressOut_EAST[0] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[1] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[2] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[3] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[4] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[5] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[6] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[7] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[8] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[9] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[10] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[11] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[12] E 2 0.2000 0.6000
-Pin: destinationAddressOut_EAST[13] E 2 0.2000 0.6000
-Pin: requesterAddressOut_EAST[0] E 2 0.2000 0.6000
-Pin: requesterAddressOut_EAST[1] E 2 0.2000 0.6000
-Pin: requesterAddressOut_EAST[2] E 2 0.2000 0.6000
-Pin: requesterAddressOut_EAST[3] E 2 0.2000 0.6000
-Pin: requesterAddressOut_EAST[4] E 2 0.2000 0.6000
-Pin: requesterAddressOut_EAST[5] E 2 0.2000 0.6000
-Pin: readOut_EAST E 2 0.2000 0.6000
-Pin: writeOut_EAST E 2 0.2000 0.6000
 Pin: dataOut_EAST[0] E 2 0.2000 0.6000
 Pin: dataOut_EAST[1] E 2 0.2000 0.6000
 Pin: dataOut_EAST[2] E 2 0.2000 0.6000
@@ -519,6 +307,63 @@ Pin: dataOut_EAST[28] E 2 0.2000 0.6000
 Pin: dataOut_EAST[29] E 2 0.2000 0.6000
 Pin: dataOut_EAST[30] E 2 0.2000 0.6000
 Pin: dataOut_EAST[31] E 2 0.2000 0.6000
+
+Offset: 200
+Spacing: 3
+Pin: destinationAddressOut_EAST[0] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[1] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[2] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[3] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[4] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[5] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[6] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[7] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[8] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[9] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[10] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[11] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[12] E 2 0.2000 0.6000
+Pin: destinationAddressOut_EAST[13] E 2 0.2000 0.6000
+Pin: requesterAddressOut_EAST[0] E 2 0.2000 0.6000
+Pin: requesterAddressOut_EAST[1] E 2 0.2000 0.6000
+Pin: requesterAddressOut_EAST[2] E 2 0.2000 0.6000
+Pin: requesterAddressOut_EAST[3] E 2 0.2000 0.6000
+Pin: requesterAddressOut_EAST[4] E 2 0.2000 0.6000
+Pin: requesterAddressOut_EAST[5] E 2 0.2000 0.6000
+Pin: readOut_EAST E 2 0.2000 0.6000
+Pin: writeOut_EAST E 2 0.2000 0.6000
+Pin: dataIn_EAST[0] E 2 0.2000 0.6000
+Pin: dataIn_EAST[1] E 2 0.2000 0.6000
+Pin: dataIn_EAST[2] E 2 0.2000 0.6000
+Pin: dataIn_EAST[3] E 2 0.2000 0.6000
+Pin: dataIn_EAST[4] E 2 0.2000 0.6000
+Pin: dataIn_EAST[5] E 2 0.2000 0.6000
+Pin: dataIn_EAST[6] E 2 0.2000 0.6000
+Pin: dataIn_EAST[7] E 2 0.2000 0.6000
+Pin: dataIn_EAST[8] E 2 0.2000 0.6000
+Pin: dataIn_EAST[9] E 2 0.2000 0.6000
+Pin: dataIn_EAST[10] E 2 0.2000 0.6000
+Pin: dataIn_EAST[11] E 2 0.2000 0.6000
+Pin: dataIn_EAST[12] E 2 0.2000 0.6000
+Pin: dataIn_EAST[13] E 2 0.2000 0.6000
+Pin: dataIn_EAST[14] E 2 0.2000 0.6000
+Pin: dataIn_EAST[15] E 2 0.2000 0.6000
+Pin: dataIn_EAST[16] E 2 0.2000 0.6000
+Pin: dataIn_EAST[17] E 2 0.2000 0.6000
+Pin: dataIn_EAST[18] E 2 0.2000 0.6000
+Pin: dataIn_EAST[19] E 2 0.2000 0.6000
+Pin: dataIn_EAST[20] E 2 0.2000 0.6000
+Pin: dataIn_EAST[21] E 2 0.2000 0.6000
+Pin: dataIn_EAST[22] E 2 0.2000 0.6000
+Pin: dataIn_EAST[23] E 2 0.2000 0.6000
+Pin: dataIn_EAST[24] E 2 0.2000 0.6000
+Pin: dataIn_EAST[25] E 2 0.2000 0.6000
+Pin: dataIn_EAST[26] E 2 0.2000 0.6000
+Pin: dataIn_EAST[27] E 2 0.2000 0.6000
+Pin: dataIn_EAST[28] E 2 0.2000 0.6000
+Pin: dataIn_EAST[29] E 2 0.2000 0.6000
+Pin: dataIn_EAST[30] E 2 0.2000 0.6000
+Pin: dataIn_EAST[31] E 2 0.2000 0.6000
 
 
 
